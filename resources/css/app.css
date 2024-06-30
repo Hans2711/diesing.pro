@@ -1,4 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-p {
-	color: red;
+.header-btn {
+    @apply p-3 bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 h-14 flex items-center text-white drop-shadow-md hover:drop-shadow-xl  rounded-md text-lg
+}
+
+.header-btn-active {
+    @apply bg-gradient-to-bl from-red-800 via-purple-700 to-gray-500 border-solid border-b-4 border-green-500 pb-2
+}
+
+.btn {
+    @apply p-3 bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 text-white rounded hover:cursor-pointer
+}
+
+.filter-gray-icon {
+    filter: invert(69%) sepia(0%) saturate(6780%) hue-rotate(17deg) brightness(85%) contrast(99%);
 }
