@@ -6,7 +6,7 @@
     @if ($isAuthenticated)
         <p class="text-green-800">Authentifiziert</p>
 
-        @include('private.tools-sidebar')
+        @include('private.tools-sidebar', 'active' => '')
     @else
         <p class="text-red-800">Nicht Authentifiziert</p>
         <form method="POST" action="#" class="mt-5">
