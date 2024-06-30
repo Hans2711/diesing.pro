@@ -38,3 +38,8 @@ p {
     font-size: 1em;
     line-height: 1.5;
 }
+
+.tools-sidebar-active
+{
+    @apply bg-gray-100
+}

@@ -11,3 +11,5 @@ Route::get('/datenschutz', function () { return view('datenschutz'); });
 Route::get('/portfolio', [PortfolioController::class, 'list']);
 
 Route::get('/kontakt', [ContactController::class, 'form']);
+
+require base_path('/routes/private.php');
