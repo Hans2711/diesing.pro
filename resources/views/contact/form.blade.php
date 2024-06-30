@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => 'Kontakt', 'active' => 'contact'])
 
 @section('content')
-    <h1 class="text-lg ">Kontakt</h1>
+    <h1>Kontakt</h1>
 
     <form method="POST" action="#">
     @csrf
