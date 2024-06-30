@@ -1,8 +1,8 @@
 <footer class="bg-white border-t border-gray-200 mt-4 py-8">
   <div class="container mx-auto text-center">
     <div class="flex justify-center space-x-8 mb-4">
-      <a href="#" class="text-gray-600 hover:text-gray-900">Impressum</a>
-      <a href="#" class="text-gray-600 hover:text-gray-900">Datenschutz</a>
+      <a href="{{url('/impressum')}}" class="text-gray-600 hover:text-gray-900">Impressum</a>
+      <a href="{{url('/datenschutz')}}" class="text-gray-600 hover:text-gray-900">Datenschutz</a>
     </div>
     <div class="flex justify-center space-x-8 mb-4">
       <a href="https://www.instagram.com/hans.dsg" target="_blank" class="text-gray-400 hover:text-gray-600">
