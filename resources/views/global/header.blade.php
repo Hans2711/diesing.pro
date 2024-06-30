@@ -14,12 +14,9 @@
                 Kontakt
             </a>
             <a href="#" class="header-btn">
-                Social
-            </a>
-            <a href="#" class="header-btn">
                 Fotogallerie
             </a>
-            <a href="#" class="header-btn">
+            <a href="{{url('/privater-bereich')}}" class="header-btn">
                 Privater Bereich
             </a>
         </div>

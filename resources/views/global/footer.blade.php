@@ -1,4 +1,4 @@
-<footer class="bg-white border-t border-gray-200 mt-4 py-8">
+<footer class="bg-white border-t border-gray-200 mt-8 py-8">
   <div class="container mx-auto text-center">
     <div class="flex justify-center space-x-8 mb-4">
       <a href="{{url('/impressum')}}" class="text-gray-600 hover:text-gray-900">Impressum</a>
