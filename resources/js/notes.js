@@ -10,7 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // <input type="text"
     var noteName = document.querySelector('#note-name');
     var share = document.querySelector('#switch-share');
-    var copyUrlButton = document.querySelector('#copy-note-url');
+
+    var noteUrlButton = document.querySelector('#note-url-button');
+    var shareModal = document.querySelector('#share-modal');
+    var shareModalClose = shareModal.querySelector('#close');
+    var shareModalCloseCopy = shareModal.querySelector('#close-copy');
+    var enablePasswordCheck = shareModal.querySelector('#enable-password');
+    var password = shareModal.querySelector('#password');
 
     var activeNote = -1;
 
@@ -38,9 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
     share.addEventListener('change', function(item) {
         updateNote(true);
         if (share.checked) {
-            copyUrlButton.classList.remove('hidden');
+            noteUrlButton.classList.remove('hidden');
         } else {
-            copyUrlButton.classList.add('hidden');
+            noteUrlButton.classList.add('hidden');
         }
     });
 
@@ -50,9 +56,40 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    noteUrlButton.addEventListener('click', function() {
+        shareModal.classList.remove('hidden');
+        if (note.dataset.enablepassword == 1) {
+            enablePasswordCheck.checked = true;
+        } else {
+            enablePasswordCheck.checked = false;
+        }
 
-    copyUrlButton.addEventListener('click', function() {
+        if (enablePasswordCheck.checked) {
+            password.classList.remove('hidden');
+        } else {
+            password.classList.add('hidden');
+        }
+
+        password.value = note.dataset.password;
+    });
+
+    enablePasswordCheck.addEventListener('change', function() {
+        if (enablePasswordCheck.checked) {
+            password.classList.remove('hidden');
+        } else {
+            password.classList.add('hidden');
+        }
+    });
+
+    shareModalClose.addEventListener('click', function() {
+        shareModal.classList.add('hidden');
+        updateNote();
+    });
+
+    shareModalCloseCopy.addEventListener('click', function() {
+        updateNote();
         copyUrl();
+        shareModal.classList.add('hidden');
     });
 
     function copyUrl() {
@@ -118,15 +155,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (object.share == 1) {
                     share.checked = true;
                     note.dataset.url = object.url;
-                    copyUrlButton.classList.remove('hidden');
+                    noteUrlButton.classList.remove('hidden');
                 } else {
                     share.checked = false;
-                    copyUrlButton.classList.add('hidden');
+                    noteUrlButton.classList.add('hidden');
                 }
 
                 note.dataset.id = object.id;
                 note.dataset.share = object.share;
                 note.dataset.slug = object.slug;
+                note.dataset.password = object.password;
+                note.dataset.enablepassword = object.enable_password;
             });
         });
     }
@@ -135,7 +174,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const data = [
             { key: 'content', value: note.value },
             { key: 'name', value: noteName.value },
-            { key: 'share', value: share.checked ? 1 : 0 }
+            { key: 'share', value: share.checked ? 1 : 0 },
+            { key: 'enable-password', value: enablePasswordCheck.checked ? 1 : 0 },
+            { key: 'password', value: password.value }
         ];
 
         const activeNoteIndex = notes.selectedIndex;
@@ -173,6 +214,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 note.dataset.url = object.url;
                 note.dataset.share = object.share;
                 note.dataset.slug = object.slug;
+                note.dataset.password = object.password;
+                note.dataset.enablepassword = object.enable_password;
 
                 if (object.share == 1 && CopyUrl) {
                     copyUrl();
