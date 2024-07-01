@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Privater Bereich'])
+@extends('layouts.app', ['title' => 'Notizen'])
 
 @section('content')
     @vite(['resources/js/notes.js'])
