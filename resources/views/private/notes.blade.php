@@ -28,7 +28,7 @@
             <br>
             <div class="relative w-full min-w-[200px]">
                 <input type="text" name="noteName" id="note-name" class="rounded mb-4" />
-                <textarea name="note" cols="200" rows="20" id="note" class="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200"  required></textarea>
+                <textarea name="note" cols="100" rows="20" id="note" class="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200"  required></textarea>
             </div>
         </div>
 
