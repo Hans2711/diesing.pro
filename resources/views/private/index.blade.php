@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Privater Bereich'])
+@extends('layouts.app', ['title' => 'Privater Bereich', 'active' => 'private'])
 
 @section('content')
     <h1>Privater Bereich</h1>

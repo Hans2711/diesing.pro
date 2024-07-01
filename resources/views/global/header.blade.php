@@ -16,7 +16,7 @@
             <a href="#" class="header-btn">
                 Fotogallerie
             </a>
-            <a href="{{url('/privater-bereich')}}" class="header-btn">
+            <a href="{{url('/privater-bereich')}}" class="header-btn @if ($active == 'private') header-btn-active @endif">
                 Privater Bereich
             </a>
         </div>
