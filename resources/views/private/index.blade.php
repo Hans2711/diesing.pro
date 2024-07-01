@@ -11,7 +11,7 @@
             </div>
 
             <div class="order-1 md:order-2 w-full md:w-1/5">
-                @include('private.tools-sidebar', ['active' => 'notes'])
+                @include('private.tools-sidebar', ['active' => ''])
             </div>
         </div>
 
