@@ -37,6 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     share.addEventListener('change', function(item) {
         updateNote(true);
+        if (share.checked) {
+            copyUrlButton.classList.remove('hidden');
+        } else {
+            copyUrlButton.classList.add('hidden');
+        }
     });
 
     deleteButton.addEventListener('click', function() {
@@ -52,6 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function copyUrl() {
         let url = note.dataset.url;
+        if (note.dataset.share == 0) {
+            return;
+        }
+
         if (!url) {
             console.error('No URL found in dataset');
             return;
@@ -109,11 +118,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (object.share == 1) {
                     share.checked = true;
                     note.dataset.url = object.url;
+                    copyUrlButton.classList.remove('hidden');
                 } else {
                     share.checked = false;
+                    copyUrlButton.classList.add('hidden');
                 }
 
                 note.dataset.id = object.id;
+                note.dataset.share = object.share;
+                note.dataset.slug = object.slug;
             });
         });
     }
@@ -158,6 +171,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 note.dataset.id = object.id;
                 note.dataset.url = object.url;
+                note.dataset.share = object.share;
+                note.dataset.slug = object.slug;
 
                 if (object.share == 1 && CopyUrl) {
                     copyUrl();
