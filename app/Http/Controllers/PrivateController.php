@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Note;
 use App\Utilities\SessionUtility;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PrivateController extends Controller
 {
@@ -44,21 +45,46 @@ class PrivateController extends Controller
 
     public function updateNote($id, Request $request) {
         $note = Note::find($id);
+        $isNew = false;
 
         if (!$note) {
             $note = new Note();
+            $isNew = true;
         }
 
         if (!empty($request->input('name'))) {
             $note->name = $request->input('name');
+            $slug = str_replace(' ', '-', strtolower($request->input('name')));
+
+            $existingNote = Note::where('slug', $slug)->first();
+
+            if ($existingNote) {
+                if ($isNew)
+                    $note->save();
+
+                $slug = $slug . '-' . $note->id;
+            }
+            $note->slug = $slug;
         }
         if (!empty($request->input('content'))) {
             $note->content = $request->input('content');
+        }
+        if (!empty($request->input('share'))) {
+            $note->share = (int)$request->input('share');
         }
 
         $note->save();
 
         return response()->json($note->toArray());
+    }
+
+    public function PublicNote($slug) {
+        $note = Note::where('slug', $slug)->first();
+        if (!$note) {
+            return redirect('/privater-bereich');
+        }
+        $headers = ['Content-type'=>'text/plain'];
+        return response($note->content, 200)->withHeaders($headers);
     }
 
     public function deleteNote($id) {
