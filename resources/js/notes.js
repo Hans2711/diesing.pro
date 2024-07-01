@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // <input type="text"
     var noteName = document.querySelector('#note-name');
     var share = document.querySelector('#switch-share');
+    var copyUrlButton = document.querySelector('#copy-note-url');
 
     var activeNote = -1;
 
@@ -43,6 +44,30 @@ document.addEventListener('DOMContentLoaded', function() {
             deleteNote();
         }
     });
+
+
+    copyUrlButton.addEventListener('click', function() {
+        copyUrl();
+    });
+
+    function copyUrl() {
+        let url = note.dataset.url;
+        if (!url) {
+            console.error('No URL found in dataset');
+            return;
+        }
+        var tempInput = document.createElement("input");
+        tempInput.setAttribute("type", "text");
+        tempInput.setAttribute("value", url);
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999); // For mobile devices
+        navigator.clipboard.writeText(tempInput.value).then(function() {
+        }, function(err) {
+                console.error('Failed to copy the URL: ', err);
+            });
+        document.body.removeChild(tempInput);
+    }
 
     function init() {
         activeNote = getCookie('activeNote') ? getCookie('activeNote') : notes.options[0].value;
@@ -83,14 +108,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 noteName.value = object.name;
                 if (object.share == 1) {
                     share.checked = true;
+                    note.dataset.url = object.url;
                 } else {
                     share.checked = false;
                 }
+
+                note.dataset.id = object.id;
             });
         });
     }
 
-    function updateNote(copyUrl = false) {
+    function updateNote(CopyUrl = false) {
         const data = [
             { key: 'content', value: note.value },
             { key: 'name', value: noteName.value },
@@ -128,8 +156,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
 
-                if (object.share == 1 && copyUrl) {
-                    navigator.clipboard.writeText(object.url);
+                note.dataset.id = object.id;
+                note.dataset.url = object.url;
+
+                if (object.share == 1 && CopyUrl) {
+                    copyUrl();
                 }
 
                 activeNote = object.id;
