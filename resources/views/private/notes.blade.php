@@ -8,17 +8,15 @@
             <option value="{{$note->id}}">{{$note->name}}</option>
         @endforeach
     </select>
-    <button class="ml-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-700 flex items-center" id="add-note">
+    <button class="ml-2 p-2 py-2.5 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 flex items-center" id="add-note">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
         </svg>
-        <span class="ml-1">Add</span>
     </button>
-    <button class="ml-2 p-2 bg-red-500 text-white rounded hover:bg-red-700 flex items-center" id="delete-note">
+    <button class="ml-2 p-2 py-2.5 px-4 bg-red-500 text-white rounded hover:bg-red-700 flex items-center" id="delete-note">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
-        <span class="ml-1">Delete</span>
     </button>
 </div>
 <br>
