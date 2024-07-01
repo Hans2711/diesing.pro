@@ -13,7 +13,7 @@ export default defineConfig({
             refresh: true,
         }),
         obfuscatorPlugin({
-            include: ["resources/js/*.js"],
+            include: ["resources/js/notes.js"],
             apply: "build",
             options: {
                 // your javascript-obfuscator options
