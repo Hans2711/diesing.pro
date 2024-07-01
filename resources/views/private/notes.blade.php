@@ -32,13 +32,13 @@
                     <div class="peer h-4 w-11 rounded-full border bg-slate-200 after:absolute after:-top-1 after:left-0 after:h-6 after:w-6 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-300 peer-checked:after:translate-x-full peer-focus:ring-green-300"></div>
                 </label>
             </div>
-            <button class="ml-2 p-2 bg-green-500 text-white rounded hover:bg-green-700 flex items-center hidden" id="copy-note-url">
+            <button class="ml-2 p-2 px-4 bg-green-500 text-white rounded hover:bg-green-700 hidden items-center" id="note-url-button">
                 <svg height="24" class="filter-white-icon" viewBox="0 0 48 48" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48H0z" fill="none"/><path d="M7.8 24c0-3.42 2.78-6.2 6.2-6.2h8V14h-8C8.48 14 4 18.48 4 24s4.48 10 10 10h8v-3.8h-8c-3.42 0-6.2-2.78-6.2-6.2zm8.2 2h16v-4H16v4zm18-12h-8v3.8h8c3.42 0 6.2 2.78 6.2 6.2s-2.78 6.2-6.2 6.2h-8V34h8c5.52 0 10-4.48 10-10s-4.48-10-10-10z"/></svg>
-                <span class="ml-1">Link kopieren</span>
             </button>
         </div>
     </div>
     <textarea name="note" cols="100" rows="20" id="note" class="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200"  required></textarea>
 </div>
+@include('private.notes.share-modal')
 @endsection
 
