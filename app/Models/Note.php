@@ -13,13 +13,18 @@ class Note extends Model
     protected $attributes = [
         'name' => 'Neue Notiz',
         'content' => '',
+        'share' => 1,
+        'slug' => 'neue-notiz',
     ];
 
     public function toArray() {
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'content' => $this->content
+            'content' => $this->content,
+            'share' => $this->share,
+            'slug' => $this->slug,
+            'url' => url('/notiz/' . $this->slug),
         ];
     }
 
@@ -29,5 +34,5 @@ class Note extends Model
         $this->name = $this->attributes['name'];
     }
 
-    protected $fillable = ['name', 'content'];
+    protected $fillable = ['name', 'content', 'share', 'slug'];
 }

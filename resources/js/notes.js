@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // <button
     var deleteButton = document.querySelector('#delete-note');
     // <input type="text"
-    var noteName = document.querySelector('#note-name')
+    var noteName = document.querySelector('#note-name');
+    var share = document.querySelector('#switch-share');
 
     var activeNote = -1;
 
@@ -32,6 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
     noteName.addEventListener('change', function() {
         updateNote();
     })
+
+    share.addEventListener('change', function(item) {
+        updateNote(true);
+    });
 
     deleteButton.addEventListener('click', function() {
         if (confirm('Sicher, dass du die Notiz löschen willst?')) {
@@ -76,14 +81,20 @@ document.addEventListener('DOMContentLoaded', function() {
             response.json().then(function (object) {
                 note.value = object.content;
                 noteName.value = object.name;
+                if (object.share == 1) {
+                    share.checked = true;
+                } else {
+                    share.checked = false;
+                }
             });
         });
     }
 
-    function updateNote() {
+    function updateNote(copyUrl = false) {
         const data = [
             { key: 'content', value: note.value },
-            { key: 'name', value: noteName.value }
+            { key: 'name', value: noteName.value },
+            { key: 'share', value: share.checked ? 1 : 0 }
         ];
 
         const activeNoteIndex = notes.selectedIndex;
@@ -116,6 +127,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     }
                 }
+
+                if (object.share == 1 && copyUrl) {
+                    navigator.clipboard.writeText(object.url);
+                }
+
                 activeNote = object.id;
             });
         });
