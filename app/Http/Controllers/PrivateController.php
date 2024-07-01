@@ -92,4 +92,8 @@ class PrivateController extends Controller
         $note->delete();
         return response()->json(1);
     }
+
+    public function redirector() {
+        return view('private.redirector');
+    }
 }
