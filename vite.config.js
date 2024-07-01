@@ -17,9 +17,9 @@ export default defineConfig({
             apply: "build",
             options: {
                 compact: true,
-                controlFlowFlattening: false,
+                controlFlowFlattening: true,
                 controlFlowFlatteningThreshold: 0.75,
-                deadCodeInjection: false,
+                deadCodeInjection: true,
                 deadCodeInjectionThreshold: 0.4,
                 debugProtection: false,
                 debugProtectionInterval: 0,
@@ -35,7 +35,7 @@ export default defineConfig({
                 numbersToExpressions: false,
                 optionsPreset: 'default',
                 renameGlobals: false,
-                renameProperties: false,
+                renameProperties: true,
                 renamePropertiesMode: 'safe',
                 reservedNames: [],
                 reservedStrings: [],
@@ -47,7 +47,7 @@ export default defineConfig({
                 sourceMapFileName: '',
                 sourceMapMode: 'separate',
                 sourceMapSourcesMode: 'sources-content',
-                splitStrings: false,
+                splitStrings: true,
                 splitStringsChunkLength: 10,
                 stringArray: true,
                 stringArrayCallsTransform: true,
@@ -66,7 +66,7 @@ export default defineConfig({
                 stringArrayThreshold: 0.75,
                 target: 'browser',
                 transformObjectKeys: false,
-                unicodeEscapeSequence: false
+                unicodeEscapeSequence: true
             },
         }),
     ],
