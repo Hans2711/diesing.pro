@@ -69,7 +69,7 @@ class PrivateController extends Controller
         if (!empty($request->input('content'))) {
             $note->content = $request->input('content');
         }
-        if (!empty($request->input('share'))) {
+        if (!empty($request->input('share')) || $request->input('share') === "0") {
             $note->share = (int)$request->input('share');
         }
 
