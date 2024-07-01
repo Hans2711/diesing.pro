@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     notes.addEventListener('change', function() {
         activeNote = notes.value;
+        setCookie('activeNote', activeNote, 2);
         displayNoteContent() ?? '';
     });
 
@@ -33,11 +34,18 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     deleteButton.addEventListener('click', function() {
-        deleteNote();
+        if (confirm('Sicher, dass du die Notiz löschen willst?')) {
+            deleteNote();
+        }
     });
 
     function init() {
-        activeNote = notes.options[0].value;
+        activeNote = getCookie('activeNote') ? getCookie('activeNote') : notes.options[0].value;
+        for (let i = 0; i < notes.options.length; i++) {
+            if (notes.options[i].value == activeNote) {
+                notes.selectedIndex = i;
+            }
+        }
         displayNoteContent() ?? '';
     }
 
@@ -111,6 +119,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 activeNote = object.id;
             });
         });
+    }
+    function setCookie(name,value,days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
     }
     init();
 });
