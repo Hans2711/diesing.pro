@@ -22,7 +22,7 @@
 <br>
 <div class="relative w-full min-w-[200px]">
     <div class="flex items-start flex-col md:flex-row mb-4">
-        <input type="text" name="noteName" id="note-name" class="rounded border-blue-gray-200 w-full md:w-auto" />
+        @include('private.modals.parts.floating-label-input', ['id' => 'note-name', 'name' => 'noteName', 'label' => 'Name', 'wrapperClass' => 'w-full sm:w-auto'])
         <div class="flex flex-row items-center mt-4 md:mt-0 md:ml-2" id="share" >
             <div class="flex items-center ml-0 gap-x-3 border-solid border p-2 rounded" style="border-color: #6b7280;">
                 <label>Teilen?</label>

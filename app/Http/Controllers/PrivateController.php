@@ -69,8 +69,8 @@ class PrivateController extends Controller
         if (!empty($request->input('enable-password')) || $request->input('enable-password') === "0") {
             $note->enable_password = (int)$request->input('enable-password');
         }
-        if (!empty($request->input('password'))) {
-            $note->password = $request->input('password');
+        if (!empty($request->input('password')) || (!empty($request->input('write-password')) && $request->input('write-password') == 1)) {
+            $note->password = $request->input('password') ?? '';
         }
 
         $note->save();
