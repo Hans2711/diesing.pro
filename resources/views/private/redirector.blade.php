@@ -2,5 +2,3 @@
 
 @section('tool-content')
 @endsection
-
-

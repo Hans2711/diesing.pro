@@ -39,6 +39,6 @@
     </div>
     <textarea name="note" cols="100" rows="20" id="note" class="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200"  required></textarea>
 </div>
-@include('private.notes.share-modal')
+@include('private.modals.share-modal')
 @endsection
 
