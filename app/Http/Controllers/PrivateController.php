@@ -85,7 +85,7 @@ class PrivateController extends Controller
     }
 
     public function PublicNote($slug) {
-        $note = Note::where('slug', $slug)->first();
+        $note = Note::where('slug', $slug)->where('share', 1)->first();
         if (!$note) {
             return redirect('/privater-bereich');
         }
