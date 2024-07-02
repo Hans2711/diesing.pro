@@ -1,3 +1,5 @@
+import { enablePasswordCheck, password, enablePassword } from './parts/password.js';
+
 document.addEventListener('DOMContentLoaded', function() {
     // <select
     var notes = document.querySelector('#notes');
@@ -15,8 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var shareModal = document.querySelector('#share-modal');
     var shareModalClose = shareModal.querySelector('#close');
     var shareModalCloseCopy = shareModal.querySelector('#close-copy');
-    var enablePasswordCheck = shareModal.querySelector('#enable-password');
-    var password = shareModal.querySelector('#password');
+
+    var loading = false;
 
     var activeNote = -1;
 
@@ -30,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     notes.addEventListener('change', function() {
         activeNote = notes.value;
         setCookie('activeNote', activeNote, 2);
-        displayNoteContent() ?? '';
+        displayNoteContent(true) ?? '';
     });
 
     note.addEventListener('change', function() {
@@ -57,37 +59,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     noteUrlButton.addEventListener('click', function() {
-        shareModal.classList.remove('hidden');
-        if (note.dataset.enablepassword == 1) {
-            enablePasswordCheck.checked = true;
-        } else {
-            enablePasswordCheck.checked = false;
-        }
-
-        if (enablePasswordCheck.checked) {
-            password.classList.remove('hidden');
-        } else {
-            password.classList.add('hidden');
-        }
-
-        password.value = note.dataset.password;
-    });
-
-    enablePasswordCheck.addEventListener('change', function() {
-        if (enablePasswordCheck.checked) {
-            password.classList.remove('hidden');
-        } else {
-            password.classList.add('hidden');
+        if (!loading) {
+            shareModal.classList.remove('hidden');
+            if (note.dataset.enablepassword == 1) {
+                enablePassword(note.dataset.password, true);
+            } else {
+                enablePassword(note.dataset.password, false);
+            }
         }
     });
+
 
     shareModalClose.addEventListener('click', function() {
         shareModal.classList.add('hidden');
-        updateNote();
+        updateNote(false, true);
     });
 
     shareModalCloseCopy.addEventListener('click', function() {
-        updateNote();
+        updateNote(false, true);
         copyUrl();
         shareModal.classList.add('hidden');
     });
@@ -142,7 +131,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function displayNoteContent() {
+    function displayNoteContent(activeLoading = false) {
+        if (activeLoading) {
+            loading = true;
+        }
         var response = fetch('/privater-bereich/notizen/get/' + activeNote, {
             method: 'GET',
             headers: {
@@ -166,17 +158,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 note.dataset.slug = object.slug;
                 note.dataset.password = object.password;
                 note.dataset.enablepassword = object.enable_password;
+
+                loading = false;
             });
         });
     }
 
-    function updateNote(CopyUrl = false) {
+    function updateNote(CopyUrl = false, WritePassword = false) {
         const data = [
             { key: 'content', value: note.value },
             { key: 'name', value: noteName.value },
             { key: 'share', value: share.checked ? 1 : 0 },
             { key: 'enable-password', value: enablePasswordCheck.checked ? 1 : 0 },
-            { key: 'password', value: password.value }
+            { key: 'password', value: password.value },
+            { key: 'write-password', value: WritePassword ? 1 : 0 }
         ];
 
         const activeNoteIndex = notes.selectedIndex;

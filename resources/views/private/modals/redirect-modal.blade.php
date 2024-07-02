@@ -1,4 +1,4 @@
-<div class="relative hidden z-10" id="share-modal" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+<div class="relative hidden z-10" id="redirect-modal" aria-labelledby="modal-title" role="dialog" aria-modal="true">
   <!--
     Background backdrop, show/hide based on modal state.
 
@@ -27,8 +27,9 @@
         <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
           <div class="sm:flex sm:items-start">
             <div class="">
-              <h2 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Teilen</h2>
-                @include ('private.parts.password-switch')
+              <h2 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Weiterleitung</h2>
+
+                @include('private.modals.parts.floating-label-input', ['id' => 'redirect-url', 'name' => 'redirect-url', 'label' => 'URL'])
             </div>
           </div>
         </div>
