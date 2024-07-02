@@ -53,17 +53,11 @@ class PrivateController extends Controller
         }
 
         if (!empty($request->input('name'))) {
+            if ($isNew)
+                $note->save();
+
             $note->name = $request->input('name');
-            $slug = str_replace(' ', '-', strtolower($request->input('name')));
-
-            $existingNote = Note::where('slug', $slug)->first();
-
-            if ($existingNote) {
-                if ($isNew)
-                    $note->save();
-
-                $slug = $slug . '-' . $note->id;
-            }
+            $slug = str_replace(' ', '-', strtolower($request->input('name'))) . '-' . $note->id;
             $note->slug = $slug;
         }
         if (!empty($request->input('content'))) {
