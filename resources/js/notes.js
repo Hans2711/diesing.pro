@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var tempInput = document.createElement("input");
         tempInput.setAttribute("type", "text");
         tempInput.setAttribute("value", url);
+        tempInput.style = "position: absolute; left: -1000px; top: -1000px";
         document.body.appendChild(tempInput);
         tempInput.select();
         tempInput.setSelectionRange(0, 99999); // For mobile devices
