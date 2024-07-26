@@ -9,6 +9,7 @@ Route::get('/privater-bereich', [PrivateController::class, 'index']);
 Route::post('/privater-bereich', [PrivateController::class, 'ReceiveForm']);
 
 Route::get('/notiz/{slug}', [PrivateController::class, 'PublicNote']);
+Route::post('/notiz/{slug}', [PrivateController::class, 'PublicNote']);
 
 Route::middleware(['private'])->group(function () {
     Route::get('/privater-bereich/notizen', [PrivateController::class, 'notes']);

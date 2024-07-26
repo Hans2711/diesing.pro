@@ -22,6 +22,7 @@ class PrivateController extends Controller
 
         if ($password == env('PRIVATE_PASSWORD')) {
             SessionUtility::privateAreaAuthenticate();
+            return redirect($request->input('return_url'));
         }
 
         return view('private.index', [
@@ -78,13 +79,35 @@ class PrivateController extends Controller
         return response()->json($note->toArray());
     }
 
-    public function PublicNote($slug) {
+    public function PublicNote($slug, Request $request) {
         $note = Note::where('slug', $slug)->where('share', 1)->first();
         if (!$note) {
             return redirect('/privater-bereich');
         }
-        $headers = ['Content-type'=>'text/plain'];
-        return response($note->content, 200)->withHeaders($headers);
+
+        if ($note->enable_password) {
+            if (SessionUtility::privateAreaAuthenticated()) {
+                $headers = ['Content-type'=>'text/plain'];
+                return response($note->content, 200)->withHeaders($headers);
+            } else {
+                if ($request->cookie('private_note_' . $slug) == $note->password) {
+                    $headers = ['Content-type'=>'text/plain'];
+                    return response($note->content, 200)->withHeaders($headers);
+                }
+                if ($request->method() == "POST") {
+                    if ($request->input('password') == $note->password) {
+                        $headers = ['Content-type'=>'text/plain'];
+                        return response($note->content, 200)->withHeaders($headers)->withCookie('private_note_' . $slug, $note->password);
+                    } else {
+                        return view('private.public-password-form', ['slug' => $slug, 'error' => 'Das Passwort ist falsch.']);
+                    }
+                }
+                return view('private.public-password-form', ['slug' => $slug]);
+            }
+        } else {
+            $headers = ['Content-type'=>'text/plain'];
+            return response($note->content, 200)->withHeaders($headers);
+        }
     }
 
     public function deleteNote($id) {
