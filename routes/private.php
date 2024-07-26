@@ -18,4 +18,6 @@ Route::middleware(['private'])->group(function () {
     Route::post('/privater-bereich/notizen/delete/{id}', [PrivateController::class, 'deleteNote']);
 
     Route::get('/privater-bereich/weiterleitungen', [PrivateController::class, 'redirector']);
+    Route::post('/privater-bereich/weiterleitungen/push', [PrivateController::class, 'pushRedirect']);
+    Route::post('/privater-bereich/weiterleitungen/delete', [PrivateController::class, 'deleteRedirect']);
 });

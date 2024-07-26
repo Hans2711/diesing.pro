@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Note;
+use App\Models\Redirect;
 use App\Utilities\SessionUtility;
+use Egulias\EmailValidator\Warning\EmailTooLong;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -117,6 +119,66 @@ class PrivateController extends Controller
     }
 
     public function redirector() {
-        return view('private.redirector');
+        $redirects = Redirect::all();
+
+        return view('private.redirector', ['redirects' => $redirects]);
+    }
+
+    public function deleteRedirect(Request $request) {
+        $id = $request->input('id');
+
+        $redirect = Redirect::where('id', $id)->first();
+
+        if (!empty($redirect)) {
+            $redirect->delete();
+            return response()->json(1);
+        }
+
+        return response()->json(0);
+    }
+
+    public function pushRedirect(Request $request) {
+        $id = $request->input('id');
+        $name = $request->input('name');
+        $target = $request->input('target');
+        $code = $request->input('code');
+
+        if (empty($id)) {
+            $redirect = new Redirect();
+            if (!empty($name)) {
+                $redirect->name = $name;
+            }
+            if (!empty($target)) {
+                $redirect->target = $target;
+            }
+            if (!empty($code)) {
+                $redirect->code = $code;
+            }
+            
+            $redirect->workRedirect();
+            $redirect->save();
+
+            return response()->json($redirect->toArray());
+        } else {
+            $redirect = Redirect::where('id', $id)->first();
+
+            if (empty($redirect)) {
+                $redirect = new Redirect();
+            }
+
+            if (!empty($name)) {
+                $redirect->name = $name;
+            }
+            if (!empty($target)) {
+                $redirect->target = $target;
+            }
+            if (!empty($code)) {
+                $redirect->code = $code;
+            }
+
+            $redirect->workRedirect();
+            $redirect->save();
+            return response()->json($redirect->toArray());
+        }
     }
 }
