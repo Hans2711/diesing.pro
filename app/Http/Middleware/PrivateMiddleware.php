@@ -6,6 +6,8 @@ use App\Utilities\SessionUtility;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\URL;
+
 
 class PrivateMiddleware
 {
@@ -19,7 +21,10 @@ class PrivateMiddleware
         if (SessionUtility::privateAreaAuthenticated()) {
             return $next($request);
         }
-
-        return redirect('/privater-bereich');
+    
+        $currentUrl = URL::full(); // Get the current full URL
+        $redirectUrl = '/privater-bereich?return_url=' . urlencode($currentUrl); // Append the current URL as a return_url parameter
+    
+        return redirect($redirectUrl);
     }
 }

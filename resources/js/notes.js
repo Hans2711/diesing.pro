@@ -83,14 +83,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function copyUrl() {
         let url = note.dataset.url;
-        if (note.dataset.share == 0) {
-            return;
-        }
-
+        
         if (!url) {
             console.error('No URL found in dataset');
             return;
         }
+    
         var tempInput = document.createElement("input");
         tempInput.setAttribute("type", "text");
         tempInput.setAttribute("value", url);
@@ -98,10 +96,20 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(tempInput);
         tempInput.select();
         tempInput.setSelectionRange(0, 99999); // For mobile devices
-        navigator.clipboard.writeText(tempInput.value).then(function() {
-        }, function(err) {
+    
+        try {
+            // Try using the Clipboard API
+            navigator.clipboard.writeText(tempInput.value).then(function() {
+                console.log('URL copied to clipboard successfully!');
+            }, function(err) {
                 console.error('Failed to copy the URL: ', err);
             });
+        } catch (err) {
+            // Fallback to document.execCommand
+            console.warn('Using document.execCommand as fallback');
+            document.execCommand('copy');
+        }
+    
         document.body.removeChild(tempInput);
     }
 
