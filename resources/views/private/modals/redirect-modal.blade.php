@@ -29,7 +29,23 @@
             <div class="">
               <h2 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Weiterleitung</h2>
 
-                @include('private.modals.parts.floating-label-input', ['id' => 'redirect-url', 'name' => 'redirect-url', 'label' => 'URL'])
+                @csrf
+                <input type="hidden" name="id" id="id" value="">
+                <input type="hidden" name="url" id="url" value="">
+                <div class="flex gap-2">
+                  @include('private.modals.parts.floating-label-input', ['id' => 'name', 'name' => 'name', 'label' => 'Name'])
+                  @include('private.modals.parts.floating-label-input', ['id' => 'target', 'name' => 'target', 'label' => 'Target Url'])
+                  <select name="code" id="code" class="rounded w-full md:w-auto">
+                    <option value="301">301</option>
+                    <option value="302">302</option>
+                    <option value="303">303</option>
+                    <option value="304">304</option>
+                    <option value="305">305</option>
+                    <option value="306">306</option>
+                    <option value="307">307</option>
+                    <option value="308">308</option>
+                  </select>
+                </div>
             </div>
           </div>
         </div>

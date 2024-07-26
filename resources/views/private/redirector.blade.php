@@ -8,5 +8,11 @@
         </svg>
     </button>
 
+    <div class=" mt-3">
+        @foreach ($redirects ?? [] as $redirect)
+            @include('private.parts.redirect-list-item', ['redirect' => $redirect])
+        @endforeach
+    </div>
+
     @include('private.modals.redirect-modal')
 @endsection

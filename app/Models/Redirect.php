@@ -24,14 +24,15 @@ class Redirect extends Model
             'slug' => $this->slug,
             'target' => $this->target,
             'code' => $this->code,
-            'url' => url('/' . $this->slug),
+            'url' => url('/r/' . $this->slug),
         ];
     }
 
     public function __construct() {
         parent::__construct();
+    }
 
-        $this->name = $this->attributes['name'];
+    public function workRedirect() {
     }
 
     protected $fillable = ['name', 'slug', 'target', 'code'];
