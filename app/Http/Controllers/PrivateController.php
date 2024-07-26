@@ -24,7 +24,7 @@ class PrivateController extends Controller
 
         if ($password == env('PRIVATE_PASSWORD')) {
             SessionUtility::privateAreaAuthenticate();
-            return redirect($request->input('return_url'));
+            return redirect($request->input('return_url') ?? '/privater-bereich');
         }
 
         return view('private.index', [
