@@ -124,6 +124,13 @@ class PrivateController extends Controller
         return view('private.redirector', ['redirects' => $redirects]);
     }
 
+    public function Redirect($name) {
+        $redirect = Redirect::where('name', $name)->first();
+        if ($redirect) {
+            return redirect($redirect->target, $redirect->code);
+        }
+    }
+
     public function deleteRedirect(Request $request) {
         $id = $request->input('id');
 
@@ -143,42 +150,29 @@ class PrivateController extends Controller
         $target = $request->input('target');
         $code = $request->input('code');
 
+        $redirect = null;
         if (empty($id)) {
             $redirect = new Redirect();
-            if (!empty($name)) {
-                $redirect->name = $name;
-            }
-            if (!empty($target)) {
-                $redirect->target = $target;
-            }
-            if (!empty($code)) {
-                $redirect->code = $code;
-            }
-            
-            $redirect->workRedirect();
-            $redirect->save();
-
-            return response()->json($redirect->toArray());
         } else {
             $redirect = Redirect::where('id', $id)->first();
 
             if (empty($redirect)) {
                 $redirect = new Redirect();
             }
-
-            if (!empty($name)) {
-                $redirect->name = $name;
-            }
-            if (!empty($target)) {
-                $redirect->target = $target;
-            }
-            if (!empty($code)) {
-                $redirect->code = $code;
-            }
-
-            $redirect->workRedirect();
-            $redirect->save();
-            return response()->json($redirect->toArray());
         }
+
+        if (!empty($name)) {
+            $redirect->name = $name;
+        }
+        if (!empty($target)) {
+            $redirect->target = $target;
+        }
+        if (!empty($code)) {
+            $redirect->code = $code;
+        }
+
+        $redirect->workRedirect();
+        $redirect->save();
+        return response()->json($redirect->toArray());
     }
 }

@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('note', function (Blueprint $table) {
-            $table->integer('enable_password')->default(0);
-            $table->string('password');
+            if (!Schema::hasColumn('note', 'enable_password')) {
+                $table->integer('enable_password')->default(0);
+            }
+            if (!Schema::hasColumn('note', 'password')) {
+                $table->string('password')->default('')->nullable(false);
+            }
         });
     }
 
@@ -22,6 +26,14 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('note', function (Blueprint $table) {
+            if (Schema::hasColumn('note', 'enable_password')) {
+                $table->dropColumn('enable_password');
+            }
+            if (Schema::hasColumn('note', 'password')) {
+                $table->dropColumn('password');
+            }
+        });
     }
 };
+

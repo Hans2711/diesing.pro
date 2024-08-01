@@ -33,6 +33,7 @@ class Redirect extends Model
     }
 
     public function workRedirect() {
+        $this->slug = str_replace(' ', '-', strtolower($this->name)) . '-' . $this->id;
     }
 
     protected $fillable = ['name', 'slug', 'target', 'code'];
