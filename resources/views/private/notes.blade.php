@@ -22,12 +22,12 @@
 <br>
 <div class="relative w-full min-w-[200px]">
     <div class="flex items-start flex-col md:flex-row mb-4">
-        @include('private.modals.parts.floating-label-input', ['id' => 'note-name', 'name' => 'noteName', 'label' => 'Name', 'wrapperClass' => 'w-full sm:w-auto'])
+        @include('private.modals.parts.floating-label-input', ['id' => 'note-name', 'name' => 'noteName', 'label' => 'Name', 'wrapperClass' => 'w-full sm:w-auto', 'tabindex' => 1])
         <div class="flex flex-row items-center mt-4 md:mt-0 md:ml-2" id="share" >
             <div class="flex items-center ml-0 gap-x-3 border-solid border p-2 rounded" style="border-color: #6b7280;">
                 <label>Teilen?</label>
                 <label class="relative inline-flex cursor-pointer items-center">
-                    <input id="switch-share" type="checkbox" class="peer sr-only" value="1" />
+                    <input tabindex="-1" id="switch-share" type="checkbox" class="peer sr-only" value="1" />
                     <label for="switch-2" class="hidden"></label>
                     <div class="peer h-4 w-11 rounded-full border bg-slate-200 after:absolute after:-top-1 after:left-0 after:h-6 after:w-6 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-green-300 peer-checked:after:translate-x-full peer-focus:ring-green-300"></div>
                 </label>
@@ -37,7 +37,7 @@
             </button>
         </div>
     </div>
-    <textarea name="note" cols="100" rows="20" id="note" class="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200"  required></textarea>
+    <textarea name="note" tabindex="2" cols="100" rows="20" id="note" class="peer h-full min-h-[100px] w-full resize-none rounded-[7px] border border-blue-gray-200"  required></textarea>
 </div>
 @include('private.modals.share-modal')
 @endsection

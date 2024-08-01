@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
         Schema::table('note', function (Blueprint $table) {
-            $table->integer('share')->default(0);
-            $table->string('slug');
+            if (!Schema::hasColumn('note', 'share')) {
+                $table->integer('share')->default(0)->nullable();
+            }
+            if (!Schema::hasColumn('note', 'slug')) {
+                $table->string('slug')->default('')->nullable(false);
+            }
         });
     }
 
@@ -23,6 +26,14 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('note', function (Blueprint $table) {
+            if (Schema::hasColumn('note', 'share')) {
+                $table->dropColumn('share');
+            }
+            if (Schema::hasColumn('note', 'slug')) {
+                $table->dropColumn('slug');
+            }
+        });
     }
 };
+

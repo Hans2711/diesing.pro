@@ -11,6 +11,8 @@ Route::post('/privater-bereich', [PrivateController::class, 'ReceiveForm']);
 Route::get('/notiz/{slug}', [PrivateController::class, 'PublicNote']);
 Route::post('/notiz/{slug}', [PrivateController::class, 'PublicNote']);
 
+Route::get('/r/{name}', [PrivateController::class, 'Redirect']);
+
 Route::middleware(['private'])->group(function () {
     Route::get('/privater-bereich/notizen', [PrivateController::class, 'notes']);
     Route::get('/privater-bereich/notizen/get/{id}', [PrivateController::class, 'getNote']);

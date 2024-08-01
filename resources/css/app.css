@@ -53,3 +53,7 @@ p {
 }
 
 
+header * .active {
+    @apply bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 p-2 rounded text-white
+}
+
