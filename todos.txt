@@ -1,0 +1,3 @@
+Fix on new note reload doesnt save the selected Note
+
+Make links Clickable
