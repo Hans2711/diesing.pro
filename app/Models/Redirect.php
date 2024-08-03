@@ -7,35 +7,37 @@ use Illuminate\Database\Eloquent\Model;
 
 class Redirect extends Model
 {
-    protected $table = 'redirect';
-    protected $primaryKey = 'id';
+    protected $table = "redirect";
+    protected $primaryKey = "id";
 
     protected $attributes = [
-        'name' => 'Neue Weiterleitung',
-        'slug' => 'neue-weiterleitung',
-        'target' => 'https://www.diesing.pro',
-        'code' => '302'
+        "name" => "Neue Weiterleitung",
+        "slug" => "neue-weiterleitung",
+        "target" => "https://www.diesing.pro",
+        "code" => "302",
     ];
 
-    public function toArray() {
+    public function toArray()
+    {
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'slug' => $this->slug,
-            'target' => $this->target,
-            'code' => $this->code,
-            'url' => url('/r/' . $this->slug),
+            "id" => $this->id,
+            "name" => $this->name,
+            "slug" => $this->slug,
+            "target" => $this->target,
+            "code" => $this->code,
+            "url" => url("/r/" . $this->slug),
         ];
     }
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function workRedirect() {
-        $this->slug = str_replace(' ', '-', strtolower($this->name)) . '-' . $this->id;
+    public function workRedirect()
+    {
+        $this->slug = str_replace(" ", "-", strtolower($this->name));
     }
 
-    protected $fillable = ['name', 'slug', 'target', 'code'];
-
+    protected $fillable = ["name", "slug", "target", "code"];
 }
