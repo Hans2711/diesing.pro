@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/notes.js',
                 'resources/js/redirects.js',
+                'resources/js/files.js',
                 'resources/js/parts/password.js',
             ],
             refresh: true,
