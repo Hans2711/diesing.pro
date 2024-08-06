@@ -46,4 +46,9 @@ Route::middleware(["private"])->group(function () {
         PrivateController::class,
         "getRedirectsList",
     ]);
+
+    Route::get("/privater-bereich/dateien", [
+        PrivateController::class,
+        "files",
+    ]);
 });
