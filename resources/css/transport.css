@@ -1,0 +1,15 @@
+.stop {
+    @apply bg-gray-300 p-3 mb-2 rounded-sm;
+}
+
+.stop-selected {
+    @apply bg-gray-400;
+}
+
+.stop .name {
+    @apply text-lg mb-1;
+}
+
+.stop p {
+    @apply p-0 m-0;
+}
