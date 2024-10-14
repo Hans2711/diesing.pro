@@ -3,11 +3,14 @@
 namespace App\Utilities;
 
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Cache;
 
 class TransportUtility
 {
     protected $client;
     protected $baseUrl;
+
+    public $cacheEnabled = true;
 
     public function __construct()
     {
@@ -50,6 +53,13 @@ class TransportUtility
             "linesOfStops" => $linesOfStops ? "true" : "false", // Convert boolean to string
             "language" => $language,
         ];
+
+        if (
+            Cache::has("stopsNearby_" . json_encode($query)) &&
+            $this->cacheEnabled
+        ) {
+            return Cache::get("stopsNearby_" . json_encode($query));
+        }
 
         // Filter out any null values
         $query = array_filter(
@@ -94,6 +104,10 @@ class TransportUtility
                 } elseif ($element["type"] == "station") {
                     $returnData[$element["id"]] = $element;
                 }
+            }
+
+            if ($this->cacheEnabled) {
+                Cache::set("stopsNearby_" . json_encode($query), $returnData);
             }
 
             return $returnData;
