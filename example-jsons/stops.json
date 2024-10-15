@@ -1,0 +1,244 @@
+{
+  "360098": {
+    "type": "station",
+    "id": "360098",
+    "name": "Luisenstra\u00dfe, D\u00fcsseldorf",
+    "location": {
+      "type": "location",
+      "id": "360098",
+      "latitude": 51.21694,
+      "longitude": 6.782712
+    },
+    "products": {
+      "nationalExpress": false,
+      "national": false,
+      "regionalExp": false,
+      "regional": false,
+      "suburban": false,
+      "bus": false,
+      "ferry": false,
+      "subway": false,
+      "tram": true,
+      "taxi": false
+    },
+    "stops": {
+      "361098": {
+        "type": "stop",
+        "id": "361098",
+        "name": "Luisenstra\u00dfe, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "361098",
+          "latitude": 51.216805,
+          "longitude": 6.783431
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExp": false,
+          "regional": false,
+          "suburban": false,
+          "bus": false,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "distance": 154
+      }
+    }
+  },
+  "653577": {
+    "type": "station",
+    "id": "653577",
+    "name": "Helmholtzstra\u00dfe, D\u00fcsseldorf",
+    "location": {
+      "type": "location",
+      "id": "653577",
+      "latitude": 51.215322,
+      "longitude": 6.787854
+    },
+    "products": {
+      "nationalExpress": false,
+      "national": false,
+      "regionalExp": false,
+      "regional": false,
+      "suburban": false,
+      "bus": true,
+      "ferry": false,
+      "subway": false,
+      "tram": true,
+      "taxi": false
+    },
+    "distance": 205
+  },
+  "657959": {
+    "type": "station",
+    "id": "657959",
+    "name": "Berliner Allee Steig 1, D\u00fcsseldorf",
+    "location": {
+      "type": "location",
+      "id": "657959",
+      "latitude": 51.219268,
+      "longitude": 6.781957
+    },
+    "products": {
+      "nationalExpress": false,
+      "national": false,
+      "regionalExp": false,
+      "regional": false,
+      "suburban": false,
+      "bus": true,
+      "ferry": false,
+      "subway": false,
+      "tram": true,
+      "taxi": false
+    },
+    "stops": {
+      "663173": {
+        "type": "stop",
+        "id": "663173",
+        "name": "Berliner Allee Steig 6, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "663173",
+          "latitude": 51.218423,
+          "longitude": 6.782145
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExp": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "distance": 321
+      },
+      "657968": {
+        "type": "stop",
+        "id": "657968",
+        "name": "Berliner Allee Steig 3, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "657968",
+          "latitude": 51.218836,
+          "longitude": 6.782622
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExp": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "distance": 331
+      },
+      "653424": {
+        "type": "stop",
+        "id": "653424",
+        "name": "Berliner Allee Steig 2, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "653424",
+          "latitude": 51.21854,
+          "longitude": 6.781984
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExp": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "distance": 338
+      },
+      "663166": {
+        "type": "stop",
+        "id": "663166",
+        "name": "Berliner Allee Steig 5, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "663166",
+          "latitude": 51.218486,
+          "longitude": 6.781687
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExp": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "distance": 350
+      }
+    }
+  },
+  "378251": {
+    "type": "station",
+    "id": "378251",
+    "name": "Corneliusstra\u00dfe, D\u00fcsseldorf",
+    "location": {
+      "type": "location",
+      "id": "378251",
+      "latitude": 51.214216,
+      "longitude": 6.782775
+    },
+    "products": {
+      "nationalExpress": false,
+      "national": false,
+      "regionalExp": false,
+      "regional": false,
+      "suburban": false,
+      "bus": true,
+      "ferry": false,
+      "subway": false,
+      "tram": true,
+      "taxi": false
+    },
+    "distance": 323
+  },
+  "653715": {
+    "type": "station",
+    "id": "653715",
+    "name": "Mintropplatz, D\u00fcsseldorf",
+    "location": {
+      "type": "location",
+      "id": "653715",
+      "latitude": 51.217524,
+      "longitude": 6.79011
+    },
+    "products": {
+      "nationalExpress": false,
+      "national": false,
+      "regionalExp": false,
+      "regional": false,
+      "suburban": false,
+      "bus": true,
+      "ferry": false,
+      "subway": false,
+      "tram": true,
+      "taxi": false
+    },
+    "distance": 333
+  }
+}

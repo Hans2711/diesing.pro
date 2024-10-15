@@ -22,7 +22,7 @@ class TransportController extends Controller
 
     public function fetch(Request $request)
     {
-        if ($request->get('disableCache')) {
+        if ($request->get("disableCache")) {
             $this->transportUtility->cacheEnabled = false;
         }
 
@@ -35,12 +35,41 @@ class TransportController extends Controller
         return view("transport.fetch", ["stops" => $nearbyStops]);
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->get("query");
+        if ($request->get("disableCache")) {
+            $this->transportUtility->cacheEnabled = false;
+        }
+
+        $stations = $this->transportUtility->searchStations($query);
+        return view("transport.fetch", ["stops" => $stations]);
+    }
+
     public function fetchSingle($id, Request $request)
     {
         $station = $this->transportUtility->station($id);
         $stops = $this->transportUtility->stops($id);
 
-        return view("transport.fetchSingle", ["station" => $station, 'stops' => $stops]);
+        $transportOptions = [];
+
+        if (array_key_exists("products", $stops)) {
+            $transportOptions = $stops["products"];
+            $transportOptions = array_filter($transportOptions);
+            $transportOptions = array_keys($transportOptions);
+        }
+
+        if (array_key_exists("products", $station)) {
+            $transportOptions = $station["products"];
+            $transportOptions = array_filter($transportOptions);
+            $transportOptions = array_keys($transportOptions);
+        }
+
+        return view("transport.fetchSingle", [
+            "station" => $station,
+            "stops" => $stops,
+            "transportOptions" => $transportOptions,
+        ]);
     }
 
     public function fetchSingleArrivals($id, Request $request)
@@ -48,7 +77,7 @@ class TransportController extends Controller
         $options = $this->buildOptionsFromRequest($request);
         $arrivals = $this->transportUtility->arrivals($id, $options);
 
-        return view('transport.single.arrivals', ['arrivals' => $arrivals]);
+        return view("transport.single.arrivals", ["arrivals" => $arrivals]);
     }
 
     public function fetchSingleDepartures($id, Request $request)
@@ -56,30 +85,32 @@ class TransportController extends Controller
         $options = $this->buildOptionsFromRequest($request);
         $departures = $this->transportUtility->departures($id, $options);
 
-        return view('transport.single.departures', ['departures' => $departures]);
+        return view("transport.single.departures", [
+            "departures" => $departures,
+        ]);
     }
 
     private function buildOptionsFromRequest(Request $request)
     {
         $expectedOptions = [
-            'when' => 'string',
-            'direction' => 'string',
-            'duration' => 'int',
-            'results' => 'int',
-            'linesOfStops' => 'bool',
-            'remarks' => 'bool',
-            'language' => 'string',
-            'nationalExpress' => 'bool',
-            'national' => 'bool',
-            'regionalExp' => 'bool',
-            'regional' => 'bool',
-            'suburban' => 'bool',
-            'bus' => 'bool',
-            'ferry' => 'bool',
-            'subway' => 'bool',
-            'tram' => 'bool',
-            'taxi' => 'bool',
-            'pretty' => 'bool',
+            "when" => "string",
+            "direction" => "string",
+            "duration" => "int",
+            "results" => "int",
+            "linesOfStops" => "bool",
+            "remarks" => "bool",
+            "language" => "string",
+            "nationalExpress" => "bool",
+            "national" => "bool",
+            "regionalExp" => "bool",
+            "regional" => "bool",
+            "suburban" => "bool",
+            "bus" => "bool",
+            "ferry" => "bool",
+            "subway" => "bool",
+            "tram" => "bool",
+            "taxi" => "bool",
+            "pretty" => "bool",
         ];
 
         $options = [];
@@ -89,13 +120,16 @@ class TransportController extends Controller
                 $value = $request->input($key);
 
                 switch ($type) {
-                    case 'int':
+                    case "int":
                         $options[$key] = intval($value);
                         break;
-                    case 'bool':
-                        $options[$key] = filter_var($value, FILTER_VALIDATE_BOOLEAN);
+                    case "bool":
+                        $options[$key] = filter_var(
+                            $value,
+                            FILTER_VALIDATE_BOOLEAN
+                        );
                         break;
-                    case 'string':
+                    case "string":
                     default:
                         $options[$key] = $value;
                         break;

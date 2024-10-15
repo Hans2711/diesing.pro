@@ -1,0 +1,678 @@
+[
+  {
+    "tripId": "2|#VN#1#ST#1728503595#PI#0#ZI#1688460#TA#1#DA#151024#1S#718261#1T#1918#LS#363945#LT#2004#PU#80#RT#1#CA#STR#ZE#701#ZB#STR 701#PC#8#FR#718261#FT#1918#TO#363945#TT#2004#",
+    "stop": {
+      "type": "stop",
+      "id": "362098",
+      "name": "Luisenstraße, Düsseldorf",
+      "location": {
+        "type": "location",
+        "id": "362098",
+        "latitude": 51.217146,
+        "longitude": 6.783089
+      },
+      "products": {
+        "nationalExpress": false,
+        "national": false,
+        "regionalExp": false,
+        "regional": false,
+        "suburban": false,
+        "bus": false,
+        "ferry": false,
+        "subway": false,
+        "tram": true,
+        "taxi": false
+      },
+      "station": {
+        "type": "station",
+        "id": "360098",
+        "name": "Luisenstraße, Düsseldorf",
+        "location": {
+          "type": "location",
+          "id": "360098",
+          "latitude": 51.21694,
+          "longitude": 6.782712
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExp": false,
+          "regional": false,
+          "suburban": false,
+          "bus": false,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "8-vrr071-705",
+            "fahrtNr": null,
+            "name": "STR 705",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          }
+        ]
+      },
+      "lines": [
+        {
+          "type": "line",
+          "id": "8-vrr071-701",
+          "fahrtNr": null,
+          "name": "STR 701",
+          "public": true,
+          "productName": "STR",
+          "mode": "train",
+          "product": "tram"
+        },
+        {
+          "type": "line",
+          "id": "8-vrr071-e701",
+          "fahrtNr": null,
+          "name": "STR E701",
+          "public": true,
+          "productName": "STR",
+          "mode": "train",
+          "product": "tram"
+        }
+      ]
+    },
+    "when": "2024-10-15T19:42:00+02:00",
+    "plannedWhen": "2024-10-15T19:36:00+02:00",
+    "delay": 360,
+    "platform": null,
+    "plannedPlatform": null,
+    "prognosisType": "prognosed",
+    "direction": null,
+    "provenance": "Vennhauser Allee, Düsseldorf",
+    "line": {
+      "type": "line",
+      "id": "8-vrr071-701",
+      "fahrtNr": "0",
+      "name": "STR 701",
+      "public": true,
+      "adminCode": "vrr071",
+      "productName": "STR",
+      "mode": "train",
+      "product": "tram",
+      "operator": {
+        "type": "operator",
+        "id": "nahreisezug",
+        "name": "Nahreisezug"
+      }
+    },
+    "remarks": [],
+    "origin": {
+      "type": "stop",
+      "id": "368252",
+      "name": "Helmholtzstraße, Düsseldorf",
+      "location": {
+        "type": "location",
+        "id": "368252",
+        "latitude": 51.21445,
+        "longitude": 6.787512
+      },
+      "products": {
+        "nationalExpress": false,
+        "national": false,
+        "regionalExp": false,
+        "regional": false,
+        "suburban": false,
+        "bus": true,
+        "ferry": false,
+        "subway": false,
+        "tram": true,
+        "taxi": false
+      },
+      "station": {
+        "type": "station",
+        "id": "653577",
+        "name": "Helmholtzstraße, Düsseldorf",
+        "location": {
+          "type": "location",
+          "id": "653577",
+          "latitude": 51.215322,
+          "longitude": 6.787854
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExp": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        }
+      }
+    },
+    "destination": null,
+    "currentTripPosition": {
+      "type": "location",
+      "latitude": 51.217146,
+      "longitude": 6.783089
+    }
+  },
+  {
+    "tripId": "2|#VN#1#ST#1728503595#PI#0#ZI#1688360#TA#32#DA#151024#1S#360653#1T#1931#LS#377741#LT#1955#PU#80#RT#1#CA#STR#ZE#705#ZB#STR 705#PC#8#FR#360653#FT#1931#TO#377741#TT#1955#",
+    "stop": {
+      "type": "station",
+      "id": "360098",
+      "name": "Luisenstraße, Düsseldorf",
+      "location": {
+        "type": "location",
+        "id": "360098",
+        "latitude": 51.21694,
+        "longitude": 6.782712
+      },
+      "products": {
+        "nationalExpress": false,
+        "national": false,
+        "regionalExp": false,
+        "regional": false,
+        "suburban": false,
+        "bus": false,
+        "ferry": false,
+        "subway": false,
+        "tram": true,
+        "taxi": false
+      },
+      "lines": [
+        {
+          "type": "line",
+          "id": "8-vrr071-705",
+          "fahrtNr": null,
+          "name": "STR 705",
+          "public": true,
+          "productName": "STR",
+          "mode": "train",
+          "product": "tram"
+        }
+      ]
+    },
+    "when": "2024-10-15T19:43:00+02:00",
+    "plannedWhen": "2024-10-15T19:42:00+02:00",
+    "delay": 60,
+    "platform": null,
+    "plannedPlatform": null,
+    "prognosisType": "prognosed",
+    "direction": null,
+    "provenance": "Merowingerstraße, Düsseldorf",
+    "line": {
+      "type": "line",
+      "id": "8-vrr071-705",
+      "fahrtNr": "0",
+      "name": "STR 705",
+      "public": true,
+      "adminCode": "vrr071",
+      "productName": "STR",
+      "mode": "train",
+      "product": "tram",
+      "operator": {
+        "type": "operator",
+        "id": "nahreisezug",
+        "name": "Nahreisezug"
+      }
+    },
+    "remarks": [],
+    "origin": {
+      "type": "station",
+      "id": "378251",
+      "name": "Corneliusstraße, Düsseldorf",
+      "location": {
+        "type": "location",
+        "id": "378251",
+        "latitude": 51.214216,
+        "longitude": 6.782775
+      },
+      "products": {
+        "nationalExpress": false,
+        "national": false,
+        "regionalExp": false,
+        "regional": false,
+        "suburban": false,
+        "bus": true,
+        "ferry": false,
+        "subway": false,
+        "tram": true,
+        "taxi": false
+      }
+    },
+    "destination": null,
+    "currentTripPosition": {
+      "type": "location",
+      "latitude": 51.214216,
+      "longitude": 6.782775
+    }
+  },
+  {
+    "tripId": "2|#VN#1#ST#1728503595#PI#0#ZI#1688373#TA#0#DA#151024#1S#361945#1T#1915#LS#663156#LT#2003#PU#80#RT#1#CA#STR#ZE#701#ZB#STR 701#PC#8#FR#361945#FT#1915#TO#663156#TT#2003#",
+    "stop": {
+      "type": "stop",
+      "id": "361098",
+      "name": "Luisenstraße, Düsseldorf",
+      "location": {
+        "type": "location",
+        "id": "361098",
+        "latitude": 51.216805,
+        "longitude": 6.783431
+      },
+      "products": {
+        "nationalExpress": false,
+        "national": false,
+        "regionalExp": false,
+        "regional": false,
+        "suburban": false,
+        "bus": false,
+        "ferry": false,
+        "subway": false,
+        "tram": true,
+        "taxi": false
+      },
+      "station": {
+        "type": "station",
+        "id": "360098",
+        "name": "Luisenstraße, Düsseldorf",
+        "location": {
+          "type": "location",
+          "id": "360098",
+          "latitude": 51.21694,
+          "longitude": 6.782712
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExp": false,
+          "regional": false,
+          "suburban": false,
+          "bus": false,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "8-vrr071-705",
+            "fahrtNr": null,
+            "name": "STR 705",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          }
+        ]
+      },
+      "lines": [
+        {
+          "type": "line",
+          "id": "8-vrr071-701",
+          "fahrtNr": null,
+          "name": "STR 701",
+          "public": true,
+          "productName": "STR",
+          "mode": "train",
+          "product": "tram"
+        },
+        {
+          "type": "line",
+          "id": "8-vrr071-e701",
+          "fahrtNr": null,
+          "name": "STR E701",
+          "public": true,
+          "productName": "STR",
+          "mode": "train",
+          "product": "tram"
+        }
+      ]
+    },
+    "when": "2024-10-15T19:44:00+02:00",
+    "plannedWhen": "2024-10-15T19:44:00+02:00",
+    "delay": 0,
+    "platform": null,
+    "plannedPlatform": null,
+    "prognosisType": "prognosed",
+    "direction": null,
+    "provenance": "DOME/Am Hülserhof, Düsseldorf",
+    "line": {
+      "type": "line",
+      "id": "8-vrr071-701",
+      "fahrtNr": "0",
+      "name": "STR 701",
+      "public": true,
+      "adminCode": "vrr071",
+      "productName": "STR",
+      "mode": "train",
+      "product": "tram",
+      "operator": {
+        "type": "operator",
+        "id": "nahreisezug",
+        "name": "Nahreisezug"
+      }
+    },
+    "remarks": [],
+    "origin": {
+      "type": "station",
+      "id": "657959",
+      "name": "Berliner Allee Steig 1, Düsseldorf",
+      "location": {
+        "type": "location",
+        "id": "657959",
+        "latitude": 51.219268,
+        "longitude": 6.781957
+      },
+      "products": {
+        "nationalExpress": false,
+        "national": false,
+        "regionalExp": false,
+        "regional": false,
+        "suburban": false,
+        "bus": true,
+        "ferry": false,
+        "subway": false,
+        "tram": true,
+        "taxi": false
+      }
+    },
+    "destination": null,
+    "currentTripPosition": {
+      "type": "location",
+      "latitude": 51.221362,
+      "longitude": 6.782343
+    }
+  },
+  {
+    "tripId": "2|#VN#1#ST#1728503595#PI#0#ZI#1688460#TA#2#DA#151024#1S#718261#1T#1928#LS#363945#LT#2014#PU#80#RT#1#CA#STR#ZE#701#ZB#STR 701#PC#8#FR#718261#FT#1928#TO#363945#TT#2014#",
+    "stop": {
+      "type": "stop",
+      "id": "362098",
+      "name": "Luisenstraße, Düsseldorf",
+      "location": {
+        "type": "location",
+        "id": "362098",
+        "latitude": 51.217146,
+        "longitude": 6.783089
+      },
+      "products": {
+        "nationalExpress": false,
+        "national": false,
+        "regionalExp": false,
+        "regional": false,
+        "suburban": false,
+        "bus": false,
+        "ferry": false,
+        "subway": false,
+        "tram": true,
+        "taxi": false
+      },
+      "station": {
+        "type": "station",
+        "id": "360098",
+        "name": "Luisenstraße, Düsseldorf",
+        "location": {
+          "type": "location",
+          "id": "360098",
+          "latitude": 51.21694,
+          "longitude": 6.782712
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExp": false,
+          "regional": false,
+          "suburban": false,
+          "bus": false,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "8-vrr071-705",
+            "fahrtNr": null,
+            "name": "STR 705",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          }
+        ]
+      },
+      "lines": [
+        {
+          "type": "line",
+          "id": "8-vrr071-701",
+          "fahrtNr": null,
+          "name": "STR 701",
+          "public": true,
+          "productName": "STR",
+          "mode": "train",
+          "product": "tram"
+        },
+        {
+          "type": "line",
+          "id": "8-vrr071-e701",
+          "fahrtNr": null,
+          "name": "STR E701",
+          "public": true,
+          "productName": "STR",
+          "mode": "train",
+          "product": "tram"
+        }
+      ]
+    },
+    "when": "2024-10-15T19:47:00+02:00",
+    "plannedWhen": "2024-10-15T19:46:00+02:00",
+    "delay": 60,
+    "platform": null,
+    "plannedPlatform": null,
+    "prognosisType": "prognosed",
+    "direction": null,
+    "provenance": "Vennhauser Allee, Düsseldorf",
+    "line": {
+      "type": "line",
+      "id": "8-vrr071-701",
+      "fahrtNr": "0",
+      "name": "STR 701",
+      "public": true,
+      "adminCode": "vrr071",
+      "productName": "STR",
+      "mode": "train",
+      "product": "tram",
+      "operator": {
+        "type": "operator",
+        "id": "nahreisezug",
+        "name": "Nahreisezug"
+      }
+    },
+    "remarks": [],
+    "origin": {
+      "type": "stop",
+      "id": "368252",
+      "name": "Helmholtzstraße, Düsseldorf",
+      "location": {
+        "type": "location",
+        "id": "368252",
+        "latitude": 51.21445,
+        "longitude": 6.787512
+      },
+      "products": {
+        "nationalExpress": false,
+        "national": false,
+        "regionalExp": false,
+        "regional": false,
+        "suburban": false,
+        "bus": true,
+        "ferry": false,
+        "subway": false,
+        "tram": true,
+        "taxi": false
+      },
+      "station": {
+        "type": "station",
+        "id": "653577",
+        "name": "Helmholtzstraße, Düsseldorf",
+        "location": {
+          "type": "location",
+          "id": "653577",
+          "latitude": 51.215322,
+          "longitude": 6.787854
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExp": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        }
+      }
+    },
+    "destination": null,
+    "currentTripPosition": {
+      "type": "location",
+      "latitude": 51.210836,
+      "longitude": 6.79865
+    }
+  },
+  {
+    "tripId": "2|#VN#1#ST#1728503595#PI#0#ZI#1688363#TA#41#DA#151024#1S#658023#1T#1924#LS#360782#LT#1956#PU#80#RT#1#CA#STR#ZE#705#ZB#STR 705#PC#8#FR#658023#FT#1924#TO#360782#TT#1956#",
+    "stop": {
+      "type": "stop",
+      "id": "378098",
+      "name": "Luisenstraße, Düsseldorf",
+      "location": {
+        "type": "location",
+        "id": "378098",
+        "latitude": 51.216625,
+        "longitude": 6.782586
+      },
+      "products": {
+        "nationalExpress": false,
+        "national": false,
+        "regionalExp": false,
+        "regional": false,
+        "suburban": false,
+        "bus": false,
+        "ferry": false,
+        "subway": false,
+        "tram": true,
+        "taxi": false
+      },
+      "station": {
+        "type": "station",
+        "id": "360098",
+        "name": "Luisenstraße, Düsseldorf",
+        "location": {
+          "type": "location",
+          "id": "360098",
+          "latitude": 51.21694,
+          "longitude": 6.782712
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExp": false,
+          "regional": false,
+          "suburban": false,
+          "bus": false,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "8-vrr071-705",
+            "fahrtNr": null,
+            "name": "STR 705",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          }
+        ]
+      },
+      "lines": [
+        {
+          "type": "line",
+          "id": "8-vrr071-705",
+          "fahrtNr": null,
+          "name": "STR 705",
+          "public": true,
+          "productName": "STR",
+          "mode": "train",
+          "product": "tram"
+        }
+      ]
+    },
+    "when": "2024-10-15T19:48:00+02:00",
+    "plannedWhen": "2024-10-15T19:48:00+02:00",
+    "delay": 0,
+    "platform": null,
+    "plannedPlatform": null,
+    "prognosisType": "prognosed",
+    "direction": null,
+    "provenance": "Unterrath S-Bahnhof, Düsseldorf",
+    "line": {
+      "type": "line",
+      "id": "8-vrr071-705",
+      "fahrtNr": "0",
+      "name": "STR 705",
+      "public": true,
+      "adminCode": "vrr071",
+      "productName": "STR",
+      "mode": "train",
+      "product": "tram",
+      "operator": {
+        "type": "operator",
+        "id": "nahreisezug",
+        "name": "Nahreisezug"
+      }
+    },
+    "remarks": [],
+    "origin": {
+      "type": "station",
+      "id": "657959",
+      "name": "Berliner Allee Steig 1, Düsseldorf",
+      "location": {
+        "type": "location",
+        "id": "657959",
+        "latitude": 51.219268,
+        "longitude": 6.781957
+      },
+      "products": {
+        "nationalExpress": false,
+        "national": false,
+        "regionalExp": false,
+        "regional": false,
+        "suburban": false,
+        "bus": true,
+        "ferry": false,
+        "subway": false,
+        "tram": true,
+        "taxi": false
+      }
+    },
+    "destination": null,
+    "currentTripPosition": {
+      "type": "location",
+      "latitude": 51.229866,
+      "longitude": 6.780734
+    }
+  }
+]

@@ -1,13 +1,15 @@
 @extends('layouts.app', ['title' => 'Transport', 'active' => 'transport'])
 
 @section('content')
+    @vite(['resources/css/transport.css', 'resources/js/transport.js'])
     <script>
         window.MAPS_API_KEY = `{{ env('MAPS_API_KEY') }}`;
     </script>
-    @vite(['resources/css/transport.css', 'resources/js/transport.js'])
     <h1>Transport</h1>
 
     <button class="hard-reload-stops t-button">Hard Reload</button>
+
+    <input type="text" placeholder="Search" id="search" />
 
     <div class="stops-wrapper"></div>
 

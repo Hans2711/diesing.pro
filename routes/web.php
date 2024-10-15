@@ -21,8 +21,18 @@ Route::get("/kontakt", [ContactController::class, "form"]);
 
 Route::get("/transport", [TransportController::class, "index"]);
 Route::get("/transport/fetch", [TransportController::class, "fetch"]);
-Route::get("/transport/fetch/{id}", [TransportController::class, "fetchSingle"]);
-Route::get("/transport/fetch/{id}/arrivals", [TransportController::class, "fetchSingleArrivals"]);
-Route::get("/transport/fetch/{id}/departures", [TransportController::class, "fetchSingleDepartures"]);
+Route::get("/transport/fetch/{id}", [
+    TransportController::class,
+    "fetchSingle",
+]);
+Route::get("/transport/fetch/{id}/arrivals", [
+    TransportController::class,
+    "fetchSingleArrivals",
+]);
+Route::get("/transport/fetch/{id}/departures", [
+    TransportController::class,
+    "fetchSingleDepartures",
+]);
+Route::get("/transport/search/", [TransportController::class, "search"]);
 
 require base_path("/routes/private.php");

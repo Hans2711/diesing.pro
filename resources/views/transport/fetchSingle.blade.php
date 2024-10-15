@@ -35,28 +35,13 @@
                     <!-- Results -->
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Results</label>
-                        <input type="number" name="results" min="1" placeholder="Number of results" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                    </div>
-
-                    <!-- Lines of Stops -->
-                    <div class="flex items-center">
-                        <input type="checkbox" name="linesOfStops" id="linesOfStops_arrival" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                        <label for="linesOfStops_arrival" class="ml-2 block text-sm text-gray-700">Lines of Stops</label>
-                    </div>
-
-                    <!-- Remarks -->
-                    <div class="flex items-center">
-                        <input type="checkbox" name="remarks" id="remarks_arrival" checked class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                        <label for="remarks_arrival" class="ml-2 block text-sm text-gray-700">Remarks</label>
+                        <input type="number" name="results" min="1" placeholder="Number of results" value="10" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                     </div>
 
                     <!-- Transportation Options -->
                     <fieldset class="mt-4">
                         <legend class="text-sm font-medium text-gray-700">Transportation Options</legend>
                         <div class="mt-2 space-y-2">
-                            @php
-                                $transportOptions = ['nationalExpress', 'national', 'regionalExp', 'regional', 'suburban', 'bus', 'ferry', 'subway', 'tram', 'taxi'];
-                            @endphp
                             @foreach ($transportOptions as $option)
                                 <div class="flex items-center">
                                     <input type="checkbox" name="{{ $option }}" id="{{ $option }}_arrival" checked class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
@@ -66,12 +51,7 @@
                         </div>
                     </fieldset>
 
-                    <!-- Pretty -->
-                    <div class="flex items-center mt-2">
-                        <input type="checkbox" name="pretty" id="pretty_arrival" checked class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                        <label for="pretty_arrival" class="ml-2 block text-sm text-gray-700">Pretty</label>
-                    </div>
-
+                    <input type="hidden" name="linesOfStops" value="1" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
                     <!-- Submit Button -->
                     <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4">
                         Fetch Arrivals
@@ -112,19 +92,7 @@
                     <!-- Results -->
                     <div>
                         <label class="block text-sm font-medium text-gray-700">Results</label>
-                        <input type="number" name="results" min="1" placeholder="Number of results" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                    </div>
-
-                    <!-- Lines of Stops -->
-                    <div class="flex items-center">
-                        <input type="checkbox" name="linesOfStops" id="linesOfStops_departure" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                        <label for="linesOfStops_departure" class="ml-2 block text-sm text-gray-700">Lines of Stops</label>
-                    </div>
-
-                    <!-- Remarks -->
-                    <div class="flex items-center">
-                        <input type="checkbox" name="remarks" id="remarks_departure" checked class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                        <label for="remarks_departure" class="ml-2 block text-sm text-gray-700">Remarks</label>
+                        <input type="number" name="results" min="1" placeholder="Number of results" value="10" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                     </div>
 
                     <!-- Transportation Options -->
@@ -140,12 +108,7 @@
                         </div>
                     </fieldset>
 
-                    <!-- Pretty -->
-                    <div class="flex items-center mt-2">
-                        <input type="checkbox" name="pretty" id="pretty_departure" checked class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                        <label for="pretty_departure" class="ml-2 block text-sm text-gray-700">Pretty</label>
-                    </div>
-
+                    <input type="hidden" name="linesOfStops" value="1" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
                     <!-- Submit Button -->
                     <button type="submit" class="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4">
                         Fetch Departures
@@ -163,4 +126,3 @@
         <div id="map" style="height: 400px; width: 100%;"></div>
     </div>
 </div>
-

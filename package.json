@@ -19,6 +19,8 @@
     },
     "dependencies": {
         "@googlemaps/js-api-loader": "^1.16.8",
+        "db-stations-autocomplete": "^4.1.0",
+        "vbb-stations-autocomplete": "^4.15.0",
         "vscode-json-languageservice": "^5.4.0"
     }
 }

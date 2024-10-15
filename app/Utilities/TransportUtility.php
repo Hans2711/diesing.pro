@@ -4,6 +4,7 @@ namespace App\Utilities;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Cache;
+use VARIANT;
 
 class TransportUtility
 {
@@ -19,44 +20,48 @@ class TransportUtility
         $this->baseUrl = "https://v5.db.transport.rest";
     }
 
-    public function arrivals($id, $options = []) {
+    public function arrivals($id, $options = [])
+    {
         try {
             $defaults = [
-                'when' => null,
-                'direction' => null,
-                'duration' => 10,
-                'results' => null,
-                'linesOfStops' => false,
-                'remarks' => true,
-                'language' => 'de',
-                'nationalExpress' => true,
-                'national' => true,
-                'regionalExp' => true,
-                'regional' => true,
-                'suburban' => true,
-                'bus' => true,
-                'ferry' => true,
-                'subway' => true,
-                'tram' => true,
-                'taxi' => true,
-                'pretty' => true,
+                "when" => null,
+                "direction" => null,
+                "duration" => 10,
+                "results" => null,
+                "linesOfStops" => false,
+                "remarks" => true,
+                "language" => "de",
+                "nationalExpress" => true,
+                "national" => true,
+                "regionalExp" => true,
+                "regional" => true,
+                "suburban" => true,
+                "bus" => true,
+                "ferry" => true,
+                "subway" => true,
+                "tram" => true,
+                "taxi" => true,
+                "pretty" => true,
             ];
 
             $queryParams = array_merge($defaults, $options);
 
             foreach ($queryParams as $key => $value) {
                 if (is_bool($value)) {
-                    $queryParams[$key] = $value ? 'true' : 'false';
+                    $queryParams[$key] = $value ? "true" : "false";
                 }
             }
 
-            $queryParams = array_filter($queryParams, function($value) {
+            $queryParams = array_filter($queryParams, function ($value) {
                 return $value !== null;
             });
 
-            $response = $this->client->get("{$this->baseUrl}/stops/$id/arrivals", [
-                'query' => $queryParams
-            ]);
+            $response = $this->client->get(
+                "{$this->baseUrl}/stops/$id/arrivals",
+                [
+                    "query" => $queryParams,
+                ]
+            );
 
             $data = json_decode($response->getBody()->getContents(), true);
             return $data;
@@ -65,44 +70,48 @@ class TransportUtility
         }
     }
 
-    public function departures($id, $options = []) {
+    public function departures($id, $options = [])
+    {
         try {
             $defaults = [
-                'when' => null,
-                'direction' => null,
-                'duration' => 10,
-                'results' => null,
-                'linesOfStops' => false,
-                'remarks' => true,
-                'language' => 'de',
-                'nationalExpress' => true,
-                'national' => true,
-                'regionalExp' => true,
-                'regional' => true,
-                'suburban' => true,
-                'bus' => true,
-                'ferry' => true,
-                'subway' => true,
-                'tram' => true,
-                'taxi' => true,
-                'pretty' => true,
+                "when" => null,
+                "direction" => null,
+                "duration" => 10,
+                "results" => null,
+                "linesOfStops" => false,
+                "remarks" => true,
+                "language" => "de",
+                "nationalExpress" => true,
+                "national" => true,
+                "regionalExp" => true,
+                "regional" => true,
+                "suburban" => true,
+                "bus" => true,
+                "ferry" => true,
+                "subway" => true,
+                "tram" => true,
+                "taxi" => true,
+                "pretty" => true,
             ];
 
             $queryParams = array_merge($defaults, $options);
 
             foreach ($queryParams as $key => $value) {
                 if (is_bool($value)) {
-                    $queryParams[$key] = $value ? 'true' : 'false';
+                    $queryParams[$key] = $value ? "true" : "false";
                 }
             }
 
-            $queryParams = array_filter($queryParams, function($value) {
+            $queryParams = array_filter($queryParams, function ($value) {
                 return $value !== null;
             });
 
-            $response = $this->client->get("{$this->baseUrl}/stops/$id/departures", [
-                'query' => $queryParams
-            ]);
+            $response = $this->client->get(
+                "{$this->baseUrl}/stops/$id/departures",
+                [
+                    "query" => $queryParams,
+                ]
+            );
 
             $data = json_decode($response->getBody()->getContents(), true);
             return $data;
@@ -111,11 +120,9 @@ class TransportUtility
         }
     }
 
-    public function stops($id) {
-        if (
-            Cache::has("stops_" . json_encode($id)) &&
-                $this->cacheEnabled
-        ) {
+    public function stops($id)
+    {
+        if (Cache::has("stops_" . json_encode($id)) && $this->cacheEnabled) {
             return Cache::get("stops_" . json_encode($id));
         }
 
@@ -131,11 +138,33 @@ class TransportUtility
         }
     }
 
-    public function station($id) {
+    public function searchStations($query)
+    {
         if (
-            Cache::has("station_" . json_encode($id)) &&
-                $this->cacheEnabled
+            Cache::has("searchStations_" . json_encode($query)) &&
+            $this->cacheEnabled
         ) {
+            return Cache::get("searchStations_" . json_encode($query));
+        }
+
+        try {
+            $response = $this->client->get(
+                "{$this->baseUrl}/stations?query=$query&results=8&fuzzy=true",
+                []
+            );
+            $data = json_decode($response->getBody()->getContents(), true);
+
+            Cache::set("searchStations_" . json_encode($query), $data);
+
+            return $data;
+        } catch (\Exception $e) {
+            return ["error" => $e->getMessage()];
+        }
+    }
+
+    public function station($id)
+    {
+        if (Cache::has("station_" . json_encode($id)) && $this->cacheEnabled) {
             return Cache::get("station_" . json_encode($id));
         }
 
@@ -187,7 +216,7 @@ class TransportUtility
 
         if (
             Cache::has("stopsNearby_" . json_encode($query)) &&
-                $this->cacheEnabled
+            $this->cacheEnabled
         ) {
             return Cache::get("stopsNearby_" . json_encode($query));
         }
@@ -209,7 +238,7 @@ class TransportUtility
             foreach ($data as &$element) {
                 if (
                     $element["type"] == "stop" &&
-                        array_key_exists("station", $element)
+                    array_key_exists("station", $element)
                 ) {
                     $tmpStop = $element;
                     unset($tmpStop["station"]);
@@ -218,16 +247,16 @@ class TransportUtility
                         array_key_exists($element["station"]["id"], $returnData)
                     ) {
                         $returnData[$element["station"]["id"]]["stops"][
-                        $element["id"]
-                    ] = $tmpStop; // Corrected the array key
+                            $element["id"]
+                        ] = $tmpStop; // Corrected the array key
                     } else {
                         $returnData[$element["station"]["id"]] =
-                        $element["station"];
+                            $element["station"];
 
                         $returnData[$element["station"]["id"]]["stops"] = [];
                         $returnData[$element["station"]["id"]]["stops"][
-                        $element["id"]
-                    ] = $tmpStop;
+                            $element["id"]
+                        ] = $tmpStop;
                     }
                 } elseif ($element["type"] == "station") {
                     $returnData[$element["id"]] = $element;
