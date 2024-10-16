@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Station;
 use App\Utilities\TransportUtility;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,10 @@ class TransportController extends Controller
     //
     public function index()
     {
+        /* $stations = $this->transportUtility->getAllStations(); */
+        /* $stations = Station::all(); */
+        /* dd($stations); */
+
         return view("transport.index");
     }
 
@@ -37,13 +42,20 @@ class TransportController extends Controller
 
     public function search(Request $request)
     {
-        $query = $request->get("query");
-        if ($request->get("disableCache")) {
-            $this->transportUtility->cacheEnabled = false;
+        $query = $request->get('query');
+
+        $stations = Station::search($query)->get();
+
+        $results = [];
+
+        foreach ($stations as $station) {
+            $results[] = json_decode($station->data, true);
         }
 
-        $stations = $this->transportUtility->searchStations($query);
-        return view("transport.fetch", ["stops" => $stations]);
+        $dbSearch = $this->transportUtility->searchStations($query);
+        $results = array_merge($dbSearch, $results);
+
+        return view('transport.fetch', ['stops' => $results]);
     }
 
     public function fetchSingle($id, Request $request)
