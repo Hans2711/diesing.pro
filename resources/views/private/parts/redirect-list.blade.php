@@ -1,5 +1,5 @@
 @foreach ($redirects ?? [] as $redirect)
-    <div class="flex p-3 mt-2 rounded border-solid border gap-2 justify-between" style="border-color: #6b7280;">
+    <div class="flex p-3 mt-2 rounded border-solid border gap-2 justify-between" style="border-color: #6b7280; overflow: overlay;">
         <p class="hidden">{{ $redirect->id }}</p>
         <p class="">{{ $redirect->name }}</p>
         <p class="">{{ $redirect->target}}</p>
