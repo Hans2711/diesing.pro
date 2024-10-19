@@ -7,9 +7,15 @@ export function fetchStops(crd, disableCache = false) {
     url.searchParams.append("disableCache", disableCache);
 
     fetch(url)
-      .then((response) => response.text())
-      .then((html) => {
-        resolve(html);
+      .then((response) => {
+        return response.json().then((json) => {
+          if (response.ok) {
+            resolve(json);
+          } else {
+            // Reject the promise with the JSON error message
+            reject(json);
+          }
+        });
       })
       .catch((error) => {
         console.error("Fetch error:", error);

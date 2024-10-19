@@ -13,12 +13,10 @@
 
     <div class="stops-wrapper grid grid-cols-1 md:grid-cols-3 gap-4"></div>
 
-    <div class="stop-wrapper mt-3"></div>
+    <div class="stop-wrapper"></div>
 
-    <div class="stops-loader-wrapper hidden">
-        <p>Loading</p>
-    </div>
-    <div class="stops-error-wrapper hidden">
-        <p class="error">Error</p>
-    </div>
+    @include('transport.templates.stops-list-template')
+    @include('transport.templates.stops-loader-template')
+    @include('transport.templates.stops-error-template')
+
 @endsection

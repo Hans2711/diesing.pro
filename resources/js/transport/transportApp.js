@@ -1,16 +1,27 @@
 import { fetchStops, fetchStopsSearch } from "./fetchHandler.js";
 import { initLocation } from "./locationHandler.js";
 import SingleStopHandler from "./singleStopHandler.js";
+import _ from "lodash";
 
 export default class TransportApp {
   constructor() {
     this.selectedStop = null;
-    this.stopsLoaderWrapper = document.querySelector(".stops-loader-wrapper");
-    this.stopsErrorWrapper = document.querySelector(".stops-error-wrapper");
     this.stopsWrapper = document.querySelector(".stops-wrapper");
     this.stopWrapper = document.querySelector(".stop-wrapper");
     this.hardReloadButton = document.querySelector(".hard-reload-stops");
     this.searchInput = document.querySelector("#search");
+
+    this.stopsListTemplateContent = document.getElementById(
+      "stops-list-template",
+    ).innerHTML;
+
+    this.stopsLoaderTemplateContent = document.getElementById(
+      "stops-loader-template",
+    ).innerHTML;
+
+    this.stopsErrorTemplateContent = document.getElementById(
+      "stops-error-template",
+    ).innerHTML;
 
     this.singleStopHandler = null;
   }
@@ -38,7 +49,6 @@ export default class TransportApp {
     this.stopsWrapper.innerHTML = "";
     if (!soft) {
       this.selectedStop = null;
-      this.stopWrapper.innerHTML = "";
     }
     initLocation(this.locationFetchSuccessNoCache, this.locationError);
   }
@@ -80,16 +90,20 @@ export default class TransportApp {
 
   receiveStops(html) {
     this.stopsWrapper.innerHTML = html;
-    this.applyStopsClickListeners();
+    // this.applyStopsClickListeners();
   }
 
   displayError(wrapper, errorMessage) {
-    wrapper.innerHTML = this.stopsErrorWrapper.innerHTML;
-    wrapper.querySelector(".error").innerHTML = errorMessage;
+    var compiledTemplate = _.template(this.stopsErrorTemplateContent);
+    var renderedHTML = compiledTemplate({ error: errorMessage });
+    wrapper.innerHTML = renderedHTML;
   }
 
   displayLoader() {
-    this.stopsWrapper.innerHTML = this.stopsLoaderWrapper.innerHTML;
+    var compiledTemplate = _.template(this.stopsLoaderTemplateContent);
+    var renderedHTML = compiledTemplate({ message: "Loading stops" });
+    console.log(renderedHTML);
+    this.stopsWrapper.innerHTML = renderedHTML;
   }
 
   locationError(err) {
@@ -110,13 +124,13 @@ export default class TransportApp {
     const crd = pos.coords;
     this.displayLoader();
 
-    fetchStops(crd, true)
-      .then((html) => {
-        this.receiveStops(html);
-      })
-      .catch((error) => {
-        this.displayError(this.stopsWrapper, error.message);
-      });
+    // fetchStops(crd, true)
+    //   .then((html) => {
+    //     this.receiveStops(html);
+    //   })
+    //   .catch((error) => {
+    //     this.displayError(this.stopsWrapper, error.message);
+    //   });
   }
 
   locationFetchSuccess(pos) {
@@ -124,11 +138,12 @@ export default class TransportApp {
     this.displayLoader();
 
     fetchStops(crd)
-      .then((html) => {
-        this.receiveStops(html);
+      .then((json) => {
+        console.log(json);
+        // this.receiveStops(json);
       })
       .catch((error) => {
-        this.displayError(this.stopsWrapper, error.message);
+        this.displayError(this.stopsWrapper, error.error);
       });
   }
 }

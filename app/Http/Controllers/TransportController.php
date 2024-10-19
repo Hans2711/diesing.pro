@@ -3,16 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Station;
+use App\Utilities\GeocodeUtility;
 use App\Utilities\TransportUtility;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class TransportController extends Controller
 {
     protected $transportUtility;
+    protected $geocodeUtility;
 
     public function __construct()
     {
         $this->transportUtility = new TransportUtility();
+        $this->geocodeUtility = new GeocodeUtility();
     }
 
     //
@@ -33,16 +37,27 @@ class TransportController extends Controller
 
         $lati = $request->get("lati");
         $long = $request->get("long");
-        $nearbyStops = $this->transportUtility->stopsNearby($lati, $long);
 
-        $this->transportUtility->cacheEnabled = true;
+        $address = $this->geocodeUtility->latLngToAddress($lati, $long);
 
-        return view("transport.fetch", ["stops" => $nearbyStops]);
+        $nearbyStops = $this->transportUtility->getStopsReachableFrom(
+            $lati,
+            $long,
+            $address
+        );
+
+        // dd($nearbyStops);
+
+        if (array_key_exists("error", $nearbyStops)) {
+            return new JsonResponse($nearbyStops, 400);
+        }
+
+        return new JsonResponse($nearbyStops);
     }
 
     public function search(Request $request)
     {
-        $query = $request->get('query');
+        $query = $request->get("query");
 
         $stations = Station::search($query)->get();
 
@@ -55,7 +70,7 @@ class TransportController extends Controller
         $dbSearch = $this->transportUtility->searchStations($query);
         $results = array_merge($dbSearch, $results);
 
-        return view('transport.fetch', ['stops' => $results]);
+        return view("transport.fetch", ["stops" => $results]);
     }
 
     public function fetchSingle($id, Request $request)

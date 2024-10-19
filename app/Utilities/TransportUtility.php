@@ -17,15 +17,13 @@ class TransportUtility
     {
         // Initialize the Guzzle client
         $this->client = new Client();
-        $this->baseUrl = "https://v5.db.transport.rest";
+        $this->baseUrl = "https://v6.db.transport.rest";
     }
 
-    public function getAllStations() {
+    public function getAllStations()
+    {
         try {
-            $response = $this->client->get(
-                "{$this->baseUrl}/stations",
-                []
-            );
+            $response = $this->client->get("{$this->baseUrl}/stations", []);
             $data = json_decode($response->getBody()->getContents(), true);
             return $data;
         } catch (\Exception $e) {
@@ -193,92 +191,86 @@ class TransportUtility
         }
     }
 
-    /**
-     * Get stops nearby a given latitude and longitude.
-     *
-     * @param float $latitude
-     * @param float $longitude
-     * @param int $results
-     * @param int $distance
-     * @param bool $stops
-     * @param bool $poi
-     * @param bool $linesOfStops
-     * @param string $language
-     * @return array
-     */
-    public function stopsNearby(
-        float $latitude,
-        float $longitude,
-        int $results = 8,
-        int $distance = null,
-        bool $stops = true,
-        bool $poi = false,
-        bool $linesOfStops = false,
-        string $language = "de"
+    public function getStopsReachableFrom(
+        $latitude,
+        $longitude,
+        $address,
+        $options = []
     ) {
-        $query = [
-            "latitude" => $latitude,
-            "longitude" => $longitude,
-            "results" => $results,
-            "distance" => $distance,
-            "stops" => $stops ? "true" : "false", // Convert boolean to string
-            "poi" => $poi ? "true" : "false", // Convert boolean to string
-            "linesOfStops" => $linesOfStops ? "true" : "false", // Convert boolean to string
-            "language" => $language,
-        ];
-
         if (
-            Cache::has("stopsNearby_" . json_encode($query)) &&
+            Cache::has(
+                "getStopsReachableFrom_" . $latitude . $longitude . $address
+            ) &&
             $this->cacheEnabled
         ) {
-            return Cache::get("stopsNearby_" . json_encode($query));
+            return Cache::get(
+                "getStopsReachableFrom_" . $latitude . $longitude . $address
+            );
         }
-
-        $query = array_filter(
-            $query,
-            fn($value) => !is_null($value) && $value !== ""
-        );
-
         try {
-            $response = $this->client->get("{$this->baseUrl}/stops/nearby", [
-                "query" => $query,
-            ]);
+            $defaults = [
+                "latitude" => $latitude,
+                "longitude" => $longitude,
+                "address" => $address,
+                "when" => null,
+                "maxTransfers" => 5,
+                "maxDuration" => null,
+                "language" => "en",
+                "nationalExpress" => true,
+                "national" => true,
+                "regionalExpress" => true,
+                "regional" => true,
+                "suburban" => true,
+                "bus" => true,
+                "ferry" => true,
+                "subway" => true,
+                "tram" => true,
+                "taxi" => true,
+                "pretty" => true,
+            ];
 
-            $data = json_decode($response->getBody()->getContents(), true);
+            $queryParams = array_merge($defaults, $options);
 
-            $returnData = [];
-
-            foreach ($data as &$element) {
-                if (
-                    $element["type"] == "stop" &&
-                    array_key_exists("station", $element)
-                ) {
-                    $tmpStop = $element;
-                    unset($tmpStop["station"]);
-
-                    if (
-                        array_key_exists($element["station"]["id"], $returnData)
-                    ) {
-                        $returnData[$element["station"]["id"]]["stops"][
-                            $element["id"]
-                        ] = $tmpStop; // Corrected the array key
-                    } else {
-                        $returnData[$element["station"]["id"]] =
-                            $element["station"];
-
-                        $returnData[$element["station"]["id"]]["stops"] = [];
-                        $returnData[$element["station"]["id"]]["stops"][
-                            $element["id"]
-                        ] = $tmpStop;
-                    }
-                } elseif ($element["type"] == "station") {
-                    $returnData[$element["id"]] = $element;
+            // Convert boolean values to string representation
+            foreach ($queryParams as $key => $value) {
+                if (is_bool($value)) {
+                    $queryParams[$key] = $value ? "true" : "false";
                 }
             }
 
-            Cache::set("stopsNearby_" . json_encode($query), $returnData);
+            // Remove null values from query parameters
+            $queryParams = array_filter($queryParams, function ($value) {
+                return $value !== null;
+            });
 
-            return $returnData;
+            $response = $this->client->get(
+                "{$this->baseUrl}/stops/reachable-from",
+                [
+                    "query" => $queryParams,
+                ]
+            );
+
+            $data = json_decode($response->getBody()->getContents(), true);
+            if (!array_key_exists("error", $data)) {
+                Cache::set(
+                    "getStopsReachableFrom_" .
+                        $latitude .
+                        $longitude .
+                        $address,
+                    $data
+                );
+            }
+
+            $stops = [];
+            $reachableStops = $data["reachable"];
+
+            foreach ($reachableStops as &$stop) {
+                $stop["station"] = array_values($stop["stations"])[0][
+                    "station"
+                ];
+            }
+
+            return $reachableStops;
         } catch (\Exception $e) {
             return ["error" => $e->getMessage()];
         }
