@@ -1,4 +1,4 @@
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F4EFE6] px-10 py-3">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F4EFE6] md:px-10 md:py-3 px-6 py-4">
     <div class="flex flex-1 justify-end gap-8">
         <div class="flex items-center gap-3 md:gap-5 flex-wrap">
             <a class="@if ($active == 'portfolio') active @endif header-button" href="{{ url('/portfolio') }}">Portfolio</a>
