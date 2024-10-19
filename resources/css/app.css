@@ -2,24 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.header-btn {
-    @apply p-3 bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 h-14 flex items-center text-white drop-shadow-md hover:drop-shadow-xl  rounded-md text-lg
-}
-
-.header-btn-active {
-    @apply bg-gradient-to-bl from-red-800 via-purple-700 to-gray-500 border-solid border-b-4 border-green-500 pb-2
-}
-
 .btn {
-    @apply p-3 bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 text-white rounded hover:cursor-pointer
+    @apply p-3 bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 text-white rounded hover:cursor-pointer;
 }
 
 .filter-gray-icon {
-    filter: invert(69%) sepia(0%) saturate(6780%) hue-rotate(17deg) brightness(85%) contrast(99%);
+    filter: invert(69%) sepia(0%) saturate(6780%) hue-rotate(17deg)
+        brightness(85%) contrast(99%);
 }
 
 .filter-white-icon {
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg)
+        brightness(100%) contrast(100%);
 }
 
 h1 {
@@ -43,17 +37,31 @@ p {
     line-height: 1.5;
 }
 
-.tools-sidebar-active
-{
-    @apply bg-gray-100
+.tools-sidebar-active {
+    @apply bg-gray-100;
 }
 
-/* Switch Style */
-.toggle-switch {
+/* General styles for all header buttons */
+.header-button {
+    @apply p-2 rounded text-[#1C160C] px-3;
 }
 
-
-header * .active {
-    @apply bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 p-2 rounded text-white
+/* Styles for active header buttons */
+.header-button.active {
+    @apply bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 text-white border;
 }
 
+/* Styles for non-active header buttons */
+.header-button:not(.active) {
+    @apply border border-[#1C160C];
+}
+
+/* Hover effects for non-active header buttons */
+.header-button:not(.active):hover {
+    @apply bg-gray-100;
+}
+
+/* Optional: Hover effects for active header buttons */
+.header-button.active:hover {
+    @apply bg-gradient-to-br from-gray-500 via-purple-700 to-rose-700;
+}
