@@ -20,6 +20,19 @@ class TransportUtility
         $this->baseUrl = "https://v5.db.transport.rest";
     }
 
+    public function getAllStations() {
+        try {
+            $response = $this->client->get(
+                "{$this->baseUrl}/stations",
+                []
+            );
+            $data = json_decode($response->getBody()->getContents(), true);
+            return $data;
+        } catch (\Exception $e) {
+            return ["error" => $e->getMessage()];
+        }
+    }
+
     public function arrivals($id, $options = [])
     {
         try {
@@ -149,7 +162,7 @@ class TransportUtility
 
         try {
             $response = $this->client->get(
-                "{$this->baseUrl}/stations?query=$query&results=8&fuzzy=true",
+                "{$this->baseUrl}/stations?query=$query&results=4&fuzzy=true",
                 []
             );
             $data = json_decode($response->getBody()->getContents(), true);

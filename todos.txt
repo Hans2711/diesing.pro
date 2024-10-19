@@ -8,6 +8,8 @@ Transport
 
 Arrival Filters
 Station Search
+- Prevent Doubles
+- And somehow add stops
 
 
 api key AIzaSyCnJgGmPGcuwuvuRxquTrqICBTdzjRJgf0
