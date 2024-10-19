@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     note.addEventListener('change', function() {
         updateNote();
+        setCookie('activeNote', activeNote, 2);
     });
 
     noteName.addEventListener('change', function() {
@@ -84,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function copyUrl() {
         let url = note.dataset.url;
-        
+
         if (!url) {
             console.error('No URL found in dataset');
             return;
