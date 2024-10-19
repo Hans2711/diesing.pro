@@ -218,4 +218,9 @@ class PrivateController extends Controller
         $redirect->save();
         return response()->json($redirect->toArray());
     }
+
+    public function files()
+    {
+        return view("private.files");
+    }
 }

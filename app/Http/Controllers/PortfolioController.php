@@ -17,13 +17,6 @@ class PortfolioController extends Controller
                 "image" => "resources/portfolio/werstener-jonges/homepage.png",
                 "link" => "https://werstener-jonges.de/",
             ],
-            [
-                "title" => "Hilden Haze",
-                "description" =>
-                    "Willkommen bei Hilden Haze! Wir sind ein Verein, der im Rahmen der Legalisierung Cannabis gemeinschaftlich anbaut. Unser Ziel ist es, hochwertiges, biologisches Cannabis anzubieten. Wir streben danach, Hilden Haze zu einer sicheren Quelle für legales Cannabis in der Region zu machen",
-                "image" => "resources/portfolio/hilden-haze/homepage.png",
-                "link" => "https://www.hilden-haze.de",
-            ],
         ];
 
         return view("portfolio.list", [

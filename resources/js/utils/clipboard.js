@@ -1,24 +1,37 @@
 export function copyText(text) {
-    var tempInput = document.createElement("input");
-    tempInput.setAttribute("type", "text");
-    tempInput.setAttribute("value", text);
-    tempInput.style = "position: absolute; left: -1000px; top: -1000px";
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    tempInput.setSelectionRange(0, 99999); // For mobile devices
+    var tempInput = document.createElement("textarea");
+    tempInput.value = text;
 
-    try {
-        // Try using the Clipboard API
-        navigator.clipboard.writeText(tempInput.value).then(function () {
-            console.log('URL copied to clipboard successfully!');
-        }, function (err) {
-            console.error('Failed to copy the URL: ', err);
+    // Ensure the text area is not visible and off the screen
+    tempInput.style.position = 'fixed';  // Prevents scrolling to bottom of page in MS Edge.
+    tempInput.style.left = '-9999px';
+    tempInput.style.top = '0';
+    document.body.appendChild(tempInput);
+
+    // Select the text
+    tempInput.focus();
+    tempInput.select();
+
+    // Attempt to use the Clipboard API
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(function () {
+            console.log('Text copied to clipboard successfully!');
+        }).catch(function (err) {
+            console.error('Failed to copy the text: ', err);
+            // Fallback to execCommand if Clipboard API fails
+            document.execCommand('copy');
         });
-    } catch (err) {
-        // Fallback to document.execCommand
-        console.warn('Using document.execCommand as fallback');
-        document.execCommand('copy');
+    } else {
+        // Fallback to execCommand for older browsers
+        try {
+            document.execCommand('copy');
+            console.log('Text copied to clipboard using execCommand!');
+        } catch (err) {
+            console.error('Failed to copy the text using execCommand: ', err);
+        }
     }
 
+    // Clean up
     document.body.removeChild(tempInput);
 }
+
