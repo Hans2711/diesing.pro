@@ -11,7 +11,7 @@
 
     <input type="text" placeholder="Search" id="search" />
 
-    <div class="stops-wrapper"></div>
+    <div class="stops-wrapper grid grid-cols-1 md:grid-cols-3 gap-4"></div>
 
     <div class="stop-wrapper mt-3"></div>
 

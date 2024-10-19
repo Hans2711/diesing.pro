@@ -1,5 +1,5 @@
 @foreach ($stops as $stop)
-    <div class="stop"
+    <div class="stop p-4 border rounded"
         data-type="{{$stop['type']}}"
         data-id="{{$stop['id']}}"
         data-name="{{$stop['name']}}"
