@@ -1,109 +1,57 @@
-import { fetchSingleStop, fetchSingleStopArrivals, fetchSingleStopDepartures } from './fetchHandler.js';
-import { createMap } from './mapHandler.js';
+import {
+  fetchSingleStop,
+  fetchSingleStopArrivals,
+  fetchSingleStopDepartures,
+} from "./fetchHandler.js";
+import _ from "lodash";
+import { createMap } from "./mapHandler.js";
 
 export default class SingleStopHandler {
-    constructor(stopId, stopWrapper) {
-        this.stopId = stopId;
-        this.stopWrapper = stopWrapper;
+  constructor(stopItem) {
+    this.stopItem = stopItem;
+    this.stopWrapper = document.querySelector(".stop-wrapper");
+    this.stopModalWrapper = document.querySelector(".stop-modal-wrapper");
+    this.closeButton = this.stopModalWrapper.querySelector(".close-button");
+    this.stopModalBackground = document.querySelector(".stop-modal-background");
 
-        this.arrivalSubmitListener = this.arrivalSubmitListener.bind(this);
-        this.departureSubmitListener = this.departureSubmitListener.bind(this);
-    }
+    this.stopTemplate = document.getElementById("stop-template").innerHTML;
+  }
 
-    init() {
-        fetchSingleStop(this.stopId)
-            .then((html) => {
-                this.receiveSingleStop(html);
-                createMap(this.stopWrapper.querySelector('.station').dataset.lat, this.stopWrapper.querySelector('.station').dataset.lon);
-            })
-            .catch((error) => {
-                this.displayError(error.message);
-            });
-    }
+  init() {
+    fetchSingleStop(this.stopItem.dataset.id)
+      .then((json) => {
+        console.log(json);
+        this.receiveSingleStop(json);
 
-    receiveSingleStop(html) {
-        this.stopWrapper.innerHTML = html;
-        this.applyListeners();
-    }
+        // createMap(
+        //   this.stopWrapper.querySelector(".station").dataset.lat,
+        //   this.stopWrapper.querySelector(".station").dataset.lon,
+        // );
+      })
+      .catch((error) => {
+        this.displayError(error.message);
+      });
 
-    applyListeners() {
-        const arrivalForm = this.stopWrapper.querySelector('.arrivals form');
-        const departureForm = this.stopWrapper.querySelector('.departures form');
+    this.closeButton.addEventListener("click", this.closeModal.bind(this));
+  }
 
-        if (arrivalForm) {
-            arrivalForm.removeEventListener('submit', this.arrivalSubmitListener);
-            arrivalForm.addEventListener('submit', this.arrivalSubmitListener);
-        }
+  closeModal() {
+    this.stopModalWrapper.classList.add("hidden");
+  }
 
-        if (departureForm) {
-            departureForm.removeEventListener('submit', this.departureSubmitListener);
-            departureForm.addEventListener('submit', this.departureSubmitListener);
-        }
-    }
+  receiveSingleStop(json) {
+    var compiledTemplate = _.template(this.stopTemplate);
+    var renderedHTML = compiledTemplate(json);
+    this.stopWrapper.innerHTML = renderedHTML;
+    this.stopModalWrapper.classList.remove("hidden");
+    // this.applyListeners();
+  }
 
-    arrivalSubmitListener(event) {
-        event.preventDefault();
-        const form = event.target;
-        const formElements = form.elements;
-        const params = {};
+  uninstall() {
+    this.closeButton.removeEventListener("click", this.closeModal.bind(this));
+  }
 
-        for (let i = 0; i < formElements.length; i++) {
-            const element = formElements[i];
-            const name = element.name;
-            if (!name) continue;
-
-            if (element.type === 'checkbox') {
-                params[name] = element.checked ? 'true' : 'false';
-            } else {
-                params[name] = element.value;
-            }
-        }
-
-        fetchSingleStopArrivals(this.stopId, params)
-            .then((html) => {
-                const arrivalsWrapper = this.stopWrapper.querySelector('.arrivals-wrapper');
-                if (arrivalsWrapper) {
-                    arrivalsWrapper.innerHTML = html;
-                }
-            })
-            .catch((error) => {
-                console.error("Error fetching arrivals:", error);
-                this.displayError("Error fetching arrivals.");
-            });
-    }
-
-    departureSubmitListener(event) {
-        event.preventDefault();
-        const form = event.target;
-        const formElements = form.elements;
-        const params = {};
-
-        for (let i = 0; i < formElements.length; i++) {
-            const element = formElements[i];
-            const name = element.name;
-            if (!name) continue;
-
-            if (element.type === 'checkbox') {
-                params[name] = element.checked ? 'true' : 'false';
-            } else {
-                params[name] = element.value;
-            }
-        }
-
-        fetchSingleStopDepartures(this.stopId, params)
-            .then((html) => {
-                const departuresWrapper = this.stopWrapper.querySelector('.departures-wrapper');
-                if (departuresWrapper) {
-                    departuresWrapper.innerHTML = html;
-                }
-            })
-            .catch((error) => {
-                console.error("Error fetching departures:", error);
-                this.displayError("Error fetching departures.");
-            });
-    }
-
-    displayError(errorMessage) {
-        this.stopWrapper.innerHTML = `<p class="error">${errorMessage}</p>`;
-    }
+  displayError(errorMessage) {
+    this.stopWrapper.innerHTML = `<p class="error">${errorMessage}</p>`;
+  }
 }

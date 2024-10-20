@@ -68,8 +68,10 @@ export default class TransportApp {
       if (stop.dataset.id == id) {
         stop.classList.add("stop-selected");
 
-        // Initialize the SingleStopHandler
-        this.singleStopHandler = new SingleStopHandler(id, this.stopWrapper);
+        if (this.singleStopHandler) {
+          this.singleStopHandler.uninstall();
+        }
+        this.singleStopHandler = new SingleStopHandler(stop);
         this.singleStopHandler.init();
       } else {
         stop.classList.remove("stop-selected");
@@ -88,9 +90,11 @@ export default class TransportApp {
     });
   }
 
-  receiveStops(html) {
-    this.stopsWrapper.innerHTML = html;
-    // this.applyStopsClickListeners();
+  receiveStops(json) {
+    var compiledTemplate = _.template(this.stopsListTemplateContent);
+    var renderedHTML = compiledTemplate({ stops: json });
+    this.stopsWrapper.innerHTML = renderedHTML;
+    this.applyStopsClickListeners();
   }
 
   displayError(wrapper, errorMessage) {
@@ -140,9 +144,10 @@ export default class TransportApp {
     fetchStops(crd)
       .then((json) => {
         console.log(json);
-        // this.receiveStops(json);
+        this.receiveStops(json);
       })
       .catch((error) => {
+        console.log(error);
         this.displayError(this.stopsWrapper, error.error);
       });
   }

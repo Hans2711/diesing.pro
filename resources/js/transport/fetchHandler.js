@@ -42,14 +42,19 @@ export function fetchStopsSearch(query, disableCache = false) {
   });
 }
 
-export function fetchSingleStop(id) {
+export function fetchSingleStop(id, type = "stop") {
   return new Promise((resolve, reject) => {
     const url = new URL(`/transport/fetch/${id}`, window.location.origin);
 
     fetch(url)
-      .then((response) => response.text())
-      .then((html) => {
-        resolve(html);
+      .then((response) => {
+        return response.json().then((json) => {
+          if (response.ok) {
+            resolve(json);
+          } else {
+            reject(json);
+          }
+        });
       })
       .catch((error) => {
         console.error("Fetch error:", error);

@@ -7,6 +7,7 @@ use App\Utilities\GeocodeUtility;
 use App\Utilities\TransportUtility;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use League\CommonMark\Environment\Environment;
 
 class TransportController extends Controller
 {
@@ -31,6 +32,10 @@ class TransportController extends Controller
 
     public function fetch(Request $request)
     {
+        $path = app_path("example-jsons/stops.json");
+        $path = str_replace("/app", "", $path);
+        return new JsonResponse(json_decode(file_get_contents($path), true));
+
         if ($request->get("disableCache")) {
             $this->transportUtility->cacheEnabled = false;
         }
@@ -92,10 +97,11 @@ class TransportController extends Controller
             $transportOptions = array_keys($transportOptions);
         }
 
-        return view("transport.fetchSingle", [
+        return new JsonResponse([
             "station" => $station,
             "stops" => $stops,
             "transportOptions" => $transportOptions,
+            "csrfToken" => csrf_token(),
         ]);
     }
 

@@ -264,11 +264,11 @@ class TransportUtility
             $stops = [];
             $reachableStops = $data["reachable"];
 
-            foreach ($reachableStops as &$stop) {
-                $stop["station"] = array_values($stop["stations"])[0][
-                    "station"
-                ];
-            }
+            // foreach ($reachableStops as &$stop) {
+            //     $stop["station"] = array_values($stop["stations"])[0][
+            //         "station"
+            //     ];
+            // }
 
             return $reachableStops;
         } catch (\Exception $e) {
