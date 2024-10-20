@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then((data) => {
         if (data.success) {
-          contactMessage.innerHTML = data.message;
           let submit = contactForm.querySelector("input[type=submit]");
           submit.setAttribute("disabled", "disabled");
 
@@ -29,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "animationend",
             function () {
               contactForm.style.display = "none";
+              contactMessage.innerHTML = data.message;
             },
             { once: true },
           );
