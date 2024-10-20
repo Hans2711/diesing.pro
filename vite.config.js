@@ -12,7 +12,7 @@ export default defineConfig({
         "resources/js/redirects.js",
         "resources/js/files.js",
         "resources/js/parts/password.js",
-        "resources/js/parts/contact.js",
+        "resources/js/contact.js",
       ],
       refresh: true,
     }),
