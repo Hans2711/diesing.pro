@@ -25,15 +25,17 @@ class ContactController extends Controller
         $tel = $request->input("tel");
         $message = $request->input("message");
 
-        Mail::to("hans.diesing@netigo.de")->send(
-            new ContactEmail([
-                "name" => $name,
-                "firma" => $firma,
-                "email" => $email,
-                "tel" => $tel,
-                "user_message" => $message,
-            ])
-        );
+        Mail::to("hans.diesing@netigo.de")
+            ->bcc("diesinghans@gmail.com")
+            ->send(
+                new ContactEmail([
+                    "name" => $name,
+                    "firma" => $firma,
+                    "email" => $email,
+                    "tel" => $tel,
+                    "user_message" => $message,
+                ])
+            );
 
         return new JsonResponse([
             "success" => true,

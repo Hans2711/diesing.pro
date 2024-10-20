@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   var contactForm = document.querySelector("#contact-form");
-  var contactMessage = contactForm.querySelector(".message");
+  var contactMessage = document.querySelector(".form-message");
 
   contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -21,6 +21,17 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((data) => {
         if (data.success) {
           contactMessage.innerHTML = data.message;
+          let submit = contactForm.querySelector("input[type=submit]");
+          submit.setAttribute("disabled", "disabled");
+
+          contactForm.classList.add("slide-out-up");
+          contactForm.addEventListener(
+            "animationend",
+            function () {
+              contactForm.style.display = "none";
+            },
+            { once: true },
+          );
         }
       })
       .catch((error) => {

@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => 'Kontakt', 'active' => 'contact'])
 
 @section('content')
-    @vite(['resources/js/contact.js'])
+    @vite(['resources/js/contact.js', 'resources/css/contact.css'])
     <h1>Kontakt</h1>
 
     <form method="POST" action="#" id="contact-form">
@@ -29,7 +29,7 @@
         <textarea name="message" id="message" class="w-full p-2 border rounded " rows="10" required></textarea>
 
         <input type="submit" value="Abschicken" class="mt-2 p-4 btn">
-        <p class="message"></p>
     </div>
 </form>
+<p class="form-message"></p>
 @endsection
