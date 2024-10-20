@@ -7,6 +7,7 @@ export default defineConfig({
     laravel({
       input: [
         "resources/css/app.css",
+        "resources/css/contact.css",
         "resources/js/app.js",
         "resources/js/notes.js",
         "resources/js/redirects.js",
