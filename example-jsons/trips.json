@@ -1,0 +1,1727 @@
+{
+  "arrivals": [
+    {
+      "tripId": "2|#VN#1#ST#1729107992#PI#0#ZI#1704160#TA#0#DA#211024#1S#660853#1T#2010#LS#219098#LT#2054#PU#80#RT#1#CA#Bus#ZE#780#ZB#Bus  780#PC#5#FR#660853#FT#2010#TO#219098#TT#2054#",
+      "stop": {
+        "type": "stop",
+        "id": "663166",
+        "name": "Berliner Allee Steig 5, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "663166",
+          "latitude": 51.218486,
+          "longitude": 6.781687
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "657959",
+          "name": "Berliner Allee Steig 1, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "657959",
+            "latitude": 51.219268,
+            "longitude": 6.781957
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": true,
+            "taxi": false
+          },
+          "lines": [
+            {
+              "type": "line",
+              "id": "8-vrr071-701",
+              "fahrtNr": null,
+              "name": "STR 701",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-705",
+              "fahrtNr": null,
+              "name": "STR 705",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-706",
+              "fahrtNr": null,
+              "name": "STR 706",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            }
+          ]
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "5-vrr072-e-755616-5698058",
+            "fahrtNr": null,
+            "name": "Bus E",
+            "public": true,
+            "productName": "Bus",
+            "mode": "bus",
+            "product": "bus"
+          },
+          {
+            "type": "line",
+            "id": "5-vrr072-780",
+            "fahrtNr": null,
+            "name": "Bus 780",
+            "public": true,
+            "productName": "Bus",
+            "mode": "bus",
+            "product": "bus"
+          },
+          {
+            "type": "line",
+            "id": "5-vrr072-782",
+            "fahrtNr": null,
+            "name": "Bus 782",
+            "public": true,
+            "productName": "Bus",
+            "mode": "bus",
+            "product": "bus"
+          },
+          {
+            "type": "line",
+            "id": "5-vrr072-785",
+            "fahrtNr": null,
+            "name": "Bus 785",
+            "public": true,
+            "productName": "Bus",
+            "mode": "bus",
+            "product": "bus"
+          },
+          {
+            "type": "line",
+            "id": "5-vrr072-sb50",
+            "fahrtNr": null,
+            "name": "Bus SB50",
+            "public": true,
+            "productName": "Bus",
+            "mode": "bus",
+            "product": "bus"
+          }
+        ]
+      },
+      "when": null,
+      "plannedWhen": "2024-10-21T20:19:00+02:00",
+      "prognosedWhen": null,
+      "delay": null,
+      "platform": null,
+      "plannedPlatform": null,
+      "prognosedPlatform": null,
+      "prognosisType": null,
+      "direction": null,
+      "provenance": "Heinrich-Heine-Allee U, D\u00fcsseldorf",
+      "line": {
+        "type": "line",
+        "id": "5-vrr072-780",
+        "fahrtNr": "0",
+        "name": "Bus 780",
+        "public": true,
+        "adminCode": "vrr072",
+        "productName": "Bus",
+        "mode": "bus",
+        "product": "bus",
+        "operator": {
+          "type": "operator",
+          "id": "nahreisezug",
+          "name": "Nahreisezug"
+        }
+      },
+      "remarks": [
+        {
+          "type": "status",
+          "code": "cancelled",
+          "text": "Fahrt f\u00e4llt aus"
+        }
+      ],
+      "origin": {
+        "type": "stop",
+        "id": "361234",
+        "name": "Steinstra\u00dfe/K\u00f6nigsallee, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "361234",
+          "latitude": 51.222468,
+          "longitude": 6.782289
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": true,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "653333",
+          "name": "Steinstra\u00dfe/K\u00f6nigsallee, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "653333",
+            "latitude": 51.223007,
+            "longitude": 6.781381
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": true,
+            "tram": true,
+            "taxi": false
+          }
+        }
+      },
+      "destination": null,
+      "cancelled": true
+    },
+    {
+      "tripId": "2|#VN#1#ST#1729107992#PI#0#ZI#1706900#TA#33#DA#211024#1S#653831#1T#2005#LS#360782#LT#2026#PU#80#RT#1#CA#STR#ZE#705#ZB#STR  705#PC#8#FR#653831#FT#2005#TO#360782#TT#2026#",
+      "stop": {
+        "type": "station",
+        "id": "657959",
+        "name": "Berliner Allee Steig 1, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "657959",
+          "latitude": 51.219268,
+          "longitude": 6.781957
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "8-vrr071-701",
+            "fahrtNr": null,
+            "name": "STR 701",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-705",
+            "fahrtNr": null,
+            "name": "STR 705",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-706",
+            "fahrtNr": null,
+            "name": "STR 706",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          }
+        ]
+      },
+      "when": "2024-10-21T20:18:00+02:00",
+      "plannedWhen": "2024-10-21T20:17:00+02:00",
+      "delay": 60,
+      "platform": null,
+      "plannedPlatform": null,
+      "prognosisType": "prognosed",
+      "direction": null,
+      "provenance": "Spichernplatz, D\u00fcsseldorf",
+      "line": {
+        "type": "line",
+        "id": "8-vrr071-705",
+        "fahrtNr": "0",
+        "name": "STR 705",
+        "public": true,
+        "adminCode": "vrr071",
+        "productName": "STR",
+        "mode": "train",
+        "product": "tram",
+        "operator": {
+          "type": "operator",
+          "id": "nahreisezug",
+          "name": "Nahreisezug"
+        }
+      },
+      "remarks": [],
+      "origin": {
+        "type": "stop",
+        "id": "663165",
+        "name": "Steinstra\u00dfe/K\u00f6nigsallee, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "663165",
+          "latitude": 51.223295,
+          "longitude": 6.782685
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": true,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "653333",
+          "name": "Steinstra\u00dfe/K\u00f6nigsallee, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "653333",
+            "latitude": 51.223007,
+            "longitude": 6.781381
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": true,
+            "tram": true,
+            "taxi": false
+          }
+        }
+      },
+      "destination": null,
+      "currentTripPosition": {
+        "type": "location",
+        "latitude": 51.217937,
+        "longitude": 6.78228
+      }
+    },
+    {
+      "tripId": "2|#VN#1#ST#1729107992#PI#0#ZI#1706956#TA#0#DA#211024#1S#363247#1T#2011#LS#658095#LT#2037#PU#80#RT#1#CA#STR#ZE#708#ZB#STR  708#PC#8#FR#363247#FT#2011#TO#658095#TT#2037#",
+      "stop": {
+        "type": "stop",
+        "id": "657971",
+        "name": "Berliner Allee Steig 4, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "657971",
+          "latitude": 51.21889,
+          "longitude": 6.78139
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "657959",
+          "name": "Berliner Allee Steig 1, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "657959",
+            "latitude": 51.219268,
+            "longitude": 6.781957
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": true,
+            "taxi": false
+          },
+          "lines": [
+            {
+              "type": "line",
+              "id": "8-vrr071-701",
+              "fahrtNr": null,
+              "name": "STR 701",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-705",
+              "fahrtNr": null,
+              "name": "STR 705",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-706",
+              "fahrtNr": null,
+              "name": "STR 706",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            }
+          ]
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "8-vrr071-706",
+            "fahrtNr": null,
+            "name": "STR 706",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-708",
+            "fahrtNr": null,
+            "name": "STR 708",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-709",
+            "fahrtNr": null,
+            "name": "STR 709",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          }
+        ]
+      },
+      "when": "2024-10-21T20:18:00+02:00",
+      "plannedWhen": "2024-10-21T20:17:00+02:00",
+      "delay": 60,
+      "platform": null,
+      "plannedPlatform": null,
+      "prognosisType": "prognosed",
+      "direction": null,
+      "provenance": "Polizeipr\u00e4sidium, D\u00fcsseldorf",
+      "line": {
+        "type": "line",
+        "id": "8-vrr071-708",
+        "fahrtNr": "0",
+        "name": "STR 708",
+        "public": true,
+        "adminCode": "vrr071",
+        "productName": "STR",
+        "mode": "train",
+        "product": "tram",
+        "operator": {
+          "type": "operator",
+          "id": "nahreisezug",
+          "name": "Nahreisezug"
+        }
+      },
+      "remarks": [],
+      "origin": {
+        "type": "stop",
+        "id": "663149",
+        "name": "Graf-Adolf-Platz U, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "663149",
+          "latitude": 51.218998,
+          "longitude": 6.776222
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": true,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "653543",
+          "name": "Graf-Adolf-Platz U, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "653543",
+            "latitude": 51.218054,
+            "longitude": 6.775466
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": true,
+            "tram": true,
+            "taxi": false
+          }
+        }
+      },
+      "destination": null,
+      "currentTripPosition": {
+        "type": "location",
+        "latitude": 51.219187,
+        "longitude": 6.785211
+      }
+    },
+    {
+      "tripId": "2|#VN#1#ST#1729107992#PI#0#ZI#1706979#TA#0#DA#211024#1S#653340#1T#1954#LS#660723#LT#2046#PU#80#RT#1#CA#STR#ZE#709#ZB#STR  709#PC#8#FR#653340#FT#1954#TO#660723#TT#2046#",
+      "stop": {
+        "type": "stop",
+        "id": "657968",
+        "name": "Berliner Allee Steig 3, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "657968",
+          "latitude": 51.218836,
+          "longitude": 6.782622
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "657959",
+          "name": "Berliner Allee Steig 1, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "657959",
+            "latitude": 51.219268,
+            "longitude": 6.781957
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": true,
+            "taxi": false
+          },
+          "lines": [
+            {
+              "type": "line",
+              "id": "8-vrr071-701",
+              "fahrtNr": null,
+              "name": "STR 701",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-705",
+              "fahrtNr": null,
+              "name": "STR 705",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-706",
+              "fahrtNr": null,
+              "name": "STR 706",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            }
+          ]
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "8-vrr071-708",
+            "fahrtNr": null,
+            "name": "STR 708",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-709",
+            "fahrtNr": null,
+            "name": "STR 709",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          }
+        ]
+      },
+      "when": "2024-10-21T20:18:00+02:00",
+      "plannedWhen": "2024-10-21T20:18:00+02:00",
+      "delay": 0,
+      "platform": null,
+      "plannedPlatform": null,
+      "prognosisType": "prognosed",
+      "direction": null,
+      "provenance": "Gerresheim Krankenhaus, D\u00fcsseldorf",
+      "line": {
+        "type": "line",
+        "id": "8-vrr071-709",
+        "fahrtNr": "0",
+        "name": "STR 709",
+        "public": true,
+        "adminCode": "vrr071",
+        "productName": "STR",
+        "mode": "train",
+        "product": "tram",
+        "operator": {
+          "type": "operator",
+          "id": "nahreisezug",
+          "name": "Nahreisezug"
+        }
+      },
+      "remarks": [],
+      "origin": {
+        "type": "station",
+        "id": "653848",
+        "name": "Stresemannplatz, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "653848",
+          "latitude": 51.219448,
+          "longitude": 6.788788
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": false,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        }
+      },
+      "destination": null,
+      "currentTripPosition": {
+        "type": "location",
+        "latitude": 51.218953,
+        "longitude": 6.779188
+      }
+    },
+    {
+      "tripId": "2|#VN#1#ST#1729107992#PI#0#ZI#1706884#TA#4#DA#211024#1S#658300#1T#2006#LS#360782#LT#2054#PU#80#RT#1#CA#STR#ZE#706#ZB#STR  706#PC#8#FR#658300#FT#2006#TO#360782#TT#2054#",
+      "stop": {
+        "type": "stop",
+        "id": "657971",
+        "name": "Berliner Allee Steig 4, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "657971",
+          "latitude": 51.21889,
+          "longitude": 6.78139
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "657959",
+          "name": "Berliner Allee Steig 1, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "657959",
+            "latitude": 51.219268,
+            "longitude": 6.781957
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": true,
+            "taxi": false
+          },
+          "lines": [
+            {
+              "type": "line",
+              "id": "8-vrr071-701",
+              "fahrtNr": null,
+              "name": "STR 701",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-705",
+              "fahrtNr": null,
+              "name": "STR 705",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-706",
+              "fahrtNr": null,
+              "name": "STR 706",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            }
+          ]
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "8-vrr071-706",
+            "fahrtNr": null,
+            "name": "STR 706",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-708",
+            "fahrtNr": null,
+            "name": "STR 708",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-709",
+            "fahrtNr": null,
+            "name": "STR 709",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          }
+        ]
+      },
+      "when": "2024-10-21T20:19:00+02:00",
+      "plannedWhen": "2024-10-21T20:19:00+02:00",
+      "delay": 0,
+      "platform": null,
+      "plannedPlatform": null,
+      "prognosisType": "prognosed",
+      "direction": null,
+      "provenance": "Hamm S-Bahnhof, D\u00fcsseldorf",
+      "line": {
+        "type": "line",
+        "id": "8-vrr071-706",
+        "fahrtNr": "0",
+        "name": "STR 706",
+        "public": true,
+        "adminCode": "vrr071",
+        "productName": "STR",
+        "mode": "train",
+        "product": "tram",
+        "operator": {
+          "type": "operator",
+          "id": "nahreisezug",
+          "name": "Nahreisezug"
+        }
+      },
+      "remarks": [],
+      "origin": {
+        "type": "stop",
+        "id": "663149",
+        "name": "Graf-Adolf-Platz U, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "663149",
+          "latitude": 51.218998,
+          "longitude": 6.776222
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": true,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "653543",
+          "name": "Graf-Adolf-Platz U, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "653543",
+            "latitude": 51.218054,
+            "longitude": 6.775466
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": true,
+            "tram": true,
+            "taxi": false
+          }
+        }
+      },
+      "destination": null,
+      "currentTripPosition": {
+        "type": "location",
+        "latitude": 51.21889,
+        "longitude": 6.78139
+      }
+    },
+    {
+      "tripId": "2|#VN#1#ST#1729107992#PI#0#ZI#1704791#TA#2#DA#211024#1S#662600#1T#1932#LS#658099#LT#2024#PU#80#RT#1#CA#Bus#ZE#782#ZB#Bus  782#PC#5#FR#662600#FT#1932#TO#658099#TT#2024#",
+      "stop": {
+        "type": "stop",
+        "id": "663173",
+        "name": "Berliner Allee Steig 6, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "663173",
+          "latitude": 51.218423,
+          "longitude": 6.782145
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "657959",
+          "name": "Berliner Allee Steig 1, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "657959",
+            "latitude": 51.219268,
+            "longitude": 6.781957
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": true,
+            "taxi": false
+          },
+          "lines": [
+            {
+              "type": "line",
+              "id": "8-vrr071-701",
+              "fahrtNr": null,
+              "name": "STR 701",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-705",
+              "fahrtNr": null,
+              "name": "STR 705",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-706",
+              "fahrtNr": null,
+              "name": "STR 706",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            }
+          ]
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "5-vrr072-e-755616-5698058",
+            "fahrtNr": null,
+            "name": "Bus E",
+            "public": true,
+            "productName": "Bus",
+            "mode": "bus",
+            "product": "bus"
+          },
+          {
+            "type": "line",
+            "id": "5-vrr072-780",
+            "fahrtNr": null,
+            "name": "Bus 780",
+            "public": true,
+            "productName": "Bus",
+            "mode": "bus",
+            "product": "bus"
+          },
+          {
+            "type": "line",
+            "id": "5-vrr072-782",
+            "fahrtNr": null,
+            "name": "Bus 782",
+            "public": true,
+            "productName": "Bus",
+            "mode": "bus",
+            "product": "bus"
+          },
+          {
+            "type": "line",
+            "id": "5-vrr072-785",
+            "fahrtNr": null,
+            "name": "Bus 785",
+            "public": true,
+            "productName": "Bus",
+            "mode": "bus",
+            "product": "bus"
+          },
+          {
+            "type": "line",
+            "id": "5-vrr072-sb50",
+            "fahrtNr": null,
+            "name": "Bus SB50",
+            "public": true,
+            "productName": "Bus",
+            "mode": "bus",
+            "product": "bus"
+          }
+        ]
+      },
+      "when": "2024-10-21T20:21:00+02:00",
+      "plannedWhen": "2024-10-21T20:19:00+02:00",
+      "delay": 120,
+      "platform": null,
+      "plannedPlatform": null,
+      "prognosisType": "prognosed",
+      "direction": null,
+      "provenance": "Hauptbahnhof, Solingen",
+      "line": {
+        "type": "line",
+        "id": "5-vrr072-782",
+        "fahrtNr": "0",
+        "name": "Bus 782",
+        "public": true,
+        "adminCode": "vrr072",
+        "productName": "Bus",
+        "mode": "bus",
+        "product": "bus",
+        "operator": {
+          "type": "operator",
+          "id": "nahreisezug",
+          "name": "Nahreisezug"
+        }
+      },
+      "remarks": [],
+      "origin": {
+        "type": "stop",
+        "id": "653499",
+        "name": "Feuerbachstra\u00dfe, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "653499",
+          "latitude": 51.206269,
+          "longitude": 6.782865
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": false,
+          "taxi": false
+        }
+      },
+      "destination": null,
+      "currentTripPosition": {
+        "type": "location",
+        "latitude": 51.210279,
+        "longitude": 6.78264
+      }
+    },
+    {
+      "tripId": "2|#VN#1#ST#1729107992#PI#0#ZI#1706856#TA#4#DA#211024#1S#360653#1T#1943#LS#378111#LT#2033#PU#80#RT#1#CA#STR#ZE#706#ZB#STR  706#PC#8#FR#360653#FT#1943#TO#378111#TT#2033#",
+      "stop": {
+        "type": "station",
+        "id": "657959",
+        "name": "Berliner Allee Steig 1, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "657959",
+          "latitude": 51.219268,
+          "longitude": 6.781957
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "8-vrr071-701",
+            "fahrtNr": null,
+            "name": "STR 701",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-705",
+            "fahrtNr": null,
+            "name": "STR 705",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-706",
+            "fahrtNr": null,
+            "name": "STR 706",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          }
+        ]
+      },
+      "when": "2024-10-21T20:21:00+02:00",
+      "plannedWhen": "2024-10-21T20:20:00+02:00",
+      "delay": 60,
+      "platform": null,
+      "plannedPlatform": null,
+      "prognosisType": "prognosed",
+      "direction": null,
+      "provenance": "Merowingerstra\u00dfe, D\u00fcsseldorf",
+      "line": {
+        "type": "line",
+        "id": "8-vrr071-706",
+        "fahrtNr": "0",
+        "name": "STR 706",
+        "public": true,
+        "adminCode": "vrr071",
+        "productName": "STR",
+        "mode": "train",
+        "product": "tram",
+        "operator": {
+          "type": "operator",
+          "id": "nahreisezug",
+          "name": "Nahreisezug"
+        }
+      },
+      "remarks": [],
+      "origin": {
+        "type": "stop",
+        "id": "663165",
+        "name": "Steinstra\u00dfe/K\u00f6nigsallee, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "663165",
+          "latitude": 51.223295,
+          "longitude": 6.782685
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": true,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "653333",
+          "name": "Steinstra\u00dfe/K\u00f6nigsallee, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "653333",
+            "latitude": 51.223007,
+            "longitude": 6.781381
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": true,
+            "tram": true,
+            "taxi": false
+          }
+        }
+      },
+      "destination": null,
+      "currentTripPosition": {
+        "type": "location",
+        "latitude": 51.223295,
+        "longitude": 6.782685
+      }
+    },
+    {
+      "tripId": "2|#VN#1#ST#1729107992#PI#0#ZI#1706907#TA#58#DA#211024#1S#660723#1T#1954#LS#657984#LT#2045#PU#80#RT#1#CA#STR#ZE#709#ZB#STR  709#PC#8#FR#660723#FT#1954#TO#657984#TT#2045#",
+      "stop": {
+        "type": "stop",
+        "id": "657971",
+        "name": "Berliner Allee Steig 4, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "657971",
+          "latitude": 51.21889,
+          "longitude": 6.78139
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "657959",
+          "name": "Berliner Allee Steig 1, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "657959",
+            "latitude": 51.219268,
+            "longitude": 6.781957
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": true,
+            "taxi": false
+          },
+          "lines": [
+            {
+              "type": "line",
+              "id": "8-vrr071-701",
+              "fahrtNr": null,
+              "name": "STR 701",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-705",
+              "fahrtNr": null,
+              "name": "STR 705",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-706",
+              "fahrtNr": null,
+              "name": "STR 706",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            }
+          ]
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "8-vrr071-706",
+            "fahrtNr": null,
+            "name": "STR 706",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-708",
+            "fahrtNr": null,
+            "name": "STR 708",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-709",
+            "fahrtNr": null,
+            "name": "STR 709",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          }
+        ]
+      },
+      "when": "2024-10-21T20:23:00+02:00",
+      "plannedWhen": "2024-10-21T20:21:00+02:00",
+      "delay": 120,
+      "platform": null,
+      "plannedPlatform": null,
+      "prognosisType": "prognosed",
+      "direction": null,
+      "provenance": "Theodor-Heuss-Platz, Neuss",
+      "line": {
+        "type": "line",
+        "id": "8-vrr071-709",
+        "fahrtNr": "0",
+        "name": "STR 709",
+        "public": true,
+        "adminCode": "vrr071",
+        "productName": "STR",
+        "mode": "train",
+        "product": "tram",
+        "operator": {
+          "type": "operator",
+          "id": "nahreisezug",
+          "name": "Nahreisezug"
+        }
+      },
+      "remarks": [],
+      "origin": {
+        "type": "stop",
+        "id": "663149",
+        "name": "Graf-Adolf-Platz U, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "663149",
+          "latitude": 51.218998,
+          "longitude": 6.776222
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": true,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "653543",
+          "name": "Graf-Adolf-Platz U, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "653543",
+            "latitude": 51.218054,
+            "longitude": 6.775466
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": true,
+            "tram": true,
+            "taxi": false
+          }
+        }
+      },
+      "destination": null,
+      "currentTripPosition": {
+        "type": "location",
+        "latitude": 51.218495,
+        "longitude": 6.767241
+      }
+    },
+    {
+      "tripId": "2|#VN#1#ST#1729107992#PI#0#ZI#1706861#TA#34#DA#211024#1S#360653#1T#2011#LS#377741#LT#2035#PU#80#RT#1#CA#STR#ZE#705#ZB#STR  705#PC#8#FR#360653#FT#2011#TO#377741#TT#2035#",
+      "stop": {
+        "type": "stop",
+        "id": "653424",
+        "name": "Berliner Allee Steig 2, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "653424",
+          "latitude": 51.21854,
+          "longitude": 6.781984
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "657959",
+          "name": "Berliner Allee Steig 1, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "657959",
+            "latitude": 51.219268,
+            "longitude": 6.781957
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": true,
+            "taxi": false
+          },
+          "lines": [
+            {
+              "type": "line",
+              "id": "8-vrr071-701",
+              "fahrtNr": null,
+              "name": "STR 701",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-705",
+              "fahrtNr": null,
+              "name": "STR 705",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-706",
+              "fahrtNr": null,
+              "name": "STR 706",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            }
+          ]
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "8-vrr071-701",
+            "fahrtNr": null,
+            "name": "STR 701",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-705",
+            "fahrtNr": null,
+            "name": "STR 705",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-706",
+            "fahrtNr": null,
+            "name": "STR 706",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          }
+        ]
+      },
+      "when": "2024-10-21T20:23:00+02:00",
+      "plannedWhen": "2024-10-21T20:23:00+02:00",
+      "delay": 0,
+      "platform": null,
+      "plannedPlatform": null,
+      "prognosisType": "prognosed",
+      "direction": null,
+      "provenance": "Merowingerstra\u00dfe, D\u00fcsseldorf",
+      "line": {
+        "type": "line",
+        "id": "8-vrr071-705",
+        "fahrtNr": "0",
+        "name": "STR 705",
+        "public": true,
+        "adminCode": "vrr071",
+        "productName": "STR",
+        "mode": "train",
+        "product": "tram",
+        "operator": {
+          "type": "operator",
+          "id": "nahreisezug",
+          "name": "Nahreisezug"
+        }
+      },
+      "remarks": [],
+      "origin": {
+        "type": "station",
+        "id": "360098",
+        "name": "Luisenstra\u00dfe, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "360098",
+          "latitude": 51.21694,
+          "longitude": 6.782712
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": false,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        }
+      },
+      "destination": null,
+      "currentTripPosition": {
+        "type": "location",
+        "latitude": 51.209461,
+        "longitude": 6.782703
+      }
+    },
+    {
+      "tripId": "2|#VN#1#ST#1729107992#PI#0#ZI#1706839#TA#34#DA#211024#1S#663624#1T#2004#LS#363247#LT#2028#PU#80#RT#1#CA#STR#ZE#708#ZB#STR  708#PC#8#FR#663624#FT#2004#TO#363247#TT#2028#",
+      "stop": {
+        "type": "stop",
+        "id": "657968",
+        "name": "Berliner Allee Steig 3, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "657968",
+          "latitude": 51.218836,
+          "longitude": 6.782622
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": true,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        },
+        "station": {
+          "type": "station",
+          "id": "657959",
+          "name": "Berliner Allee Steig 1, D\u00fcsseldorf",
+          "location": {
+            "type": "location",
+            "id": "657959",
+            "latitude": 51.219268,
+            "longitude": 6.781957
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": true,
+            "taxi": false
+          },
+          "lines": [
+            {
+              "type": "line",
+              "id": "8-vrr071-701",
+              "fahrtNr": null,
+              "name": "STR 701",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-705",
+              "fahrtNr": null,
+              "name": "STR 705",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            },
+            {
+              "type": "line",
+              "id": "8-vrr071-706",
+              "fahrtNr": null,
+              "name": "STR 706",
+              "public": true,
+              "productName": "STR",
+              "mode": "train",
+              "product": "tram"
+            }
+          ]
+        },
+        "lines": [
+          {
+            "type": "line",
+            "id": "8-vrr071-708",
+            "fahrtNr": null,
+            "name": "STR 708",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          },
+          {
+            "type": "line",
+            "id": "8-vrr071-709",
+            "fahrtNr": null,
+            "name": "STR 709",
+            "public": true,
+            "productName": "STR",
+            "mode": "train",
+            "product": "tram"
+          }
+        ]
+      },
+      "when": "2024-10-21T20:24:00+02:00",
+      "plannedWhen": "2024-10-21T20:22:00+02:00",
+      "delay": 120,
+      "platform": null,
+      "plannedPlatform": null,
+      "prognosisType": "prognosed",
+      "direction": null,
+      "provenance": "Heinrichstra\u00dfe, D\u00fcsseldorf",
+      "line": {
+        "type": "line",
+        "id": "8-vrr071-708",
+        "fahrtNr": "0",
+        "name": "STR 708",
+        "public": true,
+        "adminCode": "vrr071",
+        "productName": "STR",
+        "mode": "train",
+        "product": "tram",
+        "operator": {
+          "type": "operator",
+          "id": "nahreisezug",
+          "name": "Nahreisezug"
+        }
+      },
+      "remarks": [],
+      "origin": {
+        "type": "station",
+        "id": "653848",
+        "name": "Stresemannplatz, D\u00fcsseldorf",
+        "location": {
+          "type": "location",
+          "id": "653848",
+          "latitude": 51.219448,
+          "longitude": 6.788788
+        },
+        "products": {
+          "nationalExpress": false,
+          "national": false,
+          "regionalExpress": false,
+          "regional": false,
+          "suburban": false,
+          "bus": false,
+          "ferry": false,
+          "subway": false,
+          "tram": true,
+          "taxi": false
+        }
+      },
+      "destination": null,
+      "currentTripPosition": {
+        "type": "location",
+        "latitude": 51.222279,
+        "longitude": 6.793858
+      }
+    }
+  ],
+  "realtimeDataUpdatedAt": 1729534605
+}

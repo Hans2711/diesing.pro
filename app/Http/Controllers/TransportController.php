@@ -105,22 +105,18 @@ class TransportController extends Controller
         ]);
     }
 
-    public function fetchSingleArrivals($id, Request $request)
+    public function fetchTrips($id, $type, Request $request)
     {
+        $path = app_path("example-jsons/trips.json");
+        $path = str_replace("/app", "", $path);
+        return new JsonResponse(json_decode(file_get_contents($path), true));
+
         $options = $this->buildOptionsFromRequest($request);
-        $arrivals = $this->transportUtility->arrivals($id, $options);
+        $trips = $this->transportUtility->trips($id, $type, $options);
 
-        return view("transport.single.arrivals", ["arrivals" => $arrivals]);
-    }
+        return new JsonResponse($trips);
 
-    public function fetchSingleDepartures($id, Request $request)
-    {
-        $options = $this->buildOptionsFromRequest($request);
-        $departures = $this->transportUtility->departures($id, $options);
-
-        return view("transport.single.departures", [
-            "departures" => $departures,
-        ]);
+        // return view("transport.single.arrivals", ["arrivals" => $arrivals]);
     }
 
     private function buildOptionsFromRequest(Request $request)

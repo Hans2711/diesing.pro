@@ -33,5 +33,6 @@
     @include('transport.templates.stops-loader-template')
     @include('transport.templates.stops-error-template')
     @include('transport.templates.stop-template')
+    @include('transport.templates.trips-template')
 
 @endsection

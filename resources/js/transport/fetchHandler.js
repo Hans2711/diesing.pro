@@ -63,42 +63,27 @@ export function fetchSingleStop(id, type = "stop") {
   });
 }
 
-export function fetchSingleStopArrivals(id, params = {}) {
+export function fetchTrips(id, type = "arrival", options = {}) {
   return new Promise((resolve, reject) => {
     const url = new URL(
-      `/transport/fetch/${id}/arrivals`,
+      `/transport/fetch/trips/${id}/${type}`,
       window.location.origin,
     );
-    Object.keys(params).forEach((key) => {
-      url.searchParams.append(key, params[key]);
+
+    // Add options as GET parameters
+    Object.keys(options).forEach((key) => {
+      url.searchParams.append(key, options[key]);
     });
 
     fetch(url)
-      .then((response) => response.text())
-      .then((html) => {
-        resolve(html);
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-        reject(error);
-      });
-  });
-}
-
-export function fetchSingleStopDepartures(id, params = {}) {
-  return new Promise((resolve, reject) => {
-    const url = new URL(
-      `/transport/fetch/${id}/departures`,
-      window.location.origin,
-    );
-    Object.keys(params).forEach((key) => {
-      url.searchParams.append(key, params[key]);
-    });
-
-    fetch(url)
-      .then((response) => response.text())
-      .then((html) => {
-        resolve(html);
+      .then((response) => {
+        return response.json().then((json) => {
+          if (response.ok) {
+            resolve(json);
+          } else {
+            reject(json);
+          }
+        });
       })
       .catch((error) => {
         console.error("Fetch error:", error);

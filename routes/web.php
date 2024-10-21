@@ -25,14 +25,12 @@ Route::get("/transport/fetch/{id}", [
     TransportController::class,
     "fetchSingle",
 ]);
-Route::get("/transport/fetch/{id}/arrivals", [
+
+Route::get("/transport/fetch/trips/{id}/{type}", [
     TransportController::class,
-    "fetchSingleArrivals",
+    "fetchTrips",
 ]);
-Route::get("/transport/fetch/{id}/departures", [
-    TransportController::class,
-    "fetchSingleDepartures",
-]);
+
 Route::get("/transport/search/", [TransportController::class, "search"]);
 
 require base_path("/routes/private.php");

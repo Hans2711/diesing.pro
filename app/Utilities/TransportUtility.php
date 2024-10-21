@@ -31,7 +31,7 @@ class TransportUtility
         }
     }
 
-    public function arrivals($id, $options = [])
+    public function trips($id, $type, $options = [])
     {
         try {
             $defaults = [
@@ -67,62 +67,9 @@ class TransportUtility
                 return $value !== null;
             });
 
-            $response = $this->client->get(
-                "{$this->baseUrl}/stops/$id/arrivals",
-                [
-                    "query" => $queryParams,
-                ]
-            );
-
-            $data = json_decode($response->getBody()->getContents(), true);
-            return $data;
-        } catch (\Exception $e) {
-            return ["error" => $e->getMessage()];
-        }
-    }
-
-    public function departures($id, $options = [])
-    {
-        try {
-            $defaults = [
-                "when" => null,
-                "direction" => null,
-                "duration" => 10,
-                "results" => null,
-                "linesOfStops" => false,
-                "remarks" => true,
-                "language" => "de",
-                "nationalExpress" => true,
-                "national" => true,
-                "regionalExp" => true,
-                "regional" => true,
-                "suburban" => true,
-                "bus" => true,
-                "ferry" => true,
-                "subway" => true,
-                "tram" => true,
-                "taxi" => true,
-                "pretty" => true,
-            ];
-
-            $queryParams = array_merge($defaults, $options);
-
-            foreach ($queryParams as $key => $value) {
-                if (is_bool($value)) {
-                    $queryParams[$key] = $value ? "true" : "false";
-                }
-            }
-
-            $queryParams = array_filter($queryParams, function ($value) {
-                return $value !== null;
-            });
-
-            $response = $this->client->get(
-                "{$this->baseUrl}/stops/$id/departures",
-                [
-                    "query" => $queryParams,
-                ]
-            );
+            $response = $this->client->get("{$this->baseUrl}/stops/$id/$type", [
+                "query" => $queryParams,
+            ]);
 
             $data = json_decode($response->getBody()->getContents(), true);
             return $data;

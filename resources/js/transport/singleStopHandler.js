@@ -1,8 +1,5 @@
-import {
-  fetchSingleStop,
-  fetchSingleStopArrivals,
-  fetchSingleStopDepartures,
-} from "./fetchHandler.js";
+import { fetchSingleStop, fetchTrips } from "./fetchHandler.js";
+import TripsHandler from "./tripsHandler.js";
 import _ from "lodash";
 import { createMap } from "./mapHandler.js";
 
@@ -23,20 +20,44 @@ export default class SingleStopHandler {
         console.log(json);
         this.receiveSingleStop(json);
 
-        // createMap(
-        //   this.stopWrapper.querySelector(".station").dataset.lat,
-        //   this.stopWrapper.querySelector(".station").dataset.lon,
-        // );
+        this.tripsHandler = new TripsHandler(this.stopItem);
+        this.tripsHandler.init();
+
+        createMap(
+          this.stopWrapper.querySelector(".station").dataset.lat,
+          this.stopWrapper.querySelector(".station").dataset.lon,
+        );
       })
       .catch((error) => {
         this.displayError(error.message);
       });
+  }
 
-    this.closeButton.addEventListener("click", this.closeModal.bind(this));
+  triggerOptionsDropdown() {
+    this.optionsDropdown.classList.toggle("hidden");
+    console.log("triggered");
   }
 
   closeModal() {
     this.stopModalWrapper.classList.add("hidden");
+
+    if (this.tripsHandler) {
+      this.tripsHandler.uninstall();
+      this.tripsHandler = null;
+    }
+  }
+
+  applyListeners() {
+    this.optionsDropdownButton = this.stopWrapper.querySelector(
+      "#options-dropdown-button",
+    );
+    this.optionsDropdown = this.stopWrapper.querySelector("#options-dropdown");
+
+    this.closeButton.addEventListener("click", this.closeModal.bind(this));
+    this.optionsDropdownButton.addEventListener(
+      "click",
+      this.triggerOptionsDropdown.bind(this),
+    );
   }
 
   receiveSingleStop(json) {
@@ -44,11 +65,16 @@ export default class SingleStopHandler {
     var renderedHTML = compiledTemplate(json);
     this.stopWrapper.innerHTML = renderedHTML;
     this.stopModalWrapper.classList.remove("hidden");
-    // this.applyListeners();
+
+    this.applyListeners();
   }
 
   uninstall() {
     this.closeButton.removeEventListener("click", this.closeModal.bind(this));
+    if (this.tripsHandler) {
+      this.tripsHandler.uninstall();
+      this.tripsHandler = null;
+    }
   }
 
   displayError(errorMessage) {
