@@ -105,3 +105,25 @@ h2 a {
 html {
   font-family: 'Fira Code';
 }
+
+
+.parallax-image {
+    position: relative;
+    height: 350px; /* Adjust height as needed */
+    background-image: url('{{ Vite::asset('resources/images/kontakt.jpg') }}');
+    background-size: cover;
+    background-attachment: fixed; /* Parallax effect */
+    background-position: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    margin-bottom: 2.5rem; /* Adjust margin as needed */
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.parallax-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by half width and height */
+    text-align: center;
+    z-index: 1; /* Ensure text is above the image */
+}
