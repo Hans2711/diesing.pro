@@ -75,36 +75,40 @@ h2 a {
 }
 
 @font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../font/static/FiraCode-Regular.ttf') format('truetype');
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../font/static/FiraCode-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 500;
-  src: url('../font/static/FiraCode-Medium.ttf') format('truetype');
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../font/static/FiraCode-Medium.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 600;
-  src: url('../font/static/FiraCode-SemiBold.ttf') format('truetype');
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../font/static/FiraCode-SemiBold.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../font/static/FiraCode-Bold.ttf') format('truetype');
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../font/static/FiraCode-Bold.ttf') format('truetype');
 }
 
 html {
-  font-family: 'Fira Code';
+    font-family: 'Fira Code';
+    height: 100%; /* Ensure full height for the body */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+
+
 
 .parallax-image {
     position: relative;
@@ -114,14 +118,13 @@ html {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
     margin-bottom: 2.5rem; /* Adjust margin as needed */
     overflow: hidden; /* Prevent content overflow */
-    will-change: transform; /* Hint to the browser for performance */
 }
 
-/* Mobile-friendly adjustments */
+/* For mobile devices */
 @media screen and (max-width: 768px) {
     .parallax-image {
-        background-attachment: scroll; /* Disable fixed background on mobile */
         height: 200px; /* Adjust height for mobile */
+        background-attachment: scroll; /* Disable fixed background on mobile */
     }
 }
 
@@ -131,13 +134,13 @@ html {
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Offset by half width and height */
-    color: white; /* Text color */
     text-align: center;
     z-index: 1; /* Ensure text is above the image */
 }
 
-.parallax-image a {
-    color: yellow; /* Change link color if needed */
-    text-decoration: underline; /* Underline links */
+/* Parallax effect using a background image for larger screens */
+@media screen and (min-width: 769px) {
+    .parallax-image {
+        background-attachment: fixed; /* Enable fixed background for larger screens */
+    }
 }
-
