@@ -14,6 +14,7 @@ export default defineConfig({
         "resources/js/files.js",
         "resources/js/parts/password.js",
         "resources/js/contact.js",
+        "resources/js/utils/iphone-paralax.js",
       ],
       refresh: true,
     }),
