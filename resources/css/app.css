@@ -135,14 +135,8 @@ html {
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Offset by half width and height */
-    color: white; /* Text color */
     text-align: center;
     z-index: 1; /* Ensure text is above the image */
-}
-
-.parallax-image a {
-    color: yellow; /* Change link color if needed */
-    text-decoration: underline; /* Underline links */
 }
 
 /* Parallax effect using a background image for larger screens */

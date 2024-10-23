@@ -1,6 +1,7 @@
 @extends('layouts.app', ['title' => 'Startseite'])
 
 @section('content')
+    @vite(['resources/js/utils/iphone-paralax.js'])
     <h1>Wilkommen bei diesing.pro</h1>
 
     <div class="parallax-image" style="background-image: url('{{ Vite::asset('resources/images/kontakt.jpg') }}');">
