@@ -106,24 +106,38 @@ html {
   font-family: 'Fira Code';
 }
 
-
 .parallax-image {
     position: relative;
     height: 350px; /* Adjust height as needed */
-    background-image: url('{{ Vite::asset('resources/images/kontakt.jpg') }}');
     background-size: cover;
-    background-attachment: fixed; /* Parallax effect */
     background-position: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
     margin-bottom: 2.5rem; /* Adjust margin as needed */
     overflow: hidden; /* Prevent content overflow */
+    will-change: transform; /* Hint to the browser for performance */
 }
 
+/* Mobile-friendly adjustments */
+@media screen and (max-width: 768px) {
+    .parallax-image {
+        background-attachment: scroll; /* Disable fixed background on mobile */
+        height: 200px; /* Adjust height for mobile */
+    }
+}
+
+/* Text styles */
 .parallax-text {
     position: absolute;
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Offset by half width and height */
+    color: white; /* Text color */
     text-align: center;
     z-index: 1; /* Ensure text is above the image */
 }
+
+.parallax-image a {
+    color: yellow; /* Change link color if needed */
+    text-decoration: underline; /* Underline links */
+}
+
