@@ -19,7 +19,12 @@ export default defineConfig({
       refresh: true,
     }),
     obfuscatorPlugin({
-      include: ["resources/js/notes.js", "resources/js/redirects.js"],
+      include: [
+                "resources/js/notes.js",
+                "resources/js/redirects.js",
+                "resources/js/contact.js",
+                "resources/js/parts/password.js"
+            ],
       apply: "build",
       options: {},
     }),
