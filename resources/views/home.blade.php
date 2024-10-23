@@ -4,7 +4,7 @@
     <h1>Wilkommen bei diesing.pro</h1>
 
     <div class="parallax-image" style="background-image: url('{{ Vite::asset('resources/images/kontakt.jpg') }}');">
-        <h2 class="parallax-text text-black text-3xl">
+        <h2 class="parallax-text text-white md:text-black text-3xl">
             <a href="{{url('/kontakt')}}">Kontakt</a>
         </h2>
     </div>

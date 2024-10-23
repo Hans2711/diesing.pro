@@ -109,12 +109,11 @@ html {
 }
 
 
-
 .parallax-image {
     position: relative;
     height: 350px; /* Adjust height as needed */
     background-size: cover;
-    background-position: center;
+    background-position: center; /* Default to center for larger screens */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
     margin-bottom: 2.5rem; /* Adjust margin as needed */
     overflow: hidden; /* Prevent content overflow */
@@ -125,6 +124,7 @@ html {
     .parallax-image {
         height: 200px; /* Adjust height for mobile */
         background-attachment: scroll; /* Disable fixed background on mobile */
+        background-position: top; /* Position the background image at the top for mobile */
     }
 }
 
@@ -134,8 +134,14 @@ html {
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Offset by half width and height */
+    color: white; /* Text color */
     text-align: center;
     z-index: 1; /* Ensure text is above the image */
+}
+
+.parallax-image a {
+    color: yellow; /* Change link color if needed */
+    text-decoration: underline; /* Underline links */
 }
 
 /* Parallax effect using a background image for larger screens */
