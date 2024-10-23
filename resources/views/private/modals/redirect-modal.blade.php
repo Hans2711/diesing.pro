@@ -25,14 +25,12 @@
       -->
       <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
         <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-          <div class="sm:flex sm:items-start">
-            <div class="">
-              <h2 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Weiterleitung</h2>
-
+        <h2 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Weiterleitung</h2>
+          <div class="grid grid-cols-1 md:flex md:items-start">
                 @csrf
                 <input type="hidden" name="id" id="id" value="">
                 <input type="hidden" name="url" id="url" value="">
-                <div class="flex gap-2">
+                <div class="grid mb-2 md:mb-0 md:flex gap-4 md:gap-2">
                   @include('private.modals.parts.floating-label-input', ['id' => 'name', 'name' => 'name', 'label' => 'Name'])
                   @include('private.modals.parts.floating-label-input', ['id' => 'target', 'name' => 'target', 'label' => 'Target Url'])
                   <select name="code" id="code" class="rounded w-full md:w-auto">
@@ -46,7 +44,6 @@
                     <option value="308">308</option>
                   </select>
                 </div>
-            </div>
           </div>
         </div>
         <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
