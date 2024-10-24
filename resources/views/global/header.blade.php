@@ -9,7 +9,7 @@
         <a href="/">
             <div
                 class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12"
-                style='background-image: url("{{ Vite::asset('resources/logo/logo.png') }}");'
+                style='background-image: url("{{ Vite::asset('resources/logo/person_logo.jpeg') }}");'
             ></div>
         </a>
     </div>

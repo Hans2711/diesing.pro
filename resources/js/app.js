@@ -2,4 +2,8 @@ import "./bootstrap";
 import "../css/app.css";
 import "flowbite";
 
-import.meta.glob(["../logo/**", "../portfolio/**"]);
+import.meta.glob([
+  '../logo/**',
+  '../portfolio/**',
+  '../images/**',
+]);

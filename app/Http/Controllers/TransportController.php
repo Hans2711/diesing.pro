@@ -107,9 +107,9 @@ class TransportController extends Controller
 
     public function fetchTrips($id, $type, Request $request)
     {
-        $path = app_path("example-jsons/trips.json");
-        $path = str_replace("/app", "", $path);
-        return new JsonResponse(json_decode(file_get_contents($path), true));
+        // $path = app_path("example-jsons/trips.json");
+        // $path = str_replace("/app", "", $path);
+        // return new JsonResponse(json_decode(file_get_contents($path), true));
 
         $options = $this->buildOptionsFromRequest($request);
         $trips = $this->transportUtility->trips($id, $type, $options);

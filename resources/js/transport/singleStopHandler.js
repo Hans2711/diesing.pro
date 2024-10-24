@@ -1,4 +1,5 @@
 import { fetchSingleStop, fetchTrips } from "./fetchHandler.js";
+import { showLoader, hideLoader } from "./loaderHandler.js";
 import TripsHandler from "./tripsHandler.js";
 import _ from "lodash";
 import { createMap } from "./mapHandler.js";
@@ -15,6 +16,7 @@ export default class SingleStopHandler {
   }
 
   init() {
+    showLoader();
     fetchSingleStop(this.stopItem.dataset.id)
       .then((json) => {
         console.log(json);
@@ -35,7 +37,6 @@ export default class SingleStopHandler {
 
   triggerOptionsDropdown() {
     this.optionsDropdown.classList.toggle("hidden");
-    console.log("triggered");
   }
 
   closeModal() {
@@ -67,6 +68,7 @@ export default class SingleStopHandler {
     this.stopModalWrapper.classList.remove("hidden");
 
     this.applyListeners();
+    hideLoader();
   }
 
   uninstall() {
@@ -79,5 +81,6 @@ export default class SingleStopHandler {
 
   displayError(errorMessage) {
     this.stopWrapper.innerHTML = `<p class="error">${errorMessage}</p>`;
+    hideLoader();
   }
 }

@@ -18,6 +18,7 @@ Route::get("/datenschutz", function () {
 Route::get("/portfolio", [PortfolioController::class, "list"]);
 
 Route::get("/kontakt", [ContactController::class, "form"]);
+Route::post("/kontakt/abschicken", [ContactController::class, "submit"]);
 
 Route::get("/transport", [TransportController::class, "index"]);
 Route::get("/transport/fetch", [TransportController::class, "fetch"]);

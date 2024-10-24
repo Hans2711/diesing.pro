@@ -7,17 +7,25 @@ export default defineConfig({
     laravel({
       input: [
         "resources/css/app.css",
+        "resources/css/contact.css",
         "resources/js/app.js",
         "resources/js/notes.js",
         "resources/js/redirects.js",
         "resources/js/files.js",
         "resources/js/parts/password.js",
         "resources/js/transport",
+        "resources/js/contact.js",
+        "resources/js/utils/iphone-paralax.js",
       ],
       refresh: true,
     }),
     obfuscatorPlugin({
-      include: ["resources/js/notes.js", "resources/js/redirects.js"],
+      include: [
+                "resources/js/notes.js",
+                "resources/js/redirects.js",
+                "resources/js/contact.js",
+                "resources/js/parts/password.js"
+            ],
       apply: "build",
       options: {},
     }),

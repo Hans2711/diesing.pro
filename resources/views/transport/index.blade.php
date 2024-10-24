@@ -29,6 +29,8 @@
       </div>
     </div>
 
+    <div id="loader-spinner" class="hidden fixed left-3 top-3 z-30 border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600"></div>
+
     @include('transport.templates.stops-list-template')
     @include('transport.templates.stops-loader-template')
     @include('transport.templates.stops-error-template')

@@ -17,3 +17,22 @@
 .t-button {
     @apply bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded mb-3;
 }
+
+.trip {
+    @apply bg-white shadow-md rounded-lg p-4 mb-4;
+}
+
+.trip-title {
+    @apply font-bold text-lg mb-2;
+}
+
+.provenance,
+.origin,
+.plannedWhen,
+.when {
+    @apply block;
+}
+
+.plannedWhen.crossed {
+    @apply text-red-500 line-through;
+}

@@ -1,5 +1,6 @@
 import { fetchStops, fetchStopsSearch } from "./fetchHandler.js";
 import { initLocation } from "./locationHandler.js";
+import { showLoader, hideLoader } from "./loaderHandler.js";
 import SingleStopHandler from "./singleStopHandler.js";
 import _ from "lodash";
 
@@ -95,19 +96,14 @@ export default class TransportApp {
     var renderedHTML = compiledTemplate({ stops: json });
     this.stopsWrapper.innerHTML = renderedHTML;
     this.applyStopsClickListeners();
+    hideLoader();
   }
 
   displayError(wrapper, errorMessage) {
     var compiledTemplate = _.template(this.stopsErrorTemplateContent);
     var renderedHTML = compiledTemplate({ error: errorMessage });
     wrapper.innerHTML = renderedHTML;
-  }
-
-  displayLoader() {
-    var compiledTemplate = _.template(this.stopsLoaderTemplateContent);
-    var renderedHTML = compiledTemplate({ message: "Loading stops" });
-    console.log(renderedHTML);
-    this.stopsWrapper.innerHTML = renderedHTML;
+    hideLoader();
   }
 
   locationError(err) {
@@ -126,7 +122,7 @@ export default class TransportApp {
 
   locationFetchSuccessNoCache(pos) {
     const crd = pos.coords;
-    this.displayLoader();
+    showLoader();
 
     // fetchStops(crd, true)
     //   .then((html) => {
@@ -139,7 +135,7 @@ export default class TransportApp {
 
   locationFetchSuccess(pos) {
     const crd = pos.coords;
-    this.displayLoader();
+    showLoader();
 
     fetchStops(crd)
       .then((json) => {
