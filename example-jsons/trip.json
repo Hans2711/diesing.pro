@@ -1,0 +1,1053 @@
+{
+  "trip": {
+    "origin": {
+      "type": "stop",
+      "id": "660853",
+      "name": "Heinrich-Heine-Allee U, Düsseldorf",
+      "location": {
+        "type": "location",
+        "id": "660853",
+        "latitude": 51.229237,
+        "longitude": 6.777219
+      },
+      "products": {
+        "nationalExpress": false,
+        "national": false,
+        "regionalExpress": false,
+        "regional": false,
+        "suburban": false,
+        "bus": true,
+        "ferry": false,
+        "subway": true,
+        "tram": false,
+        "taxi": false
+      }
+    },
+    "destination": {
+      "type": "stop",
+      "id": "219098",
+      "name": "Hochdahler Markt, Erkrath",
+      "location": {
+        "type": "location",
+        "id": "219098",
+        "latitude": 51.207079,
+        "longitude": 6.954972
+      },
+      "products": {
+        "nationalExpress": false,
+        "national": false,
+        "regionalExpress": false,
+        "regional": false,
+        "suburban": false,
+        "bus": true,
+        "ferry": false,
+        "subway": false,
+        "tram": false,
+        "taxi": false
+      }
+    },
+    "departure": "2024-10-24T19:37:00+02:00",
+    "plannedDeparture": "2024-10-24T19:36:00+02:00",
+    "departureDelay": 60,
+    "arrival": "2024-10-24T20:24:00+02:00",
+    "plannedArrival": "2024-10-24T20:24:00+02:00",
+    "arrivalDelay": 0,
+    "line": {
+      "type": "line",
+      "id": "5-vrr072-780",
+      "fahrtNr": "0",
+      "name": "Bus 780",
+      "public": true,
+      "adminCode": "vrr072",
+      "productName": "Bus",
+      "mode": "bus",
+      "product": "bus"
+    },
+    "direction": "Hochdahler Markt, Erkrath",
+    "currentLocation": {
+      "type": "location",
+      "latitude": 51.219115,
+      "longitude": 6.781786
+    },
+    "arrivalPlatform": null,
+    "plannedArrivalPlatform": null,
+    "arrivalPrognosisType": "prognosed",
+    "departurePlatform": null,
+    "plannedDeparturePlatform": null,
+    "departurePrognosisType": null,
+    "stopovers": [
+      {
+        "stop": {
+          "type": "stop",
+          "id": "660853",
+          "name": "Heinrich-Heine-Allee U, Düsseldorf",
+          "location": {
+            "type": "location",
+            "id": "660853",
+            "latitude": 51.229237,
+            "longitude": 6.777219
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": true,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": null,
+        "plannedArrival": null,
+        "arrivalDelay": null,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": null,
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T19:37:00+02:00",
+        "plannedDeparture": "2024-10-24T19:36:00+02:00",
+        "departureDelay": 60,
+        "departurePlatform": null,
+        "departurePrognosisType": null,
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "653325",
+          "name": "Heinrich-Heine-Allee U, Düsseldorf",
+          "location": {
+            "type": "location",
+            "id": "653325",
+            "latitude": 51.225506,
+            "longitude": 6.779017
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": true,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T19:40:00+02:00",
+        "plannedArrival": "2024-10-24T19:40:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": null,
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T19:40:00+02:00",
+        "plannedDeparture": "2024-10-24T19:40:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": null,
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "361234",
+          "name": "Steinstraße/Königsallee, Düsseldorf",
+          "location": {
+            "type": "location",
+            "id": "361234",
+            "latitude": 51.222468,
+            "longitude": 6.782289
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": true,
+            "tram": true,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T19:44:00+02:00",
+        "plannedArrival": "2024-10-24T19:44:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": null,
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T19:44:00+02:00",
+        "plannedDeparture": "2024-10-24T19:44:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "663166",
+          "name": "Berliner Allee Steig 5, Düsseldorf",
+          "location": {
+            "type": "location",
+            "id": "663166",
+            "latitude": 51.218486,
+            "longitude": 6.781687
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": true,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T19:46:00+02:00",
+        "plannedArrival": "2024-10-24T19:46:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T19:46:00+02:00",
+        "plannedDeparture": "2024-10-24T19:46:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "653499",
+          "name": "Feuerbachstraße, Düsseldorf",
+          "location": {
+            "type": "location",
+            "id": "653499",
+            "latitude": 51.206269,
+            "longitude": 6.782865
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T19:49:00+02:00",
+        "plannedArrival": "2024-10-24T19:49:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T19:49:00+02:00",
+        "plannedDeparture": "2024-10-24T19:49:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "658097",
+          "name": "Uni-Kliniken, Düsseldorf",
+          "location": {
+            "type": "location",
+            "id": "658097",
+            "latitude": 51.199582,
+            "longitude": 6.790344
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": true,
+            "tram": true,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T19:52:00+02:00",
+        "plannedArrival": "2024-10-24T19:52:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T19:52:00+02:00",
+        "plannedDeparture": "2024-10-24T19:52:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "658129",
+          "name": "Werstener Dorfstraße, Düsseldorf",
+          "location": {
+            "type": "location",
+            "id": "658129",
+            "latitude": 51.193792,
+            "longitude": 6.81403
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": true,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T19:55:00+02:00",
+        "plannedArrival": "2024-10-24T19:55:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T19:55:00+02:00",
+        "plannedDeparture": "2024-10-24T19:55:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "654226",
+          "name": "Rohrsmühle, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "654226",
+            "latitude": 51.198161,
+            "longitude": 6.911806
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:04:00+02:00",
+        "plannedArrival": "2024-10-24T20:04:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:04:00+02:00",
+        "plannedDeparture": "2024-10-24T20:04:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "654222",
+          "name": "Neuenhausplatz, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "654222",
+            "latitude": 51.201056,
+            "longitude": 6.914691
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:05:00+02:00",
+        "plannedArrival": "2024-10-24T20:05:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:05:00+02:00",
+        "plannedDeparture": "2024-10-24T20:05:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "654239",
+          "name": "Theodor-Storm-Straße, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "654239",
+            "latitude": 51.202746,
+            "longitude": 6.921307
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:06:00+02:00",
+        "plannedArrival": "2024-10-24T20:06:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:06:00+02:00",
+        "plannedDeparture": "2024-10-24T20:06:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "654179",
+          "name": "Am Lohbusch, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "654179",
+            "latitude": 51.202979,
+            "longitude": 6.925964
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:07:00+02:00",
+        "plannedArrival": "2024-10-24T20:07:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:07:00+02:00",
+        "plannedDeparture": "2024-10-24T20:07:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "654216",
+          "name": "Matthias-Claudius-Straße, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "654216",
+            "latitude": 51.200148,
+            "longitude": 6.926126
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:09:00+02:00",
+        "plannedArrival": "2024-10-24T20:09:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:09:00+02:00",
+        "plannedDeparture": "2024-10-24T20:09:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "654217",
+          "name": "Max-Planck-Straße, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "654217",
+            "latitude": 51.196651,
+            "longitude": 6.926854
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:10:00+02:00",
+        "plannedArrival": "2024-10-24T20:10:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:10:00+02:00",
+        "plannedDeparture": "2024-10-24T20:10:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "654180",
+          "name": "Am Thieleshof, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "654180",
+            "latitude": 51.19844,
+            "longitude": 6.93142
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:11:00+02:00",
+        "plannedArrival": "2024-10-24T20:11:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:11:00+02:00",
+        "plannedDeparture": "2024-10-24T20:11:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "654194",
+          "name": "Feldheider Straße, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "654194",
+            "latitude": 51.200588,
+            "longitude": 6.93907
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:12:00+02:00",
+        "plannedArrival": "2024-10-24T20:12:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:12:00+02:00",
+        "plannedDeparture": "2024-10-24T20:12:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "219036",
+          "name": "Kemperdick, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "219036",
+            "latitude": 51.201514,
+            "longitude": 6.946729
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:13:00+02:00",
+        "plannedArrival": "2024-10-24T20:13:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:13:00+02:00",
+        "plannedDeparture": "2024-10-24T20:13:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "219729",
+          "name": "Immermannstraße, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "219729",
+            "latitude": 51.199833,
+            "longitude": 6.950172
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:14:00+02:00",
+        "plannedArrival": "2024-10-24T20:14:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:14:00+02:00",
+        "plannedDeparture": "2024-10-24T20:14:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "219034",
+          "name": "Gretenberger Straße, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "219034",
+            "latitude": 51.199132,
+            "longitude": 6.955511
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:15:00+02:00",
+        "plannedArrival": "2024-10-24T20:15:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:15:00+02:00",
+        "plannedDeparture": "2024-10-24T20:15:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "319101",
+          "name": "Sandheider Markt, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "319101",
+            "latitude": 51.200642,
+            "longitude": 6.958109
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:16:00+02:00",
+        "plannedArrival": "2024-10-24T20:16:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:16:00+02:00",
+        "plannedDeparture": "2024-10-24T20:16:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "219055",
+          "name": "Eichendorffweg, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "219055",
+            "latitude": 51.202269,
+            "longitude": 6.959907
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:17:00+02:00",
+        "plannedArrival": "2024-10-24T20:17:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:17:00+02:00",
+        "plannedDeparture": "2024-10-24T20:17:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "119056",
+          "name": "Schildsheider Straße, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "119056",
+            "latitude": 51.204292,
+            "longitude": 6.963449
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:18:00+02:00",
+        "plannedArrival": "2024-10-24T20:18:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:18:00+02:00",
+        "plannedDeparture": "2024-10-24T20:18:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "219731",
+          "name": "Hattnitter Straße, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "219731",
+            "latitude": 51.204319,
+            "longitude": 6.967683
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:19:00+02:00",
+        "plannedArrival": "2024-10-24T20:19:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:19:00+02:00",
+        "plannedDeparture": "2024-10-24T20:19:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "657996",
+          "name": "Haaner Straße, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "657996",
+            "latitude": 51.207582,
+            "longitude": 6.966496
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:20:00+02:00",
+        "plannedArrival": "2024-10-24T20:20:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:20:00+02:00",
+        "plannedDeparture": "2024-10-24T20:20:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "657995",
+          "name": "Hochdahl Schulzentrum, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "657995",
+            "latitude": 51.207123,
+            "longitude": 6.963233
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:21:00+02:00",
+        "plannedArrival": "2024-10-24T20:21:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:21:00+02:00",
+        "plannedDeparture": "2024-10-24T20:21:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "657994",
+          "name": "Bürgerhaus, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "657994",
+            "latitude": 51.206989,
+            "longitude": 6.960635
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:21:00+02:00",
+        "plannedArrival": "2024-10-24T20:21:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": "2024-10-24T20:21:00+02:00",
+        "plannedDeparture": "2024-10-24T20:21:00+02:00",
+        "departureDelay": 0,
+        "departurePlatform": null,
+        "departurePrognosisType": "prognosed",
+        "plannedDeparturePlatform": null
+      },
+      {
+        "stop": {
+          "type": "stop",
+          "id": "219098",
+          "name": "Hochdahler Markt, Erkrath",
+          "location": {
+            "type": "location",
+            "id": "219098",
+            "latitude": 51.207079,
+            "longitude": 6.954972
+          },
+          "products": {
+            "nationalExpress": false,
+            "national": false,
+            "regionalExpress": false,
+            "regional": false,
+            "suburban": false,
+            "bus": true,
+            "ferry": false,
+            "subway": false,
+            "tram": false,
+            "taxi": false
+          }
+        },
+        "arrival": "2024-10-24T20:24:00+02:00",
+        "plannedArrival": "2024-10-24T20:24:00+02:00",
+        "arrivalDelay": 0,
+        "arrivalPlatform": null,
+        "arrivalPrognosisType": "prognosed",
+        "plannedArrivalPlatform": null,
+        "departure": null,
+        "plannedDeparture": null,
+        "departureDelay": null,
+        "departurePlatform": null,
+        "departurePrognosisType": null,
+        "plannedDeparturePlatform": null
+      }
+    ],
+    "remarks": [
+      {
+        "text": "Number of bicycles conveyed limited",
+        "type": "hint",
+        "code": "bicycle-conveyance",
+        "summary": "bicycles conveyed"
+      }
+    ],
+    "id": "2|#VN#1#ST#1729541757#PI#0#ZI#1723222#TA#1#DA#241024#1S#660853#1T#1936#LS#219098#LT#2024#PU#80#RT#1#CA#Bus#ZE#780#ZB#Bus  780#PC#5#FR#660853#FT#1936#TO#219098#TT#2024#"
+  },
+  "realtimeDataUpdatedAt": 1729791828
+}

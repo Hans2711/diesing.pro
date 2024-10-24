@@ -63,6 +63,31 @@ export function fetchSingleStop(id, type = "stop") {
   });
 }
 
+export function fetchTripDetails(id) {
+  return new Promise((resolve, reject) => {
+    const url = new URL(
+      `/transport/fetch/trip/details`,
+      window.location.origin,
+    );
+    url.searchParams.append("id", id);
+
+    fetch(url)
+      .then((response) => {
+        return response.json().then((json) => {
+          if (response.ok) {
+            resolve(json);
+          } else {
+            reject(json);
+          }
+        });
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+        reject(error);
+      });
+  });
+}
+
 export function fetchTrips(id, type = "arrival", options = {}) {
   return new Promise((resolve, reject) => {
     const url = new URL(

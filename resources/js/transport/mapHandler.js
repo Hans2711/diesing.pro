@@ -5,7 +5,7 @@ const loader = new Loader({
   version: "weekly",
 });
 
-export function createMap(lat, lng) {
+export function createMap(lat, lng, mapId = "singleStopMap") {
   loader.load().then(async () => {
     const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
@@ -13,7 +13,7 @@ export function createMap(lat, lng) {
     const map = new Map(document.getElementById("map"), {
       center: { lat: parseFloat(lat), lng: parseFloat(lng) },
       zoom: 18,
-      mapId: "singleStopMap",
+      mapId: mapId,
     });
 
     const marker = new AdvancedMarkerElement({

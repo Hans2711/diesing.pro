@@ -8,6 +8,7 @@ use App\Utilities\TransportUtility;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use League\CommonMark\Environment\Environment;
+use Psy\Util\Json;
 
 class TransportController extends Controller
 {
@@ -18,6 +19,14 @@ class TransportController extends Controller
     {
         $this->transportUtility = new TransportUtility();
         $this->geocodeUtility = new GeocodeUtility();
+    }
+
+    protected function returnJson($data)
+    {
+        if (array_key_exists("error", $data)) {
+            return new JsonResponse($data, 400);
+        }
+        return new JsonResponse($data, 200);
     }
 
     //
@@ -53,11 +62,7 @@ class TransportController extends Controller
 
         // dd($nearbyStops);
 
-        if (array_key_exists("error", $nearbyStops)) {
-            return new JsonResponse($nearbyStops, 400);
-        }
-
-        return new JsonResponse($nearbyStops);
+        return $this->returnJson($nearbyStops);
     }
 
     public function search(Request $request)
@@ -97,12 +102,20 @@ class TransportController extends Controller
             $transportOptions = array_keys($transportOptions);
         }
 
-        return new JsonResponse([
+        return $this->returnJson([
             "station" => $station,
             "stops" => $stops,
             "transportOptions" => $transportOptions,
             "csrfToken" => csrf_token(),
         ]);
+    }
+
+    public function fetchTrip(Request $request)
+    {
+        $id = $request->get("id");
+
+        $trip = $this->transportUtility->trip($id);
+        return $this->returnJson($trip);
     }
 
     public function fetchTrips($id, $type, Request $request)
@@ -114,9 +127,7 @@ class TransportController extends Controller
         $options = $this->buildOptionsFromRequest($request);
         $trips = $this->transportUtility->trips($id, $type, $options);
 
-        return new JsonResponse($trips);
-
-        // return view("transport.single.arrivals", ["arrivals" => $arrivals]);
+        return $this->returnJson($trips);
     }
 
     private function buildOptionsFromRequest(Request $request)
@@ -129,17 +140,20 @@ class TransportController extends Controller
             "linesOfStops" => "bool",
             "remarks" => "bool",
             "language" => "string",
-            "nationalExpress" => "bool",
-            "national" => "bool",
-            "regionalExp" => "bool",
-            "regional" => "bool",
-            "suburban" => "bool",
-            "bus" => "bool",
-            "ferry" => "bool",
-            "subway" => "bool",
-            "tram" => "bool",
-            "taxi" => "bool",
             "pretty" => "bool",
+        ];
+
+        $transportationOptions = [
+            "nationalExpress",
+            "national",
+            "regionalExp",
+            "regional",
+            "suburban",
+            "bus",
+            "ferry",
+            "subway",
+            "tram",
+            "taxi",
         ];
 
         $options = [];
@@ -163,6 +177,18 @@ class TransportController extends Controller
                         $options[$key] = $value;
                         break;
                 }
+            }
+        }
+
+        $transportationOptionEnabled = false;
+        foreach ($transportationOptions as $option) {
+            if (
+                $request->has($option) &&
+                filter_var($request->input($option), FILTER_VALIDATE_BOOLEAN)
+            ) {
+                $options[$option] = true;
+            } else {
+                $options[$option] = false;
             }
         }
 

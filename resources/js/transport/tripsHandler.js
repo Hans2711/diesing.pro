@@ -1,5 +1,6 @@
 import { fetchTrips } from "./fetchHandler.js";
 import { showLoader, hideLoader } from "./loaderHandler.js";
+import TripsDetailHandler from "./tripDetailsHandler.js";
 import _ from "lodash";
 
 export default class TripsHandler {
@@ -10,6 +11,8 @@ export default class TripsHandler {
     this.tripsFormType = this.tripsForm.querySelector("select[name='type']");
     this.tripsWrapper = this.stopWrapper.querySelector(".trips-wrapper");
     this.tripsTemplate = document.getElementById("trips-template").innerHTML;
+    this.updateInterval = null;
+    this.tripsDetailHandler = null;
   }
 
   init() {
@@ -18,6 +21,14 @@ export default class TripsHandler {
 
   uninstall() {
     this.tripsForm.removeEventListener("submit", this.handleSubmit.bind(this));
+    if (this.updateInterval !== null) {
+      clearInterval(this.updateInterval); // Clear the interval
+      this.updateInterval = null;
+    }
+    if (this.tripsDetailHandler) {
+      this.tripsDetailHandler.uninstall();
+      this.tripsDetailHandler = null;
+    }
   }
 
   handleSubmit(e) {
@@ -62,6 +73,17 @@ export default class TripsHandler {
     // Process dates after rendering
     this.processDates();
 
+    if (this.updateInterval === null) {
+      this.updateInterval = setInterval(() => {
+        this.processDates();
+      }, 10000); // Update every 10 seconds
+    }
+
+    if (this.tripsDetailHandler == null) {
+      this.tripsDetailHandler = new TripsDetailHandler();
+      this.tripsDetailHandler.init();
+    }
+
     hideLoader();
   }
   // Date processing methods
@@ -83,8 +105,13 @@ export default class TripsHandler {
         plannedWhenElem.setAttribute("title", plannedWhenFullDate);
         plannedWhenElem.setAttribute("alt", plannedWhenFullDate);
 
+        let date = new Date(plannedWhenTimestamp);
+        let hours = String(date.getHours()).padStart(2, "0");
+        let minutes = String(date.getMinutes()).padStart(2, "0");
+
         const relativeTime = this.getRelativeTime(plannedWhenTimestamp);
-        plannedWhenElem.textContent = relativeTime;
+        plannedWhenElem.textContent =
+          relativeTime + " (" + hours + ":" + minutes + ")";
       }
 
       if (whenTimestamp) {
@@ -93,7 +120,13 @@ export default class TripsHandler {
         whenElem.setAttribute("alt", whenFullDate);
 
         const relativeTime = this.getRelativeTime(whenTimestamp);
-        whenElem.textContent = relativeTime;
+
+        let date = new Date(whenTimestamp);
+        let hours = String(date.getHours()).padStart(2, "0");
+        let minutes = String(date.getMinutes()).padStart(2, "0");
+
+        whenElem.textContent =
+          relativeTime + " (" + hours + ":" + minutes + ")";
       }
     });
   }
@@ -128,7 +161,7 @@ export default class TripsHandler {
     } else if (minutes > 0) {
       relativeTime += `${minutes} min${minutes !== 1 ? "s" : ""}`;
     } else {
-      relativeTime = "just now";
+      relativeTime = "now";
     }
 
     return (isFuture ? "+ " : "- ") + relativeTime;

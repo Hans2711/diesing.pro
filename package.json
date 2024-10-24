@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "@googlemaps/js-api-loader": "^1.16.8",
+        "crypto-js": "^4.2.0",
         "db-stations-autocomplete": "^4.1.0",
         "dropzone": "^6.0.0-beta.2",
         "flowbite": "^2.5.2",

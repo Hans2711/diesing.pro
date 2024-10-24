@@ -32,6 +32,11 @@ Route::get("/transport/fetch/trips/{id}/{type}", [
     "fetchTrips",
 ]);
 
+Route::get("/transport/fetch/trip/details", [
+    TransportController::class,
+    "fetchTrip",
+]);
+
 Route::get("/transport/search/", [TransportController::class, "search"]);
 
 require base_path("/routes/private.php");

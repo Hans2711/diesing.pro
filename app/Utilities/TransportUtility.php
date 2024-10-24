@@ -31,6 +31,21 @@ class TransportUtility
         }
     }
 
+    public function trip($id)
+    {
+        try {
+            $encodedId = urlencode($id);
+            $response = $this->client->get(
+                "{$this->baseUrl}/trips/{$encodedId}?language=de",
+                []
+            );
+            $data = json_decode($response->getBody()->getContents(), true);
+            return $data;
+        } catch (\Exception $e) {
+            return ["error" => $e->getMessage()];
+        }
+    }
+
     public function trips($id, $type, $options = [])
     {
         try {
