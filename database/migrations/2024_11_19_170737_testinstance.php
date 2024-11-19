@@ -16,9 +16,12 @@ return new class extends Migration
             $table->timestamps();
             $table->longText('html');
             $table->longText('headers');
-            $table->integer('testrun_id');
+            $table->unsignedBigInteger('testrun_id'); // Updated type
 
-            $table->foreign('testrun_id')->references('id')->on('testrun');
+            $table->foreign('testrun_id')
+                ->references('id')
+                ->on('testrun')
+                ->onDelete('cascade'); // Optional: cascade delete
         });
     }
 
@@ -30,3 +33,4 @@ return new class extends Migration
         Schema::dropIfExists('testinstance');
     }
 };
+
