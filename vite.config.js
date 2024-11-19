@@ -8,6 +8,7 @@ export default defineConfig({
       input: [
         "resources/css/app.css",
         "resources/css/contact.css",
+        "resources/css/diff-table.css",
         "resources/js/app.js",
         "resources/js/notes.js",
         "resources/js/redirects.js",
