@@ -3,7 +3,15 @@
 @tailwind utilities;
 
 .btn {
-    @apply p-3 bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 text-white rounded hover:cursor-pointer;
+    @apply p-3 bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;
+}
+
+.alert {
+    @apply p-3 bg-red-100 text-red-800 border border-red-200 rounded;
+}
+
+.alert-success {
+    @apply bg-green-100 text-green-800 border border-green-200;
 }
 
 .filter-gray-icon {

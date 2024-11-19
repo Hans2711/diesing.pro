@@ -3,6 +3,7 @@
         <div class="flex items-center gap-3 md:gap-5 flex-wrap">
             <a class="@if ($active == 'portfolio') active @endif header-button" href="{{ url('/portfolio') }}">Portfolio</a>
             <a class="@if ($active == 'contact') active @endif header-button" href="{{ url('/kontakt') }}">Kontakt</a>
+            <a class="@if ($active == 'tester') active @endif header-button" href="{{ url('/tester') }}">A-B Tester</a>
             <!-- <a class="header-button" href="#">Fotogallerie</a> -->
             <a class="@if ($active == 'private') active @endif header-button" href="{{ url('/privater-bereich') }}">Privater Bereich</a>
         </div>

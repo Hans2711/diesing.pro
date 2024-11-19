@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Testobject'])
+@extends('layouts.app', ['title' => 'Testobject', 'active' => 'tester'])
 
 @section('content')
     <h1>Testobject {{$testobject->name}}</h1>
