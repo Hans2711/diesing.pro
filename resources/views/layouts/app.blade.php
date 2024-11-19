@@ -17,6 +17,7 @@
     </title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 <body>
     <div id="app">
@@ -27,5 +28,6 @@
     </div>
 
     @include('global.footer')
+    @livewireScripts
 </body>
 </html>
