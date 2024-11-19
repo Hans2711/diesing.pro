@@ -18,6 +18,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
+    @livewireScripts
 </head>
 <body>
     <div id="app">
@@ -28,6 +29,5 @@
     </div>
 
     @include('global.footer')
-    @livewireScripts
 </body>
 </html>

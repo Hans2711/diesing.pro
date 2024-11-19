@@ -1,7 +1,7 @@
 <div>
     <!-- New Testobject Form -->
     @if (!$testobject)
-        <div class="border border-black px-3 pb-3 mb-4">
+        <div class="border border-black px-3 pb-5 mb-4 rounded">
             <h2>New Testobject</h2>
 
             <form wire:submit.prevent="createObject">
@@ -23,14 +23,14 @@
                     'required' => true,
                     'livewire' => true
                 ])
-                <button type="submit" class="btn mb-3">Add</button>
+                <button type="submit" class="btn">Create</button>
             </form>
         </div>
     @endif
 
     <!-- Update Testobject Form -->
     @if ($testobject)
-        <div class="border border-black px-3 pb-3 mb-4">
+        <div class="border border-black px-3 pb-5 mb-4 rounded">
             <h2>Update {{ $testobject->name }}</h2>
 
             <form wire:submit.prevent="updateObject">
@@ -54,20 +54,22 @@
                     'livewire' => true,
                     'value' => $url
                 ])
-                <button type="submit" class="btn mb-3">Update</button>
+                <button type="submit" class="btn">Update</button>
             </form>
         </div>
     @endif
 
     <!-- List of Testobjects -->
     @foreach ($testobjects as $testObj)
-        <div class="border border-gray-200 px-3 mb-4">
+        <div class="border border-gray-200 px-3 mb-4 pb-3 rounded">
             <p><strong>Name:</strong> {{ $testObj->name }}</p>
             <p><strong>URL:</strong> {{ $testObj->url }}</p>
 
-            <button class="btn mb-3" wire:click="deleteObject({{ $testObj->id }})">Delete</button>
-            <button class="btn mb-3" wire:click="editObject({{ $testObj->id }})">Edit</button>
-            <a class="btn mb-3" href="{{url("tester/testobject/{$testObj->id}")}}">Details</a>
+            <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
+                <button class="btn" wire:click="deleteObject({{ $testObj->id }})">Delete</button>
+                <button class="btn" wire:click="editObject({{ $testObj->id }})">Edit</button>
+                <a class="btn" href="{{url("tester/testobject/{$testObj->id}")}}">Details</a>
+            </div>
         </div>
     @endforeach
 
