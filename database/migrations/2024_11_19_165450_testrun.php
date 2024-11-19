@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('testrun', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('testobject_id');
+            $table->unsignedBigInteger('testobject_id'); // Updated type
 
-            $table->foreign('testobject_id')->references('id')->on('testobject');
+            $table->foreign('testobject_id')
+                ->references('id')
+                ->on('testobject')
+                ->onDelete('cascade'); // Optional: cascade delete
         });
     }
 
