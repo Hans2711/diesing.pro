@@ -11,8 +11,8 @@
             <p><strong>Name:</strong> {{ $testrun->created_at}}</p>
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
-                <button class="btn" wire:click="deleteRun({{$testrun->id}})">Delete</button>
-                <a class="btn" href="{{url("/tester/testrun/{$testrun->id}")}}" >Details</a>
+                <button class="btn btn-delete" wire:click="deleteRun({{$testrun->id}})">Delete</button>
+                <a class="btn btn-details" href="{{url("/tester/testrun/{$testrun->id}")}}" >Details</a>
             </div>
         </div>
     @endforeach

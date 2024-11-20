@@ -51,4 +51,21 @@ class TesterController extends Controller
         $instance->fetch();
         return redirect('/tester/testrun/' . $instance->testrun_id);
     }
+
+    public function diff($instanceOne, $instanceTwo, Request $request) {
+        $objOne = Testinstance::find($instanceOne);
+        $objTwo = Testinstance::find($instanceTwo);
+
+        if ($objOne && $objTwo) {
+            $result = $objOne->diff($objTwo, $request->input('renderName') ?? 'Inline', [], ['detailLevel' => $request->input('detailLevel') ?? 'line']);
+
+            return view('tester.diff', [
+                'diff' => $result,
+                'testobject' => $objOne->testrun->testobject,
+                'testrun' => $objOne->testrun,
+            ]);
+        }
+
+        return view('tester.diff', ['error' => 'Some Erro']);
+    }
 }

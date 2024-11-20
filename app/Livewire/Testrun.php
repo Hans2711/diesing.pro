@@ -26,7 +26,13 @@ class Testrun extends Component
     public function diff() {
         $options = ['detailLevel' => $this->detailLevel];
         $this->diffContent = $this->diffInstanceOne->diff($this->diffInstanceTwo, $this->renderName, [], $options);
-        session()->flash('diff', 'Executed');
+        session()->flash('diff', url(
+            '/tester/diff/' .
+                $this->diffInstanceOne->id . '/' .
+                $this->diffInstanceTwo->id .
+                (($this->renderName != 'Inline') ? ('?renderName=' . $this->renderName) : '') .
+                (($this->detailLevel != 'line') ? ((($this->renderName != 'Inline') ? '&' : '?') . 'detailLevel=' . $this->detailLevel) : '')
+        ));
     }
 
     public function addToDiff($id) {
