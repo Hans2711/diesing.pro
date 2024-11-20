@@ -23,6 +23,8 @@ Route::post("/kontakt/abschicken", [ContactController::class, "submit"]);
 Route::get("/tester/auth", [TesterController::class, "auth"]);
 Route::post("/tester/auth", [TesterController::class, "auth"]);
 
+Route::get("/tester/diff/{instanceOne}/{instanceTwo}", [TesterController::class, "diff"]);
+
 Route::middleware(["tester"])->group(function () {
     Route::get("/tester", [TesterController::class, "index"]);
     Route::get("/tester/testobject/{id}", [TesterController::class, "testobject"]);

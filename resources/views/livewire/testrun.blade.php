@@ -35,7 +35,9 @@
                             </select>
                         </div>
                     </div>
-                    <input type="submit" class="btn" value="Diff" />
+                    <div class="grid-cols-2 grid align-middle gap-5">
+                        <input type="submit" class="btn" value="Diff" />
+                    </div>
                 </form>
             @endif
         </div>
@@ -55,10 +57,10 @@
             <p><strong>Status:</strong> {{ empty($testinstance->html) ? 'empty' : 'filled'}}</p>
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
-                <button class="btn" wire:click="deleteInstance({{$testinstance->id}})">Delete</button>
-                <a class="btn" href="{{url("/tester/testinstance/{$testinstance->id}/fetch")}}" >Fetch</a>
-                <a class="btn" href="{{url("/tester/testinstance/{$testinstance->id}")}}" >Details</a>
-                <button class="btn" wire:click="addToDiff({{$testinstance->id}})">Add to Diff</button>
+                <button class="btn btn-delete" wire:click="deleteInstance({{$testinstance->id}})">Delete</button>
+                <a class="btn btn-details" href="{{url("/tester/testinstance/{$testinstance->id}")}}" >Details</a>
+                <a class="btn btn-fetch" href="{{url("/tester/testinstance/{$testinstance->id}/fetch")}}" >{{ empty($testinstance->html) ? 'Fetch' : 'Refetch'}}</a>
+                <button class="btn btn-diff" wire:click="addToDiff({{$testinstance->id}})">Add to Diff</button>
             </div>
         </div>
     @endforeach
