@@ -8,12 +8,12 @@
 
 
     @if (!empty($diffInstanceOne) || !empty($diffInstanceOne))
-        <div class="border border-gray-200 px-3 pb-3">
+        <div class="border border-gray-200 px-3 rounded">
             @if (!empty($diffInstanceOne))
-                <p><strong>Instance One:</strong> {{ $diffInstanceOne->created_at}}</p>
+                <p><strong>Instance One:</strong> {{ $diffInstanceOne->created_at_clean}}</p>
             @endif
             @if (!empty($diffInstanceTwo))
-                <p><strong>Instance Two:</strong> {{ $diffInstanceTwo->created_at}}</p>
+                <p><strong>Instance Two:</strong> {{ $diffInstanceTwo->created_at_clean}}</p>
 
                 <form wire:submit="diff">
                     <div class="flex gap-4 mb-3">
@@ -35,7 +35,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="grid-cols-2 grid align-middle gap-5">
+                    <div class="grid-cols-2 grid align-middle gap-5 mb-3">
                         <input type="submit" class="btn" value="Diff" />
                     </div>
                 </form>
@@ -53,7 +53,7 @@
 
     @foreach ($testrun->testinstances as $testinstance)
         <div class="border border-gray-200 px-3 mb-4 pb-3 rounded">
-            <p><strong>Name:</strong> {{ $testinstance->created_at}}</p>
+            <p><strong>Name:</strong> {{ $testinstance->created_at_clean}}</p>
             <p><strong>Status:</strong> {{ empty($testinstance->html) ? 'empty' : 'filled'}}</p>
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">

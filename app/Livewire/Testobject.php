@@ -8,6 +8,19 @@ use App\Models\Testrun;
 class Testobject extends Component
 {
     public $testobject;
+    public $deleteAfter;
+    public $deleteAfterOptions = [
+        "86400" => '1 Day',
+        "604800" => '7 Days',
+        "2629800" => '1 Month',
+        "0" => 'Never',
+    ];
+
+    public function updateDeleteAfter($deleteAfter) {
+        $this->deleteAfter = $deleteAfter;
+        $this->testobject->delete_after = $deleteAfter;
+        $this->testobject->save();
+    }
 
     public function createRun() {
         $testrun = new Testrun();

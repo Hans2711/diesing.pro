@@ -10,20 +10,14 @@ class Testobjects extends Component
     public $name;
     public $url;
     public $testobjects;
-    public $testobject; // Holds the selected Testobject for updating
+    public $testobject;
 
-    /**
-     * Mount the component and initialize properties.
-     */
     public function mount()
     {
-        $this->testobjects = Testobject::all();
-        $this->resetInputFields(); // Reset form inputs
+        $this->testobjects = Testobject::orderBy('created_at', 'desc')->get();
+        $this->resetInputFields();
     }
 
-    /**
-     * Reset form input fields.
-     */
     public function resetInputFields()
     {
         $this->name = '';
@@ -31,9 +25,6 @@ class Testobjects extends Component
         $this->testobject = null;
     }
 
-    /**
-     * Create a new Testobject.
-     */
     public function createObject()
     {
         if (empty($this->name) || empty($this->url)) {
@@ -48,13 +39,10 @@ class Testobjects extends Component
 
         session()->flash('message', 'Testobject created successfully.');
 
-        $this->testobjects = Testobject::all(); // Refresh the list
-        $this->resetInputFields(); // Clear the form
+        $this->testobjects = Testobject::orderBy('created_at', 'desc')->get();
+        $this->resetInputFields();
     }
 
-    /**
-     * Delete an existing Testobject.
-     */
     public function deleteObject($id)
     {
         $testobject = Testobject::find($id);
@@ -62,15 +50,12 @@ class Testobjects extends Component
         if ($testobject) {
             $testobject->delete();
             session()->flash('message', 'Testobject deleted successfully.');
-            $this->testobjects = Testobject::all(); // Refresh the list
+            $this->testobjects = Testobject::orderBy('created_at', 'desc')->get();
         } else {
             session()->flash('error', 'Testobject not found.');
         }
     }
 
-    /**
-     * Prepare an object for editing.
-     */
     public function editObject($id)
     {
         $testobject = Testobject::find($id);
@@ -84,9 +69,6 @@ class Testobjects extends Component
         }
     }
 
-    /**
-     * Update the selected Testobject.
-     */
     public function updateObject()
     {
         if (!$this->testobject) {
@@ -106,13 +88,10 @@ class Testobjects extends Component
 
         session()->flash('message', 'Testobject updated successfully.');
 
-        $this->testobjects = Testobject::all(); // Refresh the list
-        $this->resetInputFields(); // Clear the form
+        $this->testobjects = Testobject::orderBy('created_at', 'desc')->get();
+        $this->resetInputFields();
     }
 
-    /**
-     * Render the Livewire view.
-     */
     public function render()
     {
         return view('livewire.testobjects', [

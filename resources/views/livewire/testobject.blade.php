@@ -4,11 +4,19 @@
         <span class="leading-none">Back</span>
     </a>
 
+    <p>Autodelete runs after creation</p>
+    <select class="mb-3 rounded" wire:change="updateDeleteAfter($event.target.value)">
+        @foreach ($deleteAfterOptions as $int => $option)
+            <option value="{{$int}}" @if ($testobject->delete_after == $int) selected @endif>{{$option}}</option>
+        @endforeach
+    </select>
+
     <button class="btn mb-3" wire:click="createRun">New Testrun</button>
 
     @foreach ($testobject->testruns as $testrun)
         <div class="border border-gray-200 px-3 mb-4 pb-3 rounded">
-            <p><strong>Name:</strong> {{ $testrun->created_at}}</p>
+            <p><strong>Created:</strong> {{ $testrun->created_at_clean}}</p>
+            <p><strong>Deleted:</strong> {{ $testrun->deletedWhen()}}</p>
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
                 <button class="btn btn-delete" wire:click="deleteRun({{$testrun->id}})">Delete</button>
