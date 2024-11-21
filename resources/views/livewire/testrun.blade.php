@@ -1,7 +1,7 @@
 <div>
     @vite(['resources/css/diff-table.css'])
 
-    <a href="{{url("/tester/testobject/{$testrun->testobject->id}")}}" class="flex gap-2 mb-3 align-center">
+    <a wire:navigate.hover href="{{url("/tester/testobject/{$testrun->testobject->id}")}}" class="flex gap-2 mb-3 align-center">
         <svg class="w-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.7.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
         <span class="leading-none">Back</span>
     </a>
@@ -57,9 +57,9 @@
             <p><strong>Status:</strong> {{ empty($testinstance->html) ? 'empty' : 'filled'}}</p>
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
-                <button class="btn btn-delete" wire:click="deleteInstance({{$testinstance->id}})">Delete</button>
-                <a class="btn btn-details" href="{{url("/tester/testinstance/{$testinstance->id}")}}" >Details</a>
-                <a class="btn btn-fetch" href="{{url("/tester/testinstance/{$testinstance->id}/fetch")}}" >{{ empty($testinstance->html) ? 'Fetch' : 'Refetch'}}</a>
+                <button class="btn btn-delete" wire:click="deleteInstance({{$testinstance->id}})" wire:confirm="Are you sure?">Delete</button>
+                <a class="btn btn-details" wire:navigate.hover href="{{url("/tester/testinstance/{$testinstance->id}")}}" >Details</a>
+                <button class="btn btn-fetch" wire:navigate wire:click="fetchInstance({{$testinstance->id}})"")}}" >{{ empty($testinstance->html) ? 'Fetch' : 'Refetch'}}</button>
                 <button class="btn btn-diff" wire:click="addToDiff({{$testinstance->id}})">Add to Diff</button>
             </div>
         </div>

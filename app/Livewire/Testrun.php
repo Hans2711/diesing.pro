@@ -24,6 +24,15 @@ class Testrun extends Component
         session()->flash('message', 'Instance created successfully.');
     }
 
+    public function fetchInstance($id) {
+        $testInstance = Testinstance::find($id);
+
+        if (!empty($testInstance)) {
+            $testInstance->fetch();
+            session()->flash('message', 'Fetch completed successfully.');
+        }
+    }
+
     public function diff() {
         $options = ['detailLevel' => $this->detailLevel];
         $this->diffContent = $this->diffInstanceOne->diff($this->diffInstanceTwo, $this->renderName, [], $options);
