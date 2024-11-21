@@ -30,7 +30,16 @@ class Testobject extends Component
     }
 
     public function deleteRun($id) {
+        foreach ($this->testobject->testruns as $a) {
+            if ($a->id == $id) {
+                foreach ($a->testinstances as $b) {
+                    $b->delete();
+                }
+            }
+        }
+
         Testrun::destroy($id);
+        $this->testobject = \App\Models\Testobject::find($this->testobject->id);
         session()->flash('message', 'Testrun deleted successfully.');
     }
 
