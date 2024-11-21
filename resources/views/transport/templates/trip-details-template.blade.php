@@ -15,6 +15,6 @@
     <div class="location-map" id="<%= unique %>" style="height: 300px; width: 100%;"></div>
   <% } %>
 
-  <button data-stops="<%= JSON.stringify(trip.trip.stopovers) %>" class="stops-timeline-modal-button w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4">
+  <button data-stops="<%= encodeURIComponent(JSON.stringify(trip.trip.stopovers)) %>" class="stops-timeline-modal-button w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4">
   Stops</button>
 </script>
