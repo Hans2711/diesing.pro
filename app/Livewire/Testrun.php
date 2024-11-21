@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Diffstore;
 use App\Models\Testinstance;
 use Livewire\Component;
 
@@ -26,13 +27,27 @@ class Testrun extends Component
     public function diff() {
         $options = ['detailLevel' => $this->detailLevel];
         $this->diffContent = $this->diffInstanceOne->diff($this->diffInstanceTwo, $this->renderName, [], $options);
-        session()->flash('diff', url(
+
+        $diffUrl = url(
             '/tester/diff/' .
                 $this->diffInstanceOne->id . '/' .
                 $this->diffInstanceTwo->id .
                 (($this->renderName != 'Inline') ? ('?renderName=' . $this->renderName) : '') .
                 (($this->detailLevel != 'line') ? ((($this->renderName != 'Inline') ? '&' : '?') . 'detailLevel=' . $this->detailLevel) : '')
-        ));
+        );
+
+        if (!empty($this->diffContent)) {
+            $diffObj = Diffstore::where('key', $diffUrl)->first();
+
+            if (empty($diffObj)) {
+                $diffObj = new Diffstore();
+                $diffObj->key = $diffUrl;
+                $diffObj->html = $this->diffContent;
+                $diffObj->save();
+            }
+        }
+
+        session()->flash('diff', $diffUrl);
     }
 
     public function addToDiff($id) {

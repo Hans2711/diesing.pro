@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Diffstore;
 use App\Models\Testinstance;
 use App\Models\Testobject;
 use App\Models\Testrun;
@@ -57,7 +58,16 @@ class TesterController extends Controller
         $objTwo = Testinstance::find($instanceTwo);
 
         if ($objOne && $objTwo) {
-            $result = $objOne->diff($objTwo, $request->input('renderName') ?? 'Inline', [], ['detailLevel' => $request->input('detailLevel') ?? 'line']);
+            $diffObj = Diffstore::where('key', $request->fullUrl())->first();
+
+            $result = null;
+            if (!empty($diffObj) && !empty($diffObj->html)) {
+                $result = $diffObj->html;
+            }
+
+            if (empty($result)) {
+                $result = $objOne->diff($objTwo, $request->input('renderName') ?? 'Inline', [], ['detailLevel' => $request->input('detailLevel') ?? 'line']);
+            }
 
             return view('tester.diff', [
                 'diff' => $result,

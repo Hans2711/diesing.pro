@@ -7,10 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
-use Jfcherng\Diff\Differ;
-use Jfcherng\Diff\DiffHelper;
-use Jfcherng\Diff\Factory\RendererFactory;
-use Jfcherng\Diff\Renderer\RendererConstant;
+use Illuminate\Support\Carbon;
 
 class Testinstance extends Model
 {
@@ -23,6 +20,16 @@ class Testinstance extends Model
     ];
 
     protected $fillable = ['html', 'headers'];
+
+    public function getCreatedAtCleanAttribute($value)
+    {
+        $date = Carbon::parse($this->created_at);
+
+        if ($date->isToday()) {
+            return $date->format('H:i') . " Today (" . $date->diffForHumans() . ")";
+        }
+        return $date->format('H:i d.m.Y') . " (" . $date->diffForHumans() . ")";
+    }
 
     public function testrun()
     {
