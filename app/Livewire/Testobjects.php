@@ -48,6 +48,12 @@ class Testobjects extends Component
         $testobject = Testobject::find($id);
 
         if ($testobject) {
+            foreach ($testobject->testruns as $a) {
+                foreach ($a->testinstances as $b) {
+                    $b->delete();
+                }
+                $a->delete();
+            }
             $testobject->delete();
             session()->flash('message', 'Testobject deleted successfully.');
             $this->testobjects = Testobject::orderBy('created_at', 'desc')->get();

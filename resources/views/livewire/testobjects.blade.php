@@ -66,9 +66,9 @@
             <p><strong>URL:</strong> {{ $testObj->url }}</p>
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
-                <button class="btn btn-delete" wire:click="deleteObject({{ $testObj->id }})">Delete</button>
+                <button class="btn btn-delete" wire:click="deleteObject({{ $testObj->id }})" wire:confirm="Are you sure?">Delete</button>
                 <button class="btn btn-edit" wire:click="editObject({{ $testObj->id }})">Edit</button>
-                <a class="btn btn-details" href="{{url("tester/testobject/{$testObj->id}")}}">Details</a>
+                <a class="btn btn-details" wire:navigate.hover href="{{url("tester/testobject/{$testObj->id}")}}">Details</a>
             </div>
         </div>
     @endforeach
