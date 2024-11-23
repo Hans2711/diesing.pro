@@ -10,7 +10,7 @@
         <form method="POST" action="#" class="mt-5">
             @csrf
             <label for="password" class="block mb-2">Passwort</label>
-            <input type="password" name="password" class="rounded" />
+            <input type="password" autocomplete="off" name="password" class="rounded" />
         </form>
     @endif
 @endsection
