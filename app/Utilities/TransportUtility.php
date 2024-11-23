@@ -16,7 +16,7 @@ class TransportUtility
     {
         // Initialize the Guzzle client
         $this->client = new Client();
-        $this->baseUrl = "https://v6.db.transport.rest";
+        $this->baseUrl = "https://v6.bvg.transport.rest";
     }
 
     public function getAllStations()
@@ -110,6 +110,58 @@ class TransportUtility
         }
     }
 
+    public function searchLocations($query) {
+        if (
+            Cache::has("searchLocations_" . $query) &&
+            $this->cacheEnabled
+        ) {
+            return Cache::get("searchLocations_" . $query);
+        }
+
+        try {
+            $response = $this->client->get(
+                "{$this->baseUrl}/locations?query=$query&results=10&fuzzy=true",
+                []
+            );
+            $data = json_decode($response->getBody()->getContents(), true);
+
+            if ($data) {
+                Cache::set("searchLocations_" . $query, $data);
+            }
+
+            return $data;
+
+        } catch (\Exception $e) {
+            return ["error" => $e->getMessage()];
+        }
+    }
+
+    public function nearbyLocations($lat, $lon) {
+        if (
+            Cache::has("nearbyLocations_" . $lat . $lon) &&
+            $this->cacheEnabled
+        ) {
+            return Cache::get("nearbyLocations_" . $lat . $lon);
+        }
+
+        try {
+            $response = $this->client->get(
+                "{$this->baseUrl}/locations/nearby?latitude=$lat&longitude=$lon&results=20",
+                []
+            );
+            $data = json_decode($response->getBody()->getContents(), true);
+
+            if ($data) {
+                Cache::set("nearbyLocations_" . $lat . $lon, $data);
+            }
+
+            return $data;
+        } catch (\Exception $e) {
+            return ["error" => $e->getMessage()];
+        }
+
+    }
+
     public function searchStations($query)
     {
         if (
@@ -121,12 +173,14 @@ class TransportUtility
 
         try {
             $response = $this->client->get(
-                "{$this->baseUrl}/stations?query=$query&results=4&fuzzy=true",
+                "{$this->baseUrl}/stations?query=$query&results=10&fuzzy=true",
                 []
             );
             $data = json_decode($response->getBody()->getContents(), true);
 
-            Cache::set("searchStations_" . json_encode($query), $data);
+            if ($data) {
+                Cache::set("searchStations_" . json_encode($query), $data);
+            }
 
             return $data;
         } catch (\Exception $e) {
@@ -156,7 +210,8 @@ class TransportUtility
         $latitude,
         $longitude,
         $address,
-        $options = []
+        $options = [],
+        $maxResults = 20
     ) {
         if (
             Cache::has(
@@ -174,9 +229,9 @@ class TransportUtility
                 "longitude" => $longitude,
                 "address" => $address,
                 "when" => null,
-                "maxTransfers" => 5,
+                "maxTransfers" => 1,
                 "maxDuration" => null,
-                "language" => "en",
+                "language" => "de",
                 "nationalExpress" => true,
                 "national" => true,
                 "regionalExpress" => true,
@@ -213,19 +268,24 @@ class TransportUtility
 
             $data = json_decode($response->getBody()->getContents(), true);
             if (!array_key_exists("error", $data)) {
+                $reachableStops = $data["reachable"];
+
                 Cache::set(
                     "getStopsReachableFrom_" .
                         $latitude .
                         $longitude .
                         $address,
-                    $data
+                    $reachableStops
                 );
+
+                if (count($reachableStops) > $maxResults) {
+                    $reachableStops = array_slice($reachableStops, 0, $maxResults);
+                }
+
+                return $reachableStops;
             }
 
-            $stops = [];
-            $reachableStops = $data["reachable"];
-
-            return $reachableStops;
+            return [];
         } catch (\Exception $e) {
             return ["error" => $e->getMessage()];
         }

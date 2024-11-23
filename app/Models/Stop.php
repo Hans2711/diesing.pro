@@ -13,8 +13,9 @@ class Stop extends Model
         "name" => "",
         "location" => "{}",
         "products" => "{}",
-        "distance" => 0,
+        "distance" => "x",
         "entrances" => "{}",
+        "lines" => "{}",
     ];
 
     public function getProductsAttribute($value)
@@ -28,6 +29,11 @@ class Stop extends Model
     }
 
     public function getEntrancesAttribute($value)
+    {
+        return json_decode($value);
+    }
+
+    public function getLinesAttribute($value)
     {
         return json_decode($value);
     }

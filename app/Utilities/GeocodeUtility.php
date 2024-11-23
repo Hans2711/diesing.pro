@@ -2,6 +2,7 @@
 
 namespace App\Utilities;
 
+use App\Models\Geocodestore;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Cache;
 
@@ -20,9 +21,9 @@ class GeocodeUtility
 
     public function latLngToAddress($lat, $lng)
     {
-        $result = Cache::get("latLngToAddresse" . $lat . $lng);
-        if (!empty($result)) {
-            return $result;
+        $result = Geocodestore::where('key', $lat . $lng)->first();
+        if (!empty($result) && !empty($result->content)) {
+            return $result->content;
         }
 
         try {
@@ -47,7 +48,11 @@ class GeocodeUtility
 
             $formattedAddress = $firstResult["formatted_address"];
 
-            Cache::set("latLngToAddresse" . $lat . $lng, $formattedAddress);
+            $g = new Geocodestore();
+            $g->key = $lat . $lng;
+            $g->content = $formattedAddress;
+            $g->save();
+
             return $formattedAddress;
         } catch (\Exception $e) {
             return ["error" => $e->getMessage()];

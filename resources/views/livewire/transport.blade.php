@@ -1,25 +1,17 @@
 <div>
     @vite(['resources/js/transport.js'])
 
-    @if ($latitude && $longitude)
-        <div class=" mb-4">
-            <div class="grid grid-cols-1">
-                <p class="text-sm mb-0">Lat: {{ $latitude }} Lon: {{ $longitude }}</p>
-            </div>
-            <p class="text-sm">{{ $address }}</p>
-        </div>
-    @else
-        <div role="status" class="max-w-sm mb-4 pt-3 animate-pulse" wire.loading.remove wire.target="locationUpdated" >
-            <div class="h-3 bg-gray-200 rounded-full dark:bg-gray-700 mb-2"></div>
-            <div class="h-3 bg-gray-200 rounded-full dark:bg-gray-700"></div>
-        </div>
-    @endif
-
     @error('location')
         <div class="alert alert-danger">{{ $message }}</div>
     @enderror
 
+    <livewire:nearby-stops :latitude="$latitude" :longitude="$longitude" />
 
-    <livewire:nearby-stops :latitude="$latitude" :longitude="$longitude" :address="$address" />
-
+    <div class="fixed z-50 @if ($hideStatus) hidden @endif bottom-0 left-0 w-screen h-8 bg-gray-500" >
+        <div class="container mx-auto md:px-0 px-6">
+            <div class="align-middle text-white">
+                <p wire:stream="status" class="text-sm" >Status</p>
+            </div>
+        </div>
+    </div>
 </div>
