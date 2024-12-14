@@ -9,8 +9,8 @@
         </div>
         <a wire:navigate.hover href="/">
             <div
-                class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-12"
-                style='background-image: url("{{ Vite::asset('resources/logo/person_logo.jpeg') }}");'
+                class="bg-center bg-no-repeat bg-cover size-12"
+                style='background-image: url("{{ Vite::asset('resources/logo/DLogo.png') }}");'
             ></div>
         </a>
     </div>

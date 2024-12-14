@@ -8,7 +8,7 @@
     Softwareentwickler</p>
 
     <h2>Kontaktinformationen:</h2>
-    <p>Email: <a href="mailto:diesinghans@gmail.com">diesinghans@gmail.com</a><br>
+    <p>Email: <a href="mailto:hp@diesing.pro">hp@diesing.pro</a><br>
     Telefon: <a href="tel:+491731758175">+491731758175</a></p>
 
     <h2>Website:</h2>
