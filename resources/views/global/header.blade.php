@@ -4,6 +4,7 @@
             <a wire:navigate.hover class="@if ($active == 'portfolio') active @endif header-button" href="{{ url('/portfolio') }}">Portfolio</a>
             <a wire:navigate.hover class="@if ($active == 'contact') active @endif header-button" href="{{ url('/kontakt') }}">Kontakt</a>
             <a wire:navigate.hover class="@if ($active == 'tester') active @endif header-button" href="{{ url('/tester') }}">A-B Tester</a>
+            <a wire:navigate.hover class="@if ($active == 'share') active @endif header-button" href="{{ url('/share') }}">Share</a>
             <!-- <a class="header-button" href="#">Fotogallerie</a> -->
             <a wire:navigate.hover class="@if ($active == 'private') active @endif header-button" href="{{ url('/privater-bereich') }}">Privater Bereich</a>
         </div>
