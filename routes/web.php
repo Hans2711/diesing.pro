@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ShareController;
 use App\Http\Controllers\TesterController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,5 +33,7 @@ Route::middleware(["tester"])->group(function () {
     Route::get("/tester/testinstance/{id}", [TesterController::class, "instance"]);
     Route::get("/tester/testinstance/{id}/fetch", [TesterController::class, "fetchInstance"]);
 });
+
+Route::get("/share", [ShareController::class, "index"]);
 
 require base_path("/routes/private.php");
