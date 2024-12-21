@@ -1,7 +1,6 @@
-@extends('layouts.app', ['title' => 'Testrun', 'active' => 'tester'])
+@extends('layouts.app', ['title' => __('text.testrun') . ' ' . $testrun->created_at_clean, 'active' => 'tester'])
 
 @section('content')
-    <h1>Testrun {{$testrun->created_at}}</h1>
-
+    <h1>{{ __('text.testrun') }} {{$testrun->created_at_clean}}</h1>
     @livewire('testrun', ['testrun' => $testrun])
 @endsection

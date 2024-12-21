@@ -1,50 +1,100 @@
 <nav class="p-5 bg-white fixed z-30 w-full shadow md:flex md:items-center md:justify-between">
-    <div class="flex justify-between items-center ">
-      <span class="text-2xl font-[Poppins] cursor-pointer">
-          <a wire:navigate.hover href="/">
-        <img class="h-10 inline"
-          src="{{ Vite::asset('resources/logo/DLogo.png') }}">
-          </a>
-      </span>
-
-      <span class="text-3xl cursor-pointer mx-2 md:hidden block">
-        <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
-      </span>
-    </div>
-
-    <ul class="md:flex md:items-center z-40 md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 md:pl-0 pl-3 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
-      <li class="mx-2 my-6 md:my-0">
-        <a wire:navigate.hover class="@if ($active == 'portfolio') active @endif header-button" href="{{ url('/portfolio') }}">Portfolio</a>
-      </li>
-      <li class="mx-2 my-6 md:my-0">
-        <a wire:navigate.hover class="@if ($active == 'contact') active @endif header-button" href="{{ url('/kontakt') }}">Kontakt</a>
-      </li>
-      <li class="mx-2 my-6 md:my-0">
-        <a wire:navigate.hover class="@if ($active == 'tester') active @endif header-button" href="{{ url('/tester') }}">A-B Tester</a>
-      </li>
-      <li class="mx-2 my-6 md:my-0">
-        <a wire:navigate.hover class="@if ($active == 'private') active @endif header-button" href="{{ url('/privater-bereich') }}">Privater Bereich</a>
-      </li>
-    </ul>
-</nav>
-
-{{--
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#F4EFE6] md:px-10 md:py-3 px-6 py-4">
-    <div class="flex flex-1 justify-end gap-8">
-        <div class="flex items-center gap-3 md:gap-5 flex-wrap">
-            <a wire:navigate.hover class="@if ($active == 'portfolio') active @endif header-button" href="{{ url('/portfolio') }}">Portfolio</a>
-            <a wire:navigate.hover class="@if ($active == 'contact') active @endif header-button" href="{{ url('/kontakt') }}">Kontakt</a>
-            <a wire:navigate.hover class="@if ($active == 'tester') active @endif header-button" href="{{ url('/tester') }}">A-B Tester</a>
-            <a wire:navigate.hover class="@if ($active == 'share') active @endif header-button" href="{{ url('/share') }}">Share</a>
-            <!-- <a class="header-button" href="#">Fotogallerie</a> -->
-            <a wire:navigate.hover class="@if ($active == 'private') active @endif header-button" href="{{ url('/privater-bereich') }}">Privater Bereich</a>
+  <div class="flex justify-between items-center">
+    <span class="text-2xl font-[Poppins] cursor-pointer">
+      <a wire:navigate.hover href="{{ url('/' . Config::get('app.locale')) }}">
+        <img class="h-10 inline" src="{{ Vite::asset('resources/logo/DLogo.png') }}">
+      </a>
+    </span>
+    <div class="flex items-center">
+      <div class="relative group inline-block text-left ml-4">
+        <button
+          type="button"
+          class="inline-flex items-center justify-between w-40 rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium "
+          id="language-button"
+          onclick="window.triggerLanguageDropdown(this)"
+        >
+          <img
+            src="{{ Vite::asset('resources/icons/' . __('language.svg') . '.svg') }}"
+            alt="{{ __('language.name') }}"
+            class="h-5 w-5 mr-2"
+          />
+          {{ __('language.name') }}
+          <img
+            src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
+            alt="Chevron"
+            class="ml-2 h-5 w-5 text-gray-400"
+          />
+        </button>
+        @php
+            $otherlang = Config::get('app.locale') == 'de' ? 'en' : 'de';
+        @endphp
+        <div
+            id="language-dropdown"
+          class="origin-top-right absolute left-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden"
+        >
+          <div class=" inline-flex justify-between w-full text-sm font-medium">
+            <a
+              href="{{ url('/' . $otherlang) }}"
+              class="flex justify-between items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            >
+              <img
+                src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $otherlang) . '.svg') }}"
+                alt="{{ __('language.name-' . $otherlang) }}"
+                class="h-5 w-5 mr-2"
+              />
+              {{ __('language.name-' . $otherlang) }}
+              <img
+                src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}"
+                alt="Chevron"
+                class="ml-2 h-5 w-5 text-gray-400"
+              />
+            </a>
+          </div>
         </div>
-        <a wire:navigate.hover href="/">
-            <div
-                class="bg-center bg-no-repeat bg-cover size-12"
-                style='background-image: url("{{ Vite::asset('resources/logo/DLogo.png') }}");'
-            ></div>
-        </a>
+      </div>
+      <span class="text-3xl z-50 cursor-pointer mx-2 md:hidden block">
+        <img class="h-9 w-9" onclick="Menu(this)" src="{{ Vite::asset('resources/icons/menu.svg') }}">
+      </span>
     </div>
-</header>
---}}
+  </div>
+  <ul id="header-list"
+      class="md:flex md:items-center z-40 md:z-auto md:static absolute bg-white w-full left-0 md:w-auto
+             md:py-0 md:pl-0 pl-3 md:opacity-100 opacity-0 top-[-400px]
+             transition-all ease-in duration-500">
+    <li class="mx-2 my-6 md:my-0">
+      <a wire:navigate.hover
+         class="@if ($active == 'portfolio') active @endif header-button"
+         href="{{ url(Config::get('app.locale') . '/' . __('url.portfolio')) }}">
+        {{ __('text.portfolio') }}
+      </a>
+    </li>
+    <li class="mx-2 my-6 md:my-0">
+      <a wire:navigate.hover
+         class="@if ($active == 'contact') active @endif header-button"
+         href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}">
+        {{ __('text.contact') }}
+      </a>
+    </li>
+    <li class="mx-2 my-6 md:my-0">
+      <a wire:navigate.hover
+         class="@if ($active == 'tester') active @endif header-button"
+         href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}">
+        {{ __('text.tester') }}
+      </a>
+    </li>
+    <li class="mx-2 my-6 md:my-0">
+      <a wire:navigate.hover
+         class="@if ($active == 'teams') active @endif header-button"
+         href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}">
+        {{ __('text.random-teams') }}
+      </a>
+    </li>
+    <li class="mx-2 my-6 md:my-0">
+      <a wire:navigate.hover
+         class="@if ($active == 'private') active @endif header-button"
+         href="{{ url('/privater-bereich') }}">
+        {{ __('text.private-tools') }}
+      </a>
+    </li>
+  </ul>
+</nav>

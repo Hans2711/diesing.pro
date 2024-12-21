@@ -9,20 +9,22 @@ use Illuminate\Support\Carbon;
 
 class Testrun extends Model
 {
-    protected $table = 'testrun';
-    protected $primaryKey = 'id';
+    protected $table = "testrun";
+    protected $primaryKey = "id";
 
     protected $attributes = [];
 
     public function shouldDeleted(): bool
     {
         if (!$this->testobject || !$this->testobject->delete_after) {
-            return false; 
+            return false;
         }
 
         $deleteAfter = $this->testobject->delete_after;
 
-        $expirationTime = Carbon::parse($this->created_at)->addSeconds($deleteAfter);
+        $expirationTime = Carbon::parse($this->created_at)->addSeconds(
+            $deleteAfter
+        );
         return Carbon::now()->greaterThan($expirationTime);
     }
 
@@ -33,23 +35,35 @@ class Testrun extends Model
         }
 
         $deleteAfter = $this->testobject->delete_after;
-        $deletionTime = Carbon::parse($this->created_at)->addSeconds($deleteAfter);
+        $deletionTime = Carbon::parse($this->created_at)->addSeconds(
+            $deleteAfter
+        );
 
         if ($deletionTime->isToday()) {
-            return $deletionTime->format('H:i') . " Today (" . $deletionTime->diffForHumans() . ")";
+            return $deletionTime->format("H:i") .
+                " Today (" .
+                $deletionTime->diffForHumans() .
+                ")";
         }
-        return $deletionTime->format('H:i d.m.Y') . " (" . $deletionTime->diffForHumans() . ")";
+        return $deletionTime->format("H:i d.m.Y") .
+            " (" .
+            $deletionTime->diffForHumans() .
+            ")";
     }
-
 
     public function getCreatedAtCleanAttribute($value)
     {
         $date = Carbon::parse($this->created_at);
 
         if ($date->isToday()) {
-            return $date->format('H:i') . " Today (" . $date->diffForHumans() . ")";
+            return $date->format("H:i") .
+                " " .
+                __("text.today") .
+                " (" .
+                $date->diffForHumans() .
+                ")";
         }
-        return $date->format('H:i d.m.Y') . " (" . $date->diffForHumans() . ")";
+        return $date->format("H:i d.m.Y") . " (" . $date->diffForHumans() . ")";
     }
 
     public function testobject()
@@ -57,9 +71,11 @@ class Testrun extends Model
         return $this->belongsTo(Testobject::class, "testobject_id", "id");
     }
 
-    public function testinstances() : HasMany
+    public function testinstances(): HasMany
     {
-        return $this->hasMany(Testinstance::class, 'testrun_id', 'id')->orderBy('created_at', 'desc');
+        return $this->hasMany(Testinstance::class, "testrun_id", "id")->orderBy(
+            "created_at",
+            "desc"
+        );
     }
 }
-
