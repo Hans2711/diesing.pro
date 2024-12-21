@@ -1,8 +1,8 @@
 <footer class="bg-white border-t border-gray-200 mt-8 py-8">
   <div class="container mx-auto text-center">
     <div class="flex justify-center space-x-8 mb-4">
-      <a wire:navigate.hover href="{{url('/impressum')}}" class="text-gray-600 hover:text-gray-900">Impressum</a>
-      <a wire:navigate.hover href="{{url('/datenschutz')}}" class="text-gray-600 hover:text-gray-900">Datenschutz</a>
+      <a wire:navigate.hover href="{{url(Config::get('app.locale') . '/' . __('url.imprint'))}}" class="text-gray-600 hover:text-gray-900">{{ __('text.imprint') }}</a>
+      <a wire:navigate.hover href="{{url(Config::get('app.locale') . '/' . __('url.data-protection'))}}" class="text-gray-600 hover:text-gray-900">{{ __('text.data-protection') }}</a>
     </div>
     <div class="flex justify-center space-x-8 mb-4">
       <a href="https://www.instagram.com/hans.dsg" target="_blank" class="text-gray-400 hover:text-gray-600">
@@ -17,8 +17,7 @@
       </a>
     </div>
     <div class="text-gray-500">
-      &copy; {{ date('Y') }} Diesing, All rights reserved.
+      &copy; {{ date('Y') }} Diesing, {{ __('text.all-rights-reserved') }}
     </div>
   </div>
 </footer>
-

@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => 'Portfolio', 'active' => 'portfolio'])
 
 @section('content')
-    <h1>Portfolio</h1>
+    <h1>{{ __('text.portfolio') }}</h1>
 
     <div class="md:columns-2 columns-1 mb-8" id="portfolio">
         @foreach ($projects as $project)

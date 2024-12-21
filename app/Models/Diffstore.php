@@ -9,15 +9,15 @@ use Illuminate\Support\Carbon;
 
 class Diffstore extends Model
 {
-    protected $table = 'diffstore';
-    protected $primaryKey = 'id';
+    protected $table = "diffstore";
+    protected $primaryKey = "id";
 
     protected $attributes = [
-        'key' => '',
-        'html' => '',
+        "key" => "",
+        "html" => "",
     ];
 
-    protected $fillable = ['key', 'html'];
+    protected $fillable = ["key", "html"];
 
     public function shouldDeleted(): bool
     {
@@ -30,9 +30,13 @@ class Diffstore extends Model
         $date = Carbon::parse($value);
 
         if ($date->isToday()) {
-            return $date->format('H:i') . " Today (" . $date->diffForHumans() . ")";
+            return $date->format("H:i") .
+                " " .
+                __("text.today") .
+                " (" .
+                $date->diffForHumans() .
+                ")";
         }
-        return $date->format('H:i d.m.Y') . " (" . $date->diffForHumans() . ")";
+        return $date->format("H:i d.m.Y") . " (" . $date->diffForHumans() . ")";
     }
 }
-

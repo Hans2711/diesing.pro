@@ -1,19 +1,20 @@
 <div>
     @vite(['resources/css/diff-table.css'])
 
-    <a wire:navigate.hover href="{{url("/tester/testobject/{$testrun->testobject->id}")}}" class="flex gap-2 mb-3 align-center">
-        <svg class="w-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.7.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
-        <span class="leading-none">Back</span>
+    <a wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testobject/{$testrun->testobject->id}")}}" class="flex gap-2 mb-4 align-center">
+        <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" />
+        <span class="leading-none">
+            {{__('text.back')}}
+        </span>
     </a>
-
 
     @if (!empty($diffInstanceOne) || !empty($diffInstanceOne))
         <div class="border border-gray-200 px-3 rounded">
             @if (!empty($diffInstanceOne))
-                <p><strong>Instance One:</strong> {{ $diffInstanceOne->created_at_clean}}</p>
+                <p><strong>{{ __('text.instance-one') }}:</strong> {{ $diffInstanceOne->created_at_clean}}</p>
             @endif
             @if (!empty($diffInstanceTwo))
-                <p><strong>Instance Two:</strong> {{ $diffInstanceTwo->created_at_clean}}</p>
+                <p><strong>{{ __('text.instance-two') }}:</strong> {{ $diffInstanceTwo->created_at_clean}}</p>
 
                 <form wire:submit="diff">
                     <div class="flex gap-4 mb-3">
@@ -36,7 +37,9 @@
                         </div>
                     </div>
                     <div class="grid-cols-2 grid align-middle gap-5 mb-3">
-                        <input type="submit" class="btn" value="Diff" />
+                        <button type="submit" class="btn">
+                            <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/git-compare.svg') }}" />
+                        </button>
                     </div>
                 </form>
             @endif
@@ -49,18 +52,31 @@
         @endif
     @endif
 
-    <button class="btn mb-3" wire:click="createInstance">New Instance</button>
+    <button class="btn mb-3" wire:click="createInstance">
+        <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
+    </button>
 
     @foreach ($testrun->testinstances as $testinstance)
         <div class="border border-gray-200 px-3 mb-4 pb-3 rounded">
             <p><strong>Name:</strong> {{ $testinstance->created_at_clean}}</p>
-            <p><strong>Status:</strong> {{ empty($testinstance->html) ? 'empty' : 'filled'}}</p>
+            <p><strong>Status:</strong> {{ empty($testinstance->html) ? __('text.empty') : __('text.filled')}}</p>
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
-                <button class="btn btn-delete" wire:click="deleteInstance({{$testinstance->id}})" wire:confirm="Are you sure?">Delete</button>
-                <a class="btn btn-details" wire:navigate.hover href="{{url("/tester/testinstance/{$testinstance->id}")}}" >Details</a>
-                <button class="btn btn-fetch" wire:navigate wire:click="fetchInstance({{$testinstance->id}})"")}}" >{{ empty($testinstance->html) ? 'Fetch' : 'Refetch'}}</button>
-                <button class="btn btn-diff" wire:click="addToDiff({{$testinstance->id}})">Add to Diff</button>
+                <button class="btn btn-delete" wire:click="deleteInstance({{$testinstance->id}})" wire:confirm="Are you sure?">
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}" />
+                </button>
+                <a class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testinstance/{$testinstance->id}")}}" >
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/eye.svg') }}" />
+                </a>
+                <button class="btn btn-fetch" wire:navigate wire:click="fetchInstance({{$testinstance->id}})"")}}" >
+                    <img
+                        class="w-20 h-5 invert"
+                        src="{{ Vite::asset('resources/icons/' . (empty($testinstance->html) ? 'download.svg' : 'arrow-down.svg')) }}"
+                    />
+                </button>
+                <button class="btn btn-diff" wire:click="addToDiff({{$testinstance->id}})">
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/git-compare.svg') }}" />
+                </button>
             </div>
         </div>
     @endforeach

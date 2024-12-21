@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Utilities\SessionUtility;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\URL;
 
 class TesterMiddleware
@@ -22,7 +23,10 @@ class TesterMiddleware
         }
 
         $currentUrl = URL::full(); // Get the current full URL
-        $redirectUrl = '/tester/auth?return_url=' . urlencode($currentUrl); // Append the current URL as a return_url parameter
+        $redirectUrl =
+            Config::get("app.locale") .
+            "/tester/auth?return_url=" .
+            urlencode($currentUrl); // Append the current URL as a return_url parameter
 
         return redirect($redirectUrl);
     }

@@ -2,7 +2,7 @@
     <!-- New Testobject Form -->
     @if (!$testobject)
         <div class="border border-black px-3 pb-5 mb-4 rounded">
-            <h2>New Testobject</h2>
+            <h2>{{ __('text.new-testobject') }}</h2>
 
             <form wire:submit.prevent="createObject">
                 @include('private.modals.parts.floating-label-input', [
@@ -23,7 +23,9 @@
                     'required' => true,
                     'livewire' => true
                 ])
-                <button type="submit" class="btn">Create</button>
+                <button type="submit" class="btn">
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
+                </button>
             </form>
         </div>
     @endif
@@ -54,7 +56,9 @@
                     'livewire' => true,
                     'value' => $url
                 ])
-                <button type="submit" class="btn">Update</button>
+                <button type="submit" class="btn btn-edit">
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
+                </button>
             </form>
         </div>
     @endif
@@ -66,9 +70,15 @@
             <p><strong>URL:</strong> {{ $testObj->url }}</p>
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
-                <button class="btn btn-delete" wire:click="deleteObject({{ $testObj->id }})" wire:confirm="Are you sure?">Delete</button>
-                <button class="btn btn-edit" wire:click="editObject({{ $testObj->id }})">Edit</button>
-                <a class="btn btn-details" wire:navigate.hover href="{{url("tester/testobject/{$testObj->id}")}}">Details</a>
+                <button class="btn btn-delete" wire:click="deleteObject({{ $testObj->id }})" wire:confirm="Are you sure?">
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}" />
+                </button>
+                <button class="btn btn-edit" wire:click="editObject({{ $testObj->id }})">
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
+                </button>
+                <a class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testobject/{$testObj->id}")}}">
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/eye.svg') }}" />
+                </a>
             </div>
         </div>
     @endforeach
