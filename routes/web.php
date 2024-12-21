@@ -35,5 +35,6 @@ Route::middleware(["tester"])->group(function () {
 });
 
 Route::get("/share", [ShareController::class, "index"]);
+Route::get("/share/test", [ShareController::class, "test"]);
 
 require base_path("/routes/private.php");

@@ -8,6 +8,7 @@
         "php": "^8.2",
         "jfcherng/php-diff": "^6.16",
         "laravel/framework": "^11.9",
+        "laravel/reverb": "^1.4",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "3.5.12"
     },
