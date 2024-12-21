@@ -36,7 +36,6 @@
            text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;
 }
 
-
 .alert {
     @apply p-3 bg-red-100 text-red-800 border border-red-200 rounded;
 }
@@ -86,11 +85,15 @@ p {
 
 /* General styles for all header buttons */
 .header-button {
-    @apply p-2 rounded text-[#1C160C] px-3 no-underline;
+    @apply p-2 rounded text-[#1C160C] px-3 no-underline duration-200;
 }
 
 /* Styles for active header buttons */
 .header-button.active {
+    @apply header-button-active;
+}
+
+.header-button-active {
     @apply bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 text-white border;
 }
 
@@ -101,12 +104,7 @@ p {
 
 /* Hover effects for non-active header buttons */
 .header-button:not(.active):hover {
-    @apply bg-gray-100;
-}
-
-/* Optional: Hover effects for active header buttons */
-.header-button.active:hover {
-    @apply bg-gradient-to-br from-gray-500 via-purple-700 to-rose-700;
+    @apply bg-gray-100 header-button-active;
 }
 
 p a {
@@ -118,39 +116,38 @@ h2 a {
 }
 
 @font-face {
-    font-family: 'Fira Code';
+    font-family: "Fira Code";
     font-style: normal;
     font-weight: 400;
-    src: url('../font/static/FiraCode-Regular.ttf') format('truetype');
+    src: url("../font/static/FiraCode-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'Fira Code';
+    font-family: "Fira Code";
     font-style: normal;
     font-weight: 500;
-    src: url('../font/static/FiraCode-Medium.ttf') format('truetype');
+    src: url("../font/static/FiraCode-Medium.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'Fira Code';
+    font-family: "Fira Code";
     font-style: normal;
     font-weight: 600;
-    src: url('../font/static/FiraCode-SemiBold.ttf') format('truetype');
+    src: url("../font/static/FiraCode-SemiBold.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: 'Fira Code';
+    font-family: "Fira Code";
     font-style: normal;
     font-weight: 700;
-    src: url('../font/static/FiraCode-Bold.ttf') format('truetype');
+    src: url("../font/static/FiraCode-Bold.ttf") format("truetype");
 }
 
 html {
-    font-family: 'Fira Code';
+    font-family: "Fira Code";
     height: 100%; /* Ensure full height for the body */
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
-
 
 .parallax-image {
     position: relative;

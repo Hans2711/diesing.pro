@@ -7,6 +7,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <title>
     @if (isset($title))
@@ -23,7 +25,7 @@
 <body>
     <div id="app">
         @include('global.header', ['active' => $active ?? null])
-        <div class="container mx-auto md:px-0 px-6 pt-4">
+        <div class="container mx-auto md:px-0 px-6 pt-20">
             @yield('content')
         </div>
     </div>
