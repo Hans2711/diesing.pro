@@ -5,7 +5,7 @@
         <img class="h-10 inline" src="{{ Vite::asset('resources/logo/DLogo.png') }}">
       </a>
     </span>
-    <div class="flex items-center">
+    <div class="flex items-center z-50">
       <div class="relative group inline-block text-left ml-4">
         <button
           type="button"
