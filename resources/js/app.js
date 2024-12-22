@@ -11,7 +11,7 @@ import.meta.glob([
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#menu-img").addEventListener("click", (img) => {
         let list = document.querySelector("#header-list");
-        img.target.src.contains("menu")
+        img.target.src.includes("menu")
             ? ((img.target.src = img.target.src.replace("menu", "close")),
               list.classList.add("top-[80px]"),
               list.classList.add("opacity-100"))
@@ -27,7 +27,7 @@ window.triggerLanguageDropdown = (e) => {
 
     let img = e.querySelector("img[alt='Chevron']");
 
-    if (img.src.contains("down")) {
+    if (img.src.includes("down")) {
         img.src = img.src.replace("down", "up");
     } else {
         img.src = img.src.replace("up", "down");
