@@ -8,16 +8,24 @@ import.meta.glob([
     "../icons/**",
 ]);
 
-window.Menu = (img) => {
-    let list = document.querySelector("#header-list");
-    img.src.endsWith("menu.svg")
-        ? ((img.src = img.src.replace("menu.svg", "close.svg")),
-          list.classList.add("top-[80px]"),
-          list.classList.add("opacity-100"))
-        : ((img.src = img.src.replace("close.svg", "menu.svg")),
-          list.classList.remove("top-[80px]"),
-          list.classList.remove("opacity-100"));
-};
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("#menu-img").addEventListener("click", (img) => {
+        let list = document.querySelector("#header-list");
+        img.target.src.endsWith("menu.svg")
+            ? ((img.target.src = img.target.src.replace(
+                  "menu.svg",
+                  "close.svg",
+              )),
+              list.classList.add("top-[80px]"),
+              list.classList.add("opacity-100"))
+            : ((img.target.src = img.target.src.replace(
+                  "close.svg",
+                  "menu.svg",
+              )),
+              list.classList.remove("top-[80px]"),
+              list.classList.remove("opacity-100"));
+    });
+});
 
 window.triggerLanguageDropdown = (e) => {
     let dropdown = document.querySelector("#language-dropdown");
