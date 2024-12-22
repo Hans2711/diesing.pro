@@ -53,7 +53,7 @@
         </div>
       </div>
       <span class="text-3xl z-50 cursor-pointer mx-2 md:hidden block">
-        <img class="h-9 w-9" onclick="Menu(this)" src="{{ Vite::asset('resources/icons/menu.svg') }}">
+        <img class="h-9 w-9" onclick="window.Menu(this)" src="{{ Vite::asset('resources/icons/menu.svg') }}">
       </span>
     </div>
   </div>
