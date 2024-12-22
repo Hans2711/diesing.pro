@@ -38,8 +38,6 @@ window.triggerLanguageDropdown = (e) => {
     } else {
         img.src = img.src.replace("up", "down");
     }
-
-    console.log(img);
 };
 
 document.addEventListener("click", function (event) {

@@ -98,3 +98,5 @@
     </li>
   </ul>
 </nav>
+
+<div class="hidden top-[80px] opacity-100"></div>
