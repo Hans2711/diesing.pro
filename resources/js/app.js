@@ -11,17 +11,11 @@ import.meta.glob([
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#menu-img").addEventListener("click", (img) => {
         let list = document.querySelector("#header-list");
-        img.target.src.endsWith("menu.svg")
-            ? ((img.target.src = img.target.src.replace(
-                  "menu.svg",
-                  "close.svg",
-              )),
+        img.target.src.contains("menu")
+            ? ((img.target.src = img.target.src.replace("menu", "close")),
               list.classList.add("top-[80px]"),
               list.classList.add("opacity-100"))
-            : ((img.target.src = img.target.src.replace(
-                  "close.svg",
-                  "menu.svg",
-              )),
+            : ((img.target.src = img.target.src.replace("close", "menu")),
               list.classList.remove("top-[80px]"),
               list.classList.remove("opacity-100"));
     });
@@ -33,7 +27,7 @@ window.triggerLanguageDropdown = (e) => {
 
     let img = e.querySelector("img[alt='Chevron']");
 
-    if (img.src.endsWith("down.svg")) {
+    if (img.src.contains("down")) {
         img.src = img.src.replace("down", "up");
     } else {
         img.src = img.src.replace("up", "down");
