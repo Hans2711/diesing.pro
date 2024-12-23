@@ -7,7 +7,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\URL;
-
+use App\Utilities\FingerprintUtility;
 
 class PrivateMiddleware
 {
@@ -20,11 +20,16 @@ class PrivateMiddleware
     {
         if (SessionUtility::privateAreaAuthenticated()) {
             return $next($request);
+        } else {
+            if (FingerprintUtility::checkFingerprint("asd")) {
+                SessionUtility::testerAuthenticated();
+                return $next($request);
+            }
         }
-    
+
         $currentUrl = URL::full(); // Get the current full URL
-        $redirectUrl = '/privater-bereich?return_url=' . urlencode($currentUrl); // Append the current URL as a return_url parameter
-    
+        $redirectUrl = "/privater-bereich?return_url=" . urlencode($currentUrl); // Append the current URL as a return_url parameter
+
         return redirect($redirectUrl);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use App\Models\Redirect;
+use App\Utilities\FingerprintUtility;
 use App\Utilities\SessionUtility;
 use Egulias\EmailValidator\Warning\EmailTooLong;
 use Illuminate\Http\Request;
@@ -20,12 +21,30 @@ class PrivateController extends Controller
         ]);
     }
 
+    public function FingerprintCheck(Request $request)
+    {
+        $fingerprintCheck = FingerprintUtility::checkFingerprint(
+            $request->input("fingerprint")
+        );
+        if ($fingerprintCheck) {
+            SessionUtility::privateAreaAuthenticate();
+        }
+        return response()->json($fingerprintCheck ? 1 : 0);
+    }
+
     public function ReceiveForm(Request $request)
     {
         $password = $request->input("password");
 
         if ($password == env("PRIVATE_PASSWORD")) {
             SessionUtility::privateAreaAuthenticate();
+
+            if (!empty($request->input("fingerprint"))) {
+                FingerprintUtility::enableFingerprint(
+                    $request->input("fingerprint")
+                );
+            }
+
             return redirect(
                 $request->input("return_url") ?? "/privater-bereich"
             );

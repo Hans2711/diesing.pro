@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 Route::get("/privater-bereich", [PrivateController::class, "index"]);
 Route::post("/privater-bereich", [PrivateController::class, "ReceiveForm"]);
 
+Route::post("/fingerprint", [PrivateController::class, "FingerprintCheck"]);
+
 Route::get("/notiz/{slug}", [PrivateController::class, "PublicNote"]);
 Route::post("/notiz/{slug}", [PrivateController::class, "PublicNote"]);
 
