@@ -18,6 +18,7 @@ export default defineConfig({
                 "resources/js/contact.js",
                 "resources/js/fingerprinting.js",
                 "resources/js/utils/iphone-paralax.js",
+                "resources/js/utils/clipboard.js",
             ],
             refresh: true,
         }),

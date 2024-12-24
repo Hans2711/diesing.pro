@@ -7,4 +7,12 @@ return [
     "teams" => "teams",
     "imprint" => "impressum",
     "data-protection" => "datenschutz",
+
+    "private-area" => "privater-bereich",
+    "fingerprint" => "fingerabdruck",
+    "note" => "notiz",
+    "redirect" => "weiterleitung",
+    "notes" => "notizen",
+    "redirects" => "weiterleitungen",
+    "files" => "dateien",
 ];
