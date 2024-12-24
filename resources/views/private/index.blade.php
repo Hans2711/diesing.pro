@@ -1,12 +1,12 @@
-@extends('layouts.private', ['title' => 'Private Bereich', 'active' => 'private', 'activeTool' => 'none', 'hideToolbar' => true])
+@extends('layouts.private', ['title' => __('text.private-area'), 'active' => 'private', 'activeTool' => 'none', 'hideToolbar' => true])
 
 @section('tool-content')
     @if ($isAuthenticated)
         <div class="order-2 md:order-1 mt-4 md:mt-0 md:mr-4 md:w-auto">
-            <p class="text-green-800">Authentifiziert</p>
+            <p class="text-green-800">{{ __('auth.authenticated') }}</p>
         </div>
     @else
-        <p class="text-red-800">Nicht Authentifiziert</p>
+        <p class="text-red-800">{{ __('auth.not-authenticated') }}</p>
         <form method="POST" action="#" class="mt-5 ">
             @csrf
             @include('private.modals.parts.floating-label-input', ['id' => 'password', 'name' => 'password', 'label' => 'Password', 'wrapperClass' => 'col-span-2

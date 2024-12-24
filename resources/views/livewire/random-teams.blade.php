@@ -8,7 +8,7 @@
         <div class="player mt-3">
             <div class="flex justify-between gap-4">
                 <input type="text" wire:change="updatePlayerName($event.target.value, $event.target.id)" id="{{ $key }}" class="w-full rounded" value="{{ $player }}" placeholder="{{ empty($player) ? __('text.player-name') : ''}}" />
-                <button class="btn btn-delete" id="{{ $key }}" wire:click="deletePlayer($event.target.id)" wire:confirm="{{ __('text.are-your-sure') }}">
+                <button class="btn btn-delete" id="{{ $key }}" wire:click="deletePlayer($event.target.id)" wire:confirm="{{ __('text.are-you-sure') }}">
                     <img class="w-6 h-6 invert" src="{{ Vite::asset('resources/icons/close.svg') }}" />
                 </button>
             </div>

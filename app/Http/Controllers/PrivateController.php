@@ -9,6 +9,7 @@ use App\Utilities\SessionUtility;
 use Egulias\EmailValidator\Warning\EmailTooLong;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
 
 class PrivateController extends Controller
 {
@@ -32,7 +33,7 @@ class PrivateController extends Controller
         return response()->json($fingerprintCheck ? 1 : 0);
     }
 
-    public function ReceiveForm(Request $request)
+    public function auth(Request $request)
     {
         $password = $request->input("password");
 
@@ -46,7 +47,8 @@ class PrivateController extends Controller
             }
 
             return redirect(
-                $request->input("return_url") ?? "/privater-bereich"
+                $request->input("return_url") ??
+                    "/" . App::getLocale() . "/" . __("url.private-area")
             );
         }
 
@@ -58,74 +60,17 @@ class PrivateController extends Controller
     public function notes()
     {
         $notes = Note::all();
-
         return view("private.notes", ["notes" => $notes]);
-    }
-
-    public function getNote($id)
-    {
-        $note = Note::find($id);
-        if (!$note) {
-            $note = new Note();
-        }
-        return response()->json($note->toArray());
-    }
-
-    public function updateNote($id, Request $request)
-    {
-        $note = Note::find($id);
-        $isNew = false;
-
-        if (!$note) {
-            $note = new Note();
-            $isNew = true;
-        }
-
-        if (!empty($request->input("name"))) {
-            if ($isNew) {
-                $note->save();
-            }
-
-            $note->name = $request->input("name");
-            $slug =
-                str_replace(" ", "-", strtolower($request->input("name"))) .
-                "-" .
-                $note->id;
-            $note->slug = $slug;
-        }
-        if (!empty($request->input("content"))) {
-            $note->content = $request->input("content");
-        }
-        if (
-            !empty($request->input("share")) ||
-            $request->input("share") === "0"
-        ) {
-            $note->share = (int) $request->input("share");
-        }
-        if (
-            !empty($request->input("enable-password")) ||
-            $request->input("enable-password") === "0"
-        ) {
-            $note->enable_password = (int) $request->input("enable-password");
-        }
-        if (
-            !empty($request->input("password")) ||
-            (!empty($request->input("write-password")) &&
-                $request->input("write-password") == 1)
-        ) {
-            $note->password = $request->input("password") ?? "";
-        }
-
-        $note->save();
-
-        return response()->json($note->toArray());
     }
 
     public function PublicNote($slug, Request $request)
     {
         $note = Note::where("slug", $slug)->where("share", 1)->first();
         if (!$note) {
-            return redirect("/privater-bereich");
+            return redirect(
+                $request->input("return_url") ??
+                    "/" . App::getLocale() . "/" . __("url.private-area")
+            );
         }
 
         if ($note->enable_password) {
@@ -163,13 +108,6 @@ class PrivateController extends Controller
         }
     }
 
-    public function deleteNote($id)
-    {
-        $note = Note::find($id);
-        $note->delete();
-        return response()->json(1);
-    }
-
     public function redirector()
     {
         $redirects = Redirect::query()->orderBy("id", "desc")->get();
@@ -183,59 +121,6 @@ class PrivateController extends Controller
         if ($redirect) {
             return redirect($redirect->target, $redirect->code);
         }
-    }
-
-    public function getRedirectsList()
-    {
-        $redirects = Redirect::query()->orderBy("id", "desc")->get();
-        return view("private.parts.redirect-list", ["redirects" => $redirects]);
-    }
-
-    public function deleteRedirect(Request $request)
-    {
-        $id = $request->input("id");
-
-        $redirect = Redirect::where("id", $id)->first();
-
-        if (!empty($redirect)) {
-            $redirect->delete();
-            return response()->json(1);
-        }
-
-        return response()->json(0);
-    }
-
-    public function pushRedirect(Request $request)
-    {
-        $id = $request->input("id");
-        $name = $request->input("name");
-        $target = $request->input("target");
-        $code = $request->input("code");
-
-        $redirect = null;
-        if (empty($id)) {
-            $redirect = new Redirect();
-        } else {
-            $redirect = Redirect::where("id", $id)->first();
-
-            if (empty($redirect)) {
-                $redirect = new Redirect();
-            }
-        }
-
-        if (!empty($name)) {
-            $redirect->name = $name;
-        }
-        if (!empty($target)) {
-            $redirect->target = $target;
-        }
-        if (!empty($code)) {
-            $redirect->code = $code;
-        }
-
-        $redirect->workRedirect();
-        $redirect->save();
-        return response()->json($redirect->toArray());
     }
 
     public function files()

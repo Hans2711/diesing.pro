@@ -41,4 +41,8 @@ return [
     "number-of-teams" => "Number of Teams",
     "today" => "today",
     "are-you-sure" => "Are you sure?",
+
+    "notes" => "Notes",
+    "private-area" => "Private Area",
+    "share" => "Share",
 ];

@@ -40,4 +40,8 @@ return [
     "number-of-teams" => "Anzahl der Teams",
     "today" => "Heute",
     "are-you-sure" => "Bist du sicher?",
+
+    "notes" => "Notizen",
+    "private-area" => "Privater Bereich",
+    "share" => "Teilen",
 ];
