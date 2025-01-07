@@ -3,39 +3,16 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    @include('global.translations')
+    @include('global.head.viewport')
+    @include('global.head.translations')
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="preload" href="{{ Vite::asset('resources/font/static/FiraCode-Regular.ttf') }}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{{ Vite::asset('resources/font/static/FiraCode-Medium.ttf') }}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{{ Vite::asset('resources/font/static/FiraCode-SemiBold.ttf') }}" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="{{ Vite::asset('resources/font/static/FiraCode-Bold.ttf') }}" as="font" type="font/ttf" crossorigin="anonymous">
 
-    <title>
-    @if (isset($title))
-        {{ $title }} - Diesing
-    @else
-        {{ config('app.name', 'Diesing') }}</title>
-    @endif
-    </title>
-
-    <meta name="og:title" content="{{ $title }}" />
-    <meta name="og:url" content="{{ url()->current() }}" />
-    <meta name="og:image" content="{{ Vite::asset('resources/logo/DLogo.png') }}" />
-
-    @if (env('APP_ANALYTICS'))
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SX1DCPHNNB"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-SX1DCPHNNB');
-        </script>
-    @endif
+    @include('global.head.font-preload')
+    @include('global.head.title', ['title' => $title ?? null])
+    @include('global.head.og-tags', ['title' => $title ?? null])
+    @include('global.head.google-analytics', ['title' => $title ?? null])
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles

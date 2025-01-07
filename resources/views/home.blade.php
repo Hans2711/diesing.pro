@@ -1,7 +1,6 @@
 @extends('layouts.app', ['title' => 'Startseite'])
 
 @section('content')
-    @vite(['resources/js/utils/iphone-paralax.js'])
     <h1>{{ __('text.welcome') }}</h1>
 
     <div class="md:columns-2 columns-1 md:mb-8 mb-0" id="portfolio">
