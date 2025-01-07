@@ -8,7 +8,7 @@
         <button wire:click="addNote" class="ml-2 p-2 py-2.5 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 flex items-center" id="add-note">
             <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
         </button>
-        <button wire:click="deleteNote" class="ml-2 p-2 py-2.5 px-4 bg-red-500 text-white rounded hover:bg-red-700 flex items-center" id="delete-note">
+        <button wire:click="deleteNote" wire:confirm="{{ __('text.are-you-sure') }}" class="ml-2 p-2 py-2.5 px-4 bg-red-500 text-white rounded hover:bg-red-700 flex items-center" id="delete-note">
             <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}" />
         </button>
     </div>

@@ -24,6 +24,10 @@ Route::post("/n/{slug}", [PrivateController::class, "PublicNote"])->name(
     "publicNote.post"
 );
 
+Route::get("/r/{slug}", [PrivateController::class, "Redirect"])->name(
+    "redirect"
+);
+
 ///////////////////////////
 // GROUP: DE Routes
 ///////////////////////////
@@ -40,12 +44,6 @@ Route::prefix("de")
             PrivateController::class,
             "auth",
         ])->name("private.auth");
-
-        // Redirect: /de/weiterleitung/{slug}
-        Route::get("/" . route_trans("redirect", $locale) . "/{slug}", [
-            PrivateController::class,
-            "Redirect",
-        ])->name("redirect");
 
         // Protected Routes with Middleware "private": /de/privater-bereich/*
         Route::middleware(["private"])->group(function () use ($locale) {
@@ -89,12 +87,6 @@ Route::prefix("en")
             PrivateController::class,
             "auth",
         ])->name("private.auth");
-
-        // Redirect: /en/redirect/{slug}
-        Route::get("/" . route_trans("redirect", $locale) . "/{slug}", [
-            PrivateController::class,
-            "Redirect",
-        ])->name("redirect");
 
         // Protected Routes with Middleware "private": /en/private-area/*
         Route::middleware(["private"])->group(function () use ($locale) {

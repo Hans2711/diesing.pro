@@ -90,7 +90,7 @@
       </a>
     </li>
     <li class="mx-2 my-6 md:my-0">
-      <a wire:navigate.hover
+      <a
          class="@if ($active == 'private') active @endif header-button"
          href="{{ url(Config::get('app.locale') . '/' . __('url.private-area')) }}">
         {{ __('text.private-tools') }}

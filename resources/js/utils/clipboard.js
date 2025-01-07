@@ -12,28 +12,33 @@ export function copyText(text) {
     tempInput.focus();
     tempInput.select();
 
+    const translations = JSON.parse(
+        document.querySelector('meta[name="translations-text"]').content,
+    );
+
     // Attempt to use the Clipboard API
     if (navigator.clipboard) {
         navigator.clipboard
             .writeText(text)
             .then(function () {
-                console.log("Text copied to clipboard successfully!");
+                console.log(translations.copy_success);
+                alert(translations.copy_success);
             })
             .catch(function (err) {
-                console.error("Failed to copy the text: ", err);
-                // Fallback to execCommand if Clipboard API fails
+                console.error(translations.copy_failure, err);
+                alert(translations.copy_failure);
                 document.execCommand("copy");
             });
     } else {
-        // Fallback to execCommand for older browsers
         try {
             document.execCommand("copy");
-            console.log("Text copied to clipboard using execCommand!");
+            console.log(translations.fallback_copy_success);
+            alert(translations.fallback_copy_success);
         } catch (err) {
-            console.error("Failed to copy the text using execCommand: ", err);
+            console.error(translations.fallback_copy_failure, err);
+            alert(translations.fallback_copy_failure);
         }
     }
-
     // Clean up
     document.body.removeChild(tempInput);
 }
