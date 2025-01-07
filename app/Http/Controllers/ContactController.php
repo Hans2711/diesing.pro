@@ -57,7 +57,7 @@ class ContactController extends Controller
 
         return new JsonResponse([
             "success" => true,
-            "message" => "Nachricht wurde versendet.",
+            "message" => __("text-message-sent"),
         ]);
     }
 }

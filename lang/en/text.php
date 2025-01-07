@@ -15,6 +15,7 @@ return [
     "message" => "Message",
     "submit" => "Submit",
     "submiting" => "Submitting...",
+    "message-sent" => "Message has been sent.",
     "ab-tester" => "A-B Tester",
     "tester" => "Tester",
     "tester-disclaimer" =>
