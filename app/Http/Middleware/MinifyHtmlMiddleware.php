@@ -26,6 +26,6 @@ class MinifyHtmlMiddleware
 
     public function minifyHtml(string $html): string
     {
-        return preg_replace(["/<!--.*?-->/s", "/\s\B/"], ["", ""], $html);
+        return $html;
     }
 }
