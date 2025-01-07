@@ -183,9 +183,9 @@ Route::prefix("en")
 ///////////////////////////
 // OPTIONAL: Default Redirect
 ///////////////////////////
-// Redirect root URL to default language, e.g., /en
+// Redirect root URL to default language, e.g., /de
 Route::get("/", function () {
-    return redirect("/en");
+    return redirect("/de");
 });
 
 require base_path("/routes/private.php");

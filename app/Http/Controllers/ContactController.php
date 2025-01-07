@@ -9,12 +9,22 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-    //
-    //
+    protected $recepientConfig = [
+        "hp" => [
+            "email" => "hp@diesing.pro",
+            "name" => "Hans Peter (HP) Diesing",
+        ],
+        "detlef" => [
+            "email" => "detlef.diesing@icloud.com",
+            "name" => "Detlef Diesing",
+        ],
+    ];
 
     public function form()
     {
-        return view("contact.form");
+        return view("contact.form", [
+            "recepients" => $this->recepientConfig,
+        ]);
     }
 
     public function submit(Request $request)
@@ -24,9 +34,17 @@ class ContactController extends Controller
         $email = $request->input("email");
         $tel = $request->input("tel");
         $message = $request->input("message");
+        $recepient = $request->input("recepient");
 
-        Mail::to("hans.diesing@netigo.de")
-            ->bcc("diesinghans@gmail.com")
+        if (!array_key_exists($recepient, $this->recepientConfig)) {
+            return new JsonResponse([
+                "success" => false,
+                "message" => "Recepient not found.",
+            ]);
+        }
+
+        Mail::to($this->recepientConfig[$recepient]["email"])
+            ->bcc("info@diesing.pro")
             ->send(
                 new ContactEmail([
                     "name" => $name,
