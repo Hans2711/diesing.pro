@@ -64,8 +64,9 @@ class Redirects extends Component
         $redirect = Redirect::find($this->selectedRedirect["id"]);
 
         if ($redirect) {
-            $redirect->workRedirect();
             $redirect->update($this->selectedRedirect);
+            $redirect->workRedirect();
+            $redirect->save();
         }
 
         $this->cancelEdit();
