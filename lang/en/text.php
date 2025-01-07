@@ -45,4 +45,9 @@ return [
     "notes" => "Notes",
     "private-area" => "Private Area",
     "share" => "Share",
+
+    "copy_success" => "Text copied to clipboard successfully!",
+    "copy_failure" => "Failed to copy the text.",
+    "fallback_copy_success" => "Text copied to clipboard using execCommand!",
+    "fallback_copy_failure" => "Failed to copy the text using execCommand.",
 ];

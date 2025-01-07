@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\URL;
 use App\Utilities\FingerprintUtility;
+use Illuminate\Support\Facades\App;
 
 class PrivateMiddleware
 {
@@ -28,7 +29,12 @@ class PrivateMiddleware
         }
 
         $currentUrl = URL::full(); // Get the current full URL
-        $redirectUrl = "/privater-bereich?return_url=" . urlencode($currentUrl); // Append the current URL as a return_url parameter
+        $redirectUrl =
+            App::getLocale() .
+            "/" .
+            __("url.private-area") .
+            "?return_url=" .
+            urlencode($currentUrl);
 
         return redirect($redirectUrl);
     }

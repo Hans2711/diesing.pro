@@ -25,13 +25,19 @@ class Redirect extends Model
             "slug" => $this->slug,
             "target" => $this->target,
             "code" => $this->code,
-            "url" => url("/r/" . $this->slug),
+            "url" => $this->url,
         ];
     }
 
     public function __construct()
     {
         parent::__construct();
+    }
+
+    public function getUrlAttribute()
+    {
+        $this->workRedirect();
+        return url("/r/" . $this->slug);
     }
 
     public function workRedirect()

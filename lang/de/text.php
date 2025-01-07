@@ -44,4 +44,11 @@ return [
     "notes" => "Notizen",
     "private-area" => "Privater Bereich",
     "share" => "Teilen",
+
+    "copy_success" => "Text erfolgreich in die Zwischenablage kopiert!",
+    "copy_failure" => "Text konnte nicht in die Zwischenablage kopiert werden.",
+    "fallback_copy_success" =>
+        "Text erfolgreich mit execCommand in die Zwischenablage kopiert!",
+    "fallback_copy_failure" =>
+        "Text konnte mit execCommand nicht in die Zwischenablage kopiert werden.",
 ];
