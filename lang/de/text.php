@@ -8,11 +8,13 @@ return [
     "data-protection" => "Datenschutz",
     "and" => "und",
     "all-rights-reserved" => "Alle Rechte vorbehalten.",
+    "recepient" => "Empfänger",
     "company" => "Firma",
     "email" => "E-Mail",
     "mobile" => "Tel. Nr.",
     "message" => "Nachricht",
     "submit" => "Absenden",
+    "submiting" => "Absenden...",
     "ab-tester" => "A-B Tester",
     "tester" => "Tester",
     "tester-disclaimer" =>

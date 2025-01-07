@@ -8,11 +8,13 @@ return [
     "data-protection" => "Data Protection",
     "and" => "and",
     "all-rights-reserved" => "All rights reserved.",
+    "recepient" => "Recepient",
     "company" => "Company",
     "email" => "Email",
     "mobile" => "Phone Number",
     "message" => "Message",
     "submit" => "Submit",
+    "submiting" => "Submitting...",
     "ab-tester" => "A-B Tester",
     "tester" => "Tester",
     "tester-disclaimer" =>
