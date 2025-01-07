@@ -7,7 +7,7 @@ use App\Models\Diffstore;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\SitemapGenerator;
 
-class CleanTester extends Command
+class GenerateSitemap extends Command
 {
     /**
      * The name and signature of the console command.
