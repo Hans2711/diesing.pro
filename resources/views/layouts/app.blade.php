@@ -19,6 +19,10 @@
     @endif
     </title>
 
+    <meta name="og:title" content="{{ $title }}" />
+    <meta name="og:url" content="{{ url()->current() }}" />
+    <meta name="og:image" content="{{ Vite::asset('resources/logo/DLogo.png') }}" />
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     @livewireScripts
