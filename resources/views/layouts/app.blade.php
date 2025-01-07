@@ -23,6 +23,18 @@
     <meta name="og:url" content="{{ url()->current() }}" />
     <meta name="og:image" content="{{ Vite::asset('resources/logo/DLogo.png') }}" />
 
+    @if (env('APP_ANALYTICS'))
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SX1DCPHNNB"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-SX1DCPHNNB');
+        </script>
+    @endif
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
     @livewireScripts
