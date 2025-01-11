@@ -45,7 +45,7 @@ class ContactController extends Controller
 
         Mail::to($this->recepientConfig[$recepient]["email"])
             ->bcc("info@diesing.pro")
-            ->send(
+            ->queue(
                 new ContactEmail([
                     "name" => $name,
                     "firma" => $firma,
