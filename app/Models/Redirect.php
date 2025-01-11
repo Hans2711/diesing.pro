@@ -15,6 +15,7 @@ class Redirect extends Model
         "slug" => "neue-weiterleitung",
         "target" => "https://www.diesing.pro",
         "code" => "302",
+        "user" => 0,
     ];
 
     public function toArray()
@@ -26,6 +27,7 @@ class Redirect extends Model
             "target" => $this->target,
             "code" => $this->code,
             "url" => $this->url,
+            "user" => $this->user,
         ];
     }
 
@@ -36,14 +38,26 @@ class Redirect extends Model
 
     public function getUrlAttribute()
     {
-        $this->workRedirect();
         return url("/r/" . $this->slug);
     }
 
     public function workRedirect()
     {
-        $this->slug = str_replace(" ", "-", strtolower($this->name));
+        $baseSlug = str_replace(" ", "-", strtolower($this->name));
+        $originalSlug = $baseSlug;
+
+        $count = 1;
+        while (
+            self::where("slug", $baseSlug)
+                ->where("id", "!=", $this->id)
+                ->exists()
+        ) {
+            $baseSlug = $originalSlug . "-" . $this->id;
+            $count++;
+        }
+
+        $this->slug = $baseSlug;
     }
 
-    protected $fillable = ["name", "slug", "target", "code"];
+    protected $fillable = ["name", "slug", "target", "code", "user"];
 }

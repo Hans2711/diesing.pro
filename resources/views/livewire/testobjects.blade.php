@@ -5,7 +5,7 @@
             <h2>{{ __('text.new-testobject') }}</h2>
 
             <form wire:submit.prevent="createObject">
-                @include('private.modals.parts.floating-label-input', [
+                @include('global.partials..floating-label-input', [
                     'id' => 'name',
                     'name' => 'name',
                     'label' => 'Name',
@@ -14,7 +14,7 @@
                     'required' => true,
                     'livewire' => true
                 ])
-                @include('private.modals.parts.floating-label-input', [
+                @include('global.partials..floating-label-input', [
                     'id' => 'url',
                     'name' => 'url',
                     'label' => 'Url',
@@ -36,7 +36,7 @@
             <h2>Update {{ $testobject->name }}</h2>
 
             <form wire:submit.prevent="updateObject">
-                @include('private.modals.parts.floating-label-input', [
+                @include('global.partials..floating-label-input', [
                     'id' => 'name',
                     'name' => 'name',
                     'label' => 'Name',
@@ -46,7 +46,7 @@
                     'livewire' => true,
                     'value' => $name
                 ])
-                @include('private.modals.parts.floating-label-input', [
+                @include('global.partials..floating-label-input', [
                     'id' => 'url',
                     'name' => 'url',
                     'label' => 'Url',

@@ -12,7 +12,6 @@ export default defineConfig({
                 "resources/js/app.js",
                 "resources/js/parts/header.js",
                 "resources/js/contact.js",
-                "resources/js/fingerprinting.js",
                 "resources/js/utils/clipboard.js",
             ],
             refresh: true,

@@ -15,4 +15,6 @@ return [
     "notes" => "notes",
     "redirects" => "redirects",
     "files" => "files",
+
+    "account" => "account",
 ];

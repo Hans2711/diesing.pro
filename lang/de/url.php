@@ -15,4 +15,6 @@ return [
     "notes" => "notizen",
     "redirects" => "weiterleitungen",
     "files" => "dateien",
+
+    "account" => "benutzerkonto",
 ];
