@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Testobject;
+use Illuminate\Support\Facades\Auth;
 
 class Testobjects extends Component
 {
@@ -14,32 +15,35 @@ class Testobjects extends Component
 
     public function mount()
     {
-        $this->testobjects = Testobject::orderBy('created_at', 'desc')->get();
+        $this->testobjects = Testobject::where("user", Auth::user()->id)
+            ->orderBy("created_at", "desc")
+            ->get();
         $this->resetInputFields();
     }
 
     public function resetInputFields()
     {
-        $this->name = '';
-        $this->url = '';
+        $this->name = "";
+        $this->url = "";
         $this->testobject = null;
     }
 
     public function createObject()
     {
         if (empty($this->name) || empty($this->url)) {
-            session()->flash('error', 'Both name and URL are required.');
+            session()->flash("error", "Both name and URL are required.");
             return;
         }
 
         Testobject::create([
-            'name' => $this->name,
-            'url' => $this->url,
+            "name" => $this->name,
+            "url" => $this->url,
+            "user" => Auth::user()->id,
         ]);
 
-        session()->flash('message', 'Testobject created successfully.');
+        session()->flash("message", "Testobject created successfully.");
 
-        $this->testobjects = Testobject::orderBy('created_at', 'desc')->get();
+        $this->mount();
         $this->resetInputFields();
     }
 
@@ -55,10 +59,10 @@ class Testobjects extends Component
                 $a->delete();
             }
             $testobject->delete();
-            session()->flash('message', 'Testobject deleted successfully.');
-            $this->testobjects = Testobject::orderBy('created_at', 'desc')->get();
+            session()->flash("message", "Testobject deleted successfully.");
+            $this->mount();
         } else {
-            session()->flash('error', 'Testobject not found.');
+            session()->flash("error", "Testobject not found.");
         }
     }
 
@@ -71,37 +75,37 @@ class Testobjects extends Component
             $this->name = $testobject->name;
             $this->url = $testobject->url;
         } else {
-            session()->flash('error', 'Testobject not found.');
+            session()->flash("error", "Testobject not found.");
         }
     }
 
     public function updateObject()
     {
         if (!$this->testobject) {
-            session()->flash('error', 'No Testobject selected for updating.');
+            session()->flash("error", "No Testobject selected for updating.");
             return;
         }
 
         if (empty($this->name) || empty($this->url)) {
-            session()->flash('error', 'Both name and URL are required.');
+            session()->flash("error", "Both name and URL are required.");
             return;
         }
 
         $this->testobject->update([
-            'name' => $this->name,
-            'url' => $this->url,
+            "name" => $this->name,
+            "url" => $this->url,
         ]);
 
-        session()->flash('message', 'Testobject updated successfully.');
+        session()->flash("message", "Testobject updated successfully.");
 
-        $this->testobjects = Testobject::orderBy('created_at', 'desc')->get();
+        $this->mount();
         $this->resetInputFields();
     }
 
     public function render()
     {
-        return view('livewire.testobjects', [
-            'testobjects' => $this->testobjects,
+        return view("livewire.testobjects", [
+            "testobjects" => $this->testobjects,
         ]);
     }
 }

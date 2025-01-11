@@ -15,6 +15,9 @@
                     <div class="font-bold text-xl mb-2">
                         {{ __('text.contact') }}
                     </div>
+                    <div class="mb-2">
+                        {{ __('text.contact-description') }}
+                    </div>
                 </div>
             </a>
         </div>
@@ -29,6 +32,9 @@
                 <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">
                         {{ __('text.portfolio') }}
+                    </div>
+                    <div class="mb-2">
+                        {{ __('text.portfolio-description') }}
                     </div>
                 </div>
             </a>
@@ -46,6 +52,9 @@
                     <div class="font-bold text-xl mb-2">
                         {{ __('text.tester') }}
                     </div>
+                    <div class="mb-2">
+                        {{ __('text.tester-description') }}
+                    </div>
                 </div>
             </a>
         </div>
@@ -59,6 +68,9 @@
                     <div class="font-bold text-xl mb-2">
                         {{ __('text.random-teams') }}
                     </div>
+                    <div class="mb-2">
+                        {{ __('text.random-teams-description') }}
+                    </div>
                 </div>
             </a>
         </div>
@@ -67,14 +79,17 @@
     <div class="md:columns-2 columns-1 md:mb-8 md-0" id="portfolio">
         <!-- Card: Private Tools -->
         <div class="max-w-lg rounded overflow-hidden shadow-lg mt-4 md:mt-0">
-            <a href="{{ url('/privater-bereich') }}" wire:navigate.hover >
+            <a href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" wire:navigate.hover >
                 <div class="relative h-0 pb-32">
                     <img class="absolute top-0 left-0 w-full h-32 object-cover"
                          src="{{ Vite::asset('resources/images/private.jpg') }}">
                 </div>
                 <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">
-                        {{ __('text.private-tools') }}
+                        {{ __('text.account') }}
+                    </div>
+                    <div class="mb-2">
+                        {{ __('text.account-description') }}
                     </div>
                 </div>
             </a>
@@ -89,7 +104,7 @@
                 </div>
                 <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">
-                        {{ __('text.imprint') }} {{ __('text.and') }} {{ __('text.data-protection') }}
+                        <a href="{{ url(Config::get('app.locale') . '/' . __('url.imprint')) }}">{{ __('text.imprint') }}</a> {{ __('text.and') }} <a href="{{ url(Config::get('app.locale') . '/' . __('url.data-protection')) }}">{{ __('text.data-protection') }}</a>
                     </div>
                 </div>
             </a>

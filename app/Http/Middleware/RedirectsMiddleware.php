@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\URL;
 
-class TesterMiddleware
+class RedirectsMiddleware
 {
     /**
      * Handle an incoming request.
@@ -20,7 +20,7 @@ class TesterMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user() && Auth::user()->getPermission("tester")) {
+        if (Auth::user() && Auth::user()->getPermission("redirects")) {
             return $next($request);
         }
 

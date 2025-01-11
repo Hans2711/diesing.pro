@@ -2,6 +2,14 @@
 return [
     "welcome" => "Wilkommen bei diesing.pro",
     "contact" => "Kontakt",
+    "contact-description" =>
+        "Wenn Sie Fragen haben oder Unterstützung benötigen, können Sie uns gerne kontaktieren.",
+    "portfolio" => "Portfolio",
+    "portfolio-description" => "Hier finden Sie eine Auswahl unserer Projekte.",
+    "tester-description" =>
+        "Der A-B-Tester ist ein Werkzeug, um Schnappschüsse von Websites zu erstellen und zu vergleichen.",
+    "random-teams-description" =>
+        "Das Tool Random Teams wird verwendet, um zufällige Teams zu erstellen.",
     "portfolio" => "Portfolio",
     "private-tools" => "Private Werkzeuge",
     "imprint" => "Impressum",
@@ -45,6 +53,7 @@ return [
     "are-you-sure" => "Bist du sicher?",
 
     "notes" => "Notizen",
+    "redirects" => "Weiterleitungen",
     "private-area" => "Privater Bereich",
     "share" => "Teilen",
 
@@ -54,4 +63,39 @@ return [
         "Text erfolgreich mit execCommand in die Zwischenablage kopiert!",
     "fallback_copy_failure" =>
         "Text konnte mit execCommand nicht in die Zwischenablage kopiert werden.",
+
+    "account" => "Benutzerkonto",
+    "account-description" => "Hier können Sie Ihr Benutzerkonto verwalten.",
+
+    "tools" => "Werkzeuge",
+
+    "username_or_email" => "Benutzername oder E-Mail",
+    "password" => "Passwort",
+    "confirm_password" => "Passwort bestätigen",
+    "login_register" => "Einloggen / Registrieren",
+    "login" => "Einloggen",
+    "register" => "Registrieren",
+    "name" => "Name",
+    "email" => "E-Mail",
+    "error" => "Ein Fehler ist aufgetreten",
+    "logged_in_as" => "Eingeloggt als :name",
+    "email" => "E-Mail",
+    "username" => "Benutzername",
+    "permissions" => "Berechtigungen",
+    "permission_name" => "Name",
+    "status" => "Status",
+    "action" => "Aktion",
+    "access_granted" => "Zugriff gewährt",
+    "no_access" => "Kein Zugriff",
+    "request_access" => "Zugriff anfordern",
+    "logout" => "Abmelden",
+    "invalid_credentials" =>
+        "Ungültige Anmeldedaten. Bitte versuchen Sie es erneut.",
+    "passwords_do_not_match" => "Passwörter stimmen nicht überein.",
+    "invalid_email" => "Ungültige E-Mail-Adresse.",
+    "username_empty" => "Benutzername darf nicht leer sein.",
+    "name_empty" => "Name darf nicht leer sein.",
+    "email_exists" => "E-Mail existiert bereits.",
+    "username_exists" => "Benutzername existiert bereits.",
+    "access_request_sent" => "Zugriffsanfrage gesendet.",
 ];
