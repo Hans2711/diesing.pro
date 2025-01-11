@@ -1,5 +1,5 @@
 <div class="relative {{ isset($wrapperClass) ? $wrapperClass : '' }}">
-    <input {{ isset($required) ? 'required' : '' }} type="text" id="{{ $id }}" name="{{ $name }}" class="block p-2 py-2.5 w-full text-sm text-gray-900 bg-white rounded border border-blue-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer {{ isset($inputClass) ? $inputClass : '' }}" placeholder=" "
+    <input {{ isset($required) ? 'required' : '' }} type="{{ isset($type) && in_array($type, ['text', 'password']) ? $type : 'text' }}" id="{{ $id }}" name="{{ $name }}" class="block p-2 py-2.5 w-full text-sm text-gray-900 bg-white rounded border border-blue-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer {{ isset($inputClass) ? $inputClass : '' }}" placeholder=" "
     @if (isset($livewire) && $livewire)
         wire:model="{{ $name }}"
     @endif

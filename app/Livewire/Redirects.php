@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Redirect;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Redirects extends Component
@@ -21,10 +22,10 @@ class Redirects extends Component
             "name" => "New Redirect",
             "target" => "https://example.com",
             "code" => 301,
+            "user" => Auth::user()->id,
         ]);
 
         $this->selectedRedirect = $redirect->toArray();
-
         $this->mount();
     }
 
@@ -90,6 +91,8 @@ class Redirects extends Component
 
     public function mount()
     {
-        $this->redirects = Redirect::orderBy("created_at", "desc")->get();
+        $this->redirects = Redirect::where("user", Auth::user()->id)
+            ->orderBy("created_at", "desc")
+            ->get();
     }
 }

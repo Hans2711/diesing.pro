@@ -15,7 +15,7 @@
     <br>
     <div class="relative w-full min-w-[200px]">
         <div class="flex items-start flex-col md:flex-row mb-4">
-            @include('private.modals.parts.floating-label-input', ['additional' => 'wire:change="updateNoteName($event.target.value)"' , 'id' => 'note-name', 'name' => 'noteName', 'value' => $selectedNote->name, 'label' => 'Name', 'wrapperClass' => 'w-full md:w-auto', 'tabindex' => 1])
+            @include('global.partials..floating-label-input', ['additional' => 'wire:change="updateNoteName($event.target.value)"' , 'id' => 'note-name', 'name' => 'noteName', 'value' => $selectedNote->name, 'label' => 'Name', 'wrapperClass' => 'w-full md:w-auto', 'tabindex' => 1])
             <div class="flex flex-row items-center mt-4 md:mt-0 md:ml-2" id="share" >
                 <div class="flex items-center ml-0 gap-x-3 border-solid border p-2 rounded" style="border-color: #6b7280;">
                     <label>{{ __('text.share') }}</label>
