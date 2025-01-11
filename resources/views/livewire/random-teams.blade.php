@@ -1,6 +1,6 @@
 <div>
     <h2>{{ __('text.players') }}</h2>
-    <a wire:click="newPlayer" class="btn md:w-1/3">
+    <a wire:click="newPlayer" wire:loading.class="opacity-50" class="btn md:w-1/3">
         <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
     </a>
 
@@ -17,23 +17,22 @@
 
     <p class="mt-3 text-lg">{{ __('text.number-of-teams') }}</p>
     <input type="number" class="rounded" value="{{ $numberOfTeams }}" wire:change="updateNumberOfTeams($event.target.value)"/>
-    <a wire:click="generateTeams" class="btn mt-3 md:w-1/3">
+    <a wire:click="generateTeams" wire:loading.class="opacity-50" class="btn mt-3 md:w-1/3">
         <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/shuffle.svg') }}" />
     </a>
 
     @if (count($teams) > 0)
-        <h2 class="mt-3">Teams</h2>
-        <ul>
-            @foreach ($teams as $team)
-                <li class="rounded border-2 mb-3">
-                    <ul class="p-4">
-                        @foreach ($team as $player)
-                            <li>{{ $player }}</li>
-                        @endforeach
-                    </ul>
-                </li>
-            @endforeach
-        </ul>
-
+            <h2 class="mt-3">Teams</h2>
+            <ul>
+                @foreach ($teams as $team)
+                    <li class="rounded border-2 mb-3">
+                        <ul class="p-4">
+                            @foreach ($team as $player)
+                                <li>{{ $player }}</li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
+            </ul>
     @endif
 </div>

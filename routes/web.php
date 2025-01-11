@@ -49,12 +49,6 @@ Route::prefix("de")
             "form",
         ])->name("contactForm");
 
-        // Kontakt (Submit): /de/kontakt/submit
-        Route::post("/" . route_trans("contact", $locale) . "/submit", [
-            ContactController::class,
-            "submit",
-        ])->name("contactSubmit");
-
         // Tester stuff, etc.
         Route::get("/tester/auth", [TesterController::class, "auth"])->name(
             "testerAuth"
@@ -131,12 +125,6 @@ Route::prefix("en")
             ContactController::class,
             "form",
         ])->name("contactForm");
-
-        // Contact (Submit): /en/contact/submit
-        Route::post("/" . route_trans("contact", $locale) . "/submit", [
-            ContactController::class,
-            "submit",
-        ])->name("contactSubmit");
 
         // Tester stuff
         Route::get("/tester/auth", [TesterController::class, "auth"])->name(

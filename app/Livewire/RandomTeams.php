@@ -7,6 +7,7 @@ use Livewire\Component;
 class RandomTeams extends Component
 {
     public $players = [];
+    public $numberOfPlayers = 0;
     public $teams = [];
     public $numberOfTeams = 2;
 
@@ -25,6 +26,10 @@ class RandomTeams extends Component
 
     public function deletePlayer($key)
     {
+        if (empty($key) && $key !== 0) {
+            return;
+        }
+
         $key = intval($key);
         unset($this->players[$key]);
         $this->teams = [];
@@ -72,6 +77,7 @@ class RandomTeams extends Component
 
     public function render()
     {
+        $this->numberOfPlayers = count($this->players);
         return view("livewire.random-teams");
     }
 }
