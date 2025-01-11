@@ -95,4 +95,8 @@ return [
     "email_exists" => "Email already exists.",
     "username_exists" => "Username already exists.",
     "access_request_sent" => "Access request sent.",
+
+    "account_text" =>
+        "<p>Registering an Account is Open and Free.</p>" .
+        "<p>Registered Users can request access to private areas.</p>",
 ];

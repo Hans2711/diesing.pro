@@ -20,8 +20,11 @@ class ContactEmail extends Mailable
      */
     public function __construct(array $data)
     {
-        //
         $this->data = $data;
+        $this->replyTo(
+            $data["email"] ?? "info@diesing.pro",
+            $data["name"] ?? "Diesing.pro"
+        );
     }
 
     /**
