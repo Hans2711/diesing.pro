@@ -15,8 +15,6 @@
     @include('global.head.google-analytics', ['title' => $title ?? null])
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @livewireStyles
-    @livewireScripts
 </head>
 <body>
     <div id="app">

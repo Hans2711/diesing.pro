@@ -20,4 +20,6 @@
       &copy; {{ date('Y') }} Diesing, {{ __('text.all-rights-reserved') }}
     </div>
   </div>
+  @livewireStyles
+  @livewireScripts
 </footer>
