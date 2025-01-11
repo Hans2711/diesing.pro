@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Note extends Model
 {
@@ -17,6 +18,7 @@ class Note extends Model
         "slug" => "neue-notiz",
         "enable_password" => 0,
         "password" => "",
+        "user" => 0,
     ];
 
     public function toArray()
@@ -30,6 +32,7 @@ class Note extends Model
             "url" => url("/notiz/" . $this->slug),
             "enable_password" => $this->enable_password,
             "password" => $this->password,
+            "user" => $this->user,
         ];
     }
 
@@ -38,6 +41,7 @@ class Note extends Model
         parent::__construct();
 
         $this->name = $this->attributes["name"];
+        $this->user = Auth::user()->id;
     }
 
     public function getPublicUrl()
@@ -52,5 +56,6 @@ class Note extends Model
         "slug",
         "enable_password",
         "password",
+        "user",
     ];
 }

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Note;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Notes extends Component
@@ -15,7 +16,7 @@ class Notes extends Component
         $this->selectedNote->name = $name;
         $this->selectedNote->save();
 
-        $this->notes = Note::all();
+        $this->notes = Auth::user()->notes;
     }
 
     public function updateNoteContent($content)
@@ -44,16 +45,17 @@ class Notes extends Component
     public function deleteNote()
     {
         $this->selectedNote->delete();
-        $this->notes = Note::all();
+        $this->notes = Auth::user()->notes;
         $this->selectedNote = $this->notes->first();
     }
 
     public function addNote()
     {
         $note = new Note();
+        $note->user = Auth::user()->id;
         $note->save();
 
-        $this->notes = Note::all();
+        $this->notes = Auth::user()->notes;
         $this->selectedNote = $note;
 
         session(["selectedNote" => $note->id]);
@@ -66,7 +68,7 @@ class Notes extends Component
 
     public function mount()
     {
-        $this->notes = Note::all();
+        $this->notes = Auth::user()->notes;
         if (empty($this->notes)) {
             $note = new Note();
             $note->save();
@@ -77,7 +79,9 @@ class Notes extends Component
             $this->selectedNote =
                 Note::find(session("selectedNote")) ?? $this->notes->first();
         } else {
-            $this->selectedNote = $this->notes->first();
+            $this->selectedNote = $this->notes->first()
+                ? $this->notes->first()
+                : new Note();
         }
     }
 }

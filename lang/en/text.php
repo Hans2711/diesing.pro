@@ -2,7 +2,14 @@
 return [
     "welcome" => "Welcome to diesing.pro",
     "contact" => "Contact",
+    "contact-description" =>
+        "If you have any questions or need help, feel free to contact us.",
     "portfolio" => "Portfolio",
+    "portfolio-description" => "Here you can find a selection of our projects.",
+    "tester-description" =>
+        "The A-B Tester is a tool to create and compare snapshots of websites.",
+    "random-teams-description" =>
+        "The Random Teams tool is used to create random teams.",
     "private-tools" => "Private Tools",
     "imprint" => "Imprint",
     "data-protection" => "Data Protection",
@@ -46,6 +53,7 @@ return [
     "are-you-sure" => "Are you sure?",
 
     "notes" => "Notes",
+    "redirects" => "Redirects",
     "private-area" => "Private Area",
     "share" => "Share",
 
@@ -53,4 +61,38 @@ return [
     "copy_failure" => "Failed to copy the text.",
     "fallback_copy_success" => "Text copied to clipboard using execCommand!",
     "fallback_copy_failure" => "Failed to copy the text using execCommand.",
+
+    "account" => "Account",
+    "account-description" => "Here you can manage your account.",
+
+    "tools" => "Tools",
+
+    "username_or_email" => "Username or Email",
+    "password" => "Password",
+    "confirm_password" => "Confirm Password",
+    "login_register" => "Login / Register",
+    "login" => "Login",
+    "register" => "Register",
+    "name" => "Name",
+    "email" => "Email",
+    "error" => "An error occurred",
+    "logged_in_as" => "Logged in as :name",
+    "email" => "Email",
+    "username" => "Username",
+    "permissions" => "Permissions",
+    "permission_name" => "Name",
+    "status" => "Status",
+    "action" => "Action",
+    "access_granted" => "Access Granted",
+    "no_access" => "No Access",
+    "request_access" => "Request Access",
+    "logout" => "Logout",
+    "invalid_credentials" => "Invalid credentials. Please try again.",
+    "passwords_do_not_match" => "Passwords do not match.",
+    "invalid_email" => "Invalid email address.",
+    "username_empty" => "Username cannot be empty.",
+    "name_empty" => "Name cannot be empty.",
+    "email_exists" => "Email already exists.",
+    "username_exists" => "Username already exists.",
+    "access_request_sent" => "Access request sent.",
 ];

@@ -188,4 +188,4 @@ Route::get("/", function () {
     return redirect("/de");
 });
 
-require base_path("/routes/private.php");
+require base_path("/routes/account.php");
