@@ -17,7 +17,7 @@ class AccountAuth extends Component
 
     public $returnUrl;
 
-    public $type = null;
+    public $type = "begin";
 
     public function begin()
     {
@@ -36,6 +36,17 @@ class AccountAuth extends Component
                 $this->username = $this->login;
             }
         }
+    }
+
+    public function resetLogin()
+    {
+        $this->type = "begin";
+        $this->login = "";
+        $this->username = "";
+        $this->email = "";
+        $this->name = "";
+        $this->password = "";
+        $this->passwordConfirm = "";
     }
 
     public function loginUser()

@@ -39,7 +39,9 @@
 
     <div class="mt-3 mb-3">
         @if (session()->has('status'))
-            <div class="alert alert-success">{{ session('status') }}</div>
+            <div wire:transition.fade>
+                <div class="alert alert-success">{{ session('status') }}</div>
+            </div>
         @endif
     </div>
     <button class="btn" wire:click="logout">{{ __('text.logout') }}</button>

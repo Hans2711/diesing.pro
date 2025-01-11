@@ -1,27 +1,11 @@
 <div>
-    @if($type == null)
-        <div wire:trasition>
-            <div class="mb-5">
-                {!! __('text.account_text') !!}
-            </div>
-            <form wire:submit.prevent="begin">
-                @include('global.partials.floating-label-input', [
-                    'additional' => 'wire:model="login"',
-                    'id' => 'login',
-                    'name' => 'login',
-                    'label' => __('text.username_or_email'),
-                    'wrapperClass' => 'w-full md:w-auto mb-3',
-                    'tabindex' => 1
-                ])
-
-                <button class="btn" type="submit">{{ __('text.login_register') }}</button>
-            </form>
+    <form wire:submit.prevent="{{ $type === 'login' ? 'loginUser' : ($type === 'register' ? 'register' : 'begin') }}">
+        <div class="mb-5">
+            {!! __('text.account_text') !!}
         </div>
-    @endif
 
-    @if($type == 'login')
-        <div wire:trasition>
-            <form wire:submit.prevent="loginUser">
+        @if($type === null || $type === 'login' || $type === 'begin')
+            <div wire:transition.fade>
                 @include('global.partials.floating-label-input', [
                     'additional' => 'wire:model="login"',
                     'id' => 'login',
@@ -30,7 +14,11 @@
                     'wrapperClass' => 'w-full md:w-auto mb-3',
                     'tabindex' => 1
                 ])
+            </div>
+        @endif
 
+        @if($type === 'login')
+            <div wire:transition.fade>
                 @include('global.partials.floating-label-input', [
                     'additional' => 'wire:model="password"',
                     'id' => 'password',
@@ -40,16 +28,11 @@
                     'tabindex' => 2,
                     'type' => 'password'
                 ])
+            </div>
+        @endif
 
-                <button class="btn" type="submit">{{ __('text.login') }}</button>
-            </form>
-        </div>
-    @endif
-
-    @if($type == 'register')
-        <div wire:trasition>
-            <h2>{{ __('text.register') }}</h2>
-            <form wire:submit.prevent="register">
+        @if($type === 'register')
+            <div wire:transition.fade>
                 @include('global.partials.floating-label-input', [
                     'additional' => 'wire:model="username"',
                     'id' => 'username',
@@ -58,7 +41,9 @@
                     'wrapperClass' => 'w-full md:w-auto mb-3',
                     'tabindex' => 1
                 ])
+            </div>
 
+            <div wire:transition.fade>
                 @include('global.partials.floating-label-input', [
                     'additional' => 'wire:model="email"',
                     'id' => 'email',
@@ -67,7 +52,9 @@
                     'wrapperClass' => 'w-full md:w-auto mb-3',
                     'tabindex' => 2
                 ])
+            </div>
 
+            <div wire:transition.fade>
                 @include('global.partials.floating-label-input', [
                     'additional' => 'wire:model="name"',
                     'id' => 'name',
@@ -76,7 +63,9 @@
                     'wrapperClass' => 'w-full md:w-auto mb-3',
                     'tabindex' => 3
                 ])
+            </div>
 
+            <div wire:transition.fade>
                 @include('global.partials.floating-label-input', [
                     'additional' => 'wire:model="password"',
                     'id' => 'password',
@@ -86,7 +75,9 @@
                     'wrapperClass' => 'w-full md:w-auto mb-3',
                     'tabindex' => 4
                 ])
+            </div>
 
+            <div wire:transition.fade>
                 @include('global.partials.floating-label-input', [
                     'additional' => 'wire:model="passwordConfirm"',
                     'id' => 'password-confirm',
@@ -96,17 +87,51 @@
                     'wrapperClass' => 'w-full md:w-auto mb-3',
                     'tabindex' => 5
                 ])
+            </div>
+        @endif
 
-                <button class="btn" type="submit">{{ __('text.register') }}</button>
-            </form>
+
+        <div class="flex items-center gap-4">
+            <button class="btn" wire:loading.class="opacity-50" wire:loading.attr="disabled" type="submit">
+                {{ $type === 'login' ? __('text.login') : ($type === 'register' ? __('text.register') : __('text.login_register')) }}
+            </button>
+            @if ($type != 'begin')
+            <a class="flex items-center gap-2 py-auto hover:cursor-grab" href="javascript:void(0);" onclick="location.reload();">
+                    <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" alt="Back Icon" />
+                    <span class="leading-none">
+                        {{ __('text.back') }}
+                    </span>
+                </a>
+            @endif
         </div>
-    @endif
+    </form>
 
     <input type="hidden" wire:model="returnUrl" value="">
 
     <div class="mt-3">
         @if (session()->has('error'))
-            <div class="alert alert-danger">{{ session('error') }}</div>
+            <div wire:transition.fade>
+                <div class="alert alert-danger">{{ session('error') }}</div>
+            </div>
         @endif
     </div>
 </div>
+
+@script
+<script>
+Livewire.hook('morphed',  (componet) => {
+    if (componet.component.canonical.type == 'login') {
+        setTimeout(() => {
+            let passwordInput = document.querySelector('#password');
+            passwordInput.focus();
+        }, 155);
+    }
+    if (componet.component.canonical.type == 'register') {
+        setTimeout(() => {
+            let usernameInput = document.querySelector('#username');
+            usernameInput.focus();
+        }, 155);
+    }
+})
+</script>
+@endscript

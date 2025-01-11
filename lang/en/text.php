@@ -4,6 +4,8 @@ return [
     "contact" => "Contact",
     "contact-description" =>
         "If you have any questions or need help, feel free to contact us.",
+    "message-sent" => "Your message has been sent successfully!",
+    "select-recepient" => "Select a Recepient",
     "portfolio" => "Portfolio",
     "portfolio-description" => "Here you can find a selection of our projects.",
     "tester-description" =>

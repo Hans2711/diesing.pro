@@ -7,11 +7,9 @@ export default defineConfig({
         laravel({
             input: [
                 "resources/css/app.css",
-                "resources/css/contact.css",
                 "resources/css/diff-table.css",
                 "resources/js/app.js",
                 "resources/js/parts/header.js",
-                "resources/js/contact.js",
                 "resources/js/utils/clipboard.js",
             ],
             refresh: true,

@@ -4,6 +4,8 @@ return [
     "contact" => "Kontakt",
     "contact-description" =>
         "Wenn Sie Fragen haben oder Unterstützung benötigen, können Sie uns gerne kontaktieren.",
+    "message-sent" => "Ihre Nachricht wurde erfolgreich gesendet!",
+    "select-recepient" => "Empfänger auswählen",
     "portfolio" => "Portfolio",
     "portfolio-description" => "Hier finden Sie eine Auswahl unserer Projekte.",
     "tester-description" =>
