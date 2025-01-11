@@ -98,4 +98,7 @@ return [
     "email_exists" => "E-Mail existiert bereits.",
     "username_exists" => "Benutzername existiert bereits.",
     "access_request_sent" => "Zugriffsanfrage gesendet.",
+    "account_text" =>
+        "<p>Die Registrierung eines Kontos ist offen und kostenlos.</p>" .
+        "<p>Registrierte Benutzer können den Zugang zu privaten Bereichen anfordern.</p>",
 ];
