@@ -14,6 +14,11 @@ class Notes extends Component
     public function updateNoteName($name)
     {
         $this->selectedNote->name = $name;
+        $this->selectedNote->slug = preg_replace(
+            "/\s+/",
+            "-",
+            strtolower($name)
+        );
         $this->selectedNote->save();
 
         $this->notes = Auth::user()->notes;
@@ -38,7 +43,7 @@ class Notes extends Component
 
     public function updateShare($value)
     {
-        $this->selectedNote->share = $value;
+        $this->selectedNote->share = $value ? 1 : 0;
         $this->selectedNote->save();
     }
 

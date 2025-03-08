@@ -25,6 +25,13 @@ Route::get("/ungrant/{username}/{permission}/{permission_token}", [
     "ungrant",
 ])->name("ungrant");
 
+Route::get("/n/{slug}", [AccountsController::class, "publicNote"])->name(
+    "publicNote"
+);
+Route::get("/r/{slug}", [AccountsController::class, "publicRedirect"])->name(
+    "publicRedirect"
+);
+
 ///////////////////////////
 // GROUP: DE Routes
 ///////////////////////////
@@ -60,6 +67,18 @@ Route::prefix("de")
                     return view("accounts.redirects");
                 }
             )->name("redirects");
+        });
+
+        Route::middleware(["portfolio"])->group(function () use ($locale) {
+            Route::get(
+                "/" .
+                    route_trans("account", $locale) .
+                    "/" .
+                    route_trans("portfolio", $locale),
+                function () {
+                    return view("accounts.portfolio");
+                }
+            )->name("portfolio");
         });
     });
 
@@ -98,5 +117,17 @@ Route::prefix("en")
                     return view("accounts.redirects");
                 }
             )->name("redirects");
+        });
+
+        Route::middleware(["portfolio"])->group(function () use ($locale) {
+            Route::get(
+                "/" .
+                    route_trans("account", $locale) .
+                    "/" .
+                    route_trans("portfolio", $locale),
+                function () {
+                    return view("accounts.portfolio");
+                }
+            )->name("portfolio");
         });
     });

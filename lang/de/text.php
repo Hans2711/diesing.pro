@@ -24,6 +24,7 @@ return [
     "mobile" => "Tel. Nr.",
     "message" => "Nachricht",
     "submit" => "Absenden",
+    "save" => "Speichern",
     "submiting" => "Absenden...",
     "message-sent" => "Nachricht wurde versendet.",
     "ab-tester" => "A-B Tester",
@@ -103,4 +104,6 @@ return [
     "account_text" =>
         "<p>Die Registrierung eines Kontos ist offen und kostenlos.</p>" .
         "<p>Registrierte Benutzer können den Zugang zu privaten Bereichen anfordern.</p>",
+
+    "saved" => "Gespeichert",
 ];

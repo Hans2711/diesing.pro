@@ -83,4 +83,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Redirect::class, "user", "id");
     }
+
+    public function portfolios(): HasMany
+    {
+        return $this->hasMany(Portfolio::class, "user", "id");
+    }
 }
