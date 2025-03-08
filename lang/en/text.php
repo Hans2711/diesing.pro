@@ -23,6 +23,7 @@ return [
     "mobile" => "Phone Number",
     "message" => "Message",
     "submit" => "Submit",
+    "save" => "Save",
     "submiting" => "Submitting...",
     "message-sent" => "Message has been sent.",
     "ab-tester" => "A-B Tester",
@@ -101,4 +102,6 @@ return [
     "account_text" =>
         "<p>Registering an Account is Open and Free.</p>" .
         "<p>Registered Users can request access to private areas.</p>",
+
+    "saved" => "Saved",
 ];

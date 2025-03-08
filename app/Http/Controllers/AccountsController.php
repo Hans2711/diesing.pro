@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Note;
+use App\Models\Redirect;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,6 +41,26 @@ class AccountsController extends Controller
         return response()->json([
             "success" => false,
         ]);
+    }
+
+    public function publicNote($slug)
+    {
+        $note = Note::where("slug", "=", $slug)->firstOrFail();
+        if (!$note || !$note->share) {
+            return redirect("/");
+        }
+        return view("public.note", ["note" => $note]);
+    }
+
+    public function publicRedirect($slug)
+    {
+        $redirect = Redirect::where("slug", "=", $slug)->firstOrFail();
+
+        if ($redirect) {
+            return redirect($redirect->target, $redirect->code);
+        }
+
+        return redirect("/");
     }
 
     public function grant($username, $permission, $permission_token)

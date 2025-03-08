@@ -45,6 +45,10 @@ export function copyText(text) {
 
 document.addEventListener("livewire:navigated", updateCopyEventListeners);
 
+Livewire.hook("morphed", (componet) => {
+    updateCopyEventListeners();
+});
+
 function updateCopyEventListeners() {
     document.querySelectorAll('[data-copy="true"]').forEach(function (button) {
         button.removeEventListener("click", handleCopyButtonClick);
