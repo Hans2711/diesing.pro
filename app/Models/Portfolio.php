@@ -18,5 +18,13 @@ class Portfolio extends Model
         "user" => 0,
     ];
 
+    public function getMediaAttribute()
+    {
+        $media = FileReference::where("foreign_id", $this->id)
+            ->where("model", "Portfolio")
+            ->get();
+        return $media;
+    }
+
     protected $fillable = ["name", "url", "description"];
 }

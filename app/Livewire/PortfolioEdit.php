@@ -2,20 +2,28 @@
 
 namespace App\Livewire;
 
+use App\Models\FileReference;
 use App\Models\Portfolio;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use League\Flysystem\StorageAttributes;
 use Livewire\Attributes\Session;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\WithFileUploads;
 
 class PortfolioEdit extends Component
 {
+    use WithFileUploads;
+
     public $portfolios;
 
     public $activePortfolio = null;
     public $name = "";
     public $url = "";
     public $description = "";
+
+    public $media = [];
 
     public function mount()
     {
@@ -56,7 +64,34 @@ class PortfolioEdit extends Component
         $this->activePortfolio->url = $this->url;
         $this->activePortfolio->save();
 
+        $this->saveMedia();
+
         session()->flash("status", __("text.saved"));
+    }
+
+    private function saveMedia()
+    {
+        foreach ($this->media as $media) {
+            $path = $media->store(path: "public/portfolio_media");
+
+            $reference = new FileReference();
+            $reference->path = $path;
+            $reference->model = "Portfolio";
+            $reference->foreign_id = $this->activePortfolio->id;
+            $reference->save();
+        }
+        $this->media = [];
+        $this->cleanupOldUploads();
+    }
+
+    public function deleteMedia($id)
+    {
+        $media = FileReference::find($id);
+        if ($media) {
+            Storage::delete($media->path);
+            $media->delete();
+            $this->mount();
+        }
     }
 
     public function cancelEdit()
