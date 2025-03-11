@@ -21,5 +21,7 @@ class ScheduleProvider extends ServiceProvider
     public function boot(Schedule $schedule): void
     {
         $schedule->command("tester:clean")->cron("0 4,16 * * *");
+        $schedule->command("generate:sitemap")->cron("0 5 * * *");
+        $schedule->command("clean:file-references")->cron("10 5 * * *");
     }
 }

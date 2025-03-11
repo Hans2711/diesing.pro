@@ -104,4 +104,7 @@ return [
         "<p>Registered Users can request access to private areas.</p>",
 
     "saved" => "Saved",
+    "delete" => "Delete",
+    "users" => "Users",
+    "user_deleted" => "User deleted",
 ];

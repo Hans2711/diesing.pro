@@ -1,5 +1,5 @@
 <div>
-    <button wire:click="addPortfolio" class="ml-2 p-2 py-2.5 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 flex items-center" id="add-note">
+    <button wire:click="addPortfolio" class="p-2 py-2.5 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 flex items-center" id="add-note">
         <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
     </button>
 
@@ -18,7 +18,7 @@
             </div>
         @endforeach
     @else
-    <div class="mt-3 ml-3">
+    <div class="mt-3">
         <a wire:click="cancelEdit" class="flex gap-2 mb-4 align-center hover:cursor-pointer">
             <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" />
             <span class="leading-none">
@@ -47,8 +47,36 @@
                 'additional' => 'wire:model="url"'
             ])
 
-            <div id="editor" class="border rounded mb-3">{!! $description !!}</div>
-            <input type="text" class="hidden" id="description" name="description" wire:model="description" />
+            @if ($activePortfolio->media->count() > 0)
+                <div class="my-3 flex flex-wrap gap-3">
+                    @foreach ($activePortfolio->media as $photo)
+                        <div class="">
+                            <img class="w-24 h-24 object-cover rounded border" src="{{ Storage::url($photo->path) }}">
+                            <button class="btn mt-3 w-full btn-delete" id="{{ $photo->id }}" wire:click="deleteMedia($event.target.id)" wire:confirm="Are you sure?">{{ __('text.delete') }}</button>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+
+            <div class="mb-3">
+                <input type="file" wire:model="media" multiple>
+                @error('media.*') <span class="error">{{ $message }}</span> @enderror
+
+                @if ($media)
+                    <div class="my-3 flex flex-wrap gap-3">
+                    @foreach ($media as $photo)
+                        @if (in_array($photo->getMimeType(), ['image/jpeg', 'image/png', 'image/gif']))
+                            <img class="w-24 h-24 object-cover rounded border" src="{{ $photo->temporaryUrl() }}">
+                        @endif
+                    @endforeach
+                    </div>
+                @endif
+            </div>
+
+            <div wire:ignore>
+                <div id="editor" class="border rounded mb-3">{!! $description !!}</div>
+            </div>
+            <input type="text" class="hidden" id="description" name="description" wire:model="description" value="{{ htmlspecialchars($description, ENT_QUOTES, 'UTF-8') }}" />
 
             <button id="submit" class="btn mt-3">{{ __('text.save') }}</button>
         </form>
@@ -75,16 +103,20 @@ Livewire.hook('morphed',  (componet) => {
             placeholder: 'Description',
             theme: 'snow'
         };
-        const quill = new window.Quill('#editor', options);
-        var description = document.querySelector('input[name=description]');
+        if (!window.quill) {
+            window.quill = new window.Quill('#editor', options);
+        }
 
         quill.on('text-change', (delta, oldDelta, source) => {
           if (source == 'user') {
             console.log('A user action triggered this change.');
             console.log(quill.getSemanticHTML());
-            description.value = quill.getSemanticHTML();
+
+            Livewire.dispatch('desc-changed', { content: quill.getSemanticHTML() });
           }
         });
+    } else {
+        window.quill = null;
     }
 })
 </script>

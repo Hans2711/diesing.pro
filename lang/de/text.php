@@ -106,4 +106,7 @@ return [
         "<p>Registrierte Benutzer können den Zugang zu privaten Bereichen anfordern.</p>",
 
     "saved" => "Gespeichert",
+    "delete" => "Löschen",
+    "users" => "Benutzer",
+    "user_deleted" => "Benutzer gelöscht",
 ];

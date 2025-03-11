@@ -1,5 +1,7 @@
 @extends('layouts.minimal', ['title' => 'Share', 'active' => 'share'])
 
 @section('content')
-{{$note->content}}
+<pre>
+{!! $note->content !!}
+</pre>
 @endsection

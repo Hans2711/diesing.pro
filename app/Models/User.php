@@ -69,6 +69,11 @@ class User extends Authenticatable
         $this->permissions = json_encode($permissions);
     }
 
+    public function isAdmin()
+    {
+        return env("ADMIN_USER") === $this->username;
+    }
+
     public function testobjects(): HasMany
     {
         return $this->hasMany(Testobject::class, "user", "id");
