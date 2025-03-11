@@ -75,7 +75,7 @@
         {{ __('text.contact') }}
       </a>
     </li>
-    <li class="mx-2 my-6 md:my-0">
+    <li class="mx-2 my-6 md:my-0 md:hidden">
       <a wire:navigate.hover
          class="@if ($active == 'tester') active @endif header-button"
          href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}">
@@ -89,6 +89,11 @@
         {{ __('text.random-teams') }}
       </a>
     </li>
+    <li class="mx-2 my-6 md:my-0">
+          <a
+             class="header-button"
+             href="http://www.diesing.pro:8096/">Jellyfin</a>
+        </li>
     <li class="mx-2 my-6 md:my-0">
       <a
          class="@if ($active == 'account') active @endif header-button"
