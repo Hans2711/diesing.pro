@@ -31,8 +31,10 @@
                 <div class="grid grid-cols-3 mb-3">
                     <p>{{ $permission }}</p>
                     <p>{{ __('text.no_access') }}</p>
-                    <button class="btn" id="{{ $key }}" wire:click="requestAccess($event.target.id)">{{ __('text.request_access') }}</button>
-                    <button class="btn m-0 md:mx-2 mb-2 md:mb-0 btn-delete" id="{{ $user->id }}" wire:click="deleteUser($event.target.id)" wire:confirm="Are you sure?">{{ __('text.delete') }}</button>
+                    <div class="grid grid-cols-1 md:grid-cols-2 mb-3">
+                        <button class="btn mb-3 md:mb-0" id="{{ $key }}" wire:click="requestAccess($event.target.id)">{{ __('text.request_access') }}</button>
+                        <button class="btn m-0 md:mx-2 mb-2 md:mb-0 btn-delete" id="{{ $user->id }}" wire:click="deleteUser($event.target.id)" wire:confirm="Are you sure?">{{ __('text.delete') }}</button>
+                    </div>
                 </div>
             @endif
         @endforeach
