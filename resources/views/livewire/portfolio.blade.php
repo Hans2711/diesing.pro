@@ -26,7 +26,7 @@
                             @endif
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2">{{$item->name}}</div>
-                                <div class="text-gray-700 text-base break-all">{!! $item->description !!}</div>
+                                <div class="text-gray-700 text-base break-words">{!! $item->description !!}</div>
                             </div>
                         </a>
                     </div>
