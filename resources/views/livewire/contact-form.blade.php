@@ -7,8 +7,8 @@
                         <p class="block mb-2 mt-2">{{ __('text.recepient') }} *</p>
                         <select name="recepient" class="rounded mb-3" wire:model="recepient">
                             <option value="">{{ __('text.select-recepient') }}</option>
-                            @foreach ($recepientConfig as $key => $recepient)
-                                <option value="{{ $key }}">{{ $recepient["name"] }}</option>
+                            @foreach ($users as $user)
+                                <option value="{{$user->email}}" @if ($user->email === $recepient) selected @endif>{{$user->name}}</option>
                             @endforeach
                         </select>
                         @error('recepient')

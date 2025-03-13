@@ -49,6 +49,11 @@ Route::prefix("de")
             "form",
         ])->name("contactForm");
 
+        Route::get("/" . route_trans("contact", $locale) . "/{email}", [
+            ContactController::class,
+            "form",
+        ])->name("contactForm");
+
         // Tester stuff, etc.
         Route::get("/tester/auth", [TesterController::class, "auth"])->name(
             "testerAuth"
@@ -122,6 +127,11 @@ Route::prefix("en")
 
         // Contact (Form): /en/contact
         Route::get("/" . route_trans("contact", $locale), [
+            ContactController::class,
+            "form",
+        ])->name("contactForm");
+
+        Route::get("/" . route_trans("contact", $locale) . "/{email}", [
             ContactController::class,
             "form",
         ])->name("contactForm");

@@ -2,5 +2,5 @@
 
 @section('content')
     <h1>{{ __('text.contact') }}</h1>
-    <livewire:contact-form />
+    @livewire('contact-form', ['recepient' => $email])
 @endsection

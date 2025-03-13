@@ -3,22 +3,12 @@
 namespace App\Livewire;
 
 use App\Mail\ContactEmail;
+use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\Mail;
 
 class ContactForm extends Component
 {
-    public $recepientConfig = [
-        "hp" => [
-            "email" => "hp@diesing.pro",
-            "name" => "Hans Peter (HP) Diesing",
-        ],
-        "detlef" => [
-            "email" => "detlef.diesing@icloud.com",
-            "name" => "Detlef Diesing",
-        ],
-    ];
-
     public $name;
     public $firma;
     public $email;
@@ -26,20 +16,27 @@ class ContactForm extends Component
     public $message;
     public $recepient;
 
+    public $users;
+
     protected $rules = [
         "name" => "required|min:3",
         "firma" => "nullable|max:255",
         "email" => "required|email",
         "tel" => 'required|regex:/^\+?[0-9\s\-]+$/',
         "message" => "required|min:10",
-        "recepient" => "required|in:hp,detlef",
+        "recepient" => "required|min:5",
     ];
+
+    public function mount()
+    {
+        $this->users = User::all();
+    }
 
     public function submit()
     {
         $validatedData = $this->validate();
 
-        Mail::to($this->recepientConfig[$this->recepient]["email"])
+        Mail::to($this->recepient)
             ->bcc("info@diesing.pro")
             ->queue(
                 new ContactEmail([
@@ -52,6 +49,7 @@ class ContactForm extends Component
             );
 
         $this->reset();
+        $this->mount();
 
         session()->flash("status", __("text.message-sent"));
     }
