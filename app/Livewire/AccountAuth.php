@@ -55,11 +55,11 @@ class AccountAuth extends Component
             Auth::attempt([
                 "email" => $this->login,
                 "password" => $this->password,
-            ]) ||
-            Auth::attempt([
-                "username" => $this->login,
-                "password" => $this->password,
-            ])
+            ], true) ||
+                Auth::attempt([
+                    "username" => $this->login,
+                    "password" => $this->password,
+                ], true)
         ) {
             if (empty($this->returnUrl)) {
                 $this->js("window.location.reload()");
@@ -117,6 +117,14 @@ class AccountAuth extends Component
     public function mount($returnUrl = null)
     {
         $this->returnUrl = $returnUrl;
+
+        if (Auth::viaRemember()) {
+            if (empty($this->returnUrl)) {
+                $this->js("window.location.reload()");
+            } else {
+                $this->js("window.location.href = '{$this->returnUrl}'");
+            }
+        }
     }
 
     public function render()
