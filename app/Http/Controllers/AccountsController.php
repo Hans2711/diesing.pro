@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Note;
 use App\Models\Redirect;
+use App\Models\RedirectHit;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,6 +58,9 @@ class AccountsController extends Controller
         $redirect = Redirect::where("slug", "=", $slug)->firstOrFail();
 
         if ($redirect) {
+            $hit = RedirectHit::makeInstance($redirect);
+            $hit->save();
+
             return redirect($redirect->target, $redirect->code);
         }
 
