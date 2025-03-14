@@ -35,6 +35,28 @@
                             </button>
                         </div>
                     </form>
+                    <p>Hits: {{$selectedRedirect['hitsCount'] }}</p>
+                    @foreach ($selectedRedirect['hits'] as $hit)
+                        <hr class="w-full border border-gray-300" />
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start sm:items-center text-left">
+                            <div class="">
+                                <p class="font-bold text-lg">IP</p>
+                                <p class="overflow-hidden">{{ $hit->ip }}</p>
+                            </div>
+                            <div class="">
+                                <p class="font-bold text-lg">User Agent</p>
+                                <p class="overflow-hidden">{{ $hit->agent }}</p>
+                            </div>
+                            <div class="">
+                                <p class="font-bold text-lg">Date</p>
+                                <p>{{ $hit->created_at->format('H:i d.m.Y') }}</p>
+                            </div>
+                            <div class="">
+                                <p class="font-bold text-lg">Geo</p>
+                                <p>{!! $hit->geo !!}</p>
+                            </div>
+                        </div>
+                    @endforeach
                 @else
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start sm:items-center text-left">
                         <div class="">

@@ -28,6 +28,8 @@ class Redirect extends Model
             "code" => $this->code,
             "url" => $this->url,
             "user" => $this->user,
+            "hits" => $this->getRecentHits(),
+            "hitsCount" => $this->getHits()->count(),
         ];
     }
 
@@ -57,6 +59,17 @@ class Redirect extends Model
         }
 
         $this->slug = $baseSlug;
+    }
+
+    public function getHits() {
+        return RedirectHit::where("redirect", $this->id)->get();
+    }
+
+    public function getRecentHits() {
+        return RedirectHit::where("redirect", $this->id)
+            ->orderBy("created_at", "desc")
+            ->limit(4)
+            ->get();
     }
 
     protected $fillable = ["name", "slug", "target", "code", "user"];
