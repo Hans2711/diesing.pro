@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('text.random-teams'), 'active' => 'teams'])
+@extends('layouts.app', ['title' => __('titles.random-teams'), 'description' => __('descriptions.random-teams'), 'active' => 'teams'])
 
 @section('content')
 <h1>{{ __('text.random-teams') }}</h1>

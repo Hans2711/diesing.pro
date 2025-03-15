@@ -6,10 +6,11 @@
             </a>
         </span>
         <div class="flex items-center z-50">
+
             <div class="relative group inline-block text-left ml-4">
                 <button
                     type="button"
-                    class="inline-flex items-center justify-between w-40 rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium "
+                    class="inline-flex items-center justify-between w-40 rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium"
                     id="language-button"
                     onclick="window.triggerLanguageDropdown(this)"
                 >
@@ -20,20 +21,22 @@
                         loading="eager"
                     />
                     {{ __('language.name') }}
-                    <img
-                        src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
-                        alt="Chevron"
-                        class="ml-2 h-5 w-5 text-gray-400"
-                    />
+                    <span class="chevron transition-transform duration-200 ml-2">
+                        <img
+                            src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
+                            alt="Chevron"
+                            class="h-5 w-5 text-gray-400"
+                        />
+                    </span>
                 </button>
                 @php
                 $otherlang = Config::get('app.locale') == 'de' ? 'en' : 'de';
                 @endphp
                 <div
                     id="language-dropdown"
-                    class="origin-top-right absolute left-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden"
+                    class="origin-top-right absolute left-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden transition-opacity duration-200"
                 >
-                    <div class=" inline-flex justify-between w-full text-sm font-medium">
+                    <div class="inline-flex justify-between w-full text-sm font-medium">
                         <a
                             href="{{ url('/' . $otherlang) }}"
                             class="flex justify-between items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 btn-language"
@@ -53,9 +56,11 @@
                     </div>
                 </div>
             </div>
-            <span class="text-3xl z-50 cursor-pointer mx-2 md:hidden block">
-                <img class="h-9 w-9" id="menu-img" src="{{ Vite::asset('resources/icons/menu.svg') }}">
-            </span>
+            <a class="nav-toggle z-50 cursor-pointer ml-5 md:hidden block">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
         </div>
     </div>
     <ul id="header-list"

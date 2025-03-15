@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Datenschutz'])
+@extends('layouts.app', ['title' => __('titles.datenschutz')])
 
 @section('content')
 <h1>Datenschutzerklärung</h1>
