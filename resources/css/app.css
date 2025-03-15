@@ -26,8 +26,8 @@ p {@apply mt-[0.5em] mb-[0.5em] text-[1em] leading-[1.5];}
 a:not(.btn-details):not(.btn-language) {@apply hover:scale-105 transform transition duration-300;}
 p a, h2 a {@apply underline;}
 
-.home-card-left {@apply hover:scale-105 transform transition duration-300 hover:shadow-xl origin-right;}
-.home-card-right {@apply hover:scale-105 transform transition duration-300 hover:shadow-xl origin-left;}
+.home-card-left {@apply hover:scale-105 transform transition duration-300 hover:shadow-xl md:origin-right;}
+.home-card-right {@apply hover:scale-105 transform transition duration-300 hover:shadow-xl md:origin-left;}
 
 .tools-sidebar-active {@apply bg-gray-100;}
 
