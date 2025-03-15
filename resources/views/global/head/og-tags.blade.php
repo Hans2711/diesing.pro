@@ -3,4 +3,6 @@
 <meta name="og:image" content="{{ Vite::asset('resources/logo/DLogo.png') }}" />
 <meta name=”name” content=”content”>
 <meta name="robots" content="index, follow"/>
-<meta name="description" content="Diesing Family Website (Hans Peter Diesing, Detlef Diesing)" />
+@if (isset($description))
+    <meta name="description" content="{{ $description }}"/>
+@endif

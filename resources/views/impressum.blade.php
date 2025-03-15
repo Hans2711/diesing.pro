@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Impressum'])
+@extends('layouts.app', ['title' => __('titles.imprint')])
 
 @section('content')
     <h1>Impressum</h1>

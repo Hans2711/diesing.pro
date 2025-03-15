@@ -8,13 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>
-    @if (isset($title))
-        {{ $title }} - Diesing
-    @else
-        {{ config('app.name', 'Diesing') }}</title>
-    @endif
-    </title>
+    @include('global.head.font-preload')
+    @include('global.head.title', ['title' => $title ?? null])
+    @include('global.head.og-tags', ['title' => $title ?? null])
+    @include('global.head.google-analytics', ['title' => $title ?? null])
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>

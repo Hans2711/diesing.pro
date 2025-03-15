@@ -17,32 +17,32 @@
 
 .btn-delete {
     @apply p-3 bg-gradient-to-br from-red-800 via-red-600 to-red-400
-           hover:from-red-700 hover:via-red-500 hover:to-red-300
-           text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;
+    hover:from-red-700 hover:via-red-500 hover:to-red-300
+    text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;
 }
 
 .btn-edit {
     @apply p-3 bg-gradient-to-br from-yellow-700 via-yellow-600 to-yellow-500
-           hover:from-yellow-800 hover:via-yellow-700 hover:to-yellow-600
-           text-black rounded hover:cursor-pointer leading-5 flex justify-center items-center;
+    hover:from-yellow-800 hover:via-yellow-700 hover:to-yellow-600
+    text-black rounded hover:cursor-pointer leading-5 flex justify-center items-center;
 }
 
 .btn-details {
     @apply p-3 bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400
-           hover:from-blue-700 hover:via-blue-600 hover:to-blue-500
-           text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;
+    hover:from-blue-700 hover:via-blue-600 hover:to-blue-500
+    text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;
 }
 
 .btn-fetch {
     @apply p-3 bg-gradient-to-br from-green-600 via-green-500 to-green-400
-           hover:from-green-700 hover:via-green-600 hover:to-green-500
-           text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;
+    hover:from-green-700 hover:via-green-600 hover:to-green-500
+    text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;
 }
 
 .btn-diff {
     @apply p-3 bg-gradient-to-br from-purple-700 via-purple-600 to-purple-500
-           hover:from-purple-800 hover:via-purple-700 hover:to-purple-600
-           text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;
+    hover:from-purple-800 hover:via-purple-700 hover:to-purple-600
+    text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;
 }
 
 .alert {
@@ -172,4 +172,56 @@ html {
     font-family: "Fira Code";
     height: 100%; /* Ensure full height for the body */
     overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.chevron.rotate {
+    transform: rotate(180deg);
+}
+
+#language-dropdown.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#language-dropdown {
+    opacity: 1;
+}
+
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 22px;
+  width: 24px;
+}
+
+.nav-toggle .bar {
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  transition: all 100ms ease-in-out;
+}
+
+.nav-toggle:hover {
+  cursor: pointer;
+}
+
+.x:nth-of-type(1) {
+  transition: all 100ms ease-in-out;
+  transform: rotate(45deg);
+  transform-origin: top left;
+  width: 30px;
+}
+
+.x:nth-of-type(2) {
+  transition: all 100ms ease-in-out;
+  transform-origin: center;
+  width: 0;
+}
+
+.x:nth-of-type(3) {
+  transition: all 100ms ease-in-out;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  width: 30px;
 }
