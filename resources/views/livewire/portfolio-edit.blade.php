@@ -25,7 +25,7 @@
                 {{__('text.back')}}
             </span>
         </a>
-        <h3 class="mb-3">Edit Portfolio ({{ $activePortfolio->name }})</h3>
+        <h2 class="mb-3">Edit Portfolio ({{ $activePortfolio->name }})</h2>
 
         <form wire:submit.prevent="edit">
             @include('global.partials.floating-label-input', [

@@ -8,7 +8,9 @@
                         <select name="recepient" class="rounded mb-3" wire:model="recepient">
                             <option value="">{{ __('text.select-recepient') }}</option>
                             @foreach ($users as $user)
-                                <option value="{{$user->email}}" @if ($user->email === $recepient) selected @endif>{{$user->name}}</option>
+                                @if ($user->portfolios->count() > 0)
+                                    <option value="{{$user->email}}" @if ($user->email === $recepient) selected @endif>{{$user->name}}</option>
+                                @endif
                             @endforeach
                         </select>
                         @error('recepient')

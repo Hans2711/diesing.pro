@@ -40,19 +40,19 @@
                         <hr class="w-full border border-gray-300" />
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start sm:items-center text-left">
                             <div class="">
-                                <p class="font-bold text-lg">IP</p>
+                                <h2 class="font-bold text-lg">IP</h2>
                                 <p class="overflow-hidden">{{ $hit->ip }}</p>
                             </div>
                             <div class="">
-                                <p class="font-bold text-lg">User Agent</p>
+                                <h2 class="font-bold text-lg">User Agent</h2>
                                 <p class="overflow-hidden">{{ $hit->agent }}</p>
                             </div>
                             <div class="">
-                                <p class="font-bold text-lg">Date</p>
+                                <h2 class="font-bold text-lg">Date</h2>
                                 <p>{{ $hit->created_at->format('H:i d.m.Y') }}</p>
                             </div>
                             <div class="">
-                                <p class="font-bold text-lg">Geo</p>
+                                <h2 class="font-bold text-lg">Geo</h2>
                                 <p>{!! $hit->geo !!}</p>
                             </div>
                         </div>
@@ -60,15 +60,15 @@
                 @else
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start sm:items-center text-left">
                         <div class="">
-                            <p class="font-bold text-lg">Name</p>
+                            <h2 class="font-bold text-lg">Name</h2>
                             <p class="overflow-hidden">{{ $redirect->name }}</p>
                         </div>
                         <div class="">
-                            <p class="font-bold text-lg">Target</p>
+                            <h2 class="font-bold text-lg">Target</h2>
                             <p class="overflow-hidden">{{ $redirect->target }}</p>
                         </div>
                         <div class="">
-                            <p class="font-bold text-lg">HTTP Code</p>
+                            <h2 class="font-bold text-lg">HTTP Code</h2>
                             <p>{{ $redirect->code }}</p>
                         </div>
                     </div>
