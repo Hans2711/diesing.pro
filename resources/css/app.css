@@ -6,6 +6,15 @@
     @apply p-3 bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;
 }
 
+.ibtn.active {
+    @apply bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 text-white border-none;
+}
+
+.ibtn {
+    @apply p-3 bg-white bg-none border border-black text-black rounded hover:cursor-pointer leading-5 flex justify-center items-center hover:bg-gradient-to-br hover:from-rose-700 hover:via-purple-700 hover:to-gray-500 hover:text-white;
+}
+
+
 .btn-delete {
     @apply p-3 bg-gradient-to-br from-red-800 via-red-600 to-red-400
            hover:from-red-700 hover:via-red-500 hover:to-red-300
@@ -63,6 +72,8 @@ h1 {
     margin-bottom: 0.75em;
     font-size: 2em;
     font-weight: bold;
+
+    @apply hover:scale-105 origin-left transform transition duration-300;
 }
 
 h2 {
@@ -70,6 +81,20 @@ h2 {
     margin-bottom: 0.5em;
     font-size: 1.5em;
     font-weight: bold;
+
+    @apply hover:scale-105 origin-left transform transition duration-300;
+}
+
+a:not(.btn-details):not(.btn-language) {
+    @apply hover:scale-105 origin-left transform transition duration-300;
+}
+
+.home-card-left {
+    @apply hover:scale-105 transform transition duration-300 hover:shadow-xl origin-right;
+}
+
+.home-card-right {
+    @apply hover:scale-105 transform transition duration-300 hover:shadow-xl origin-left;
 }
 
 p {
@@ -85,7 +110,7 @@ p {
 
 /* General styles for all header buttons */
 .header-button {
-    @apply p-2 rounded text-[#1C160C] px-3 no-underline duration-300;
+    @apply p-2 rounded text-[#1C160C] px-3 no-underline duration-300 transition transform;
 }
 
 /* Styles for active header buttons */
@@ -94,7 +119,7 @@ p {
 }
 
 .header-button-active {
-    @apply bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 text-white border;
+    @apply bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 text-white border ;
 }
 
 /* Styles for non-active header buttons */
