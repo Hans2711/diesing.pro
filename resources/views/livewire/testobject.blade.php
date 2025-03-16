@@ -1,5 +1,5 @@
 <div>
-    <a wire:navigate.hover href="{{url(Config::get('app.locale') ."/tester/")}}" class="flex gap-2 mb-4 align-center">
+    <a wire:navigate.hover href="{{url(Config::get('app.locale') ."/tester/")}}" class="flex gap-2 mb-4 align-center btn-back">
         <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" />
         <span class="leading-none">
             {{__('text.back')}}

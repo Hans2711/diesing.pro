@@ -19,7 +19,7 @@
         @endforeach
     @else
     <div class="mt-3">
-        <a wire:click="cancelEdit" class="flex gap-2 mb-4 align-center hover:cursor-pointer">
+        <a wire:click="cancelEdit" class="flex gap-2 mb-4 align-center hover:cursor-pointer btn-back">
             <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" />
             <span class="leading-none">
                 {{__('text.back')}}
