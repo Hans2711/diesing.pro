@@ -96,7 +96,7 @@
                 {{ $type === 'login' ? __('text.login') : ($type === 'register' ? __('text.register') : __('text.login_register')) }}
             </button>
             @if ($type != 'begin')
-            <a class="flex items-center gap-2 py-auto hover:cursor-grab" href="javascript:void(0);" onclick="location.reload();">
+            <a class="flex items-center gap-2 py-auto hover:cursor-grab btn-back" href="javascript:void(0);" onclick="location.reload();">
                     <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" alt="Back Icon" />
                     <span class="leading-none">
                         {{ __('text.back') }}
