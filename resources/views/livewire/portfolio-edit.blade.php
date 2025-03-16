@@ -7,11 +7,11 @@
         @foreach ($portfolios as $portfolio)
             <div class="border mt-3 p-3 rounded">
                 <span>{{ $portfolio->name }}</span>
-                <div class="grid grid-cols-2 gap-3 mt-2">
-                    <button wire:click="deletePortfolio({{ $portfolio->id }})" wire:confirm="{{ __('text.are-you-sure') }}" class="justify-center w-full p-2 py-2.5 px-4 bg-red-500 text-white rounded hover:bg-red-700 flex items-center delete-redirect" id="delete-redirect" data-id="{{ $portfolio->id }}">
+                <div class="grid md:grid-cols-2 gap-3 mt-2">
+                    <button wire:click="deletePortfolio({{ $portfolio->id }})" wire:confirm="{{ __('text.are-you-sure') }}" class="justify-center w-full p-2 py-2.5 px-5 md:mr-3 bg-red-500 text-white rounded hover:bg-red-700 flex items-center delete-redirect" id="delete-redirect" data-id="{{ $portfolio->id }}">
                         <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}" />
                     </button>
-                    <button wire:click="editPortfolio({{ $portfolio->id }})" id="{{ $portfolio->id }}" class="justify-center w-full p-2 py-2.5 px-4 bg-green-500 text-white rounded hover:bg-green-700 flex items-center edit-redirect">
+                    <button wire:click="editPortfolio({{ $portfolio->id }})" id="{{ $portfolio->id }}" class="justify-center w-full p-2 py-2.5 px-5 md:ml-3 bg-green-500 text-white rounded hover:bg-green-700 flex items-center edit-redirect">
                         <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/pencil-outline.svg') }}" />
                     </button>
                 </div>

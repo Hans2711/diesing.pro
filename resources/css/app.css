@@ -24,6 +24,7 @@ h2 {@apply mt-[0.5em] mb-[0.5em] text-[1.5em] font-bold hover:scale-105 origin-l
 p {@apply mt-[0.5em] mb-[0.5em] text-[1em] leading-[1.5];}
 
 .btn {@apply hover-scale;}
+button {@apply hover-scale;}
 
 .hover-scale {@apply hover:scale-105 transform transition duration-300;}
 
