@@ -16,8 +16,6 @@ class UserTest extends TestCase
     {
         $user = User::where('username', 'tester')->first();
 
-        dd($user->isAdmin());
-
         $this->assertTrue($user ? $user->isAdmin() : false);
     }
 }
