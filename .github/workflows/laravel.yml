@@ -46,6 +46,7 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
+        chmod 777 database/database.sqlite  # Ensure the SQLite file is writable
 
     - name: Migrate Database
       env:
@@ -59,8 +60,14 @@ jobs:
         DB_DATABASE: database/database.sqlite
       run: php artisan db:seed --force
 
+    - name: Check if users table exists
+      run: sqlite3 database/database.sqlite "SELECT name FROM sqlite_master WHERE type='table';"
+
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: php artisan test
+      run: |
+        php artisan migrate:status  # Check if migrations are properly applied
+        php artisan db:show  # Check database status
+        php artisan test
