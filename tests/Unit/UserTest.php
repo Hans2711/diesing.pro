@@ -3,7 +3,9 @@
 namespace Tests\Unit;
 
 use App\Models\User;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UserTest extends TestCase
 {
@@ -13,6 +15,8 @@ class UserTest extends TestCase
     public function test_example(): void
     {
         $user = User::where('username', 'tester')->first();
+
+        dd($user->isAdmin());
 
         $this->assertTrue($user ? $user->isAdmin() : false);
     }
