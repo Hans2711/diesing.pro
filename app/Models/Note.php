@@ -41,7 +41,7 @@ class Note extends Model
         parent::__construct();
 
         $this->name = $this->attributes["name"];
-        $this->user = Auth::user()->id;
+        $this->user = Auth::user()?->id;
     }
 
     public function getPublicUrl()
