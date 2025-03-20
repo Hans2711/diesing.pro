@@ -1,113 +1,101 @@
-<nav class="p-5 bg-white fixed z-30 w-full shadow md:flex md:items-center md:justify-between">
-    <div class="flex justify-between items-center">
-        <span class="text-2xl font-[Poppins] cursor-pointer">
-            <a wire:navigate.hover href="{{ url('/' . Config::get('app.locale')) }}">
-                <img class="h-10 inline" src="{{ Vite::asset('resources/logo/DLogo.png') }}">
-            </a>
-        </span>
-        <div class="flex items-center z-50">
-
-            <div class="relative group inline-block text-left ml-4">
-                <button
-                    type="button"
-                    class="inline-flex items-center justify-between w-40 rounded-md border border-gray-300 px-4 py-2 bg-white text-sm font-medium"
-                    id="language-button"
-                    onclick="window.triggerLanguageDropdown(this)"
-                >
+<nav class="p-5 bg-white fixed z-30 w-full shadow">
+    <div class="text-center">
+        <ul class="inline-flex items-center space-x-4">
+            <!-- Language Switcher -->
+            <li class="relative group">
+                <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-gray-900">
                     <img
                         src="{{ Vite::asset('resources/icons/' . __('language.svg') . '.svg') }}"
                         alt="{{ __('language.name') }}"
-                        class="h-5 w-5 mr-2"
+                        class="h-5 w-5"
                         loading="eager"
                     />
                     {{ __('language.name') }}
-                    <span class="chevron transition-transform duration-200 ml-2">
-                        <img
-                            src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
-                            alt="Chevron"
-                            class="h-5 w-5 text-gray-400"
-                        />
-                    </span>
-                </button>
+                    <img
+                        src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
+                        alt="Chevron"
+                        class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180"
+                    />
+                </a>
                 @php
                 $otherlang = Config::get('app.locale') == 'de' ? 'en' : 'de';
                 @endphp
-                <div
-                    id="language-dropdown"
-                    class="origin-top-right absolute left-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden transition-opacity duration-200"
-                >
-                    <div class="inline-flex justify-between w-full text-sm font-medium">
+                <!-- Flyout Menu -->
+                <ul class="header-flyout">
+                    <li>
                         <a
                             href="{{ url('/' . $otherlang) }}"
-                            class="flex justify-between items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 btn-language"
+                            class="flex items-center justify-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100"
                         >
                             <img
                                 src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $otherlang) . '.svg') }}"
                                 alt="{{ __('language.name-' . $otherlang) }}"
-                                class="h-5 w-5 mr-2"
+                                class="h-5 w-5"
                             />
                             {{ __('language.name-' . $otherlang) }}
+
                             <img
                                 src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}"
                                 alt="Chevron"
-                                class="ml-2 h-5 w-5 text-gray-400"
+                                class="h-4 w-4 text-gray-400"
                             />
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <a class="nav-toggle z-50 cursor-pointer ml-5 md:hidden block">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </a>
-        </div>
-    </div>
-    <ul id="header-list"
-        class="md:flex md:items-center z-40 md:z-auto md:static absolute bg-white w-full left-0 md:w-auto
-        md:py-0 md:pl-0 pl-3 md:opacity-100 opacity-0 top-[-400px]
-        transition-all ease-in duration-500">
-        <li class="mx-2 my-6 md:my-0">
-            <a wire:navigate.hover
-                class="@if ($active == 'portfolio') active @endif header-button"
-                href="{{ url(Config::get('app.locale') . '/' . __('url.portfolio')) }}">
-                {{ __('text.portfolio') }}
-            </a>
-        </li>
-        <li class="mx-2 my-6 md:my-0">
-            <a wire:navigate.hover
-                class="@if ($active == 'contact') active @endif header-button"
-                href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}">
-                {{ __('text.contact') }}
-            </a>
-        </li>
-        <li class="mx-2 my-6 md:my-0 md:hidden lg:block">
-            <a wire:navigate.hover
-                class="@if ($active == 'tester') active @endif header-button"
-                href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}">
-                {{ __('text.tester') }}
-            </a>
-        </li>
-        <li class="mx-2 my-6 md:my-0">
-            <a wire:navigate.hover
-                class="@if ($active == 'teams') active @endif header-button"
-                href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}">
-                {{ __('text.random-teams') }}
-            </a>
-        </li>
-        <li class="mx-2 my-6 md:my-0 sm:hidden md:block">
-            <a
-                class="header-button"
-                href="http://www.diesing.pro:8096/">Jellyfin</a>
-        </li>
-        <li class="mx-2 my-6 md:my-0">
-            <a
-                class="@if ($active == 'account') active @endif header-button"
-                href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}">
-                {{ __('text.account') }}
-            </a>
-        </li>
-    </ul>
-</nav>
 
-<div class="hidden top-[80px] opacity-100"></div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Menu Item 1 -->
+            <li class="relative group">
+                <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-gray-900">
+                    Hello
+                    <img
+                        src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
+                        alt="Chevron"
+                        class="h-5 w-5 transition-transform duration-200 group-hover:rotate-180"
+                    />
+                </a>
+                <!-- Flyout Menu -->
+                <ul class="header-flyout">
+                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu 11</a></li>
+                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu 2</a></li>
+                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu 3</a></li>
+                </ul>
+            </li>
+
+            <!-- Menu Item 2 -->
+            <li class="relative group">
+                <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-gray-900">
+                    Hell1
+                    <img
+                        src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
+                        alt="Chevron"
+                        class="h-5 w-5 transition-transform duration-200 group-hover:rotate-180"
+                    />
+                </a>
+                <!-- Flyout Menu -->
+                <ul class="header-flyout">
+                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu A</a></li>
+                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu B</a></li>
+                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu C</a></li>
+                </ul>
+            </li>
+            <li class="relative group">
+                <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-gray-900">
+                    Hell1
+                    <img
+                        src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
+                        alt="Chevron"
+                        class="h-5 w-5 transition-transform duration-200 group-hover:rotate-180"
+                    />
+                </a>
+                <!-- Flyout Menu -->
+                <ul class="header-flyout">
+                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu A</a></li>
+                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu B</a></li>
+                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu C</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
