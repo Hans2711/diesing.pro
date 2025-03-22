@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.header-flyout {@apply absolute mt-2 min-w-max bg-white shadow-lg rounded-md opacity-0 invisible transition-all duration-200 group-hover:opacity-100 group-hover:visible left-1/2 transform -translate-x-1/2 sm:left-0 sm:-translate-x-0 sm:right-auto ;}
+.header-flyout a {@apply px-5;}
+
 .btn {@apply p-3 bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;}
 .ibtn.active {@apply bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 text-white border-none;}
 .ibtn {@apply p-3 bg-white bg-none border border-black text-black rounded hover:cursor-pointer leading-5 flex justify-center items-center hover:bg-gradient-to-br hover:from-rose-700 hover:via-purple-700 hover:to-gray-500 hover:text-white;}

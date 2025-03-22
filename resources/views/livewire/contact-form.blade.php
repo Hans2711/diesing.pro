@@ -82,11 +82,11 @@
             </div>
             <hr class="mt-2 md:mb-4 mb-3" />
             <label for="message" class="block mb-2 mt-2 text-sm">{{ __('text.message') }} *</label>
-            <textarea name="message" id="message" class="w-full p-2 border rounded" rows="10" wire:model="message" required></textarea>
+            <textarea name="message" id="message" class="w-full p-2 border rounded" tabindex="5" rows="10" wire:model="message" required></textarea>
             @error('message')
                 <span class="text-red-500 text-sm block">{{ $message }}</span>
             @enderror
-            <input type="submit" id="contact-submit" value="{{ __('text.submit') }}" class="mt-2 p-4 btn">
+            <input type="submit" id="contact-submit" tabindex="6" value="{{ __('text.submit') }}" class="mt-2 p-4 btn">
         </div>
     </form>
 

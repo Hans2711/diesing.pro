@@ -108,6 +108,7 @@ return [
     "saved" => "Gespeichert",
     "delete" => "Löschen",
     "users" => "Benutzer",
+    "private" => "Privat",
     "user_deleted" => "Benutzer gelöscht",
 
     "data-protection-page" => '
