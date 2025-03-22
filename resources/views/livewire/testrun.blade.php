@@ -52,6 +52,17 @@
         @endif
     @endif
 
+
+    @include('global.partials..floating-label-input', [
+        'id' => 'name',
+        'name' => 'name',
+        'label' => 'Name',
+        'wrapperClass' => 'w-full sm:w-auto mb-4',
+        'tabindex' => 1,
+        'additional' => 'wire:change="updateName($event.target.value)"',
+        'value' => $testrun->name
+    ])
+
     <button class="btn mb-3" wire:click="createInstance">
         <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
     </button>

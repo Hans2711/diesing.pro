@@ -18,6 +18,11 @@ class Testrun extends Component
     public $renderName = "Inline";
     public $detailLevel = "line";
 
+    public function updateName($name) {
+        $this->testrun->name = $name;
+        $this->testrun->save();
+    }
+
     public function createInstance()
     {
         $testInstance = new Testinstance();

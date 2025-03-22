@@ -107,6 +107,7 @@ return [
     "delete" => "Delete",
     "users" => "Users",
     "user_deleted" => "User deleted",
+    "private" => "Private",
     "data-protection-page" => '
 <h1>Privacy Policy</h1>
 
