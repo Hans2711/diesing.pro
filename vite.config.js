@@ -9,13 +9,12 @@ export default defineConfig({
                 "resources/css/app.css",
                 "resources/css/diff-table.css",
                 "resources/js/app.js",
-                "resources/js/parts/header.js",
                 "resources/js/utils/clipboard.js",
                 "resources/js/utils/editor.js",
             ],
             refresh: true,
         }),
-        ViteMinifyPlugin({}),
+        ViteMinifyPlugin({ minify: 'terser' }),
     ],
     server: {
         hmr: {
