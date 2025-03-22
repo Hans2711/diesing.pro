@@ -19,7 +19,7 @@
 <body>
     <div id="app">
         @include('global.header', ['active' => $active ?? null])
-        <div class="container mx-auto md:px-0 px-6 pt-20">
+        <div class="container mx-auto md:px-0 px-6 pt-32 sm:pt-20">
             @yield('content')
         </div>
     </div>
