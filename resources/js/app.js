@@ -7,5 +7,3 @@ import.meta.glob([
     "../images/**",
     "../icons/**",
 ]);
-
-import "./parts/header.js";
