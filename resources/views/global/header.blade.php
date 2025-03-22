@@ -1,9 +1,13 @@
 <nav class="p-5 bg-white fixed z-30 w-full shadow">
-    <div class="text-center">
-        <ul class="inline-flex items-center space-x-4">
-            <!-- Language Switcher -->
-            <li class="relative group">
-                <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-gray-900">
+    <div class="flex flex-col sm:flex-row justify-center items-center text-center">
+        <ul class="inline-flex items-center space-x-4 mb-5 sm:mb-0">
+            <li class="relative group ">
+            <a wire:navigate.hover href="{{ url('/' . Config::get('app.locale')) }}">
+                <img class="h-10 inline" src="{{ Vite::asset('resources/logo/DLogo.png') }}">
+            </a>
+            </li>
+            <li class="relative group ">
+                <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-gray-900 sm:px-4">
                     <img
                         src="{{ Vite::asset('resources/icons/' . __('language.svg') . '.svg') }}"
                         alt="{{ __('language.name') }}"
@@ -21,7 +25,7 @@
                 $otherlang = Config::get('app.locale') == 'de' ? 'en' : 'de';
                 @endphp
                 <!-- Flyout Menu -->
-                <ul class="header-flyout">
+                <ul class="header-flyout lang-flyout z-50">
                     <li>
                         <a
                             href="{{ url('/' . $otherlang) }}"
@@ -44,11 +48,12 @@
                     </li>
                 </ul>
             </li>
-
+        </ul>
+        <ul class="inline-flex items-center space-x-4">
             <!-- Menu Item 1 -->
             <li class="relative group">
                 <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-gray-900">
-                    Hello
+                    {{ __('text.contact') }}
                     <img
                         src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
                         alt="Chevron"
@@ -57,16 +62,15 @@
                 </a>
                 <!-- Flyout Menu -->
                 <ul class="header-flyout">
-                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu 11</a></li>
-                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu 2</a></li>
-                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu 3</a></li>
+                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="block py-2 hover:bg-gray-100">Hans (HP)</a></li>
+                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/detlef.diesing@icloud.com" class="block py-2 hover:bg-gray-100">Detlef</a></li>
                 </ul>
             </li>
 
             <!-- Menu Item 2 -->
             <li class="relative group">
                 <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-gray-900">
-                    Hell1
+                    {{ __('text.portfolio') }}
                     <img
                         src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
                         alt="Chevron"
@@ -75,14 +79,13 @@
                 </a>
                 <!-- Flyout Menu -->
                 <ul class="header-flyout">
-                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu A</a></li>
-                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu B</a></li>
-                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu C</a></li>
+                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.portfolio')) }}" class="block py-2 hover:bg-gray-100">Hans (HP)</a></li>
+                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.portfolio')) }}" class="block py-2 hover:bg-gray-100">Detlef</a></li>
                 </ul>
             </li>
             <li class="relative group">
                 <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-gray-900">
-                    Hell1
+                    {{ __('text.private') }}
                     <img
                         src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
                         alt="Chevron"
@@ -91,9 +94,10 @@
                 </a>
                 <!-- Flyout Menu -->
                 <ul class="header-flyout">
-                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu A</a></li>
-                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu B</a></li>
-                    <li><a href="#" class="block py-2 hover:bg-gray-100">Submenu C</a></li>
+                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" class="block py-2 hover:bg-gray-100">{{ __('text.account') }}</a></li>
+                    <li><a href="http://www.diesing.pro:8096/" class="block py-2 hover:bg-gray-100">Jellyfin</a></li>
+                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}" class="block py-2 hover:bg-gray-100">{{ __('text.random-teams') }}</a></li>
+                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}" class="block py-2 hover:bg-gray-100">{{ __('text.tester') }}</a></li>
                 </ul>
             </li>
         </ul>

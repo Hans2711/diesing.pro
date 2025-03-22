@@ -21,6 +21,7 @@
 
     @foreach ($testobject->testruns as $testrun)
         <div class="border border-gray-200 px-3 mb-4 pb-3 rounded">
+            <p><strong>{{ $testrun->name }}</strong></p>
             <p><strong>{{ __('text.created') }}:</strong> {{ $testrun->created_at_clean}}</p>
             <p><strong>{{ __('text.deleted') }}:</strong> {{ $testrun->deletedWhen()}}</p>
 
