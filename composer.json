@@ -11,10 +11,12 @@
         "php": "^8.2",
         "jfcherng/php-diff": "^6.16",
         "laravel/framework": "^11.9",
+        "laravel/reverb": "^1.4",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "3.5.12",
-        "spatie/laravel-sitemap": "^7.3",
-        "spatie/crawler": "^8.4"
+        "pusher/pusher-php-server": "^7.2",
+        "spatie/crawler": "^8.4",
+        "spatie/laravel-sitemap": "^7.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

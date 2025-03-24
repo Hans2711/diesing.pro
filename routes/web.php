@@ -6,6 +6,31 @@ use App\Http\Controllers\ShareController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\TesterController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+
+Route::post('/session-login', function (Request $request) {
+    $request->validate(['sessionId' => 'required|string']);
+
+    if (Auth::check()) {
+        return response()->json([
+            'status' => 'already_logged_in',
+            'user' => Auth::user(),
+        ]);
+    }
+
+    $user = User::firstOrCreate(
+        ['email' => $request->sessionId.'@guest.local'],
+        ['username' => $request->sessionId, 'name' => $request->sessionId, 'password' => bcrypt(Str::random(16))]
+    );
+
+    Auth::login($user);
+
+    return response()->json(['status' => 'logged_in', 'user' => $user]);
+});
 
 if (!function_exists("route_trans")) {
     function route_trans($key, $locale = "en")
