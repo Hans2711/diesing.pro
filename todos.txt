@@ -1,11 +1,8 @@
-Fix on new note reload doesnt save the selected Note
-
-Make links Clickable
-
-Tester:
-
-Diff Library:
-
-https://github.com/jfcherng/php-diff
-https://github.com/Mistralys/text-diff
-
+// Trigger a direct private message via a minimal Laravel endpoint
+window.sendWsDirect = (data, receiverId) => {
+    window.Echo.connector.pusher.send_event('client-direct-message', {
+        senderId: sessionId,
+        receiverId,
+        data: btoa(data) // base64 encode for safe transport
+    }, `private-user.${receiverId}`);
+};
