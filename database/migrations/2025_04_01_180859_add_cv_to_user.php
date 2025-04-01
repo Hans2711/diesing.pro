@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table("redirect_hit", function (Blueprint $table) {
-            $table->integer("redirect")->nullable();
+        Schema::table('users', function (Blueprint $table) {
+            $table->integer('cv')->nullable();
         });
     }
 
@@ -21,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('user', function (Blueprint $table) {
+            //
+        });
     }
 };

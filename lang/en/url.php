@@ -17,4 +17,5 @@ return [
     "files" => "files",
 
     "account" => "account",
+    "cv" => "cv",
 ];
