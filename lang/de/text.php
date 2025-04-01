@@ -110,6 +110,7 @@ return [
     "users" => "Benutzer",
     "private" => "Privat",
     "user_deleted" => "Benutzer gelöscht",
+    "cv" => "Lebenslauf",
 
     "data-protection-page" => '
     <h1>Datenschutzerklärung</h1>
