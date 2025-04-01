@@ -94,6 +94,7 @@ Route::prefix("de")
             TeamsController::class,
             "index",
         ])->name("teams");
+        Route::get("/" . route_trans("rt-share", $locale), function () { return view('rt-share/index'); })->name("rt-share");
     });
 
 ///////////////////////////
@@ -176,6 +177,8 @@ Route::prefix("en")
             TeamsController::class,
             "index",
         ])->name("teams");
+
+        Route::get("/" . route_trans("rt-share", $locale), function () { return view('rt-share/index'); })->name("rt-share");
     });
 
 ///////////////////////////
