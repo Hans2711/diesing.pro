@@ -93,4 +93,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Portfolio::class, "user", "id");
     }
+
+    public function cv()
+    {
+        return $this->belongsTo(Cv::class, 'cv');
+    }
 }

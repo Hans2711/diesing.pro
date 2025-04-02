@@ -17,4 +17,5 @@ return [
     "files" => "dateien",
 
     "account" => "benutzerkonto",
+    "cv" => "lebenslauf",
 ];
