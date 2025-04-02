@@ -48,7 +48,7 @@
                     ])
                     <div wire:ignore>
                         <div class="editor border rounded mb-3" wire:ignore>{!! $lists[$listIndex]['items'][$itemIndex]['content'] !!}</div>
-                        <input type="text" class="hidden" value="{!! $lists[$listIndex]['items'][$itemIndex]['content'] !!}" wire:model.fill="lists.{{$listIndex}}.items.{{$itemIndex}}.content" />
+                        <input type="text" class="hidden" value="{!! htmlspecialchars($lists[$listIndex]['items'][$itemIndex]['content'], ENT_QUOTES, 'UTF-8') !!}" wire:model.fill="lists.{{$listIndex}}.items.{{$itemIndex}}.content" />
                     </div>
 
                     <button type="button" class="btn btn-delete mt-3" wire:click="removeListItem({{ $listIndex }}, {{ $itemIndex }})">Remove Item</button>
