@@ -80,6 +80,7 @@ Route::prefix("de")
                 }
             )->name("portfolio");
         });
+        Route::middleware(["cv"])->group(function () use ($locale) {
             Route::get(
                 "/" .
                     route_trans("account", $locale) .
@@ -89,6 +90,7 @@ Route::prefix("de")
                     return view("accounts.cv");
                 }
             )->name("cv");
+        });
     });
 
 ///////////////////////////
@@ -139,6 +141,7 @@ Route::prefix("en")
                 }
             )->name("portfolio");
         });
+        Route::middleware(["cv"])->group(function () use ($locale) {
             Route::get(
                 "/" .
                     route_trans("account", $locale) .
@@ -148,4 +151,5 @@ Route::prefix("en")
                     return view("accounts.cv");
                 }
             )->name("cv");
+        });
     });

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CvController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ShareController;
 use App\Http\Controllers\TeamsController;
@@ -94,6 +95,16 @@ Route::prefix("de")
             TeamsController::class,
             "index",
         ])->name("teams");
+
+        Route::get("/" . route_trans("cv", $locale), [
+            CvController::class,
+            "index",
+        ])->name("cv");
+
+        Route::get("/" . route_trans("cv", $locale) . '/{id}', [
+            CvController::class,
+            "single",
+        ])->name("cv");
     });
 
 ///////////////////////////
@@ -176,6 +187,16 @@ Route::prefix("en")
             TeamsController::class,
             "index",
         ])->name("teams");
+
+        Route::get("/" . route_trans("cv", $locale), [
+            CvController::class,
+            "index",
+        ])->name("cv");
+
+        Route::get("/" . route_trans("cv", $locale) . '/{id}', [
+            CvController::class,
+            "single",
+        ])->name("cv");
     });
 
 ///////////////////////////
