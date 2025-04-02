@@ -14,7 +14,7 @@
     @foreach($fields as $field)
         <div class="flex flex-col md:flex-row gap-2 md:gap-4 px-4 py-2 md:p-4 border rounded-lg shadow bg-white mb-3 items-start md:items-center">
             <p class="text-lg font-semibold text-gray-800 w-full md:w-1/3">{{ $field['title'] }}</p>
-            <p class="text-gray-600 w-full md:w-2/3">{{ $field['content'] }}</p>
+            <p class="text-gray-600 w-full md:w-2/3">{!! $field['content'] !!}</p>
         </div>
     @endforeach
 
