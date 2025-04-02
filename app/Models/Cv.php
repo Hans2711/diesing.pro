@@ -9,14 +9,7 @@ class Cv extends Model
     protected $table = 'cv';
 
     protected $fillable = [
-        'name',
-        'birthday',
-        'nationality',
-        'address',
-        'phone',
-        'email',
-        'parents',
-        'siblings',
+        'fields',
     ];
 
     public function lists()

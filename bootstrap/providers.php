@@ -2,6 +2,7 @@
 
 return [
     App\Providers\AppServiceProvider::class,
+    App\Providers\CvProvider::class,
     App\Providers\NotesAuthProvider::class,
     App\Providers\PortfolioAuthProvider::class,
     App\Providers\PrivateAuthProvider::class,

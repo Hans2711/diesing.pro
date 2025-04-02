@@ -13,14 +13,7 @@ return new class extends Migration {
         Schema::create("cv", function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("name");
-            $table->string("birthday");
-            $table->string("nationality");
-            $table->string("address");
-            $table->string("phone");
-            $table->string("email");
-            $table->string("parents");
-            $table->string("siblings");
+            $table->text("fields");
         });
     }
 

@@ -18,6 +18,7 @@ class Account extends Component
         "notes" => "Notes",
         "redirects" => "Redirects",
         "portfolio" => "Portfolio",
+        "cv" => "Cv",
     ];
 
     private function fillUsers()
