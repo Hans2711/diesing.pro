@@ -27,9 +27,71 @@ class CvEdit extends Component
                 $countIndex++;
             }
         }
-
     }
 
+    public function moveFieldUp($index)
+    {
+        if ($index > 0) {
+            $temp = $this->fields[$index];
+            $this->fields[$index] = $this->fields[$index - 1];
+            $this->fields[$index - 1] = $temp;
+        }
+    }
+
+    public function moveFieldDown($index)
+    {
+        if ($index < count($this->fields) - 1) {
+            $temp = $this->fields[$index];
+            $this->fields[$index] = $this->fields[$index + 1];
+            $this->fields[$index + 1] = $temp;
+        }
+    }
+
+    public function moveListItemUp($listIndex, $itemIndex)
+    {
+        if ($itemIndex > 0) {
+            $temp = $this->lists[$listIndex]['items'][$itemIndex];
+            $this->lists[$listIndex]['items'][$itemIndex] = $this->lists[$listIndex]['items'][$itemIndex - 1];
+            $this->lists[$listIndex]['items'][$itemIndex - 1] = $temp;
+            $this->saveLists();
+            $this->js("window.location.reload()");
+        }
+    }
+
+    public function moveListItemDown($listIndex, $itemIndex)
+    {
+        if ($itemIndex < count($this->lists[$listIndex]['items']) - 1) {
+            $temp = $this->lists[$listIndex]['items'][$itemIndex];
+            $this->lists[$listIndex]['items'][$itemIndex] = $this->lists[$listIndex]['items'][$itemIndex + 1];
+            $this->lists[$listIndex]['items'][$itemIndex + 1] = $temp;
+            $this->saveLists();
+            $this->js("window.location.reload()");
+        }
+    }
+
+    public function moveListUp($index)
+    {
+        if ($index > 0) {
+            $temp = $this->lists[$index];
+            $this->lists[$index] = $this->lists[$index - 1];
+            $this->lists[$index - 1] = $temp;
+
+            $this->save();
+            $this->js("window.location.reload()");
+        }
+    }
+
+    public function moveListDown($index)
+    {
+        if ($index < count($this->lists) - 1) {
+            $temp = $this->lists[$index];
+            $this->lists[$index] = $this->lists[$index + 1];
+            $this->lists[$index + 1] = $temp;
+
+            $this->save();
+            $this->js("window.location.reload()");
+        }
+    }
 
 
     public function mount()
@@ -40,10 +102,11 @@ class CvEdit extends Component
             $this->fields = json_decode($this->cv->fields, true) ?? [];
 
             // Load lists with title and items
-            $this->lists = $this->cv->lists->map(function ($list) {
+            $this->lists = $this->cv->lists()->orderBy('sort_order')->get()->map(function ($list) {
                 return [
                     'id' => $list->id,
                     'title' => $list->title,
+                    'column' => (int)$list->column,
                     'items' => json_decode($list->content, true) ?? []
                 ];
             })->toArray();
@@ -85,16 +148,21 @@ class CvEdit extends Component
                 ->where('id', $list['id'] ?? null)
                 ->first();
 
+                /* dd((int)$this->lists[$index]['column']); */
             if ($existingList) {
                 $existingList->update([
                     'title' => $list['title'],
+                    'column' => (int)$this->lists[$index]['column'],
                     'content' => json_encode($list['items']),
+                    'sort_order' => $index,
                 ]);
             } else {
                 ListModel::create([
                     'title' => $list['title'],
+                    'column' => (int)$this->lists[$index]['column'],
                     'content' => json_encode($list['items']),
                     'cv' => $this->cv->id,
+                    'sort_order' => $index,
                 ]);
             }
         }
@@ -112,7 +180,7 @@ class CvEdit extends Component
 
     public function addList()
     {
-        $this->lists[] = ['id' => null, 'title' => '', 'items' => [['title' => '', 'content' => '']]];
+        $this->lists[] = ['id' => null, 'title' => '', 'items' => [['title' => '', 'content' => '']], 'sort_order' => count($this->lists)];
     }
 
     public function removeList($index)

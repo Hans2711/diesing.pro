@@ -12,6 +12,12 @@ class ListModel extends Model
         'title',
         'content',
         'cv',
+        'sort_order',
+        'column'
+    ];
+
+    protected $casts = [
+        'column' => 'integer',
     ];
 
     public function cv()
