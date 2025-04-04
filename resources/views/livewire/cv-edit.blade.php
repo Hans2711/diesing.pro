@@ -18,7 +18,11 @@
                 'required' => true,
                 'additional' => "wire:model='fields.{$index}.content'"
             ])
-            <button type="button" class="btn btn-delete" wire:click="removeField({{ $index }})">Remove</button>
+            <div class="flex gap-2 mt-2">
+                <button type="button" class="btn btn-sm" wire:click="moveFieldUp({{ $index }})" @if($index === 0) disabled @endif>↑</button>
+                <button type="button" class="btn btn-sm" wire:click="moveFieldDown({{ $index }})" @if($index === count($fields) - 1) disabled @endif>↓</button>
+                <button type="button" class="btn btn-delete btn-sm" wire:click="removeField({{ $index }})">Remove</button>
+            </div>
         </div>
     @endforeach
     <button type="button" class="btn" wire:click="addField">Add Field</button>
@@ -36,6 +40,16 @@
                 'additional' => "wire:model='lists.{$listIndex}.title'"
             ])
 
+            @include('global.partials.floating-label-input', [
+                'id' => "list_column_{$listIndex}",
+                'name' => "list_column_{$listIndex}",
+                'label' => 'List Columns',
+                'wrapperClass' => 'w-full sm:w-auto mb-3',
+                'required' => true,
+                'additional' => "wire:model='lists.{$listIndex}.column'",
+                'type' => "number"
+            ])
+
             @foreach($list['items'] as $itemIndex => $item)
                 <div class="mb-3">
                     @include('global.partials.floating-label-input', [
@@ -51,13 +65,22 @@
                         <input type="text" class="hidden" value="{!! htmlspecialchars($lists[$listIndex]['items'][$itemIndex]['content'], ENT_QUOTES, 'UTF-8') !!}" wire:model.fill="lists.{{$listIndex}}.items.{{$itemIndex}}.content" />
                     </div>
 
-                    <button type="button" class="btn btn-delete mt-3" wire:click="removeListItem({{ $listIndex }}, {{ $itemIndex }})">Remove Item</button>
+                    <div class="flex gap-2 mt-2">
+                        <button type="button" class="btn btn-sm" wire:click="moveListItemUp({{ $listIndex }}, {{ $itemIndex }})" @if($itemIndex === 0) disabled @endif>↑</button>
+                        <button type="button" class="btn btn-sm" wire:click="moveListItemDown({{ $listIndex }}, {{ $itemIndex }})" @if($itemIndex === count($list['items']) - 1) disabled @endif>↓</button>
+                        <button type="button" class="btn btn-delete btn-sm" wire:click="removeListItem({{ $listIndex }}, {{ $itemIndex }})">Remove Item</button>
+                    </div>
                 </div>
             @endforeach
 
             <div class="flex justify-start gap-3">
                 <button type="button" class="btn btn-delete" wire:click="removeList({{ $listIndex }})">Remove List</button>
                 <button type="button" class="btn" wire:click="addListItem({{ $listIndex }})">Add Item</button>
+            </div>
+
+            <div class="flex gap-2 mt-2">
+                <button type="button" class="btn btn-sm" wire:click="moveListUp({{ $listIndex }})" @if($listIndex === 0) disabled @endif>↑ Move List Up</button>
+                <button type="button" class="btn btn-sm" wire:click="moveListDown({{ $listIndex }})" @if($listIndex === count($lists) - 1) disabled @endif>↓ Move List Down</button>
             </div>
         </div>
     @endforeach
