@@ -40,6 +40,9 @@
                 @endif
             @endforeach
         </div>
+        @if ($list['pagebreak'] > 0)
+            <div class="page-break"></div>
+        @endif
     </div>
 @endforeach
 

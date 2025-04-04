@@ -107,7 +107,8 @@ class CvEdit extends Component
                     'id' => $list->id,
                     'title' => $list->title,
                     'column' => (int)$list->column,
-                    'items' => json_decode($list->content, true) ?? []
+                    'items' => json_decode($list->content, true) ?? [],
+                    'pagebreak' => (int)$list->pagebreak,
                 ];
             })->toArray();
         }
@@ -155,6 +156,7 @@ class CvEdit extends Component
                     'column' => (int)$this->lists[$index]['column'],
                     'content' => json_encode($list['items']),
                     'sort_order' => $index,
+                    'pagebreak' => (int)$list['pagebreak'],
                 ]);
             } else {
                 ListModel::create([
@@ -163,6 +165,7 @@ class CvEdit extends Component
                     'content' => json_encode($list['items']),
                     'cv' => $this->cv->id,
                     'sort_order' => $index,
+                    'pagebreak' => (int)$list['pagebreak'],
                 ]);
             }
         }
