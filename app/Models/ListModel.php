@@ -13,7 +13,8 @@ class ListModel extends Model
         'content',
         'cv',
         'sort_order',
-        'column'
+        'column',
+        'pagebreak'
     ];
 
     protected $casts = [

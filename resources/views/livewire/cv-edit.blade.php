@@ -50,6 +50,16 @@
                 'type' => "number"
             ])
 
+            @include('global.partials.floating-label-input', [
+                'id' => "list_pagebreak_{$listIndex}",
+                'name' => "list_pagebreak_{$listIndex}",
+                'label' => 'List Page Break',
+                'wrapperClass' => 'w-full sm:w-auto mb-3',
+                'required' => true,
+                'additional' => "wire:model='lists.{$listIndex}.pagebreak'",
+                'type' => "number"
+            ])
+
             @foreach($list['items'] as $itemIndex => $item)
                 <div class="mb-3">
                     @include('global.partials.floating-label-input', [

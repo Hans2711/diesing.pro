@@ -36,6 +36,9 @@
         .shadow-sm, .shadow {
             box-shadow: none !important;
         }
+        @media print {
+            .page, .page-break { break-after: page; }
+        }
     }
 </style>
 
