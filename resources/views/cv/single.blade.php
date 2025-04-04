@@ -31,9 +31,9 @@
 
         <div class="grid {{ $columns }} md:gap-3">
             @foreach ($items as $index => $item)
-                <div class="flex flex-col">
-                    <p class="text-base md:text-lg font-semibold text-gray-800">{{ $item['title'] }}</p>
-                    <div class="text-sm md:text-base text-gray-600">{!! $item['content'] !!}</div>
+                <div class="flex flex-col @if ($list['column'] == 1) md:flex-row md:gap-6 md:items-center @endif">
+                    <p class="text-base md:text-lg font-semibold text-gray-800 @if ($list['column'] == 1) w-full md:w-1/3 @endif">{{ $item['title'] }}</p>
+                    <div class="text-sm md:text-base text-gray-600 @if ($list['column'] == 1) w-full md:w-2/3 @endif">{!! $item['content'] !!}</div>
                 </div>
 
                 @if (($index + 1) % $list['column'] == 0 && $index < count($items) - 1)
