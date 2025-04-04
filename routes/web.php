@@ -105,6 +105,11 @@ Route::prefix("de")
             CvController::class,
             "single",
         ])->name("cv");
+
+        Route::get("/" . route_trans("cv", $locale) . '/{id}/print', [
+            CvController::class,
+            "print",
+        ])->name("cvPrint");
     });
 
 ///////////////////////////
@@ -197,6 +202,11 @@ Route::prefix("en")
             CvController::class,
             "single",
         ])->name("cv");
+
+        Route::get("/" . route_trans("cv", $locale) . '/{id}/print', [
+            CvController::class,
+            "print",
+        ])->name("cvPrint");
     });
 
 ///////////////////////////

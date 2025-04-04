@@ -15,7 +15,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body>
+<body @if(isset($print)) onload="window.print()" @endif>
     <div id="app">
         <div class="container mx-auto md:px-0 px-6 pt-5">
             @yield('content')
