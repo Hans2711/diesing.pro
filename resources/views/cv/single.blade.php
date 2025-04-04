@@ -27,13 +27,13 @@
     @endphp
 
     <div class="border rounded-xl shadow-sm bg-white px-4 py-4 mb-5">
-        <p class="text-lg font-semibold text-gray-800 border-b-2 border-gray-800 pb-2 mb-4">{{ $list['title'] }}</p>
+        <p class="text-xl font-semibold text-gray-800 border-b-2 border-gray-800 pb-2 mb-4">{{ $list['title'] }}</p>
 
         <div class="grid {{ $columns }} md:gap-3">
             @foreach ($items as $index => $item)
                 <div class="flex flex-col">
-                    <p class="text-base font-semibold text-gray-800">{{ $item['title'] }}</p>
-                    <div class="text-sm text-gray-600">{!! $item['content'] !!}</div>
+                    <p class="text-base md:text-lg font-semibold text-gray-800">{{ $item['title'] }}</p>
+                    <div class="text-sm md:text-base text-gray-600">{!! $item['content'] !!}</div>
                 </div>
 
                 @if (($index + 1) % $list['column'] == 0 && $index < count($items) - 1)
