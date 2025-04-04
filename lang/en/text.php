@@ -109,6 +109,7 @@ return [
     "user_deleted" => "User deleted",
     "private" => "Private",
     "cv" => "Cv",
+    "print" => "Print (PDF)",
     "data-protection-page" => '
 <h1>Privacy Policy</h1>
 

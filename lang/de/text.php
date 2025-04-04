@@ -111,6 +111,7 @@ return [
     "private" => "Privat",
     "user_deleted" => "Benutzer gelöscht",
     "cv" => "Lebenslauf",
+    "print" => "Drucken (PDF)",
 
     "data-protection-page" => '
     <h1>Datenschutzerklärung</h1>
