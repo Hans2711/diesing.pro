@@ -69,19 +69,14 @@
 
             <!-- Menu Item 2 -->
             <li class="relative group">
-                <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-gray-900">
-                    {{ __('text.portfolio') }}
+                <a href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}" class="flex items-center gap-1 text-gray-700 hover:text-gray-900">
+                    {{ __('text.cv') }}
                     <img
                         src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
                         alt="Chevron"
-                        class="h-5 w-5 transition-transform duration-200 group-hover:rotate-180"
+                        class="h-5 w-5 transition-transform duration-200 -rotate-90"
                     />
                 </a>
-                <!-- Flyout Menu -->
-                <ul class="header-flyout">
-                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.portfolio')) }}" class="block py-2 hover:bg-gray-100">Hans (HP)</a></li>
-                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.portfolio')) }}" class="block py-2 hover:bg-gray-100">Detlef</a></li>
-                </ul>
             </li>
             <li class="relative group">
                 <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-gray-900">

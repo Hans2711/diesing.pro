@@ -110,4 +110,8 @@
             </a>
         </div>
     </div>
+
+    <h2>{{ __('text.rt-share') }}</h2>
+    <p>{!! __('text.rt-share-description') !!}</p>
+    <iframe src="http://rt-share.diesing.pro" class="w-full h-screen mt-3"></iframe>
 @endsection
