@@ -114,6 +114,7 @@ return [
     "print" => "Drucken (PDF)",
     "rt-share" => "Echtzeit-Teilen",
     "rt-share-description" => "Real-Time Share ermöglicht es Ihnen, Text und Dateien an jedes Gerät zu senden, das diese Seite ebenfalls geöffnet hat.<br /> Es verwendet WebSockets, um Daten in Echtzeit zu übertragen.<br /> Ein Vermittlungsdienst leitet die Daten weiter, und es werden keine Daten gespeichert.",
+    "open" => "Öffnen",
 
     "data-protection-page" => '
     <h1>Datenschutzerklärung</h1>
