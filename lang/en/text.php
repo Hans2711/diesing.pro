@@ -112,6 +112,7 @@ return [
     "print" => "Print (PDF)",
     "rt-share" => "Real-Time Share",
     "rt-share-description" => "Real-Time Share allows you to send text and files to any device that also has this page open.<br /> It uses WebSockets to transmit data in real time.<br /> An intermediary service routes the data, and no data is stored.",
+    "open" => "Open",
     "data-protection-page" => '
 <h1>Privacy Policy</h1>
 
