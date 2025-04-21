@@ -6,7 +6,7 @@ use App\Http\Middleware\CvMiddleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
-class NotesAuthProvider extends ServiceProvider
+class CvAuthProvider extends ServiceProvider
 {
     /**
      * Register services.

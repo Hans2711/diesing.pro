@@ -24,17 +24,17 @@
 
         <!-- Card: Portfolio -->
         <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-right">
-            <a href="{{ url(Config::get('app.locale') . '/' . __('url.portfolio')) }}" wire:navigate.hover >
+            <a href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}" wire:navigate.hover >
                 <div class="relative h-0 pb-44">
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
                          src="{{ Vite::asset('resources/images/portfolio.jpg') }}">
                 </div>
                 <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">
-                        {{ __('text.portfolio') }}
+                        {{ __('text.cv') }}
                     </div>
                     <div class="mb-2">
-                        {{ __('text.portfolio-description') }}
+                        {{ __('text.cv-description') }}
                     </div>
                 </div>
             </a>

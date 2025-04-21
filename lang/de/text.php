@@ -11,7 +11,7 @@ return [
     "tester-description" =>
         "Der A-B-Tester ist ein Werkzeug, um Schnappschüsse von Websites zu erstellen und zu vergleichen.",
     "random-teams-description" =>
-        "Das Tool Random Teams wird verwendet, um zufällige Teams zu erstellen.",
+        "Das Tool Random Teams dient zur Erstellung zufälliger Teams.",
     "portfolio" => "Portfolio",
     "private-tools" => "Private Werkzeuge",
     "imprint" => "Impressum",
@@ -111,6 +111,7 @@ return [
     "private" => "Privat",
     "user_deleted" => "Benutzer gelöscht",
     "cv" => "Lebenslauf",
+    "cv-description" => "Die Lebensläufe der Diesing's'",
     "print" => "Drucken (PDF)",
     "rt-share" => "Echtzeit-Teilen",
     "rt-share-description" => "Real-Time Share ermöglicht es Ihnen, Text und Dateien an jedes Gerät zu senden, das diese Seite ebenfalls geöffnet hat.<br /> Es verwendet WebSockets, um Daten in Echtzeit zu übertragen.<br /> Ein Vermittlungsdienst leitet die Daten weiter, und es werden keine Daten gespeichert.",
