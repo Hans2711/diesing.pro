@@ -1,100 +1,101 @@
-<nav class="p-5 bg-white fixed z-30 w-full shadow">
-    <div class="flex flex-col sm:flex-row justify-center items-center text-center">
-        <ul class="inline-flex items-center space-x-4 mb-5 sm:mb-0">
-            <li class="relative group ">
-            <a wire:navigate.hover href="{{ url('/' . Config::get('app.locale')) }}">
-                <img class="h-10 inline" src="{{ Vite::asset('resources/logo/DLogo.png') }}">
-            </a>
-            </li>
-            <li class="relative group ">
-                <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-gray-900 sm:px-4">
-                    <img
-                        src="{{ Vite::asset('resources/icons/' . __('language.svg') . '.svg') }}"
-                        alt="{{ __('language.name') }}"
-                        class="h-5 w-5"
-                        loading="eager"
-                    />
-                    {{ __('language.name') }}
-                    <img
-                        src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
-                        alt="Chevron"
-                        class="h-4 w-4 transition-transform duration-200 group-hover:rotate-180"
-                    />
-                </a>
-                @php
-                $otherlang = Config::get('app.locale') == 'de' ? 'en' : 'de';
-                @endphp
-                <!-- Flyout Menu -->
-                <ul class="header-flyout lang-flyout z-50">
-                    <li>
-                        <a
-                            href="{{ url('/' . $otherlang) }}"
-                            class="flex items-center justify-center gap-2 px-4 py-2 text-gray-700 hover:bg-gray-100"
-                        >
-                            <img
-                                src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $otherlang) . '.svg') }}"
-                                alt="{{ __('language.name-' . $otherlang) }}"
-                                class="h-5 w-5"
-                            />
-                            {{ __('language.name-' . $otherlang) }}
+@php
+    $otherlang = Config::get('app.locale') == 'de' ? 'en' : 'de';
 
-                            <img
-                                src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}"
-                                alt="Chevron"
-                                class="h-4 w-4 text-gray-400"
-                            />
+    $isActive = fn($key) => $active === $key ? 'bg-gray-200 text-black' : '';
+    $isToolActive = fn($tool) => $activeTool === $tool ? 'bg-gray-100 text-black' : '';
+    $isContactActive = fn($email) => $activeTool === $email ? 'bg-gray-100 text-black' : '';
+    $accountOpen = in_array($activeTool ?? '', ['overview', 'tester', 'notes', 'redirects', 'portfolio', 'cv']);
+    $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@icloud.com']);
+@endphp
 
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <ul class="inline-flex items-center space-x-4">
-            <!-- Menu Item 1 -->
-            <li class="relative group">
-                <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-gray-900">
-                    {{ __('text.contact') }}
-                    <img
-                        src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
-                        alt="Chevron"
-                        class="h-5 w-5 transition-transform duration-200 group-hover:rotate-180"
-                    />
-                </a>
-                <!-- Flyout Menu -->
-                <ul class="header-flyout">
-                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="block py-2 hover:bg-gray-100">Hans (HP)</a></li>
-                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/detlef.diesing@icloud.com" class="block py-2 hover:bg-gray-100">Detlef</a></li>
-                </ul>
-            </li>
-
-            <!-- Menu Item 2 -->
-            <li class="relative group">
-                <a href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}" class="flex items-center gap-1 text-gray-700 hover:text-gray-900">
-                    {{ __('text.cv') }}
-                    <img
-                        src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
-                        alt="Chevron"
-                        class="h-5 w-5 transition-transform duration-200 -rotate-90"
-                    />
-                </a>
-            </li>
-            <li class="relative group">
-                <a href="#" class="flex items-center gap-1 text-gray-700 hover:text-gray-900">
-                    {{ __('text.private') }}
-                    <img
-                        src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
-                        alt="Chevron"
-                        class="h-5 w-5 transition-transform duration-200 group-hover:rotate-180"
-                    />
-                </a>
-                <!-- Flyout Menu -->
-                <ul class="header-flyout">
-                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" class="block py-2 hover:bg-gray-100">{{ __('text.account') }}</a></li>
-                    <li><a href="http://www.diesing.pro:8096/" class="block py-2 hover:bg-gray-100">Jellyfin</a></li>
-                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}" class="block py-2 hover:bg-gray-100">{{ __('text.random-teams') }}</a></li>
-                    <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}" class="block py-2 hover:bg-gray-100">{{ __('text.tester') }}</a></li>
-                </ul>
-            </li>
-        </ul>
+<aside
+    :class="{ 'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen }"
+    class="fixed z-40 md:sticky md:top-0 md:h-screen md:translate-x-0 transform top-0 left-0 w-full md:w-64 overflow-y-auto bg-white shadow-lg p-5 text-gray-800 transition-transform duration-300 ease-in-out"
+    @click.away="sidebarOpen = false"
+>
+    <!-- Logo + Language -->
+    <div class="flex items-center gap-5 mb-6 justify-between md:justify-start p-2">
+        <a wire:navigate href="/">
+            <img src="{{ Vite::asset('resources/logo/DLogo.png') }}" class="h-10" alt="Logo" />
+        </a>
+        <div class="relative" x-data="{ open: false }" @click.away="open = false">
+            <button @click.stop="open = !open" class="flex items-center gap-1 text-gray-700 hover:text-black">
+                <img src="{{ Vite::asset('resources/icons/' . __('language.svg') . '.svg') }}" class="h-5 w-5" />
+                {{ __('language.name') }}
+                <img src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
+                    class="h-4 w-4 transition-transform duration-200"
+                    :class="{ 'rotate-180': open }" />
+            </button>
+            <ul x-show="open" x-transition class="absolute -left-5 mt-2 w-40 bg-white shadow-lg rounded z-50">
+                <li>
+                    <a wire:navigate href="{{ url('/' . $otherlang) }}" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
+                        <img src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $otherlang) . '.svg') }}" class="h-5 w-5" />
+                        {{ __('language.name-' . $otherlang) }}
+                        <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 text-gray-400" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <button
+            @click.stop="sidebarOpen = !sidebarOpen"
+            class="md:hidden"
+            aria-label="Toggle menu"
+        >
+            <!-- Menu Icon -->
+            <img x-show="sidebarOpen" src="{{ Vite::asset('resources/icons/close.svg') }}" class="h-8 w-8" alt="Close Menu" />
+        </button>
     </div>
-</nav>
+
+    <!-- Navigation -->
+    <nav class="space-y-4">
+        <!-- Kontakt -->
+        <div class="relative" x-data="{ open: {{ $contactOpen ? 'true' : 'false' }} }" >
+            <button @click.stop="open = !open" class="w-full flex justify-between items-center py-2 hover:text-black hover:bg-gray-100 rounded p-2">
+                {{ __('text.contact') }}
+                <img src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
+                    class="h-4 w-4 transition-transform duration-200"
+                    :class="{ 'rotate-180': open }" />
+            </button>
+            <ul x-show="open" x-transition class="pl-4 mt-2 space-y-1">
+                <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('hp@diesing.pro') }}">Hans (HP)</a></li>
+                <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/detlef.diesing@icloud.com" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('detlef.diesing@icloud.com') }}">Detlef</a></li>
+            </ul>
+        </div>
+
+        <!-- Lebenslauf -->
+        <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}"
+           class="block py-2 rounded p-2 hover:text-black hover:bg-gray-100 {{ $isActive('cv') }}">
+            {{ __('text.cv') }}
+        </a>
+
+        <!-- Random Teams -->
+        <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}"
+           class="block py-2 rounded p-2 hover:text-black hover:bg-gray-100 {{ $isActive('random-teams') }}">
+            {{ __('text.random-teams') }}
+        </a>
+
+        <!-- Jellyfin -->
+        <a href="http://www.diesing.pro:8096/"
+           class="block py-2 rounded p-2 hover:text-black hover:bg-gray-100 {{ $isActive('jellyfin') }}">
+            Jellyfin
+        </a>
+
+        <!-- Privat (Account Section) -->
+        <div class="relative" x-data="{ open: {{ $accountOpen ? 'true' : 'false' }} }" >
+            <button @click.stop="open = !open" class="w-full flex justify-between items-center py-2 hover:text-black hover:bg-gray-100 rounded p-2">
+                {{ __('text.account') }}
+                <img src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
+                     class="h-4 w-4 transition-transform duration-200"
+                     :class="{ 'rotate-180': open }" />
+            </button>
+            <ul x-show="open" x-transition class="pl-4 mt-2 space-y-1">
+                <li><a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('overview') }}">{{ __('text.overview') }}</a></li>
+                <li><a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('tester') }}">{{ __('text.tester') }}</a></li>
+                <li><a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.notes')) }}" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('notes') }}">{{ __('text.notes') }}</a></li>
+                <li><a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.redirects')) }}" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('redirects') }}">{{ __('text.redirects') }}</a></li>
+                <li><a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.portfolio')) }}" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('portfolio') }}">{{ __('text.portfolio') }}</a></li>
+                <li><a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.cv')) }}" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('cv') }}">{{ __('text.cv') }}</a></li>
+            </ul>
+        </div>
+    </nav>
+</aside>
