@@ -10,4 +10,5 @@ return [
     "redirects" => "Weiterleitungen",
     "data-protection" => "Datenschutz",
     "imprint" => "Impressum",
+    "cv" => "Lebenslauf",
 ];

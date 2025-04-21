@@ -10,5 +10,6 @@ return [
     "redirects" => "Redirects",
     "data-protection" => "Data Protection",
     "imprint" => "Imprint",
+    "cv" => "Cv",
 ];
 
