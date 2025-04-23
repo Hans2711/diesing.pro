@@ -3,6 +3,6 @@
 @section('content')
     <h1 class="">{{ __('text.cv') }}</h1>
 
-    <a href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}/hp@diesing.pro" class="btn w-fit">Hans Peter (HP) Diesing {{ __('text.cv')}}</a>
+    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}/hp@diesing.pro" class="btn w-fit">Hans Peter (HP) Diesing {{ __('text.cv')}}</a>
 @endsection
 
