@@ -6,6 +6,7 @@ use App\Models\Testobject;
 use App\Models\Diffstore;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\SitemapGenerator;
+use Psr\Http\Message\UriInterface;
 
 class GenerateSitemap extends Command
 {
@@ -28,7 +29,20 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
-        $path = public_path("sitemap.xml");
-        SitemapGenerator::create("https://www.diesing.pro")->writeToFile($path);
+        $depath = public_path("sitemap.de.xml");
+        $enpath = public_path("sitemap.en.xml");
+
+        SitemapGenerator::create("https://www.diesing.pro")
+            ->shouldCrawl(function (UriInterface $url) {
+                return strpos($url->getPath(), '/en') === false;
+            })
+            ->writeToFile($depath);
+
+        SitemapGenerator::create("https://www.diesing.pro/en")
+            ->shouldCrawl(function (UriInterface $url) {
+                return strpos($url->getPath(), '/de') === false;
+            })
+            ->writeToFile($enpath);
+
     }
 }
