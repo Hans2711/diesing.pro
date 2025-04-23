@@ -15,7 +15,7 @@
 >
     <!-- Logo + Language -->
     <div class="flex items-center gap-5 mb-6 justify-between md:justify-start p-2">
-        <a wire:navigate href="/">
+        <a wire:navigate.hover href="/">
             <img src="{{ Vite::asset('resources/logo/DLogo.png') }}" class="h-10" alt="Logo" />
         </a>
         <div class="relative" x-data="{ open: false }" @click.away="open = false">
@@ -28,7 +28,7 @@
             </button>
             <ul x-show="open" x-transition class="absolute -left-5 mt-2 w-40 bg-white shadow-lg rounded z-50">
                 <li>
-                    <a wire:navigate href="{{ url('/' . $otherlang) }}" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
+                    <a wire:navigate.hover href="{{ url('/' . $otherlang) }}" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
                         <img src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $otherlang) . '.svg') }}" class="h-5 w-5" />
                         {{ __('language.name-' . $otherlang) }}
                         <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 text-gray-400" />
@@ -66,7 +66,7 @@
             </button>
             <ul x-show="open" x-transition class="pl-4 mt-2 space-y-1">
                 <li>
-                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('hp@diesing.pro') }}">
+                    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('hp@diesing.pro') }}">
                         <img src="{{ Vite::asset('resources/icons/envelope.svg') }}" class="h-4 w-4 mr-3" />
                         <span class="flex-grow text-left">
                         Hans (HP)
@@ -75,7 +75,7 @@
                     </a>
                 </li>
                 <li>
-                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/detlef.diesing@icloud.com" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('detlef.diesing@icloud.com') }}">
+                    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/detlef.diesing@icloud.com" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('detlef.diesing@icloud.com') }}">
                         <img src="{{ Vite::asset('resources/icons/envelope.svg') }}" class="h-4 w-4 mr-3" />
                         <span class="flex-grow text-left">
                         Detlef
@@ -87,7 +87,7 @@
         </div>
 
         <!-- Lebenslauf -->
-        <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}"
+        <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}"
             class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-100 rounded {{ $isActive('cv') }}">
             <img src="{{ Vite::asset('resources/icons/cv.svg') }}" class="h-4 w-4 mr-3" />
             <span class="flex-grow text-left">
@@ -97,7 +97,7 @@
         </a>
 
         <!-- Random Teams -->
-        <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}"
+        <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}"
             class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-100 rounded {{ $isActive('teams') }}">
             <img src="{{ Vite::asset('resources/icons/shuffle2.svg') }}" class="h-4 w-4 mr-3" />
             <span class="flex-grow text-left">
@@ -107,7 +107,7 @@
         </a>
 
         <!-- RT Share -->
-        <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.rt-share')) }}"
+        <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.rt-share')) }}"
             class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-100 rounded {{ $isActive('rt-share') }}">
             <img src="{{ Vite::asset('resources/icons/data-transfer.svg') }}" class="h-4 w-4 mr-3" />
             <span class="flex-grow text-left">
@@ -139,7 +139,7 @@
             </button>
             <ul x-show="open" x-transition class="pl-4 mt-2 space-y-1">
                 <li>
-                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('overview') }}">
+                    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('overview') }}">
                         <img src="{{ Vite::asset('resources/icons/user-gear.svg') }}" class="h-4 w-4 mr-3" />
                         <span class="flex-grow text-left">
                         {{ __('text.overview') }}
@@ -148,7 +148,7 @@
                     </a>
                 </li>
                 <li>
-                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('tester') }}">
+                    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('tester') }}">
                         <img src="{{ Vite::asset('resources/icons/quiz-alt.svg') }}" class="h-4 w-4 mr-3" />
                         <span class="flex-grow text-left">
                         {{ __('text.tester') }}
@@ -157,7 +157,7 @@
                     </a>
                 </li>
                 <li>
-                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.notes')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('notes') }}">
+                    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.notes')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('notes') }}">
                         <img src="{{ Vite::asset('resources/icons/edit.svg') }}" class="h-4 w-4 mr-3" />
                         <span class="flex-grow text-left">
                         {{ __('text.notes') }}
@@ -166,7 +166,7 @@
                     </a>
                 </li>
                 <li>
-                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.redirects')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('redirects') }}">
+                    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.redirects')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('redirects') }}">
                         <img src="{{ Vite::asset('resources/icons/share-square.svg') }}" class="h-4 w-4 mr-3" />
                         <span class="flex-grow text-left truncate">
                         {{ __('text.redirects') }}
@@ -175,7 +175,7 @@
                     </a>
                 </li>
                 <li>
-                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.portfolio')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('portfolio') }}">
+                    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.portfolio')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('portfolio') }}">
                         <img src="{{ Vite::asset('resources/icons/briefcase.svg') }}" class="h-4 w-4 mr-3" />
                         <span class="flex-grow text-left">
                         {{ __('text.portfolio') }}
@@ -184,7 +184,7 @@
                     </a>
                 </li>
                 <li>
-                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.cv')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('cv') }}">
+                    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.cv')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('cv') }}">
                         <img src="{{ Vite::asset('resources/icons/person-cv.svg') }}" class="h-4 w-4 mr-3" />
                         <span class="flex-grow text-left">
                         {{ __('text.cv') }}
