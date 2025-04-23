@@ -66,7 +66,7 @@
             </button>
             <ul x-show="open" x-transition class="pl-4 mt-2 space-y-1">
                 <li>
-                    <a href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('hp@diesing.pro') }}">
+                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('hp@diesing.pro') }}">
                         <img src="{{ Vite::asset('resources/icons/envelope.svg') }}" class="h-4 w-4 mr-3" />
                         <span class="flex-grow text-left">
                         Hans (HP)
@@ -75,7 +75,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/detlef.diesing@icloud.com" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('detlef.diesing@icloud.com') }}">
+                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/detlef.diesing@icloud.com" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('detlef.diesing@icloud.com') }}">
                         <img src="{{ Vite::asset('resources/icons/envelope.svg') }}" class="h-4 w-4 mr-3" />
                         <span class="flex-grow text-left">
                         Detlef

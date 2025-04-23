@@ -14,7 +14,11 @@
         @include('global.head.og-tags', ['title' => $title ?? null, 'description' => $description ?? null])
         @include('global.head.google-analytics', ['title' => $title ?? null])
 
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/js/app.js'])
+
+        <style>
+            {!! Vite::content('resources/css/app.css') !!}
+        </style>
     </head>
     <body>
         <div x-data="{ sidebarOpen: false }" class="flex min-h-screen" id="app">
