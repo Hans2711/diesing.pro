@@ -1,6 +1,6 @@
 <?php
 return [
-    "home" => "Diesing Homepage",
+    "home" => "Contact, CV, Real-Time Share, Website A-B Tester, Random Teams Generator and more",
     "portfolio" => "Diesing portfolios for all projects",
     "contact" => "Contact Formular to get in touch",
     "random-teams" => "Random Teams Generator to make fair teams",

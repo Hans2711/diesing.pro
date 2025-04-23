@@ -1,6 +1,6 @@
 <?php
 return [
-    "home" => "Diesing Startseite",
+    "home" => "Kontakt, Lebenslauf, Echtzeit-Teilen, Website A-B-Tester, Zufallsteams-Generator und mehr",
     "portfolio" => "Diesing Portfolios für alle Projekte",
     "contact" => "Kontaktformular, um in Verbindung zu treten",
     "random-teams" => "Zufallsteam-Generator, um faire Teams zu erstellen",
