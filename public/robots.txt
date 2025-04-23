@@ -1,4 +1,5 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.diesing.pro/sitemap.xml
+Sitemap: https://www.diesing.pro/sitemap.de.xml
+Sitemap: https://www.diesing.pro/sitemap.en.xml
