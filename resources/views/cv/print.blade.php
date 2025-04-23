@@ -2,7 +2,6 @@
 
 @section('content')
 <style>
-    @media print {
         body {
             color: #000 !important;
             background: #fff !important;
@@ -36,10 +35,9 @@
         .shadow-sm, .shadow {
             box-shadow: none !important;
         }
-        @media print {
-            .page, .page-break { break-after: page; }
+        .page-break {
+            page-break-after: always;
         }
-    }
 </style>
 
     @include('cv.content', ['cv' => $cv, 'user' => $user])
