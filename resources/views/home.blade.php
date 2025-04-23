@@ -110,8 +110,4 @@
             </a>
         </div>
     </div>
-
-    <h2>{{ __('text.rt-share') }}</h2>
-    <p>{!! __('text.rt-share-description') !!}</p>
-    <a href="http://rt-share.diesing.pro" target="_blank" class="btn w-fit">{{ __('text.open') }}</a>
 @endsection
