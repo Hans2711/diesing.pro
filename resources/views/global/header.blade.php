@@ -1,11 +1,14 @@
 @php
     $otherlang = Config::get('app.locale') == 'de' ? 'en' : 'de';
+    $otherUrl = App\Utilities\LanguageUtility::getOtherLangUrl();
 
     $isActive = fn($key) => $active === $key ? 'bg-gray-200 text-black' : '';
     $isToolActive = fn($tool) => $activeTool === $tool ? 'bg-gray-100 text-black' : '';
     $isContactActive = fn($email) => $activeTool === $email ? 'bg-gray-100 text-black' : '';
     $accountOpen = in_array($activeTool ?? '', ['overview', 'tester', 'notes', 'redirects', 'portfolio', 'cv']);
     $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@icloud.com']);
+
+
 @endphp
 
 <aside
@@ -28,7 +31,7 @@
             </button>
             <ul x-show="open" x-transition class="absolute -left-5 mt-2 w-40 bg-white shadow-lg rounded z-50">
                 <li>
-                    <a wire:navigate.hover href="{{ url('/' . $otherlang) }}" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
+                    <a wire:navigate.hover href="{{ $otherUrl }}" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-100">
                         <img src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $otherlang) . '.svg') }}" class="h-5 w-5" />
                         {{ __('language.name-' . $otherlang) }}
                         <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 text-gray-400" />
