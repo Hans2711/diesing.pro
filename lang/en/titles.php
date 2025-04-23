@@ -11,5 +11,6 @@ return [
     "data-protection" => "Data Protection",
     "imprint" => "Imprint",
     "cv" => "Cv",
+    "rt-share" => "Real-Time Share",
 ];
 

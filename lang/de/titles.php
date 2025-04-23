@@ -11,4 +11,5 @@ return [
     "data-protection" => "Datenschutz",
     "imprint" => "Impressum",
     "cv" => "Lebenslauf",
+    "rt-share" => "Echtzeit-Teilen",
 ];

@@ -18,4 +18,5 @@ return [
 
     "account" => "account",
     "cv" => "cv",
+    "rt-share" => "realtime-share",
 ];

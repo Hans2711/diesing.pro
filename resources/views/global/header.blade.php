@@ -74,6 +74,11 @@
             {{ __('text.random-teams') }}
         </a>
 
+        <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.rt-share')) }}"
+           class="block py-2 rounded p-2 hover:text-black hover:bg-gray-100 {{ $isActive('rt-share') }}">
+            {{ __('text.rt-share') }}
+        </a>
+
         <!-- Jellyfin -->
         <a href="http://www.diesing.pro:8096/"
            class="block py-2 rounded p-2 hover:text-black hover:bg-gray-100 {{ $isActive('jellyfin') }}">
