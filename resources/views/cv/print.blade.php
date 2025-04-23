@@ -40,6 +40,6 @@
         }
 </style>
 
-    @include('cv.content', ['cv' => $cv, 'user' => $user])
+    @include('cv.content', ['cv' => $cv, 'user' => $user, 'print' => true])
 @endsection
 

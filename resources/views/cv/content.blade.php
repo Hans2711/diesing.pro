@@ -33,7 +33,7 @@
                     <div class="text-sm md:text-base text-gray-600 @if ($list['column'] == 1) w-full md:w-2/3 @endif">{!! $item['content'] !!}</div>
                 </div>
 
-                @if (($index + 1) % $list['column'] == 0 && $index < count($items) - 1)
+                @if ((($index + 1) % $list['column'] == 0 && $index < count($items) - 1) || isset($print) && $index < count($items) - 1)
                     <div class="col-span-full">
                         <hr class="my-3 border-t-2 border-gray-300" />
                     </div>
