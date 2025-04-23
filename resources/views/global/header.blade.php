@@ -18,7 +18,7 @@
 >
     <!-- Logo + Language -->
     <div class="flex items-center gap-5 mb-6 justify-between md:justify-start p-2">
-        <a wire:navigate.hover href="/">
+        <a wire:navigate.hover href="/{{$otherlang}}">
             <img src="{{ Vite::asset('resources/logo/DLogo.png') }}" class="h-10" alt="Logo" />
         </a>
         <div class="relative" x-data="{ open: false }" @click.away="open = false">
