@@ -3,5 +3,11 @@
 @section('content')
 <h1>{{ __('text.rt-share') }}</h1>
 <p>{!! __('descriptions.rt-share') !!}</p>
-<iframe src="https://rt-share.diesing.pro" class="w-full h-full" ></iframe>
+<div class="w-full h-[75vh] md:h-[90vh]">
+    <iframe
+        src="https://rt-share.diesing.pro"
+        class="w-full h-full rounded border-none"
+        allowfullscreen
+    ></iframe>
+</div>
 @endsection
