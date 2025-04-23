@@ -47,59 +47,151 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="space-y-4">
+    <nav class="space-y-4 text-lg md:text-base px-2 md:px-0">
         <!-- Kontakt -->
         <div class="relative" x-data="{ open: {{ $contactOpen ? 'true' : 'false' }} }" >
-            <button @click.stop="open = !open" class="w-full flex justify-between items-center py-2 hover:text-black hover:bg-gray-100 rounded p-2">
-                {{ __('text.contact') }}
-                <img src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
+            <button
+                @click.stop="open = !open"
+                class="w-full flex gap-1 items-center py-2 pl-2 pr-3 hover:text-black hover:bg-gray-100 rounded"
+            >
+                <img src="{{ Vite::asset('resources/icons/envelope.svg') }}" class="h-4 w-4 mr-3" />
+                <span class="flex-grow text-left">
+                    {{ __('text.contact') }}
+                </span>
+                <img
+                    src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
                     class="h-4 w-4 transition-transform duration-200"
-                    :class="{ 'rotate-180': open }" />
+                    :class="{ 'rotate-180': open }"
+                />
             </button>
             <ul x-show="open" x-transition class="pl-4 mt-2 space-y-1">
-                <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('hp@diesing.pro') }}">Hans (HP)</a></li>
-                <li><a href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/detlef.diesing@icloud.com" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('detlef.diesing@icloud.com') }}">Detlef</a></li>
+                <li>
+                    <a href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('hp@diesing.pro') }}">
+                        <img src="{{ Vite::asset('resources/icons/envelope.svg') }}" class="h-4 w-4 mr-3" />
+                        <span class="flex-grow text-left">
+                        Hans (HP)
+                        </span>
+                        <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 " />
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/detlef.diesing@icloud.com" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('detlef.diesing@icloud.com') }}">
+                        <img src="{{ Vite::asset('resources/icons/envelope.svg') }}" class="h-4 w-4 mr-3" />
+                        <span class="flex-grow text-left">
+                        Detlef
+                        </span>
+                        <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 " />
+                    </a>
+                </li>
             </ul>
         </div>
 
         <!-- Lebenslauf -->
         <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}"
-           class="block py-2 rounded p-2 hover:text-black hover:bg-gray-100 {{ $isActive('cv') }}">
-            {{ __('text.cv') }}
+            class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-100 rounded {{ $isActive('cv') }}">
+            <img src="{{ Vite::asset('resources/icons/cv.svg') }}" class="h-4 w-4 mr-3" />
+            <span class="flex-grow text-left">
+                {{ __('text.cv') }}
+            </span>
+            <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4" />
         </a>
 
         <!-- Random Teams -->
         <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}"
-           class="block py-2 rounded p-2 hover:text-black hover:bg-gray-100 {{ $isActive('random-teams') }}">
-            {{ __('text.random-teams') }}
+            class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-100 rounded {{ $isActive('teams') }}">
+            <img src="{{ Vite::asset('resources/icons/shuffle2.svg') }}" class="h-4 w-4 mr-3" />
+            <span class="flex-grow text-left">
+                {{ __('text.random-teams') }}
+            </span>
+            <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4" />
         </a>
 
+        <!-- RT Share -->
         <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.rt-share')) }}"
-           class="block py-2 rounded p-2 hover:text-black hover:bg-gray-100 {{ $isActive('rt-share') }}">
-            {{ __('text.rt-share') }}
+            class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-100 rounded {{ $isActive('rt-share') }}">
+            <img src="{{ Vite::asset('resources/icons/data-transfer.svg') }}" class="h-4 w-4 mr-3" />
+            <span class="flex-grow text-left">
+                {{ __('text.rt-share') }}
+            </span>
+            <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4" />
         </a>
 
         <!-- Jellyfin -->
-        <a href="http://www.diesing.pro:8096/"
-           class="block py-2 rounded p-2 hover:text-black hover:bg-gray-100 {{ $isActive('jellyfin') }}">
-            Jellyfin
+        <a href="http://www.diesing.pro:8096/" target="_blank" rel="noopener noreferrer"
+            class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-100 rounded {{ $isActive('jellyfin') }}">
+            <img src="{{ Vite::asset('resources/icons/play-circle.svg') }}" class="h-4 w-4 mr-3" />
+            <span class="flex-grow text-left">
+                Jellyfin
+            </span>
+            <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4" />
         </a>
 
         <!-- Privat (Account Section) -->
         <div class="relative" x-data="{ open: {{ $accountOpen ? 'true' : 'false' }} }" >
-            <button @click.stop="open = !open" class="w-full flex justify-between items-center py-2 hover:text-black hover:bg-gray-100 rounded p-2">
+            <button @click.stop="open = !open" class="w-full flex gap-1 items-center py-2 pl-2 pr-3 hover:text-black hover:bg-gray-100 rounded">
+                <img src="{{ Vite::asset('resources/icons/user.svg') }}" class="h-4 w-4 mr-3" />
+                <span class="flex-grow text-left">
                 {{ __('text.account') }}
+                </span>
                 <img src="{{ Vite::asset('resources/icons/chevron-down.svg') }}"
                      class="h-4 w-4 transition-transform duration-200"
                      :class="{ 'rotate-180': open }" />
             </button>
             <ul x-show="open" x-transition class="pl-4 mt-2 space-y-1">
-                <li><a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('overview') }}">{{ __('text.overview') }}</a></li>
-                <li><a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('tester') }}">{{ __('text.tester') }}</a></li>
-                <li><a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.notes')) }}" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('notes') }}">{{ __('text.notes') }}</a></li>
-                <li><a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.redirects')) }}" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('redirects') }}">{{ __('text.redirects') }}</a></li>
-                <li><a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.portfolio')) }}" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('portfolio') }}">{{ __('text.portfolio') }}</a></li>
-                <li><a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.cv')) }}" class="block hover:bg-gray-100 p-2 rounded {{ $isToolActive('cv') }}">{{ __('text.cv') }}</a></li>
+                <li>
+                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('overview') }}">
+                        <img src="{{ Vite::asset('resources/icons/user-gear.svg') }}" class="h-4 w-4 mr-3" />
+                        <span class="flex-grow text-left">
+                        {{ __('text.overview') }}
+                        </span>
+                        <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 " />
+                    </a>
+                </li>
+                <li>
+                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('tester') }}">
+                        <img src="{{ Vite::asset('resources/icons/quiz-alt.svg') }}" class="h-4 w-4 mr-3" />
+                        <span class="flex-grow text-left">
+                        {{ __('text.tester') }}
+                        </span>
+                        <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 " />
+                    </a>
+                </li>
+                <li>
+                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.notes')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('notes') }}">
+                        <img src="{{ Vite::asset('resources/icons/edit.svg') }}" class="h-4 w-4 mr-3" />
+                        <span class="flex-grow text-left">
+                        {{ __('text.notes') }}
+                        </span>
+                        <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 " />
+                    </a>
+                </li>
+                <li>
+                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.redirects')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('redirects') }}">
+                        <img src="{{ Vite::asset('resources/icons/share-square.svg') }}" class="h-4 w-4 mr-3" />
+                        <span class="flex-grow text-left truncate">
+                        {{ __('text.redirects') }}
+                        </span>
+                        <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 " />
+                    </a>
+                </li>
+                <li>
+                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.portfolio')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('portfolio') }}">
+                        <img src="{{ Vite::asset('resources/icons/briefcase.svg') }}" class="h-4 w-4 mr-3" />
+                        <span class="flex-grow text-left">
+                        {{ __('text.portfolio') }}
+                        </span>
+                        <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 " />
+                    </a>
+                </li>
+                <li>
+                    <a wire:navigate href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.cv')) }}" class="w-full flex gap-1 items-center hover:bg-gray-100 p-2 rounded {{ $isToolActive('cv') }}">
+                        <img src="{{ Vite::asset('resources/icons/person-cv.svg') }}" class="h-4 w-4 mr-3" />
+                        <span class="flex-grow text-left">
+                        {{ __('text.cv') }}
+                        </span>
+                        <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 " />
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
