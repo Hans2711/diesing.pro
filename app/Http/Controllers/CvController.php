@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CvController extends Controller
 {
@@ -59,6 +59,7 @@ class CvController extends Controller
             abort(404, 'CV not found.');
         }
 
-        return view('cv.print', ['cv' => $cv, 'user' => $user])->render();
+        $pdf = Pdf::loadView('cv.print', ['cv' => $cv, 'user' => $user]);
+        return $pdf->download('diesing-cv (' . date('d.m.Y') . ').pdf');
     }
 }

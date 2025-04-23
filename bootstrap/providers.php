@@ -9,4 +9,5 @@ return [
     App\Providers\RedirectsAuthProvider::class,
     App\Providers\ScheduleProvider::class,
     App\Providers\TesterAuthProvider::class,
+    \Barryvdh\DomPDF\ServiceProvider::class
 ];
