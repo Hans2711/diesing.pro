@@ -118,6 +118,8 @@ return [
     "open" => "Öffnen",
     "overview" => "Übersicht",
 
+    "timetracking" => "Zeiterfassung",
+
     "data-protection-page" => '
     <h1>Datenschutzerklärung</h1>
 
