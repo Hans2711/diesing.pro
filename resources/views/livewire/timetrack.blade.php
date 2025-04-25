@@ -20,7 +20,7 @@
     @forelse ($displayTimes as $row)
         <div class="grid grid-cols-3 gap-x-6 items-baseline border-b py-2 text-base">
         <div class="truncate">
-            @if ($row['link'])
+            @if (isset($row['link']) && $row['link'])
                 <a href="{{ $row['link'] }}" target="_blank" class="text-blue-500 hover:underline">
             @endif
             {{ $row['title'] }}
