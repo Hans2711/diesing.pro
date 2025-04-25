@@ -32,124 +32,93 @@ Route::get("/r/{slug}", [AccountsController::class, "publicRedirect"])->name(
     "publicRedirect"
 );
 
-///////////////////////////
-// GROUP: DE Routes
-///////////////////////////
-Route::prefix("de")
-    ->name("de.")
-    ->group(function () {
-        $locale = "de";
 
-        Route::get("/" . route_trans("account", $locale), [
-            AccountsController::class,
-            "index",
-        ])->name("account");
+foreach (['de', 'en'] as $locale) {
+    Route::prefix($locale)
+        ->name($locale . ".")
+        ->group(function () use ($locale) {
+            Route::get("/" . route_trans("account", $locale), [
+                AccountsController::class,
+                "index",
+            ])->name("account");
 
-        Route::middleware(["notes"])->group(function () use ($locale) {
             Route::get(
                 "/" .
-                    route_trans("account", $locale) .
-                    "/" .
-                    route_trans("notes", $locale),
-                function () {
-                    return view("accounts.notes");
-                }
-            )->name("notes");
-        });
+                    route_trans("timetracking", $locale)
+                    . "/{id}", [
+                        AccountsController::class,
+                        "timetrack",
+                    ]
+            )->name("timetrack");
 
-        Route::middleware(["redirects"])->group(function () use ($locale) {
-            Route::get(
-                "/" .
-                    route_trans("account", $locale) .
+            Route::middleware(["notes"])->group(function () use ($locale) {
+                Route::get(
                     "/" .
-                    route_trans("redirects", $locale),
-                function () {
-                    return view("accounts.redirects");
-                }
-            )->name("redirects");
-        });
+                        route_trans("account", $locale) .
+                        "/" .
+                        route_trans("notes", $locale),
+                    function () {
+                        return view("accounts.notes");
+                    }
+                )->name("notes");
+            });
 
-        Route::middleware(["portfolio"])->group(function () use ($locale) {
-            Route::get(
-                "/" .
-                    route_trans("account", $locale) .
+            Route::middleware(["redirects"])->group(function () use ($locale) {
+                Route::get(
                     "/" .
-                    route_trans("portfolio", $locale),
-                function () {
-                    return view("accounts.portfolio");
-                }
-            )->name("portfolio");
-        });
-        Route::middleware(["cv"])->group(function () use ($locale) {
-            Route::get(
-                "/" .
-                    route_trans("account", $locale) .
-                    "/" .
-                    route_trans("cv", $locale),
-                function () {
-                    return view("accounts.cv");
-                }
-            )->name("cv");
-        });
-    });
+                        route_trans("account", $locale) .
+                        "/" .
+                        route_trans("redirects", $locale),
+                    function () {
+                        return view("accounts.redirects");
+                    }
+                )->name("redirects");
+            });
 
-///////////////////////////
-// GROUP: EN Routes
-///////////////////////////
-Route::prefix("en")
-    ->name("en.")
-    ->group(function () {
-        $locale = "en";
-
-        Route::get("/" . route_trans("account", $locale), [
-            AccountsController::class,
-            "index",
-        ])->name("account");
-
-        Route::middleware(["notes"])->group(function () use ($locale) {
-            Route::get(
-                "/" .
-                    route_trans("account", $locale) .
+            Route::middleware(["portfolio"])->group(function () use ($locale) {
+                Route::get(
                     "/" .
-                    route_trans("notes", $locale),
-                function () {
-                    return view("accounts.notes");
-                }
-            )->name("notes");
-        });
-
-        Route::middleware(["redirects"])->group(function () use ($locale) {
-            Route::get(
-                "/" .
-                    route_trans("account", $locale) .
+                        route_trans("account", $locale) .
+                        "/" .
+                        route_trans("portfolio", $locale),
+                    function () {
+                        return view("accounts.portfolio");
+                    }
+                )->name("portfolio");
+            });
+            Route::middleware(["cv"])->group(function () use ($locale) {
+                Route::get(
                     "/" .
-                    route_trans("redirects", $locale),
-                function () {
-                    return view("accounts.redirects");
-                }
-            )->name("redirects");
-        });
-
-        Route::middleware(["portfolio"])->group(function () use ($locale) {
-            Route::get(
-                "/" .
-                    route_trans("account", $locale) .
+                        route_trans("account", $locale) .
+                        "/" .
+                        route_trans("cv", $locale),
+                    function () {
+                        return view("accounts.cv");
+                    }
+                )->name("cv");
+            });
+            Route::middleware(["timetracking"])->group(function () use ($locale) {
+                Route::get(
                     "/" .
-                    route_trans("portfolio", $locale),
-                function () {
-                    return view("accounts.portfolio");
-                }
-            )->name("portfolio");
-        });
-        Route::middleware(["cv"])->group(function () use ($locale) {
-            Route::get(
-                "/" .
-                    route_trans("account", $locale) .
+                        route_trans("account", $locale) .
+                        "/" .
+                        route_trans("timetracking", $locale),
+                    function () {
+                        return view("accounts.timetracking");
+                    }
+                )->name("timetracking");
+                Route::get(
                     "/" .
-                    route_trans("cv", $locale),
-                function () {
-                    return view("accounts.cv");
-                }
-            )->name("cv");
+                        route_trans("account", $locale) .
+                        "/" .
+                        route_trans("timetracking", $locale)
+                        . "/{id}",
+                    function ($id) {
+                        return view("accounts.timetracking-edit", [
+                            "id" => $id,
+                        ]);
+                    }
+                )->name("timetracking-edit");
+            });
         });
-    });
+}
