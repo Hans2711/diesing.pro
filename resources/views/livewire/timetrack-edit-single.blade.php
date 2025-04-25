@@ -7,41 +7,45 @@
     </a>
 
     @include('global.partials.floating-label-input', [
-        'id'           => 'title',
-        'name'         => 'title',
-        'label'        => 'Title',
-        'wrapperClass' => 'w-full sm:w-auto mb-4',
-        'tabindex'     => 1,
-        'required'     => true,
-        'additional'   => 'wire:model="timetrack.title"'
+    'id'           => 'title',
+    'name'         => 'title',
+    'label'        => 'Title',
+    'wrapperClass' => 'w-full sm:w-auto mb-4',
+    'tabindex'     => 1,
+    'required'     => true,
+    'additional'   => 'wire:model="timetrack.title"'
     ])
 
     <h3 class="font-semibold mb-2">Time tracks</h3>
 
     @foreach ($timetrack['times'] as $i => $track)
-        <div class="flex flex-wrap items-end gap-3 mb-3">
-            <input  type="text"
-                    class="input w-40 rounded"
-                    placeholder="title"
-                    wire:model.defer="timetrack.times.{{ $i }}.title">
+    <div class="flex flex-wrap items-end gap-3 mb-3">
 
-            {{-- datetime-local includes date + time --}}
-            <input  type="datetime-local"
-                    class="input w-56 rounded"
-                    wire:model.defer="timetrack.times.{{ $i }}.time">
+        <input type="text"
+            class="input rounded"
+            placeholder="Title"
+            wire:model.defer="timetrack.times.{{ $i }}.title">
 
-            {{-- free-form duration like “1h 30m” --}}
-            <input  type="text"
-                    class="input w-32 rounded"
-                    placeholder="e.g. 1h 30m"
-                    wire:model.defer="timetrack.times.{{ $i }}.duration">
+        <input type="datetime-local"
+            class="input rounded"
+            wire:model.defer="timetrack.times.{{ $i }}.time">
+    </div>
+    <div class="flex flex-wrap items-start gap-3 mb-3">
+        <input type="text"
+            class="input rounded"
+            placeholder="e.g. 1h 30m"
+            wire:model.defer="timetrack.times.{{ $i }}.duration">
 
-            <button type="button"
-                    class="btn btn-sm"
-                    wire:click="removeTimeTrack({{ $i }})">
-                ✕
-            </button>
-        </div>
+        <input type="url"
+            class="input flex-1 rounded"
+            placeholder="https://example.com"
+            wire:model.defer="timetrack.times.{{ $i }}.link">
+
+    </div>
+    <button type="button"
+        class="btn btn-sm mb-3"
+        wire:click="removeTimeTrack({{ $i }})">✕</button>
+    <hr class="w-full border-t border-gray-300 mb-3">
     @endforeach
 
     <button type="button" class="btn btn-outline mb-6" wire:click="addTimeTrack">
@@ -54,7 +58,7 @@
 
     <div class="mt-3">
         @if (session()->has('message'))
-            <div class="alert alert-success">{{ session('message') }}</div>
+        <div class="alert alert-success">{{ session('message') }}</div>
         @endif
     </div>
 </div>

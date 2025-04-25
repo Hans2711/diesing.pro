@@ -19,8 +19,16 @@
 
     @forelse ($displayTimes as $row)
         <div class="grid grid-cols-3 gap-x-6 items-baseline border-b py-2 text-base">
-            <div class="truncate">{{ $row['title'] }}</div>
-            <div class="text-right">{{ $row['durationDisplay'] }}</div>
+        <div class="truncate">
+            @if ($row['link'])
+                <a href="{{ $row['link'] }}" target="_blank" class="text-blue-500 hover:underline">
+            @endif
+            {{ $row['title'] }}
+            @if ($row['link'])
+                </a>
+            @endif
+        </div>
+            <div class="">{{ $row['durationDisplay'] }}</div>
             <div>{{ \Carbon\Carbon::parse($row['time'])->format('d.m.Y H:i') }}</div>
         </div>
     @empty
