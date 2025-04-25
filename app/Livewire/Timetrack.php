@@ -43,6 +43,7 @@ class Timetrack extends Component
         $start = $this->searchStart ? strtotime($this->searchStart) : null;
         $end   = $this->searchEnd   ? strtotime($this->searchEnd)   : null;
 
+        usort($times, fn ($a, $b) => strtotime($b['time']) <=> strtotime($a['time']));
         $times = array_filter($times, function ($t) use ($start, $end) {
             $ts = strtotime($t['time']);
             if ($start && $ts < $start) {
@@ -69,7 +70,7 @@ class Timetrack extends Component
             $m = $min % 60;
             return $m ? "{$h}h {$m}m" : "{$h}h";
         }
-        return "{$min}";
+        return "{$min}m";
     }
 
     public function render()
