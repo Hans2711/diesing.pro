@@ -24,7 +24,7 @@
                 <a href="{{ $row['link'] }}" target="_blank" class="text-blue-500 hover:underline">
             @endif
             {{ $row['title'] }}
-            @if ($row['link'])
+            @if (isset($row['link']) && $row['link'])
                 </a>
             @endif
         </div>
