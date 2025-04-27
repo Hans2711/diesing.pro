@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Carbon;
 
 class SetLocale
 {
@@ -18,8 +19,10 @@ class SetLocale
     {
         if ($request->segment(1) === "de") {
             App::setLocale("de");
+            Carbon::setLocale('de');
         } else {
             App::setLocale("en");
+            Carbon::setLocale('en');
         }
 
         return $next($request);

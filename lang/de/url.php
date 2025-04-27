@@ -19,4 +19,6 @@ return [
     "account" => "benutzerkonto",
     "cv" => "lebenslauf",
     "rt-share" => "echtzeit-teilen",
+
+    "timetracking" => "zeiterfassung",
 ];
