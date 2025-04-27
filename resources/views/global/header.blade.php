@@ -120,7 +120,7 @@
         </a>
 
         <!-- Jellyfin -->
-        <a href="http://www.diesing.pro:8096/" target="_blank" rel="noopener noreferrer"
+        <a href="http://139.162.132.136:8096/" target="_blank" rel="noopener noreferrer"
             class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-100 rounded {{ $isActive('jellyfin') }}">
             <img src="{{ Vite::asset('resources/icons/play-circle.svg') }}" class="h-4 w-4 mr-3" />
             <span class="flex-grow text-left">
