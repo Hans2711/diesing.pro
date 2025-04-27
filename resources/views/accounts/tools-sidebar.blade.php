@@ -6,4 +6,5 @@
     <a wire:navigate.hover href="{{url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.redirects'))}}" class="no-underline p-2 px-3 mb-3 rounded bg-gray-200 hover:bg-gray-300 @if ($active === 'redirects') tools-sidebar-active @endif">{{ __('text.redirects') }}</a>
     <a wire:navigate.hover href="{{url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.portfolio'))}}" class="no-underline p-2 px-3 mb-3 rounded bg-gray-200 hover:bg-gray-300 @if ($active === 'portfolio') tools-sidebar-active @endif">{{ __('text.portfolio') }}</a>
     <a wire:navigate.hover href="{{url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.cv'))}}" class="no-underline p-2 px-3 mb-3 rounded bg-gray-200 hover:bg-gray-300 @if ($active === 'cv') tools-sidebar-active @endif">{{ __('text.cv') }}</a>
+    <a wire:navigate.hover href="{{url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.timetracking'))}}" class="no-underline p-2 px-3 mb-3 rounded bg-gray-200 hover:bg-gray-300 @if ($active === 'timetracking') tools-sidebar-active @endif">{{ __('text.timetracking') }}</a>
 </div>

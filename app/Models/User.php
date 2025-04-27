@@ -98,4 +98,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Cv::class, 'cv');
     }
+
+    public function timetracks(): HasMany
+    {
+        return $this->hasMany(Timetrack::class, "user", "id");
+    }
 }

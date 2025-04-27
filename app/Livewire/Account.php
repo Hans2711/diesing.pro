@@ -19,6 +19,7 @@ class Account extends Component
         "redirects" => "Redirects",
         "portfolio" => "Portfolio",
         "cv" => "Cv",
+        "timetracking" => "Timetracking",
     ];
 
     private function fillUsers()
