@@ -125,7 +125,7 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
             </a>
 
             <!-- Jellyfin -->
-            <a href="http://www.diesing.pro:8096/" target="_blank" rel="noopener noreferrer"
+            <a href="http://139.162.132.136:8096/" target="_blank" rel="noopener noreferrer"
                 class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-300 rounded  dark:hover:bg-gray-700 dark:hover:text-white {{ $isActive('jellyfin') }}">
                 <img src="{{ Vite::asset('resources/icons/play-circle.svg') }}" class="h-4 w-4 mr-3 dark:invert" />
                 <span class="flex-grow text-left">
