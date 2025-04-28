@@ -19,8 +19,8 @@ class TimetrackEditSingle extends Component
         $model     = Timetrack::find($id);
 
         $this->timetrack = [
-            'title' => $model->title ?? '',
-            'times' => $model->times ?: [],
+            'title' => $model ? $model->title ?? '' : '',
+            'times' => $model ? $model->times ?? [] : [],
         ];
     }
 

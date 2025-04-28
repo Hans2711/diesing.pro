@@ -1,7 +1,7 @@
 <div>
     <!-- New Testobject Form -->
     @if (!$testobject)
-        <div class="border border-black px-3 pb-5 mb-4 rounded">
+        <div class="border px-3 pb-5 mb-4 rounded border-primary-dark dark:border-primary-light">
             <h2>{{ __('text.new-testobject') }}</h2>
 
             <form wire:submit.prevent="createObject">
@@ -32,7 +32,7 @@
 
     <!-- Update Testobject Form -->
     @if ($testobject)
-        <div class="border border-black px-3 pb-5 mb-4 rounded">
+        <div class="border px-3 pb-5 mb-4 rounded border-primary-dark dark:border-primary-light">
             <h2>Update {{ $testobject->name }}</h2>
 
             <form wire:submit.prevent="updateObject">
@@ -65,7 +65,7 @@
 
     <!-- List of Testobjects -->
     @foreach ($testobjects as $testObj)
-        <div class="border border-gray-200 px-3 mb-4 pb-3 rounded">
+        <div class="border px-3 mb-4 pb-3 rounded border-primary-dark dark:border-primary-light">
             <p><strong>Name:</strong> {{ $testObj->name }}</p>
             <p><strong>URL:</strong> {{ $testObj->url }}</p>
 

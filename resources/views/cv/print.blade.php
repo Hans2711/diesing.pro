@@ -1,4 +1,4 @@
-@extends('layouts.minimal', ['title' => $user->name . "'s " . __('text.cv'), 'description' => __('descriptions.cv'), 'active' => 'cv', 'print' => true])
+@extends('layouts.minimal', ['title' => $user->name . "'s " . __('text.cv'), 'description' => __('descriptions.cv'), 'active' => 'cv', 'print' => true, 'dark' => false])
 
 @section('content')
 <style>

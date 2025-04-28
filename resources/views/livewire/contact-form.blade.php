@@ -5,7 +5,7 @@
                 <div class="form-group mt-4 sm:mt-0">
                     <div>
                         <p class="block mb-2 mt-2">{{ __('text.recepient') }} *</p>
-                        <select name="recepient" class="rounded mb-3" wire:model="recepient">
+                        <select name="recepient" class="rounded mb-3 dark:bg-secondary-light" wire:model="recepient">
                             <option value="">{{ __('text.select-recepient') }}</option>
                             @foreach ($users as $user)
                                 @if ($user->portfolios->count() > 0)
@@ -14,7 +14,7 @@
                             @endforeach
                         </select>
                         @error('recepient')
-                            <span class="text-red-500 text-sm block">{{ $message }}</span>
+                            <span class="text-primary-dark dark:text-primary-light text-sm block">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
@@ -32,7 +32,7 @@
                         'additional' => 'wire:model="name"'
                     ])
                     @error('name')
-                        <span class="text-red-500 text-sm block">{{ $message }}</span>
+                        <span class="text-primary-dark dark:text-primary-light text-sm block">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group mt-4 sm:mt-0">
@@ -45,7 +45,7 @@
                         'additional' => 'wire:model="firma"'
                     ])
                     @error('firma')
-                        <span class="text-red-500 text-sm block">{{ $message }}</span>
+                        <span class="text-primary-dark dark:text-primary-light text-sm block">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
@@ -62,7 +62,7 @@
                         'additional' => 'wire:model="email"'
                     ])
                     @error('email')
-                        <span class="text-red-500 text-sm block">{{ $message }}</span>
+                        <span class="text-primary-dark dark:text-primary-light text-sm block">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="form-group mt-4 sm:mt-0">
@@ -76,13 +76,13 @@
                         'additional' => 'wire:model="tel"'
                     ])
                     @error('tel')
-                        <span class="text-red-500 text-sm block">{{ $message }}</span>
+                        <span class="text-primary-dark dark:text-primary-light text-sm block">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <hr class="mt-2 md:mb-4 mb-3" />
             <label for="message" class="block mb-2 mt-2 text-sm">{{ __('text.message') }} *</label>
-            <textarea name="message" id="message" class="w-full p-2 border rounded" tabindex="5" rows="10" wire:model="message" required></textarea>
+            <textarea name="message" id="message" class="w-full p-2 border rounded dark:bg-secondary-light" tabindex="5" rows="10" wire:model="message" required></textarea>
             @error('message')
                 <span class="text-red-500 text-sm block">{{ $message }}</span>
             @enderror

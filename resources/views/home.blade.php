@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('titles.home'), 'description' => __('descriptions.home')])
+@extends('layouts.app', ['title' => __('titles.home'), 'description' => __('descriptions.home'), 'dark' => false])
 
 @section('content')
     <h1>{{ __('text.welcome') }}</h1>
@@ -11,7 +11,7 @@
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
                          src="{{ Vite::asset('resources/images/kontakt.jpg') }}">
                 </div>
-                <div class="px-6 py-4">
+                <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                     <div class="font-bold text-xl mb-2">
                         {{ __('text.contact') }}
                     </div>
@@ -29,7 +29,7 @@
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
                          src="{{ Vite::asset('resources/images/portfolio.jpg') }}">
                 </div>
-                <div class="px-6 py-4">
+                <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                     <div class="font-bold text-xl mb-2">
                         {{ __('text.cv') }}
                     </div>
@@ -48,8 +48,8 @@
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
                          src="{{ Vite::asset('resources/images/testing.jpg') }}">
                 </div>
-                <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">
+                <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
+                    <div class="font-bold text-xl mb-2 ">
                         {{ __('text.tester') }}
                     </div>
                     <div class="mb-2">
@@ -64,7 +64,7 @@
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
                          src="{{ Vite::asset('resources/images/random.jpg') }}">
                 </div>
-                <div class="px-6 py-4">
+                <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                     <div class="font-bold text-xl mb-2">
                         {{ __('text.random-teams') }}
                     </div>
@@ -84,7 +84,7 @@
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
                          src="{{ Vite::asset('resources/images/private.jpg') }}">
                 </div>
-                <div class="px-6 py-4">
+                <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                     <div class="font-bold text-xl mb-2">
                         {{ __('text.account') }}
                     </div>
@@ -102,7 +102,7 @@
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
                          src="{{ Vite::asset('resources/images/law.jpg') }}">
                 </div>
-                <div class="px-6 py-4">
+                <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                     <div class="font-bold text-xl mb-2">
                         <a href="{{ url(Config::get('app.locale') . '/' . __('url.imprint')) }}">{{ __('text.imprint') }}</a> {{ __('text.and') }} <a href="{{ url(Config::get('app.locale') . '/' . __('url.data-protection')) }}">{{ __('text.data-protection') }}</a>
                     </div>

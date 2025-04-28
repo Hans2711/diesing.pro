@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => $user->name . "'s " . __('text.cv'), 'description' => __('descriptions.cv'), 'active' => 'cv'])
+@extends('layouts.app', ['title' => $user->name . "'s " . __('text.cv'), 'description' => __('descriptions.cv'), 'active' => 'cv', 'dark' => false])
 
 @section('content')
     @include('cv.content', ['cv' => $cv, 'user' => $user])

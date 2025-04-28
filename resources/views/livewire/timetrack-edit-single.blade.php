@@ -1,5 +1,5 @@
 <div>
-    <a wire:navigate.hover href="{{url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.timetracking'))}}" class="flex gap-2 mb-4 align-center btn-back">
+    <a wire:navigate.hover href="{{url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.timetracking'))}}" class="flex gap-2 mb-4 align-center btn-back dark:text-secondary-dark dark:invert">
         <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" />
         <span class="leading-none">
             {{__('text.back')}}
@@ -22,33 +22,33 @@
     <div class="flex flex-wrap items-end gap-3 mb-3">
 
         <input type="text"
-            class="input rounded"
+            class="input rounded dark:bg-secondary-light"
             placeholder="Title"
             wire:model.defer="timetrack.times.{{ $i }}.title">
 
         <input type="datetime-local"
-            class="input rounded"
+            class="input rounded dark:bg-secondary-light"
             wire:model.defer="timetrack.times.{{ $i }}.time">
     </div>
     <div class="flex flex-wrap items-start gap-3 mb-3">
         <input type="text"
-            class="input rounded"
+            class="input rounded dark:bg-secondary-light"
             placeholder="e.g. 1h 30m"
             wire:model.defer="timetrack.times.{{ $i }}.duration">
 
         <input type="url"
-            class="input flex-1 rounded"
+            class="input flex-1 rounded dark:bg-secondary-light"
             placeholder="https://example.com"
             wire:model.defer="timetrack.times.{{ $i }}.link">
 
     </div>
     <button type="button"
-        class="btn btn-sm mb-3"
+        class="btn btn-delete mb-3"
         wire:click="removeTimeTrack({{ $i }})">✕</button>
     <hr class="w-full border-t border-gray-300 mb-3">
     @endforeach
 
-    <button type="button" class="btn btn-outline mb-6" wire:click="addTimeTrack">
+    <button type="button" class="btn btn-edit mb-6" wire:click="addTimeTrack">
         + Add time track
     </button>
 

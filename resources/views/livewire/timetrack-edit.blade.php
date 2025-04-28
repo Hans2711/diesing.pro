@@ -4,7 +4,7 @@
     </button>
 
     @foreach ($timetracks as $timetrack)
-    <div class="border border-gray-200 px-3 mb-4 pb-3 rounded">
+    <div class="border px-3 mb-4 pb-3 rounded border-primary-dark dark:border-primary-light">
         <p>{{ $timetrack->title }}</p>
         <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
             <a class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.timetracking') . '/' . $timetrack->id)}}" >
