@@ -1,5 +1,5 @@
 <div>
-    <a wire:navigate.hover href="{{url(Config::get('app.locale') ."/tester/")}}" class="flex gap-2 mb-4 align-center btn-back">
+    <a wire:navigate.hover href="{{url(Config::get('app.locale') ."/tester/")}}" class="flex gap-2 mb-4 align-center btn-back dark:invert dark:text-secondary-dark">
         <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" />
         <span class="leading-none">
             {{__('text.back')}}
@@ -9,7 +9,7 @@
     <p>
         {{__('text.autodelete-after')}}
     </p>
-    <select class="mb-3 rounded" wire:change="updateDeleteAfter($event.target.value)">
+    <select class="mb-3 rounded dark:bg-secondary-light" wire:change="updateDeleteAfter($event.target.value)">
         @foreach ($deleteAfterOptions as $int => $option)
             <option value="{{$int}}" @if ($testobject->delete_after == $int) selected @endif>{{$option}}</option>
         @endforeach
@@ -20,7 +20,7 @@
     </button>
 
     @foreach ($testobject->testruns as $testrun)
-        <div class="border border-gray-200 px-3 mb-4 pb-3 rounded">
+        <div class="border px-3 mb-4 pb-3 rounded border-primary-dark dark:border-primary-light">
             <p><strong>{{ $testrun->name }}</strong></p>
             <p><strong>{{ __('text.created') }}:</strong> {{ $testrun->created_at_clean}}</p>
             <p><strong>{{ __('text.deleted') }}:</strong> {{ $testrun->deletedWhen()}}</p>

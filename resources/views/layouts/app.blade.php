@@ -1,6 +1,6 @@
 <!-- resources/views/layouts/app.blade.php -->
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
     <head>
         <meta charset="utf-8">
         @include('global.head.viewport')
@@ -20,11 +20,11 @@
             {!! Vite::content('resources/css/app.css') !!}
         </style>
     </head>
-    <body>
+    <body class="bg-tertiary dark:bg-secondary-dark text-black dark:text-white">
         <div x-data="{ sidebarOpen: false }" class="flex min-h-screen" id="app">
             <button
                 @click.stop="sidebarOpen = !sidebarOpen"
-                class="md:hidden p-4 z-50 fixed top-0 left-0"
+                class="md:hidden p-4 z-50 fixed top-0 left-0 dark:invert"
                 aria-label="Toggle menu"
             >
                 <!-- Menu Icon -->
