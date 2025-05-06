@@ -11,6 +11,7 @@ export default defineConfig({
                 "resources/js/app.js",
                 "resources/js/utils/clipboard.js",
                 "resources/js/utils/editor.js",
+                "resources/js/utils/zenquotes.js",
             ],
             refresh: true,
         }),
