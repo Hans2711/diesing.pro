@@ -24,11 +24,11 @@
     @endphp
 
     <div class="border rounded-xl shadow-sm bg-white dark:bg-secondary-light px-4 py-4 mb-5">
-        <p class="text-xl font-semibold text-gray-800 border-b-2 border-gray-900 pb-2 mb-4">{{ $list['title'] }}</p>
+        <p class="text-xl font-semibold text-gray-800 border-b-2 border-gray-900 pb-2 mb-4 dark:text-white">{{ $list['title'] }}</p>
 
         <div class="grid {{ $columns }} md:gap-3">
             @foreach ($items as $index => $item)
-                <div class="flex flex-col @if ($list['column'] == 1) md:flex-row md:gap-6 md:items-center @elseif ($list['column'] > 1) flex-row md:gap-3  @endif">
+                <div class="flex flex-col @if ($list['column'] == 1) md:flex-row md:gap-6 md:items-center @elseif ($list['column'] > 1) flex-row md:gap-3  @endif ">
                     <p class="text-base md:text-lg font-semibold text-gray-800 dark:text-white @if ($list['column'] == 1) w-full md:w-1/3 @endif">{{ $item['title'] }}</p>
                     <div class="text-sm md:text-base text-gray-600 dark:text-gray-100 @if ($list['column'] == 1) w-full md:w-2/3 @endif">{!! $item['content'] !!}</div>
                 </div>

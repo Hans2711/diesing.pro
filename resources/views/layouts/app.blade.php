@@ -14,7 +14,7 @@
         @include('global.head.og-tags', ['title' => $title ?? null, 'description' => $description ?? null])
         @include('global.head.google-analytics', ['title' => $title ?? null])
 
-        @vite(['resources/js/app.js'])
+        @vite(['resources/js/app.js', 'resources/js/utils/zenquotes.js'])
 
         <style>
             {!! Vite::content('resources/css/app.css') !!}

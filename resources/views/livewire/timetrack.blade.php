@@ -18,7 +18,8 @@
     </p>
 
     @forelse ($displayTimes as $row)
-        <div class="grid grid-cols-3 gap-x-6 items-baseline border-b py-2 text-base">
+        <div wire:transition.fade>
+        <div class="grid grid-cols-3 gap-x-6 items-baseline border p-2 text-base rounded">
         <div class="truncate">
             @if (isset($row['link']) && $row['link'])
                 <a href="{{ $row['link'] }}" target="_blank" class="text-blue-500 hover:underline">
@@ -30,6 +31,7 @@
         </div>
             <div class="">{{ $row['durationDisplay'] }}</div>
             <div>{{ \Carbon\Carbon::parse($row['time'])->format('d.m.Y H:i') }}</div>
+        </div>
         </div>
     @empty
         <p class="italic">Keine Einträge im Zeitraum :-|</p>

@@ -97,11 +97,11 @@ tertiary-light    #FFFFFF
 
     /* alerts (simple) ---------------------------------------------------- */
     .alert         {@apply p-3 bg-primary-light   text-primary-dark   border border-primary-light   rounded
-        dark:bg-secondary-light  dark:text-primary-light;}
+        }
     .alert-success {@apply bg-tertiary-dark text-secondary border border-tertiary-dark
-         dark:text-secondary-light;}
+         dark:text-secondary-dark;}
     .alert-danger  {@apply bg-primary-light text-primary-dark border border-primary-light
-         dark:text-primary-light;}
+         dark:text-secondary-dark;}
 
     /* ───────── icon filters (unchanged) ───────── */
     .filter-gray-icon  {@apply filter; filter: invert(69%) sepia(0%) saturate(6780%) hue-rotate(17deg) brightness(85%) contrast(99%);}
