@@ -24,7 +24,7 @@
     @endphp
 
     <div class="border rounded-xl shadow-sm bg-white dark:bg-secondary-light px-4 py-4 mb-5">
-        <p class="text-xl font-semibold text-gray-800 border-b-2 border-gray-900 pb-2 mb-4 dark:text-white">{{ $list['title'] }}</p>
+        <p class="text-xl font-semibold text-gray-800 border-b-2 border-gray-900 dark:border-white pb-2 mb-4 dark:text-white">{{ $list['title'] }}</p>
 
         <div class="grid {{ $columns }} md:gap-3">
             @foreach ($items as $index => $item)
@@ -35,7 +35,7 @@
 
                 @if ((($index + 1) % $list['column'] == 0 && $index < count($items) - 1) || isset($print) && $index < count($items) - 1)
                     <div class="col-span-full">
-                        <hr class="my-3 border-t-2 border-gray-300 dark:border-gray-600" />
+                        <hr class="my-3 border-t-2 border-gray-300" />
                     </div>
                 @endif
             @endforeach
