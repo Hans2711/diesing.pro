@@ -110,6 +110,7 @@ tertiary-light    #FFFFFF
     /* ───────── typography ───────── */
     h1 {@apply mt-[0.75em] mb-[0.75em] text-[2em] font-bold hover:scale-105 origin-left transform transition duration-300;}
     h2 {@apply mt-[0.5em]  mb-[0.5em]  text-[1.5em] font-bold hover:scale-105 origin-left transform transition duration-300;}
+    h3 {@apply font-bold hover:scale-105 origin-left transform transition duration-300;}
     p  {@apply mt-[0.5em]  mb-[0.5em]  text-[1em] leading-[1.5];}
 
     /* ───────── shared effects ───────── */
