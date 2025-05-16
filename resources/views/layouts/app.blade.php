@@ -14,7 +14,7 @@
         @include('global.head.og-tags', ['title' => $title ?? null, 'description' => $description ?? null])
         @include('global.head.google-analytics', ['title' => $title ?? null])
 
-        @vite(['resources/js/app.js', 'resources/js/utils/zenquotes.js'])
+        @vite(['resources/js/app.js', 'resources/js/utils/zenquotes.js', 'resources/js/gradient-scroll.js'])
 
         <style>
             {!! Vite::content('resources/css/app.css') !!}
@@ -44,6 +44,11 @@
         </div>
         </div>
 
-        @include('global.footer')
+        <div class="flex h-fit">
+            <div class="md:w-64 bg-white border-t border-gray-200 py-8 dark:border-gray-700 dark:text-white dark:bg-gray-900"> </div>
+            <div class="flex-1">
+                @include('global.footer')
+            </div>
+        </div>
     </body>
 </html>
