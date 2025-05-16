@@ -18,6 +18,49 @@ tertiary-light    #FFFFFF
 
 @layer components {
 
+    .primary-gradient {
+        @apply bg-gradient-to-br from-primary-light to-primary text-black ;
+        @apply dark:from-primary-dark dark:to-primary dark:text-white;
+        @apply hover:scale-105 transform transition duration-300;
+        @apply opacity-0;
+        @apply opacity-0 translate-x-80;
+        @apply w-full md:w-auto
+    }
+
+    .left {
+        @apply md:-translate-x-80; /* ~translate-x-10 only on md+ */
+    }
+
+    .mobile-left {
+        @apply -translate-x-80; /* ~translate-x-10 only on md+ */
+    }
+
+    .fade-in{
+        @apply opacity-100 translate-x-0;
+    }
+
+    .primary-gradient hr {
+        @apply border-black dark:border-white;
+    }
+
+    .timeline-card {
+        @apply text-sm leading-snug tracking-normal text-left;
+        @apply md:text-base md:leading-relaxed md:text-justify;
+    }
+
+    .timeline-card h3 {
+        @apply text-base md:text-xl font-bold mb-1 md:mb-2 text-left;
+    }
+
+    .timeline-card p {
+        @apply text-sm md:text-base leading-snug md:leading-relaxed;
+        @apply break-words hyphens-auto;
+    }
+
+    .timeline-card hr {
+        @apply border-black dark:border-white transition group-hover:border-primary-light;
+    }
+
     /* structural base ---------------------------------------------------- */
     .btn {
         @apply p-3 rounded leading-5 flex justify-center items-center
@@ -44,12 +87,12 @@ tertiary-light    #FFFFFF
     }
 
     /* delete ------------------------------------------------------------- */
-.btn-delete {
-  @apply btn bg-gradient-to-br from-danger to-danger-dark
-         hover:from-danger-dark hover:to-danger;
-  @apply dark:from-danger-dark dark:to-danger
-         dark:hover:from-danger dark:hover:to-danger-dark;
-}
+    .btn-delete {
+        @apply btn bg-gradient-to-br from-danger to-danger-dark
+        hover:from-danger-dark hover:to-danger;
+        @apply dark:from-danger-dark dark:to-danger
+        dark:hover:from-danger dark:hover:to-danger-dark;
+    }
 
     /* edit / orange ------------------------------------------------------ */
     .btn-edit {
@@ -97,11 +140,11 @@ tertiary-light    #FFFFFF
 
     /* alerts (simple) ---------------------------------------------------- */
     .alert         {@apply p-3 bg-primary-light   text-primary-dark   border border-primary-light   rounded
-        }
+    }
     .alert-success {@apply bg-tertiary-dark text-secondary border border-tertiary-dark
-         dark:text-secondary-dark;}
+        dark:text-secondary-dark;}
     .alert-danger  {@apply bg-primary-light text-primary-dark border border-primary-light
-         dark:text-secondary-dark;}
+        dark:text-secondary-dark;}
 
     /* ───────── icon filters (unchanged) ───────── */
     .filter-gray-icon  {@apply filter; filter: invert(69%) sepia(0%) saturate(6780%) hue-rotate(17deg) brightness(85%) contrast(99%);}
@@ -110,6 +153,7 @@ tertiary-light    #FFFFFF
     /* ───────── typography ───────── */
     h1 {@apply mt-[0.75em] mb-[0.75em] text-[2em] font-bold hover:scale-105 origin-left transform transition duration-300;}
     h2 {@apply mt-[0.5em]  mb-[0.5em]  text-[1.5em] font-bold hover:scale-105 origin-left transform transition duration-300;}
+    h3 {@apply font-bold hover:scale-105 origin-left transform transition duration-300;}
     p  {@apply mt-[0.5em]  mb-[0.5em]  text-[1em] leading-[1.5];}
 
     /* ───────── shared effects ───────── */
