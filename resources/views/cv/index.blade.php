@@ -83,7 +83,7 @@
             <div class="primary-gradient left timeline-card col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto shadow-md">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="font-bold text-xl">
-                        <a class="underline" href="https://www.netigo.de" target="_blank" rel="noopener noreferrer">Berufskolleg Hilden</a>
+                        <a class="underline" href="https://berufskolleg.de/" target="_blank" rel="noopener noreferrer">Berufskolleg Hilden</a>
                     </h3>
                     <img src="{{ Vite::asset('resources/images/bkh.png') }}" class="w-10 h-auto ml-4 " />
                 </div>
@@ -113,7 +113,7 @@
             <div class="primary-gradient timeline-card col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="font-bold text-xl">
-                        <a class="underline" href="https://www.netigo.de" target="_blank" rel="noopener noreferrer">Lessing Berufskolleg</a>, Düsseldorf
+                        <a class="underline" href="https://www.lgbk.de/" target="_blank" rel="noopener noreferrer">Lessing Berufskolleg</a>, Düsseldorf
                     </h3>
                     <img src="{{ Vite::asset('resources/images/lessing.png') }}" class="w-16 h-auto ml-4" />
                 </div>
@@ -143,7 +143,7 @@
             <div class="primary-gradient left timeline-card col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto shadow-md">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="font-bold text-xl">
-                        <a class="underline" href="https://www.netigo.de" target="_blank" rel="noopener noreferrer">Annette-von-Droste-Hülshoff-Gymnasium</a>, Düsseldorf
+                        <a class="underline" href="https://www.annettegymnasium.de/" target="_blank" rel="noopener noreferrer">Annette-von-Droste-Hülshoff-Gymnasium</a>, Düsseldorf
                     </h3>
                 </div>
                 <p class="text-sm mb-2">August 2012 – Juli 2018</p>
@@ -172,7 +172,7 @@
             <div class="primary-gradient timeline-card col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="font-bold text-xl">
-                        <a class="underline" href="https://www.netigo.de" target="_blank" rel="noopener noreferrer">Katholische Grundschule Marien Schule</a>, Düsseldorf
+                        <a class="underline" href="https://kgs-marienschule-duesseldorf.de/" target="_blank" rel="noopener noreferrer">Katholische Grundschule Marien Schule</a>, Düsseldorf
                     </h3>
                 </div>
                 <p class="text-sm mb-2">August 2009 – Juli 2012</p>
@@ -302,7 +302,7 @@
 <h2 class="mt-10 mb-5 text-center origin-bottom">Sprachen</h2>
 <div class="md:container">
     <div class="flex flex-col md:grid grid-cols-4 mx-auto p-2 gap-5">
-        <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
+        <div class="primary-gradient timeline-card mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
             <h3 class="mb-2">Deutsch</h3>
             <p class="text-sm mb-2">Muttersprache</p>
         </div>
@@ -310,7 +310,7 @@
             <h3 class="mb-2">Englisch</h3>
             <p class="text-sm mb-2">Fließend in Wort und Schrift (C2)</p>
         </div>
-        <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
+        <div class="primary-gradient timeline-card mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
             <h3 class="mb-2">Französisch</h3>
             <p class="text-sm mb-2">Grundkentnisse</p>
         </div>
