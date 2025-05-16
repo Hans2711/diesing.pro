@@ -302,15 +302,15 @@
 <h2 class="mt-10 mb-5 text-center origin-bottom">Sprachen</h2>
 <div class="md:container">
     <div class="flex flex-col md:grid grid-cols-4 mx-auto p-2 gap-5">
-        <div class="primary-gradient timeline-card mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
+        <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md col-start-2 col-end-4">
             <h3 class="mb-2">Deutsch</h3>
             <p class="text-sm mb-2">Muttersprache</p>
         </div>
-        <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
+        <div class="primary-gradient timeline-card mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
             <h3 class="mb-2">Englisch</h3>
             <p class="text-sm mb-2">Fließend in Wort und Schrift (C2)</p>
         </div>
-        <div class="primary-gradient timeline-card mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
+        <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md col-start-2 col-end-4">
             <h3 class="mb-2">Französisch</h3>
             <p class="text-sm mb-2">Grundkentnisse</p>
         </div>
