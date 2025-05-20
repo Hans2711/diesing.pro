@@ -17,11 +17,14 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->segment(1) === "de") {
-            App::setLocale("de");
-            Carbon::setLocale('de');
+        $segment = $request->segment(1);
+        $available = array_values(config('app.available_locales'));
+
+        if (in_array($segment, $available)) {
+            App::setLocale($segment);
+            Carbon::setLocale($segment);
         } else {
-            App::setLocale("en");
+            App::setLocale('en');
             Carbon::setLocale('en');
         }
 

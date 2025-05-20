@@ -21,7 +21,7 @@ Route::get("/quote/rand", [
     "random",
 ])->name("grant");
 
-foreach (['de', 'en'] as $locale) {
+foreach (['de', 'en', 'fr', 'es'] as $locale) {
     Route::prefix($locale)
         ->name($locale . ".")
         ->group(function () use ($locale) {

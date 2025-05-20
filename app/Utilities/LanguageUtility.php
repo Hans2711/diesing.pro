@@ -6,49 +6,52 @@ use Illuminate\Support\Facades\App;
 class LanguageUtility
 {
 
-    public static function getOtherLangUrl()
+    public static function getLangUrl(string $targetLocale)
     {
-        $locale = App::getLocale();
-
-        $otherLocale = '';
-        if ($locale == 'de') {
-            $otherLocale = 'en';
-        } else {
-            $otherLocale = 'de';
-        }
-
-        $currentUrl = request()->uri()->getUri()->getPath();
+        $available = array_values(config('app.available_locales'));
+        $currentUrl = request()->getPathInfo();
 
         $currentParts = explode('/', $currentUrl);
         foreach ($currentParts as $key => $part) {
-            if ($part == 'de' || $part == 'en' || $part == '') {
+            if (in_array($part, $available) || $part === '') {
                 unset($currentParts[$key]);
             }
         }
         $currentParts = array_values($currentParts);
-        $newUrl = '/' . $otherLocale . '/';
+        $newUrl = '/' . $targetLocale . '/';
 
         $currentUrlTrans = __('url');
-        $targetUrlTrans = __('url', [], $otherLocale);
+        $targetUrlTrans = __('url', [], $targetLocale);
 
-        foreach ($currentParts as $key => $part) {
-            $key = null;
-
+        foreach ($currentParts as $part) {
+            $keyMatch = null;
             foreach ($currentUrlTrans as $transkey => $value) {
                 if ($part == $value) {
-                    $key = $transkey;
+                    $keyMatch = $transkey;
                     break;
                 }
             }
 
-            if ($key !== null) {
-                $newUrl .= $targetUrlTrans[$key] . '/';
+            if ($keyMatch !== null) {
+                $newUrl .= $targetUrlTrans[$keyMatch] . '/';
             } else {
                 $newUrl .= $part . '/';
             }
         }
 
         return $newUrl;
+    }
+
+    public static function getOtherLangUrl()
+    {
+        $current = App::getLocale();
+        foreach (array_values(config('app.available_locales')) as $loc) {
+            if ($loc !== $current) {
+                return self::getLangUrl($loc);
+            }
+        }
+
+        return '/' . $current . '/';
     }
 }
 

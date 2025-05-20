@@ -1,6 +1,6 @@
 @php
-$otherlang = Config::get('app.locale') == 'de' ? 'en' : 'de';
-$otherUrl = App\Utilities\LanguageUtility::getOtherLangUrl();
+$currentLang = Config::get('app.locale');
+$availableLangs = array_values(Config::get('app.available_locales'));
 
 $isActive = fn($key) => $active === $key ? 'bg-gray-300 text-black dark:text-white dark:bg-gray-700' : '';
 $isToolActive = fn($tool) => $activeTool === $tool ? 'bg-gray-300 text-black dark:text-white dark:bg-gray-700' : '';
@@ -36,13 +36,17 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
                         :class="{ 'rotate-180': open }" />
                 </button>
                 <ul x-show="open" x-transition class="absolute -left-5 mt-2 w-40 bg-white dark:bg-secondary-dark shadow-lg rounded z-50">
-                    <li>
-                        <a wire:navigate.hover href="{{ $otherUrl }}" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-white rounded">
-                            <img src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $otherlang) . '.svg') }}" class="h-5 w-5" />
-                            {{ __('language.name-' . $otherlang) }}
-                            <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 text-gray-400 dark:invert" />
-                        </a>
-                    </li>
+                    @foreach($availableLangs as $lang)
+                        @continue($lang === $currentLang)
+                        @php $url = App\Utilities\LanguageUtility::getLangUrl($lang); @endphp
+                        <li>
+                            <a wire:navigate.hover href="{{ $url }}" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-white rounded">
+                                <img src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $lang) . '.svg') }}" class="h-5 w-5" />
+                                {{ __('language.name-' . $lang) }}
+                                <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 text-gray-400 dark:invert" />
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
             <button

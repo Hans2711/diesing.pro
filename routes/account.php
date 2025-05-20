@@ -33,7 +33,7 @@ Route::get("/r/{slug}", [AccountsController::class, "publicRedirect"])->name(
 );
 
 
-foreach (['de', 'en'] as $locale) {
+foreach (['de', 'en', 'fr', 'es'] as $locale) {
     Route::prefix($locale)
         ->name($locale . ".")
         ->group(function () use ($locale) {
