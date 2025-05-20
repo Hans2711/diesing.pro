@@ -17,5 +17,11 @@ class HomepageTest extends TestCase
 
         $response = $this->get('/de');
         $response->assertStatus(200);
+
+        $response = $this->get('/fr');
+        $response->assertStatus(200);
+
+        $response = $this->get('/es');
+        $response->assertStatus(200);
     }
 }
