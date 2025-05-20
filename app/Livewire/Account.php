@@ -13,6 +13,12 @@ class Account extends Component
     public $user;
     public $users;
 
+    public $edit = false;
+    public $name;
+    public $email;
+    public $password;
+    public $passwordConfirm;
+
     public $permissions = [
         "tester" => "Tester",
         "notes" => "Notes",
@@ -30,6 +36,8 @@ class Account extends Component
     public function mount()
     {
         $this->user = Auth::user();
+        $this->name = $this->user->name;
+        $this->email = $this->user->email;
         $this->fillUsers();
     }
 
@@ -71,6 +79,53 @@ class Account extends Component
             Auth::login($user);
             $this->js("window.location.reload()");
         }
+    }
+
+    public function editAccount()
+    {
+        $this->edit = true;
+        $this->name = $this->user->name;
+        $this->email = $this->user->email;
+        $this->password = '';
+        $this->passwordConfirm = '';
+    }
+
+    public function cancelEdit()
+    {
+        $this->edit = false;
+    }
+
+    public function saveAccount()
+    {
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            session()->flash('error', __('text.invalid_email'));
+            return;
+        }
+
+        if (empty($this->name)) {
+            session()->flash('error', __('text.name_empty'));
+            return;
+        }
+
+        if (User::where('email', $this->email)->where('id', '!=', $this->user->id)->exists()) {
+            session()->flash('error', __('text.email_exists'));
+            return;
+        }
+
+        if (!empty($this->password)) {
+            if ($this->password !== $this->passwordConfirm) {
+                session()->flash('error', __('text.passwords_do_not_match'));
+                return;
+            }
+            $this->user->password = bcrypt($this->password);
+        }
+
+        $this->user->name = $this->name;
+        $this->user->email = $this->email;
+        $this->user->save();
+
+        $this->edit = false;
+        session()->flash('status', __('text.account_updated'));
     }
 
     public function render()
