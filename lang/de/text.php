@@ -106,6 +106,8 @@ return [
         "<p>Registrierte Benutzer können den Zugang zu privaten Bereichen anfordern.</p>",
 
     "saved" => "Gespeichert",
+    "account_updated" => "Konto aktualisiert",
+    "edit" => "Bearbeiten",
     "delete" => "Löschen",
     "users" => "Benutzer",
     "private" => "Privat",
