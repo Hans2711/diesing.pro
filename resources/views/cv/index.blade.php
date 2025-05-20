@@ -1,18 +1,18 @@
 @extends('layouts.app', ['title' => __('titles.cv'), 'description' => __('descriptions.cv'), 'active' => 'cv'])
 
 @section('content')
-<h1 class="md:text-center md:origin-bottom">Hans Peter (HP) Diesing - Software-Entwickler</h1>
+<h1 class="md:text-center md:origin-bottom">{{ __('text.cv-headline') }}</h1>
 <div class="md:text-center">
     <p class="mb-5 md:w-2/3 md:mx-auto md:text-center">
-        Erfahrener Software-Entwickler bei Netigo GmbH in Düsseldorf mit Schwerpunkt auf Back-End-Webentwicklung, PHP und JavaScript.
+        {{ __('text.cv-intro') }}
     </p>
 </div>
 
 <div class="md:text-center">
-    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-primary w-fit md:mx-auto">Kontakt aufnehmen</a>
+    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-primary w-fit md:mx-auto">{{ __('text.cv-contact-button') }}</a>
 </div>
 
-<h2 class="mt-10 mb-5 text-center origin-bottom">Berufserfahrung</h2>
+<h2 class="mt-10 mb-5 text-center origin-bottom">{{ __('text.cv-section-experience') }}</h2>
 
 <div class="md:container">
     <div class="flex flex-col md:grid grid-cols-9 mx-auto p-2 text-blue-50">
@@ -26,19 +26,19 @@
                     </h3>
                     <img src="{{ Vite::asset('resources/images/netigo.svg') }}" class="w-16 h-auto ml-4 invert dark:invert-0" />
                 </div>
-                <p class="text-sm mb-2">Februar 2024 – heute</p>
+                <p class="text-sm mb-2">{{ __('text.cv-backend-period') }}</p>
                 <hr class="mb-2" />
                 <p class="">
-                    <strong>Technologien:</strong><br class="md:hidden" />
-                    TYPO3, WordPress und PHP (Symfony)
+                    <strong>{{ __('text.cv-backend-technologies-label') }}</strong><br class="md:hidden" />
+                    {{ __('text.cv-backend-technologies') }}
                 </p>
                 <p class="">
-                    <strong>Schwerpunkt:</strong><br class="md:hidden" />
-                    Backend-Entwicklung
+                    <strong>{{ __('text.cv-backend-focus-label') }}</strong><br class="md:hidden" />
+                    {{ __('text.cv-backend-focus') }}
                 </p>
                 <p class="">
-                    <strong>Projekte:</strong><br class="md:hidden" />
-                    Komplette Systeme, Versions-Upgrades, Relaunch-Projekte und individuelle Lösungen
+                    <strong>{{ __('text.cv-backend-projects-label') }}</strong><br class="md:hidden" />
+                    {{ __('text.cv-backend-projects') }}
                 </p>
             </div>
             <div class="col-start-5 col-end-6 md:mx-auto relative mr-5">
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <!-- Position: Ausbildung -->
+        <!-- Position: Apprenticeship -->
         <div class="flex md:contents">
             <div class="col-start-5 col-end-6 mr-5 md:mx-auto relative">
                 <div class="h-full w-6 flex items-center justify-center">
@@ -64,17 +64,17 @@
                     </h3>
                     <img src="{{ Vite::asset('resources/images/netigo.svg') }}" class="w-16 h-auto ml-4 invert dark:invert-0" />
                 </div>
-                <p class="text-sm mb-2">August 2021 - Februar 2024</p>
+                <p class="text-sm mb-2">{{ __('text.cv-apprenticeship-period') }}</p>
                 <hr class="mb-2" />
                 <p class="leading-tight text-sm">
-                    <strong>Ausbildung:</strong><br class="md:hidden" />
-                    Fachinformatiker für Anwendungsentwicklung mit Schwerpunkt auf Backend-Entwicklung.
+                    <strong>{{ __('text.cv-apprenticeship-label') }}</strong><br class="md:hidden" />
+                    {{ __('text.cv-apprenticeship-description') }}
                 </p>
             </div>
         </div>
     </div>
 </div>
-<h2 class="mt-10 mb-5 text-center origin-bottom">Schulausbildung</h2>
+<h2 class="mt-10 mb-5 text-center origin-bottom">{{ __('text.cv-section-education') }}</h2>
 <div class="md:container">
     <div class="flex flex-col md:grid grid-cols-9 mx-auto p-2 text-blue-50">
 
@@ -87,11 +87,11 @@
                     </h3>
                     <img src="{{ Vite::asset('resources/images/bkh.png') }}" class="w-10 h-auto ml-4 " />
                 </div>
-                <p class="text-sm mb-2">August 2021 – Februar 2024</p>
+                <p class="text-sm mb-2">{{ __('text.cv-school1-period') }}</p>
                 <hr class=" mb-2" />
                 <p class="leading-tight text-sm">
-                    <strong>Fachbereich:</strong><br class="md:hidden" />
-                    Fachinformatik (Anwendungsentwicklung)
+                    <strong>{{ __('text.cv-school1-field-label') }}</strong><br class="md:hidden" />
+                    {{ __('text.cv-school1-field') }}
                 </p>
             </div>
             <div class="col-start-5 col-end-6 md:mx-auto relative mr-5">
@@ -117,23 +117,23 @@
                     </h3>
                     <img src="{{ Vite::asset('resources/images/lessing.png') }}" class="w-16 h-auto ml-4" />
                 </div>
-                <p class="text-sm mb-2">August 2018 – Mai 2021</p>
+                <p class="text-sm mb-2">{{ __('text.cv-school2-period') }}</p>
                 <hr class=" mb-2" />
                 <p class="leading-tight text-sm">
-                    <strong>Fachbereich:</strong><br class="md:hidden" />
-                    Mathematik und Informatik
+                    <strong>{{ __('text.cv-school2-field-label') }}</strong><br class="md:hidden" />
+                    {{ __('text.cv-school2-field') }}
                 </p>
                 <p class="leading-tight text-sm">
-                    <strong>Abschluss:</strong><br class="md:hidden" />
-                    Allgemeine Hochschulreife (2021)
+                    <strong>{{ __('text.cv-school2-degree-label') }}</strong><br class="md:hidden" />
+                    {{ __('text.cv-school2-degree') }}
                 </p>
                 <p class="leading-tight text-sm">
-                    <strong>Leistungskurse:</strong><br class="md:hidden" />
-                    Informatik, Mathematik
+                    <strong>{{ __('text.cv-school2-advanced-label') }}</strong><br class="md:hidden" />
+                    {{ __('text.cv-school2-advanced') }}
                 </p>
                 <p class="leading-tight text-sm">
-                    <strong>Grundkurse:</strong><br class="md:hidden" />
-                    Deutsch, Gesellschaftslehre
+                    <strong>{{ __('text.cv-school2-basic-label') }}</strong><br class="md:hidden" />
+                    {{ __('text.cv-school2-basic') }}
                 </p>
             </div>
         </div>
@@ -146,11 +146,11 @@
                         <a class="underline" href="https://www.annettegymnasium.de/" target="_blank" rel="noopener noreferrer">Annette-von-Droste-Hülshoff-Gymnasium</a>, Düsseldorf
                     </h3>
                 </div>
-                <p class="text-sm mb-2">August 2012 – Juli 2018</p>
+                <p class="text-sm mb-2">{{ __('text.cv-school3-period') }}</p>
                 <hr class=" mb-2" />
                 <p class="leading-tight text-sm">
-                    <strong>Abschluss:</strong><br class="md:hidden" />
-                    Mittlerer Schulabschluss (FOR) mit Qualifikation
+                    <strong>{{ __('text.cv-school3-degree-label') }}</strong><br class="md:hidden" />
+                    {{ __('text.cv-school3-degree') }}
                 </p>
             </div>
             <div class="col-start-5 col-end-6 md:mx-auto relative mr-5">
@@ -172,29 +172,29 @@
             <div class="primary-gradient timeline-card col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="font-bold text-xl">
-                        <a class="underline" href="https://kgs-marienschule-duesseldorf.de/" target="_blank" rel="noopener noreferrer">Katholische Grundschule Marien Schule</a>, Düsseldorf
+                        <a class="underline" href="https://kgs-marienschule-duesseldorf.de/" target="_blank" rel="noopener noreferrer">{{ __('text.cv-school4-name') }}</a>, Düsseldorf
                     </h3>
                 </div>
-                <p class="text-sm mb-2">August 2009 – Juli 2012</p>
+                <p class="text-sm mb-2">{{ __('text.cv-school4-period') }}</p>
                 <hr class=" mb-2" />
                 <p class="leading-tight text-sm">
-                    <strong>Abschluss:</strong><br class="md:hidden" />
-                    Grundschulabschluss
+                    <strong>{{ __('text.cv-school4-degree-label') }}</strong><br class="md:hidden" />
+                    {{ __('text.cv-school4-degree') }}
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-<h2 class="mt-10 mb-5 text-center origin-bottom">Fachkenntnisse</h2>
+<h2 class="mt-10 mb-5 text-center origin-bottom">{{ __('text.cv-section-skills') }}</h2>
 <div class="md:text-center">
-    <p class="mb-5 md:w-2/3 md:mx-auto md:text-center">Die Fachkenntnisse sind entsprechend des jeweiligen Erfahrungsniveaus absteigend geordnet.</p>
+    <p class="mb-5 md:w-2/3 md:mx-auto md:text-center">{{ __('text.cv-skills-intro') }}</p>
 </div>
 
 <div class="md:container">
     <div class="flex flex-col md:grid grid-cols-2 mx-auto p-2 gap-5">
         <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md">
-            <h3>Programmiersprachen</h3>
+            <h3>{{ __('text.cv-skills-programming') }}</h3>
             <ul class="list-disc ml-5">
                 <li>
                     PHP
@@ -214,7 +214,7 @@
             </ul>
         </div>
         <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
-            <h3>Frameworks / CMS</h3>
+            <h3>{{ __('text.cv-skills-frameworks') }}</h3>
             <ul class="list-disc ml-5">
                 <li>
                     TYPO3
@@ -240,7 +240,7 @@
             </ul>
         </div>
         <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
-            <h3>Script & Markup Languages</h3>
+            <h3>{{ __('text.cv-skills-script-languages') }}</h3>
             <ul class="list-disc ml-5">
                 <li>SQL (Mysql / MariaDB / PostgreSQL)</li>
                 <li>TypoScript (TYPO3)</li>
@@ -252,7 +252,7 @@
             </ul>
         </div>
         <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
-            <h3>Webstyling</h3>
+            <h3>{{ __('text.cv-skills-web-styling') }}</h3>
             <ul class="list-disc ml-5">
                 <li>CSS / SCSS</li>
                 <li>Tailwind CSS</li>
@@ -260,7 +260,7 @@
             </ul>
         </div>
         <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
-            <h3>Betriebsysteme</h3>
+            <h3>{{ __('text.cv-skills-operating-systems') }}</h3>
             <ul class="list-disc ml-5">
                 <li>
                     Linux (Debian / Ubuntu)
@@ -274,7 +274,7 @@
             </ul>
         </div>
         <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
-            <h3>Enticklungswerkzeuge</h3>
+            <h3>{{ __('text.cv-skills-development-tools') }}</h3>
             <ul class="list-disc ml-5">
                 <li>Git</li>
                 <li>Docker</li>
@@ -286,54 +286,54 @@
     </div>
 </div>
 
-<h2 class="mt-10 mb-5 text-center origin-bottom">Zertifikate</h2>
+<h2 class="mt-10 mb-5 text-center origin-bottom">{{ __('text.cv-section-certificates') }}</h2>
 <div class="md:container">
     <div class="flex flex-col md:grid grid-cols-4 mx-auto p-2 gap-5">
         <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
-            <h3 class="mb-2">TYPO3 CMS Certified Integrator (TCCI)</h3>
-            <p class="text-sm mb-2">März 2025 - März 2027</p>
+            <h3 class="mb-2">{{ __('text.cv-certificate1-title') }}</h3>
+            <p class="text-sm mb-2">{{ __('text.cv-certificate1-period') }}</p>
             <hr class="mb-2" />
             <p class="leading-tight text-sm">
-                <a href="https://typo3.com/services/certifications/certified-integrator-listing" class="btn btn-secondary w-fit no-underline" target="_blank">Offizielle Liste</a>
+                <a href="https://typo3.com/services/certifications/certified-integrator-listing" class="btn btn-secondary w-fit no-underline" target="_blank">{{ __('text.cv-certificate1-link') }}</a>
             </p>
         </div>
     </div>
 </div>
-<h2 class="mt-10 mb-5 text-center origin-bottom">Sprachen</h2>
+<h2 class="mt-10 mb-5 text-center origin-bottom">{{ __('text.cv-section-languages') }}</h2>
 <div class="md:container">
     <div class="flex flex-col md:grid grid-cols-4 mx-auto p-2 gap-5">
         <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md col-start-2 col-end-4">
-            <h3 class="mb-2">Deutsch</h3>
-            <p class="text-sm mb-2">Muttersprache</p>
+            <h3 class="mb-2">{{ __('text.cv-lang-german') }}</h3>
+            <p class="text-sm mb-2">{{ __('text.cv-lang-german-desc') }}</p>
         </div>
         <div class="primary-gradient timeline-card mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
-            <h3 class="mb-2">Englisch</h3>
-            <p class="text-sm mb-2">Fließend in Wort und Schrift (C2)</p>
+            <h3 class="mb-2">{{ __('text.cv-lang-english') }}</h3>
+            <p class="text-sm mb-2">{{ __('text.cv-lang-english-desc') }}</p>
         </div>
         <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md col-start-2 col-end-4">
-            <h3 class="mb-2">Französisch</h3>
-            <p class="text-sm mb-2">Grundkentnisse</p>
+            <h3 class="mb-2">{{ __('text.cv-lang-french') }}</h3>
+            <p class="text-sm mb-2">{{ __('text.cv-lang-french-desc') }}</p>
         </div>
     </div>
 </div>
 
-<h2 class="mt-10 mb-5 text-center origin-bottom">Kontakt</h2>
+<h2 class="mt-10 mb-5 text-center origin-bottom">{{ __('text.cv-section-contact') }}</h2>
 <div class="md:container">
     <div class="flex flex-col md:grid grid-cols-4 mx-auto p-2 gap-5">
         <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
             <p class="leading-tight text-sm mb-3 text-center">
-                <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit no-underline" target="_blank">Hier zum Kontaktformular</a>
+                <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit no-underline" target="_blank">{{ __('text.cv-contact-link') }}</a>
             </p>
             <hr class="mb-2" />
             <div class="grid grid-cols-2">
                 <div>
-                    <h3>Telefon</h3>
+                    <h3>{{ __('text.cv-contact-phone-label') }}</h3>
                     <p class="text-sm mb-2">
                         <a href="tel:01731758175">0173 / 1758175</a>
                     </p>
                 </div>
                 <div>
-                    <h3>E-Mail</h3>
+                    <h3>{{ __('text.cv-contact-email-label') }}</h3>
                     <p class="text-sm mb-2">
                         <a href="mailto:hp@diesing.pro">hp@diesing.pro</a>
                     </p>
