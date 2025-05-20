@@ -3,7 +3,7 @@
 
     <div class="p-2 border mb-3 rounded border-primary-dark dark:border-primary-light">
         @if ($edit)
-            <div class="grid grid-cols-2 md:grid-cols-1 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 @include('global.partials.floating-label-input', [
                     'id' => 'name',
                     'name' => 'name',
