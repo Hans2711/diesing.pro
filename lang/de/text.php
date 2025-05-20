@@ -177,7 +177,7 @@ return [
     "cv-lang-french" => "Französisch",
     "cv-lang-french-desc" => "Grundkentnisse",
     "cv-section-contact" => "Kontakt",
-    "cv-contact-link" => "Hier zum Kontaktformular",
+    "cv-contact-link" => "Kontaktformular",
     "cv-contact-phone-label" => "Telefon",
     "cv-contact-email-label" => "E-Mail",
 

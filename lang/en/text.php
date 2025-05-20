@@ -174,7 +174,7 @@ return [
     "cv-lang-french" => "French",
     "cv-lang-french-desc" => "Basic knowledge",
     "cv-section-contact" => "Contact",
-    "cv-contact-link" => "Go to the contact form",
+    "cv-contact-link" => "Contact form",
     "cv-contact-phone-label" => "Phone",
     "cv-contact-email-label" => "Email",
     "data-protection-page" => '
