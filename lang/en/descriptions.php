@@ -8,7 +8,7 @@ return [
     "tester" => "Private Website A-B Tester to compare changes",
     "notes" => "Write and manage private notes.",
     "redirects" => "Create custom redirects.",
-    "rt-share" => "Real-Time Share allows you to send text and files to any device that also has this page open.<br /> It uses WebSockets to transmit data in real time.<br /> An intermediary service routes the data, and no data is stored.",
+    "rt-share" => "Real-Time Share lets you beam text and files straight to any other device that has this page open. A brief WebSocket handshake is used only to help the devices find one another; after that, everything moves over a secure WebRTC peer-to-peer connection. Your data travels directly between browsers, never passing through—or being stored on—any server. Allowing you to send large files without any server-side storage.",
     "data-protection" => "Information about how we handle your data.",
     "imprint" => "Legal information about this site.",
     "cv" => "Overview of qualifications and professional experience.",
