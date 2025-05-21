@@ -3,6 +3,7 @@
 @section('content')
 <h1>{{ __('text.rt-share') }}</h1>
 <p>{!! __('descriptions.rt-share') !!}</p>
+<a class="btn btn-primary w-fit mb-3" href="https://github.com/Hans2711/rt-share" target="_blank" >Github</a>
 <div class="w-full h-[75vh] md:h-[90vh]">
     <iframe
         src="https://rt-share.diesing.pro"

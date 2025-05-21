@@ -8,7 +8,7 @@ return [
     "tester" => "Privater Website A-B-Tester zum Vergleichen von Änderungen",
     "notes" => "Private Notizen verwalten.",
     "redirects" => "Eigene Weiterleitungen erstellen.",
-    "rt-share" => "Real-Time Share ermöglicht es Ihnen, Text und Dateien an jedes Gerät zu senden, das diese Seite ebenfalls geöffnet hat.<br /> Es verwendet WebSockets, um Daten in Echtzeit zu übertragen.<br /> Ein Vermittlungsdienst leitet die Daten weiter, und es werden keine Daten gespeichert.",
+    "rt-share" => "Echtzeit-Teilen ermöglicht es dir, Text und Dateien direkt an jedes andere Gerät zu senden, das ebenfalls diese Seite geöffnet hat. Eine kurze WebSocket-Verbindung dient lediglich dazu, die Geräte miteinander bekannt zu machen; anschließend erfolgt die Übertragung über eine sichere WebRTC-Peer-to-Peer-Verbindung. Deine Daten werden direkt zwischen den Browsern übertragen – sie passieren keinen Server und werden auch nicht gespeichert. So kannst du auch große Dateien versenden, ganz ohne serverseitige Speicherung.",
     "data-protection" => "Informationen darüber, wie wir Ihre Daten behandeln.",
     "imprint" => "Gesetzliche Angaben zu dieser Seite.",
     "cv" => "Übersicht über Qualifikationen und Berufserfahrung.",
