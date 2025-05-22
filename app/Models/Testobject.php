@@ -9,6 +9,7 @@ use Illuminate\Support\Carbon;
 
 class Testobject extends Model
 {
+    use HasFactory;
     protected $table = "testobject";
     protected $primaryKey = "id";
 

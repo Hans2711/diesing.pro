@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Note extends Model
 {
+    use HasFactory;
     protected $table = "note";
     protected $primaryKey = "id";
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class FileReference extends Model
 {
+    use HasFactory;
     protected $table = "file_reference";
     protected $primaryKey = "id";
 
