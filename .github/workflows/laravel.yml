@@ -3,8 +3,6 @@ name: Laravel
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 jobs:
   laravel-tests:
@@ -69,3 +67,19 @@ jobs:
         DB_DATABASE: database/database.sqlite
       run: |
         php artisan test
+    - name: Deploy to Production
+      if: success()
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: diesing.pro
+        username: diesi
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd /var/www/vhosts/diesing.pro
+          git pull origin master
+          composer install --no-interaction --prefer-dist --optimize-autoloader
+          php artisan migrate --force
+          php npm run build
+          php artisan config:cache
+          php artisan route:cache
+          php artisan view:cache
