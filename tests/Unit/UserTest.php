@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class UserTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function testLoginMethod()
     {
         $user = User::factory()->create(['username' => 'regular']);
