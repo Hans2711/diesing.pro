@@ -5,6 +5,9 @@ import obfuscator from "vite-plugin-javascript-obfuscator";
 import viteCompression from "vite-plugin-compression";
 
 export default defineConfig({
+    build: {
+        manifest: true,
+    },
     plugins: [
         laravel({
             input: [
