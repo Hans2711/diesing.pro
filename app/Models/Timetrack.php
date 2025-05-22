@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Timetrack extends Model
 {
+    use HasFactory;
     protected $table = "timetrack";
     protected $primaryKey = "id";
 

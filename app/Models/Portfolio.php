@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Portfolio extends Model
 {
+    use HasFactory;
     protected $table = "portfolio";
     protected $primaryKey = "id";
 
