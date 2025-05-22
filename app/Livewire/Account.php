@@ -64,6 +64,9 @@ class Account extends Component
 
     public function deleteUser($id)
     {
+        if (!Auth::user()->isAdmin()) {
+            abort(403);
+        }
         $user = User::find($id);
         if ($user) {
             $user->delete();
@@ -74,6 +77,9 @@ class Account extends Component
 
     public function loginUser($id)
     {
+        if (!Auth::user()->isAdmin()) {
+            abort(403);
+        }
         $user = User::find($id);
         if ($user) {
             Auth::login($user);
