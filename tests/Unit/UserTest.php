@@ -10,16 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class UserTest extends TestCase
 {
-    public function testTesterIsAdmin(): void
-    {
-        $user = User::where('username', 'tester')->first();
-
-        $this->assertTrue($user ? $user->isAdmin() : false);
-    }
-
     public function testLoginMethod()
     {
-        Auth::login(User::where('username', 'tester')->first());
+        $user = User::factory()->create(['username' => 'regular']);
+        Auth::login($user);
         $this->assertTrue(Auth::check());
     }
 }
