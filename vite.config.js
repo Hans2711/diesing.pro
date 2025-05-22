@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
 import laravel from "laravel-vite-plugin";
 import { ViteMinifyPlugin } from "vite-plugin-minify";
+import obfuscator from "vite-plugin-javascript-obfuscator";
+import viteCompression from "vite-plugin-compression";
 
 export default defineConfig({
     plugins: [
@@ -17,6 +19,9 @@ export default defineConfig({
             refresh: true,
         }),
         ViteMinifyPlugin({ minify: 'terser' }),
+        obfuscator(),
+        viteCompression(),
+        viteCompression({ algorithm: 'brotliCompress', ext: '.br' }),
     ],
     server: {
         hmr: {
