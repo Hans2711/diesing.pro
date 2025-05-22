@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RedirectHit extends Model
 {
+    use HasFactory;
     protected $table = "redirect_hit";
     protected $primaryKey = "id";
 
