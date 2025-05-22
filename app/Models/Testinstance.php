@@ -11,6 +11,7 @@ use Illuminate\Support\Carbon;
 
 class Testinstance extends Model
 {
+    use HasFactory;
     protected $table = "testinstance";
     protected $primaryKey = "id";
 

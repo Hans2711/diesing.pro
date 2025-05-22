@@ -9,6 +9,7 @@ use Illuminate\Support\Carbon;
 
 class Diffstore extends Model
 {
+    use HasFactory;
     protected $table = "diffstore";
     protected $primaryKey = "id";
 

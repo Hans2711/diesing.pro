@@ -9,6 +9,7 @@ use Illuminate\Support\Carbon;
 
 class Testrun extends Model
 {
+    use HasFactory;
     protected $table = "testrun";
     protected $primaryKey = "id";
 
