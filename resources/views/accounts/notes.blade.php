@@ -1,4 +1,5 @@
 @extends('layouts.account', ['title' => __('text.notes'), 'active' => 'account', 'activeTool' => 'notes'])
+@disableMinifier
 
 @section('tool-content')
 @vite(['resources/js/utils/clipboard.js'])
