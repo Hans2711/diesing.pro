@@ -46,6 +46,10 @@ class User extends Authenticatable
 
     public function getPermission($key)
     {
+        if ($this->isAdmin()) {
+            return true;
+        }
+
         $permissions = $this->getPermissions();
         return $permissions[$key] ?? null;
     }
