@@ -30,6 +30,7 @@
         <env name="SESSION_DRIVER" value="array"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
         <env name="DB_CONNECTION" value="sqlite"/>
-        <env name="DB_DATABASE" value="database/database.sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+        <env name="APP_KEY" value="base64:JaiwwpFY0XNCvK85TV9/RFPdOm4hfAJDYIW4xW01myA="/>
     </php>
 </phpunit>
