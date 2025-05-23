@@ -11,14 +11,18 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
 
 @endphp
 
+
+
+
 <aside
   :class="{ 'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen }"
-  class="inset-0 z-40 md:sticky md:top-0 md:translate-x-0 md:w-64
+  class="z-40 md:sticky md:top-0 md:translate-x-0 md:w-64
+    w-full
          md:h-screen md:block
          transform shadow-lg
          transition-transform duration-300 ease-in-out
          bg-tertiary dark:bg-gray-900 text-black dark:text-white
-         fixed "
+         fixed inset-y-0 left-0"
   @click.away="sidebarOpen = false"
 >
     <!-- Logo + Language -->
@@ -215,4 +219,5 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
         </nav>
     </div>
 </aside>
+
 
