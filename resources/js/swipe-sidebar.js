@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchEndX = 0;
     let touchEndY = 0;
     const maxVerticalSwipe = 50; // Maximum vertical distance to be considered a swipe
+    const minHorizontalSwipe = 50; // Minimum horizontal distance to be considered a swipe
 
     function isMobile() {
         return window.innerWidth < 768; // Tailwind md breakpoint
@@ -22,7 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const diffX = touchEndX - touchStartX;
         const diffY = touchEndY - touchStartY;
 
-        if (Math.abs(diffY) <= maxVerticalSwipe && Math.abs(diffX) > Math.abs(diffY)) {
+        if (
+            Math.abs(diffY) <= maxVerticalSwipe &&
+            Math.abs(diffX) >= minHorizontalSwipe &&
+            Math.abs(diffX) > Math.abs(diffY)
+        ) {
             if (diffX > 0) {
                 window.dispatchEvent(new CustomEvent('swiperight'));
             } else {
