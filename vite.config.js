@@ -15,6 +15,7 @@ export default defineConfig({
                 "resources/js/utils/clipboard.js",
                 "resources/js/utils/zenquotes.js",
                 "resources/js/utils/editor.js",
+                "resources/js/swipe-sidebar.js",
             ],
             refresh: true,
         }),
