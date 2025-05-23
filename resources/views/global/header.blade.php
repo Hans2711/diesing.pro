@@ -22,7 +22,7 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
   @click.away="sidebarOpen = false"
 >
     <!-- Logo + Language -->
-    <div class="flex flex-col h-[100dvh] md:h-screen">
+    <div class="flex flex-col sticky top-0 h-[100dvh] md:h-screen">
         <div class="flex items-center gap-5 mb-6 justify-between md:justify-around p-2 px-4 md:px-0 mt-4">
             <a wire:navigate.hover href="/{{ App::getLocale() }}">
                 <img src="{{ Vite::asset('resources/logo/DLogo.png') }}" class="h-10" alt="Logo" />
