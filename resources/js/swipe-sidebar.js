@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchStartY = 0;
     let touchEndX = 0;
     let touchEndY = 0;
-    const maxVerticalSwipe = 100; // Maximum vertical distance to be considered a swipe
+    const maxVerticalSwipe = 50; // Maximum vertical distance to be considered a swipe
 
     function isMobile() {
         return window.innerWidth < 768; // Tailwind md breakpoint
