@@ -20,9 +20,9 @@ export default defineConfig({
             refresh: true,
         }),
         ViteMinifyPlugin({ minify: 'terser' }),
-        obfuscator(),
-        viteCompression(),
-        viteCompression({ algorithm: 'brotliCompress', ext: '.br' }),
+        // obfuscator(),
+        // viteCompression(),
+        // viteCompression({ algorithm: 'brotliCompress', ext: '.br' }),
     ],
     server: {
         hmr: {
