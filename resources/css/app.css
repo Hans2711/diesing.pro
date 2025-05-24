@@ -17,7 +17,6 @@ tertiary-light    #FFFFFF
 
 
 @layer components {
-
     .primary-gradient {
         @apply bg-gradient-to-br from-primary-light to-primary text-black ;
         @apply dark:from-primary-dark dark:to-primary dark:text-white;
@@ -182,7 +181,7 @@ tertiary-light    #FFFFFF
     @font-face{font-family:"Fira Code";font-style:normal;font-weight:600;src:url("../font/static/FiraCode-SemiBold.ttf") format("truetype");}
     @font-face{font-family:"Fira Code";font-style:normal;font-weight:700;src:url("../font/static/FiraCode-Bold.ttf") format("truetype");}
 
-    html {@apply h-full overflow-x-hidden; font-family:"Fira Code";}
+    html { font-family:"Fira Code";}
     body {@apply overflow-x-hidden;}
     .chevron.rotate {@apply rotate-180;}
 
