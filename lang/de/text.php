@@ -1,6 +1,6 @@
 <?php
 return [
-    "welcome" => "Wilkommen bei diesing.pro",
+    "welcome" => "Willkommen bei diesing.pro",
     "contact" => "Kontakt",
     "contact-description" =>
         "Wenn Sie Fragen haben oder Unterstützung benötigen, können Sie uns gerne kontaktieren.",
@@ -113,7 +113,7 @@ return [
     "private" => "Privat",
     "user_deleted" => "Benutzer gelöscht",
     "cv" => "Lebenslauf",
-    "cv-description" => "Die Lebensläufe der Diesing's'",
+    "cv-description" => "Die Lebensläufe der Diesings",
     "print" => "Drucken (PDF)",
     "rt-share" => "Echtzeit-Teilen",
     "rt-share-description" => "Real-Time Share ermöglicht es Ihnen, Text und Dateien an jedes Gerät zu senden, das diese Seite ebenfalls geöffnet hat.<br /> Es verwendet WebSockets, um Daten in Echtzeit zu übertragen.<br /> Ein Vermittlungsdienst leitet die Daten weiter, und es werden keine Daten gespeichert.",

@@ -1,15 +1,15 @@
 <?php
 return [
-    "home" => "Wilkommen bei diesing.pro",
+    "home" => "Willkommen bei diesing.pro",
     "portfolio" => "Portfolio",
     "contact" => "Kontakt",
-    "random-teams" => "Zufälligsteams Generator",
+    "random-teams" => "Zufällige Teams Generator",
     "account" => "Benutzerkonto",
     "tester" => "Tester",
     "notes" => "Notizen",
     "redirects" => "Weiterleitungen",
     "data-protection" => "Datenschutz",
     "imprint" => "Impressum",
-    "cv" => "Lebenslauf",
+    "cv" => "Lebenslauf HP Diesing",
     "rt-share" => "Echtzeit-Teilen",
 ];

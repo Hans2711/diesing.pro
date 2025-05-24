@@ -1,4 +1,4 @@
-@extends('layouts.account', ['title' => __('text.portfolio'), 'active' => 'account', 'activeTool' => 'portfolio'])
+@extends('layouts.account', ['title' => __('titles.portfolio'), 'active' => 'account', 'activeTool' => 'portfolio'])
 
 @section('tool-content')
 @vite(['resources/js/utils/editor.js'])
