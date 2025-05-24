@@ -51,8 +51,8 @@
             <main class="flex-1 p-4 pt-16 md:pt-4">
                 @yield('content')
             </main>
-            <button id="scroll-top-button" class="btn btn-secondary fixed bottom-4 right-4 md:bottom-8 md:right-8 rounded-full hidden" aria-label="Scroll to top">
-                <img class="w-6 h-6 invert dark:invert-0" src="{{ Vite::asset('resources/icons/chevron-up.svg') }}" alt="Scroll to top" />
+            <button id="scroll-top-button" class="btn btn-secondary fixed bottom-4 right-4 md:bottom-8 md:right-8 rounded-full scroll-hidden transition-all duration-300 transform" aria-label="Scroll to top">
+                <img class="w-6 h-6" src="{{ Vite::asset('resources/icons/chevron-up.svg') }}" alt="Scroll to top" />
             </button>
         </div>
         </div>

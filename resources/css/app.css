@@ -197,4 +197,13 @@ tertiary-light    #FFFFFF
     .x:nth-of-type(1) {@apply transition-all duration-100 ease-in-out rotate-45 origin-top-left w-[28px];}
     .x:nth-of-type(2) {@apply transition-all duration-100 ease-in-out origin-center w-0;}
     .x:nth-of-type(3) {@apply transition-all duration-100 ease-in-out -rotate-45 origin-bottom-left w-[28px];}
+
+    /* ───────── scroll-to-top button ───────── */
+    #scroll-top-button {
+        @apply transition-all duration-300 transform opacity-100 pointer-events-auto;
+    }
+
+    #scroll-top-button.scroll-hidden {
+        @apply translate-x-20 opacity-0 pointer-events-none;
+    }
 }

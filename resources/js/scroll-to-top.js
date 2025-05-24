@@ -4,9 +4,9 @@ function initScrollToTop() {
 
     function toggleVisibility() {
         if (window.scrollY > window.innerHeight) {
-            button.classList.remove('hidden');
+            button.classList.remove('scroll-hidden');
         } else {
-            button.classList.add('hidden');
+            button.classList.add('scroll-hidden');
         }
     }
 
