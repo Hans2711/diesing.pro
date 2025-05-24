@@ -10,7 +10,7 @@ return [
     "redirects" => "Redirects",
     "data-protection" => "Data Protection",
     "imprint" => "Imprint",
-    "cv" => "Cv",
+    "cv" => "CV HP Diesing",
     "rt-share" => "Real-Time Share",
 ];
 

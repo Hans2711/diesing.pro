@@ -6,3 +6,4 @@
     <meta name="description" content="{{ $description }}" />
 @endif
 <meta name="robots" content="index, follow"/>
+<link rel="canonical" href="{{ url()->current() }}" />
