@@ -19,18 +19,16 @@
             'resources/js/utils/zenquotes.js',
             'resources/js/gradient-scroll.js',
             'resources/js/swipe-sidebar.js',
+            'resources/css/app.css'
         ])
 
-        <style>
-            {!! Vite::content('resources/css/app.css') !!}
-        </style>
     </head>
     <body class="bg-tertiary dark:bg-secondary-dark text-black dark:text-white">
         <div
             x-data="{ sidebarOpen: false }"
             @swiperight.window="sidebarOpen = true"
             @swipeleft.window="sidebarOpen = false"
-            class="flex min-h-screen"
+            class="flex items-start min-h-screen"
             id="app"
         >
             <button

@@ -13,19 +13,25 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
 
 
 
-
 <aside
-  :class="{ 'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen }"
-  class="z-40 fixed inset-y-0 left-0
-    md:sticky md:top-0 md:translate-x-0 md:w-64 md:h-screen md:block
-    w-full
-         transform shadow-lg
-         transition-transform duration-300 ease-in-out
-         bg-tertiary dark:bg-gray-900 text-black dark:text-white"
-  @click.away="sidebarOpen = false"
+    :class="{
+    'translate-x-0': sidebarOpen,
+    '-translate-x-full': !sidebarOpen
+    }"
+    class="self-start                 <!-- 🆕 keeps only the sidebar from stretching -->
+    fixed md:sticky
+    top-0 left-0
+    w-full md:w-64
+    h-screen
+    md:transform-none
+    transition-transform duration-300 ease-in-out
+    z-40 md:z-auto
+    bg-tertiary dark:bg-gray-900 text-black dark:text-white
+    shadow-lg"
+    @click.away="sidebarOpen = false"
 >
-    <!-- Logo + Language -->
-    <div class="flex flex-col h-[100dvh] md:h-screen">
+
+    <div class="flex flex-col min-h-screen">
         <div class="flex items-center gap-5 mb-6 justify-between md:justify-around p-2 px-4 md:px-0 mt-4">
             <a wire:navigate.hover href="/{{ App::getLocale() }}">
                 <img src="{{ Vite::asset('resources/logo/DLogo.png') }}" class="h-10" alt="Logo" />
