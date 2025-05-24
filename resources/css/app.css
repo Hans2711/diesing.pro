@@ -22,16 +22,17 @@ tertiary-light    #FFFFFF
         @apply dark:from-primary-dark dark:to-primary dark:text-white;
         @apply hover:scale-105 transform transition duration-300;
         @apply opacity-0;
-        @apply opacity-0 translate-x-80;
+        @apply translate-x-40;
+        @apply md:translate-x-80;
         @apply w-full md:w-auto
     }
 
     .left {
-        @apply md:-translate-x-80; /* ~translate-x-10 only on md+ */
+        @apply md:-translate-x-80;
     }
 
     .mobile-left {
-        @apply -translate-x-80; /* ~translate-x-10 only on md+ */
+        @apply -translate-x-80;
     }
 
     .fade-in{
