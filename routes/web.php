@@ -99,16 +99,6 @@ foreach (['de', 'en'] as $locale) {
                 CvController::class,
                 "index",
             ])->name("cv");
-
-            Route::get("/" . route_trans("cv", $locale) . '/{id}', [
-                CvController::class,
-                "single",
-            ])->name("cv");
-
-            Route::get("/" . route_trans("cv", $locale) . '/{id}/print', [
-                CvController::class,
-                "print",
-            ])->name("cvPrint");
         });
 }
 
