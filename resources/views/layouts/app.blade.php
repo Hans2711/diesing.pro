@@ -21,7 +21,7 @@
             'resources/js/swipe-sidebar.js',
             'resources/css/app.css'
         ])
-
+        @livewireStyles
     </head>
     <body class="bg-tertiary dark:bg-secondary-dark text-black dark:text-white">
         <div
@@ -59,5 +59,6 @@
                 @include('global.footer')
             </div>
         </div>
+        @livewireScripts
     </body>
 </html>
