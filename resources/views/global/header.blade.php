@@ -18,7 +18,7 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
     'translate-x-0': sidebarOpen,
     '-translate-x-full': !sidebarOpen
     }"
-    class="self-start                 <!-- 🆕 keeps only the sidebar from stretching -->
+    class="self-start
     fixed md:sticky
     top-0 left-0
     w-full md:w-64
@@ -27,10 +27,10 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
     transition-transform duration-300 ease-in-out
     z-40 md:z-auto
     bg-tertiary dark:bg-gray-900 text-black dark:text-white
-    shadow-lg"
+    shadow-lg
+    overflow-y-auto"
     @click.away="sidebarOpen = false"
 >
-
     <div class="flex flex-col min-h-screen">
         <div class="flex items-center gap-5 mb-6 justify-between md:justify-around p-2 px-4 md:px-0 mt-4">
             <a wire:navigate.hover href="/{{ App::getLocale() }}">
