@@ -1,6 +1,7 @@
 @extends('layouts.app', ['title' => __('titles.cv'), 'description' => __('descriptions.cv'), 'active' => 'cv'])
 
 @section('content')
+<div class="overflow-x-hidden">
 <h1 class="md:text-center md:origin-bottom">{{ __('text.cv-headline') }}</h1>
 <div class="md:text-center">
     <p class="mb-5 md:w-2/3 md:mx-auto md:text-center">
@@ -343,5 +344,6 @@
     </div>
 </div>
 <div class="mb-5"> </div>
+</div>
 @endsection
 
