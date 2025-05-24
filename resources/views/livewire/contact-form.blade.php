@@ -2,10 +2,10 @@
     <form wire:submit.prevent="submit">
         <div class="xl:w-1/2 w-full">
             <div class="sm:columns-1 columns-1 mt-2">
-                <div class="form-group mt-4 sm:mt-0">
+                <div class="form-group mt-4 w-full sm:mt-0">
                     <div>
                         <p class="block mb-2 mt-2">{{ __('text.recepient') }} *</p>
-                        <select name="recepient" class="rounded mb-3 dark:bg-secondary-light" wire:model="recepient">
+                        <select name="recepient" class="rounded mb-3 dark:bg-secondary-light w-full md:w-fit" wire:model="recepient">
                             <option value="">{{ __('text.select-recepient') }}</option>
                             @foreach ($users as $user)
                                 @if ($user->portfolios->count() > 0)

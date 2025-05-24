@@ -87,8 +87,8 @@
         <div class="p-2 border mb-3 rounded border-primary-dark dark:border-primary-light">
             @foreach ($users as $user)
                 <div class="grid grid-cols-3 mb-3">
-                    <p>{{ $user->name }}</p>
-                    <p>{{ $user->email }}</p>
+                    <p class="break-words">{{ $user->name }}</p>
+                    <p class="break-words">{{ $user->email }}</p>
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <button class="btn m-0 md:mx-2 mb-2 md:mb-0 btn-delete" id="{{ $user->id }}" wire:click="deleteUser($event.target.id)" wire:confirm="Are you sure?">{{ __('text.delete') }}</button>
                         <button class="btn m-0 md:mx-2" id="{{ $user->id }}" wire:click="loginUser($event.target.id)">{{ __('text.login') }}</button>
