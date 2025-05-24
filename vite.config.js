@@ -16,6 +16,7 @@ export default defineConfig({
                 "resources/js/utils/zenquotes.js",
                 "resources/js/utils/editor.js",
                 "resources/js/swipe-sidebar.js",
+                "resources/js/scroll-to-top.js",
             ],
             refresh: true,
         }),
