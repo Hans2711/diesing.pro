@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header-flyout {@apply absolute mt-2 min-w-max bg-white shadow-lg rounded-md opacity-0 invisible transition-all duration-200 group-hover:opacity-100 group-hover:visible left-1/2 transform -translate-x-1/2 sm:left-0 sm:-translate-x-0 sm:right-auto ;}
+.header-flyout a {@apply px-5;}
+
+.btn {@apply p-3 bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;}
+.ibtn.active {@apply bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 hover:to-gray-500 hover:via-purple-700 hover:from-gray-500 text-white border-none;}
+.ibtn {@apply p-3 bg-white bg-none border border-black text-black rounded hover:cursor-pointer leading-5 flex justify-center items-center hover:bg-gradient-to-br hover:from-rose-700 hover:via-purple-700 hover:to-gray-500 hover:text-white;}
+
+.btn-delete {@apply p-3 bg-gradient-to-br from-red-800 via-red-600 to-red-400 hover:from-red-700 hover:via-red-500 hover:to-red-300 text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;}
+.btn-edit {@apply p-3 bg-gradient-to-br from-yellow-700 via-yellow-600 to-yellow-500 hover:from-yellow-800 hover:via-yellow-700 hover:to-yellow-600 text-black rounded hover:cursor-pointer leading-5 flex justify-center items-center;}
+.btn-details {@apply p-3 bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400 hover:from-blue-700 hover:via-blue-600 hover:to-blue-500 text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;}
+.btn-fetch {@apply p-3 bg-gradient-to-br from-green-600 via-green-500 to-green-400 hover:from-green-700 hover:via-green-600 hover:to-green-500 text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;}
+.btn-diff {@apply p-3 bg-gradient-to-br from-purple-700 via-purple-600 to-purple-500 hover:from-purple-800 hover:via-purple-700 hover:to-purple-600 text-white rounded hover:cursor-pointer leading-5 flex justify-center items-center;}
+
+.alert {@apply p-3 bg-red-100 text-red-800 border border-red-200 rounded;}
+.alert-success {@apply bg-green-100 text-green-800 border border-green-200;}
+.alert-danger {@apply bg-red-100 text-red-800 border border-red-200;}
+
+.filter-gray-icon {@apply filter; filter: invert(69%) sepia(0%) saturate(6780%) hue-rotate(17deg) brightness(85%) contrast(99%);}
+.filter-white-icon {@apply filter; filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);}
+
+h1 {@apply mt-[0.75em] mb-[0.75em] text-[2em] font-bold hover:scale-105 origin-left transform transition duration-300;}
+h2 {@apply mt-[0.5em] mb-[0.5em] text-[1.5em] font-bold hover:scale-105 origin-left transform transition duration-300;}
+p {@apply mt-[0.5em] mb-[0.5em] text-[1em] leading-[1.5];}
+
+.btn {@apply hover-scale;}
+button {@apply hover-scale;}
+
+.hover-scale {@apply hover:scale-105 transform transition duration-300;}
+
+a:not(.btn-language) {@apply hover-scale;}
+a.btn-back {@apply origin-left;}
+
+p a, h2 a {@apply underline;}
+
+.home-card-left {@apply hover:scale-105 transform transition duration-300 hover:shadow-xl md:origin-right;}
+.home-card-right {@apply hover:scale-105 transform transition duration-300 hover:shadow-xl md:origin-left;}
+
+.tools-sidebar-active {@apply bg-gray-100;}
+
+.header-button {@apply p-2 px-3 rounded text-[#1C160C] no-underline duration-300 transition transform;}
+.header-button.active {@apply header-button-active;}
+.header-button-active {@apply bg-gradient-to-br from-rose-700 via-purple-700 to-gray-500 text-white border;}
+.header-button:not(.active) {@apply border border-[#1C160C];}
+.header-button:not(.active):hover {@apply bg-gray-100 header-button-active;}
+
+@font-face {font-family:"Fira Code"; font-style:normal; font-weight:400; src:url("../font/static/FiraCode-Regular.ttf") format("truetype");}
+@font-face {font-family:"Fira Code"; font-style:normal; font-weight:500; src:url("../font/static/FiraCode-Medium.ttf") format("truetype");}
+@font-face {font-family:"Fira Code"; font-style:normal; font-weight:600; src:url("../font/static/FiraCode-SemiBold.ttf") format("truetype");}
+@font-face {font-family:"Fira Code"; font-style:normal; font-weight:700; src:url("../font/static/FiraCode-Bold.ttf") format("truetype");}
+
+html {@apply h-full overflow-x-hidden; font-family:"Fira Code";}
+.chevron.rotate {@apply rotate-180;}
+
+#language-dropdown.hidden {@apply opacity-0 pointer-events-none;}
+#language-dropdown {@apply opacity-100;}
+
+.nav-toggle {@apply flex flex-col justify-between h-[22px] w-[22px];}
+.nav-toggle .bar {@apply h-[3px] w-full bg-black transition-all duration-100 ease-in-out;}
+.nav-toggle:hover {@apply cursor-pointer;}
+
+.x:nth-of-type(1) {@apply transition-all duration-100 ease-in-out rotate-45 origin-top-left w-[28px];}
+.x:nth-of-type(2) {@apply transition-all duration-100 ease-in-out origin-center w-0;}
+.x:nth-of-type(3) {@apply transition-all duration-100 ease-in-out -rotate-45 origin-bottom-left w-[28px];}
