@@ -33,8 +33,9 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
 >
     <div class="flex flex-col min-h-screen">
         <div class="flex items-center gap-5 mb-6 justify-between md:justify-around p-2 px-4 md:px-0 mt-4">
-            <a wire:navigate.hover href="/{{ App::getLocale() }}">
-                <img src="{{ Vite::asset('resources/logo/DLogo.png') }}" class="h-10" alt="Logo" />
+            <a wire:navigate.hover href="/{{ App::getLocale() }}" class="pl-2">
+
+                @include('global.logo', [])
             </a>
             <div class="relative" x-data="{ open: false }" @click.away="open = false">
                 <button @click.stop="open = !open" class="flex items-center gap-1 text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-100 ">
