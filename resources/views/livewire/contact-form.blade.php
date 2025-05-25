@@ -87,7 +87,7 @@
                 <span class="text-red-500 text-sm block">{{ $message }}</span>
             @enderror
             <button type="submit" id="contact-submit" tabindex="6" class="mt-2 p-4 btn flex items-center gap-2">
-                <img class="w-6 h-6 invert dark:invert-0" src="{{ Vite::asset('resources/icons/envelope.svg') }}" alt="Send" />
+                <img class="w-6 h-6 invert" src="{{ Vite::asset('resources/icons/envelope.svg') }}" alt="Send" />
                 {{ __('text.submit') }}
             </button>
         </div>
