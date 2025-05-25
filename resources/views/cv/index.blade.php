@@ -11,7 +11,7 @@
 
 <div class="md:text-center">
     <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit md:mx-auto gap-4">
-            <img class="w-6 h-6 invert dark:invert-0" src="{{ Vite::asset('resources/icons/envelope.svg') }}" alt="Send" />
+            <img class="w-6 h-6 invert" src="{{ Vite::asset('resources/icons/envelope.svg') }}" alt="Send" />
             {{ __('text.cv-contact-button') }}
         </a>
 </div>
