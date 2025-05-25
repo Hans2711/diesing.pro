@@ -45,9 +45,9 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
                         class="h-4 w-4 transition-transform duration-200 dark:invert"
                         :class="{ 'rotate-180': open }" />
                 </button>
-                <ul x-show="open" x-transition class="absolute -left-5 mt-2 w-40 bg-white dark:bg-secondary-dark shadow-lg rounded z-50">
+                <ul x-show="open" x-transition class="absolute -right-5 md:right-0 mt-2 w-40 bg-white dark:bg-secondary-dark shadow-lg rounded z-50">
                     <li>
-                        <a wire:navigate.hover href="{{ $otherUrl }}" class="flex items-center gap-2 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-white rounded">
+                        <a wire:navigate.hover href="{{ $otherUrl }}" class="flex items-center justify-between gap-2 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-white rounded">
                             <img src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $otherlang) . '.svg') }}" class="h-5 w-5" />
                             {{ __('language.name-' . $otherlang) }}
                             <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 text-gray-400 dark:invert" />
