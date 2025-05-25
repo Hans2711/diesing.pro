@@ -1,4 +1,4 @@
-<svg class="h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 -1 817 459">
+<svg id="logo-svg" class="h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 -1 817 459">
     <defs>
         <mask id="letters-mask" maskUnits="userSpaceOnUse">
             <rect x="0" y="0" width="1024" height="1024" fill="white"/>
@@ -65,7 +65,7 @@
 }
 
 .animate-outline {
-    animation: drawOutline 1.5s linear forwards, fillPath 0.4s linear forwards 1.5s;
+    animation: drawOutline 0.8s linear forwards, fillPath 0.4s linear forwards 0.8s;
 }
 
 @keyframes drawOutline {

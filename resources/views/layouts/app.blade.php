@@ -34,6 +34,7 @@
             id="app"
         >
             <button
+                id="burger-menu-button"
                 @click.stop="sidebarOpen = !sidebarOpen"
                 class="md:hidden p-4 z-50 fixed top-0 left-0 dark:invert"
                 aria-label="Toggle menu"
