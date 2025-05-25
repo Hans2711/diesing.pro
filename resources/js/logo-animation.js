@@ -45,9 +45,3 @@ function initLogoAnimation() {
     observeLogo();
 }
 
-document.addEventListener('DOMContentLoaded', initLogoAnimation);
-document.addEventListener('livewire:navigated', initLogoAnimation);
-if (window.Livewire) {
-    Livewire.hook('morphed', initLogoAnimation);
-}
-window.addEventListener('resize', initLogoAnimation);
