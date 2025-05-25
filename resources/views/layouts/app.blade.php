@@ -20,6 +20,7 @@
             'resources/js/gradient-scroll.js',
             'resources/js/swipe-sidebar.js',
             'resources/js/scroll-to-top.js',
+            'resources/js/logo-animation.js',
             'resources/css/app.css'
         ])
         @livewireStyles

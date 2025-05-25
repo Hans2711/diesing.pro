@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ) {
             if (diffX > 0) {
                 window.dispatchEvent(new CustomEvent('swiperight'));
+                window.triggerLogoAnimation();
             } else {
                 window.dispatchEvent(new CustomEvent('swipeleft'));
             }
