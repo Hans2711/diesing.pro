@@ -45,3 +45,4 @@ function initLogoAnimation() {
     observeLogo();
 }
 
+document.addEventListener('DOMContentLoaded', initLogoAnimation);
