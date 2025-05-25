@@ -17,6 +17,7 @@ export default defineConfig({
                 "resources/js/utils/editor.js",
                 "resources/js/swipe-sidebar.js",
                 "resources/js/scroll-to-top.js",
+                "resources/js/logo-animation.js",
             ],
             refresh: true,
         }),
