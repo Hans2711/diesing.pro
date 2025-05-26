@@ -72,6 +72,10 @@ foreach (['de', 'en'] as $locale) {
                     TesterController::class,
                     "testobject",
                 ])->name("testerObject");
+                Route::get("/tester/testobject/{id}/diff", [
+                    TesterController::class,
+                    "testerObjectDiff",
+                ])->name("testerObject");
                 Route::get("/tester/testrun/{id}", [
                     TesterController::class,
                     "testrun",
