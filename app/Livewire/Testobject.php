@@ -125,13 +125,19 @@ class Testobject extends Component
 
         $links = CrawlerUtility::linksFromSitemaps($this->testobject->sitemaps);
         foreach ($links as $link) {
-            if (!Testrun::where('testobject_id', $this->testobject->id)->where('url', $link)->exists()) {
+            $testrun = Testrun::where('testobject_id', $this->testobject->id)
+                ->where('url', $link)
+                ->first();
+
+            if (!$testrun) {
                 $testrun = new Testrun();
                 $testrun->testobject_id = $this->testobject->id;
                 $testrun->url = $link;
                 $testrun->name = $link;
                 $testrun->save();
+            }
 
+            if ($testrun->testinstances()->count() == 0) {
                 $instance = new Testinstance();
                 $instance->testrun_id = $testrun->id;
                 $instance->save();
