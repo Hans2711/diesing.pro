@@ -32,6 +32,11 @@
                 <img wire:loading wire:target="fetchAll" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
             </button>
         </div>
+        @if ($fetchStatus)
+            <div wire:poll.1000ms="updateFetchStatus">
+                {{ $fetchStatus['completed'] }} / {{ $fetchStatus['total'] }} {{ __('text.processed') }}
+            </div>
+        @endif
     </div>
     <button class="btn mb-3" wire:click="bulkDiff">
         {{ __('text.bulk_diff') }}
