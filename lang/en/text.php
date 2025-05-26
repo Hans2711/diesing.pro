@@ -52,6 +52,8 @@ return [
     "fetch_all" => "Fetch All",
     "bulk_diff" => "Bulk Diff",
     "crawl_completed" => "Crawl completed. Links found:",
+    "crawl_started" => "Crawl queued",
+    "processed" => "processed",
     "fetch_completed" => "Fetching completed",
     "random-teams" => "Random Teams",
     "players" => "Players",

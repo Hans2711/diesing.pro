@@ -29,6 +29,12 @@
         {{ __('text.bulk_diff') }}
     </button>
 
+    <div wire:poll.1000ms="updateStatus">
+        @if ($crawlStatus)
+            <p>{{ $crawlStatus['completed'] }} / {{ $crawlStatus['total'] }} {{ __('text.processed') }}</p>
+        @endif
+    </div>
+
     {!! $bulkDiffContent ?? '' !!}
 
     @foreach ($testobject->testruns as $testrun)

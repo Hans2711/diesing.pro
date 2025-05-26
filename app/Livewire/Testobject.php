@@ -6,6 +6,8 @@ use Livewire\Component;
 use App\Models\Testrun;
 use App\Models\Testinstance;
 use App\Utilities\CrawlerUtility;
+use App\Jobs\CrawlTestRunJob;
+use Illuminate\Support\Facades\Storage;
 
 class Testobject extends Component
 {
@@ -13,6 +15,7 @@ class Testobject extends Component
     public $deleteAfter;
     public $deleteAfterOptions;
     public $bulkDiffContent;
+    public $crawlStatus;
 
     public function mount()
     {
@@ -22,6 +25,8 @@ class Testobject extends Component
             "2629800" => __("text.1-month"),
             "0" => __("text.never"),
         ];
+
+        $this->updateStatus();
     }
 
     public function updateDeleteAfter($deleteAfter)
@@ -37,6 +42,16 @@ class Testobject extends Component
         $testrun->testobject_id = $this->testobject->id;
         $testrun->save();
         session()->flash("message", "Testrun created successfully.");
+    }
+
+    public function updateStatus()
+    {
+        $path = 'crawler_status.json';
+        if (Storage::exists($path)) {
+            $this->crawlStatus = json_decode(Storage::get($path), true);
+        } else {
+            $this->crawlStatus = null;
+        }
     }
 
     public function deleteRun($id)
@@ -58,21 +73,17 @@ class Testobject extends Component
     {
         $links = CrawlerUtility::crawl($this->testobject);
 
-        foreach ($links as $link) {
-            $testrun = new Testrun();
-            $testrun->testobject_id = $this->testobject->id;
-            $testrun->url = $link;
-            $testrun->name = $link;
-            $testrun->save();
+        Storage::put('crawler_status.json', json_encode([
+            'total' => count($links),
+            'completed' => 0,
+        ]));
 
-            $instance = new Testinstance();
-            $instance->testrun_id = $testrun->id;
-            $instance->save();
-            $instance->fetch();
+        foreach ($links as $link) {
+            CrawlTestRunJob::dispatch($this->testobject->id, $link);
         }
 
-        $this->testobject = \App\Models\Testobject::find($this->testobject->id);
-        session()->flash("message", __("text.crawl_completed") . " " . count($links));
+        $this->testobject->refresh();
+        session()->flash('message', __('text.crawl_started'));
     }
 
     public function fetchAll()
