@@ -71,16 +71,12 @@ class Testobject extends Component
 
     public function crawlDomain()
     {
-        $links = CrawlerUtility::crawl($this->testobject);
-
         Storage::put('crawler_status.json', json_encode([
-            'total' => count($links),
+            'total' => 1,
             'completed' => 0,
         ]));
 
-        foreach ($links as $link) {
-            CrawlTestRunJob::dispatch($this->testobject->id, $link);
-        }
+        CrawlTestRunJob::dispatch($this->testobject->id, $this->testobject->url);
 
         $this->testobject->refresh();
         session()->flash('message', __('text.crawl_started'));
