@@ -15,6 +15,8 @@ class Testrun extends Model
 
     protected $attributes = [];
 
+    protected $fillable = ['testobject_id', 'name', 'url'];
+
     public function shouldDeleted(): bool
     {
         if (!$this->testobject || !$this->testobject->delete_after) {

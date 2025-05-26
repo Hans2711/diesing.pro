@@ -19,6 +19,18 @@
         <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
     </button>
 
+    <button class="btn mb-3" wire:click="crawlDomain">
+        {{ __('text.crawl') }}
+    </button>
+    <button class="btn mb-3" wire:click="fetchAll">
+        {{ __('text.fetch_all') }}
+    </button>
+    <button class="btn mb-3" wire:click="bulkDiff">
+        {{ __('text.bulk_diff') }}
+    </button>
+
+    {!! $bulkDiffContent ?? '' !!}
+
     @foreach ($testobject->testruns as $testrun)
         <div class="border px-3 mb-4 pb-3 rounded border-primary-dark dark:border-primary-light">
             <p><strong>{{ $testrun->name }}</strong></p>
