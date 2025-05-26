@@ -4,12 +4,15 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Testrun;
+use App\Models\Testinstance;
+use App\Utilities\CrawlerUtility;
 
 class Testobject extends Component
 {
     public $testobject;
     public $deleteAfter;
     public $deleteAfterOptions;
+    public $bulkDiffContent;
 
     public function mount()
     {
@@ -49,6 +52,53 @@ class Testobject extends Component
         Testrun::destroy($id);
         $this->testobject = \App\Models\Testobject::find($this->testobject->id);
         session()->flash("message", "Testrun deleted successfully.");
+    }
+
+    public function crawlDomain()
+    {
+        $links = CrawlerUtility::crawl($this->testobject);
+
+        foreach ($links as $link) {
+            $testrun = new Testrun();
+            $testrun->testobject_id = $this->testobject->id;
+            $testrun->url = $link;
+            $testrun->name = $link;
+            $testrun->save();
+
+            $instance = new Testinstance();
+            $instance->testrun_id = $testrun->id;
+            $instance->save();
+            $instance->fetch();
+        }
+
+        $this->testobject = \App\Models\Testobject::find($this->testobject->id);
+        session()->flash("message", __("text.crawl_completed") . " " . count($links));
+    }
+
+    public function fetchAll()
+    {
+        foreach ($this->testobject->testruns as $run) {
+            $instance = new Testinstance();
+            $instance->testrun_id = $run->id;
+            $instance->save();
+            $instance->fetch();
+        }
+        $this->testobject->refresh();
+        session()->flash("message", __("text.fetch_completed"));
+    }
+
+    public function bulkDiff()
+    {
+        $html = "";
+        foreach ($this->testobject->testruns as $run) {
+            if ($run->testinstances->count() >= 2) {
+                $a = $run->testinstances[0];
+                $b = $run->testinstances[1];
+                $html .= "<h3>" . $run->name . "</h3>";
+                $html .= $a->diff($b, "Inline");
+            }
+        }
+        $this->bulkDiffContent = $html;
     }
 
     public function render()

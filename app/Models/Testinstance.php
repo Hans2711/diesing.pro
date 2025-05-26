@@ -59,7 +59,7 @@ class Testinstance extends Model
 
     public function fetch()
     {
-        $url = $this->testrun->testobject->url;
+        $url = $this->testrun->url ?? $this->testrun->testobject->url;
         $client = new Client();
 
         try {
