@@ -16,6 +16,7 @@ class Testobject extends Component
     public $deleteAfterOptions;
     public $bulkDiffContent;
     public $crawlStatus;
+    public $sitemapsInput;
 
     public function mount()
     {
@@ -27,6 +28,7 @@ class Testobject extends Component
         ];
 
         $this->updateStatus();
+        $this->sitemapsInput = implode("\n", $this->testobject->sitemaps ?? []);
     }
 
     public function updateDeleteAfter($deleteAfter)
@@ -106,6 +108,39 @@ class Testobject extends Component
             }
         }
         $this->bulkDiffContent = $html;
+    }
+
+    public function saveSitemaps()
+    {
+        $sitemaps = array_filter(array_map('trim', preg_split('/\r?\n/', $this->sitemapsInput)));
+        $this->testobject->sitemaps = $sitemaps;
+        $this->testobject->save();
+        $this->sitemapsInput = implode("\n", $sitemaps);
+        session()->flash('message', __('text.saved'));
+    }
+
+    public function runSitemaps()
+    {
+        $this->saveSitemaps();
+
+        $links = CrawlerUtility::linksFromSitemaps($this->testobject->sitemaps);
+        foreach ($links as $link) {
+            if (!Testrun::where('testobject_id', $this->testobject->id)->where('url', $link)->exists()) {
+                $testrun = new Testrun();
+                $testrun->testobject_id = $this->testobject->id;
+                $testrun->url = $link;
+                $testrun->name = $link;
+                $testrun->save();
+
+                $instance = new Testinstance();
+                $instance->testrun_id = $testrun->id;
+                $instance->save();
+                $instance->fetch();
+            }
+        }
+
+        $this->testobject->refresh();
+        session()->flash('message', __('text.crawl_completed'));
     }
 
     public function render()
