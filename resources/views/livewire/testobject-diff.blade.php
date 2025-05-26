@@ -39,5 +39,17 @@
         <img wire:loading wire:target="updateDiff" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
     </button>
 
-    {!! $diff !!}
+    @foreach ($diffs as $runId => $data)
+        <div class="border px-3 mb-4 pb-3 rounded border-primary-dark dark:border-primary-light">
+            <div class="flex justify-between items-center">
+                <h3>{{ $data['run']->name }} ({{ $data['run']->testinstances->count() }})</h3>
+                <button class="btn" wire:click="toggleRun({{ $runId }})">
+                    {{ $hideDiff[$runId] ? __('text.show_diff') : __('text.hide_diff') }}
+                </button>
+            </div>
+            @unless ($hideDiff[$runId])
+                {!! $data['diff'] !!}
+            @endunless
+        </div>
+    @endforeach
 </div>
