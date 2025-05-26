@@ -51,6 +51,8 @@ return [
     "crawl" => "Crawlen",
     "fetch_all" => "Alle abrufen",
     "bulk_diff" => "Alle vergleichen",
+    "sitemaps" => "Sitemaps",
+    "run_sitemaps" => "Sitemaps ausführen",
     "crawl_completed" => "Crawl abgeschlossen. Gefundene Links:",
     "crawl_started" => "Crawl in Warteschlange",
     "processed" => "verarbeitet",

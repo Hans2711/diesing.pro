@@ -67,4 +67,46 @@ class CrawlerUtility
             return null;
         }
     }
+
+    public static function linksFromSitemap(string $url): array
+    {
+        $client = new Client(['http_errors' => false]);
+
+        try {
+            $response = $client->get($url);
+            $xml = @simplexml_load_string((string) $response->getBody());
+            if ($xml === false) {
+                return [];
+            }
+
+            $links = [];
+            $name = $xml->getName();
+            if ($name === 'urlset') {
+                foreach ($xml->url as $u) {
+                    if (!empty($u->loc)) {
+                        $links[] = (string) $u->loc;
+                    }
+                }
+            } elseif ($name === 'sitemapindex') {
+                foreach ($xml->sitemap as $s) {
+                    if (!empty($s->loc)) {
+                        $links = array_merge($links, self::linksFromSitemap((string) $s->loc));
+                    }
+                }
+            }
+
+            return $links;
+        } catch (\Exception $e) {
+            return [];
+        }
+    }
+
+    public static function linksFromSitemaps(array $urls): array
+    {
+        $all = [];
+        foreach ($urls as $url) {
+            $all = array_merge($all, self::linksFromSitemap($url));
+        }
+        return array_values(array_unique($all));
+    }
 }

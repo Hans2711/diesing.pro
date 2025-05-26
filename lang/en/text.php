@@ -51,6 +51,8 @@ return [
     "crawl" => "Crawl",
     "fetch_all" => "Fetch All",
     "bulk_diff" => "Bulk Diff",
+    "sitemaps" => "Sitemaps",
+    "run_sitemaps" => "Run Sitemaps",
     "crawl_completed" => "Crawl completed. Links found:",
     "crawl_started" => "Crawl queued",
     "processed" => "processed",
