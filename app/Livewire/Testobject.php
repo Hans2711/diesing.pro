@@ -96,6 +96,17 @@ class Testobject extends Component
         session()->flash("message", __("text.fetch_completed"));
     }
 
+    public function deleteAll() {
+        foreach ($this->testobject->testruns as $run) {
+            foreach ($run->testinstances as $instance) {
+                $instance->delete();
+            }
+            $run->delete();
+        }
+        $this->testobject->refresh();
+        session()->flash("message", __("text.all_deleted"));
+    }
+
     public function bulkDiff()
     {
         $html = "";
@@ -135,13 +146,6 @@ class Testobject extends Component
                 $testrun->url = $link;
                 $testrun->name = $link;
                 $testrun->save();
-            }
-
-            if ($testrun->testinstances()->count() == 0) {
-                $instance = new Testinstance();
-                $instance->testrun_id = $testrun->id;
-                $instance->save();
-                $instance->fetch();
             }
         }
 
