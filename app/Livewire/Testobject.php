@@ -61,9 +61,15 @@ class Testobject extends Component
 
     public function updateFetchStatus()
     {
-        $path = 'testobject-' . $this->testobject->id . '-fetch.json';
-        if (Storage::exists($path)) {
-            $this->fetchStatus = json_decode(Storage::get($path), true);
+        $objectId = $this->testobject->id;
+        $total = Cache::get("fetch-total-{$objectId}");
+        $completed = Cache::get("fetch-completed-{$objectId}", 0);
+
+        if ($total !== null) {
+            $this->fetchStatus = [
+                'total' => $total,
+                'completed' => $completed,
+            ];
         } else {
             $this->fetchStatus = null;
         }
@@ -112,12 +118,12 @@ class Testobject extends Component
             }
         }
 
-        // Optionally update fetchStatus if at least one dispatch happened
+        // Track the total number of dispatched jobs in cache
         if ($dispatchedCount > 0) {
-            Storage::put(
-                'testobject-' . $this->testobject->id . '-fetch.json',
-                json_encode(['total' => $dispatchedCount, 'completed' => 0])
-            );
+            $objectId = $this->testobject->id;
+            Cache::put("fetch-total-{$objectId}", $dispatchedCount);
+            Cache::forget("fetch-completed-{$objectId}");
+
             $this->updateFetchStatus();
             session()->flash('message', __('text.fetch_started'));
         } else {

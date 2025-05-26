@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 
 class FetchTestrunJob implements ShouldQueue
 {
@@ -34,16 +34,14 @@ class FetchTestrunJob implements ShouldQueue
         $instance->save();
         $instance->fetch();
 
-        $path = "testobject-{$testrun->testobject_id}-fetch.json";
-        $status = ['total' => 0, 'completed' => 0];
-        if (Storage::exists($path)) {
-            $status = json_decode(Storage::get($path), true) ?: $status;
-        }
-        $status['completed'] = ($status['completed'] ?? 0) + 1;
+        $objectId = $testrun->testobject_id;
 
-        if ($status['completed'] >= $status['total']) {
-            Storage::delete($path);
+        $completed = Cache::increment("fetch-completed-{$objectId}");
+        $total = Cache::get("fetch-total-{$objectId}");
+
+        if ($total !== null && $completed >= $total) {
+            Cache::forget("fetch-completed-{$objectId}");
+            Cache::forget("fetch-total-{$objectId}");
         }
-        Storage::put($path, json_encode($status));
     }
 }
