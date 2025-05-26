@@ -56,7 +56,7 @@ class CrawlerUtility
         return $links;
     }
 
-    protected static function makeAbsolute(string $href, string $base): ?string
+    public static function makeAbsolute(string $href, string $base): ?string
     {
         try {
             $baseUri = new Uri($base);
