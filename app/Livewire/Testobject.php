@@ -31,7 +31,7 @@ class Testobject extends Component
 
         $this->updateStatus();
         $this->updateFetchStatus();
-        $this->sitemapsInput = implode("\n", $this->testobject->sitemaps ?? []);
+        $this->sitemapsInput = implode(', ', $this->testobject->sitemaps ?? []);
     }
 
     public function updateDeleteAfter($deleteAfter)
@@ -152,10 +152,10 @@ class Testobject extends Component
 
     public function saveSitemaps()
     {
-        $sitemaps = array_filter(array_map('trim', preg_split('/\r?\n/', $this->sitemapsInput)));
+        $sitemaps = array_filter(array_map('trim', explode(',', $this->sitemapsInput)));
         $this->testobject->sitemaps = $sitemaps;
         $this->testobject->save();
-        $this->sitemapsInput = implode("\n", $sitemaps);
+        $this->sitemapsInput = implode(', ', $sitemaps);
         session()->flash('message', __('text.saved'));
     }
 
