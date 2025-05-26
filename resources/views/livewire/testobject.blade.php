@@ -19,28 +19,29 @@
         <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
     </button>
 
-    <button class="btn mb-3" wire:click="crawlDomain">
-        {{ __('text.crawl') }}
-    </button>
     <div class="mb-3">
         <p class="mb-1">{{ __('text.sitemaps') }}</p>
         <textarea rows="3" class="w-full mb-2 rounded dark:bg-secondary-light" wire:model="sitemapsInput"></textarea>
-        <button class="btn" wire:click="runSitemaps">{{ __('text.run_sitemaps') }}</button>
+        <div class="grid grid-cols-2 gap-5">
+            <button class="btn" wire:click="runSitemaps" wire:loading.attr="disabled" wire:target="runSitemaps">
+                <span wire:loading.remove wire:target="runSitemaps">{{ __('text.run_sitemaps') }}</span>
+                <img wire:loading wire:target="runSitemaps" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
+            </button>
+            <button class="btn" wire:click="fetchAll">
+                <span wire:loading.remove wire:target="fetchAll">{{ __('text.fetch_all') }}</span>
+                <img wire:loading wire:target="fetchAll" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
+            </button>
+        </div>
     </div>
-    <button class="btn mb-3" wire:click="fetchAll">
-        {{ __('text.fetch_all') }}
-    </button>
     <button class="btn mb-3" wire:click="bulkDiff">
         {{ __('text.bulk_diff') }}
     </button>
+    <button class="btn mb-3" wire:click="deleteAll">
+        <span wire:loading.remove wire:target="deleteAll">{{ __('text.delete_all') }}</span>
+        <img wire:loading wire:target="deleteAll" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
+    </button>
 
-    <div wire:poll.1000ms="updateStatus">
-        @if ($crawlStatus)
-            <p>{{ $crawlStatus['completed'] }} / {{ $crawlStatus['total'] }} {{ __('text.processed') }}</p>
-        @endif
-    </div>
-
-    {!! $bulkDiffContent ?? '' !!}
+    <p>{{ count($testobject->testruns) }} Testruns</p>
 
     @foreach ($testobject->testruns as $testrun)
         <div class="border px-3 mb-4 pb-3 rounded border-primary-dark dark:border-primary-light">

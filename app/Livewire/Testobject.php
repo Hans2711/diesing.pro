@@ -96,6 +96,17 @@ class Testobject extends Component
         session()->flash("message", __("text.fetch_completed"));
     }
 
+    public function deleteAll() {
+        foreach ($this->testobject->testruns as $run) {
+            foreach ($run->testinstances as $instance) {
+                $instance->delete();
+            }
+            $run->delete();
+        }
+        $this->testobject->refresh();
+        session()->flash("message", __("text.all_deleted"));
+    }
+
     public function bulkDiff()
     {
         $html = "";
@@ -125,17 +136,16 @@ class Testobject extends Component
 
         $links = CrawlerUtility::linksFromSitemaps($this->testobject->sitemaps);
         foreach ($links as $link) {
-            if (!Testrun::where('testobject_id', $this->testobject->id)->where('url', $link)->exists()) {
+            $testrun = Testrun::where('testobject_id', $this->testobject->id)
+                ->where('url', $link)
+                ->first();
+
+            if (!$testrun) {
                 $testrun = new Testrun();
                 $testrun->testobject_id = $this->testobject->id;
                 $testrun->url = $link;
                 $testrun->name = $link;
                 $testrun->save();
-
-                $instance = new Testinstance();
-                $instance->testrun_id = $testrun->id;
-                $instance->save();
-                $instance->fetch();
             }
         }
 
