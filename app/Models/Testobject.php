@@ -18,9 +18,14 @@ class Testobject extends Model
         "url" => "",
         "delete_after" => 86400,
         "user" => 0,
+        "sitemaps" => "[]",
     ];
 
-    protected $fillable = ["name", "url", "delete_after", "user"];
+    protected $fillable = ["name", "url", "delete_after", "user", "sitemaps"];
+
+    protected $casts = [
+        'sitemaps' => 'array',
+    ];
 
     public function getCreatedAtCleanAttribute($value)
     {

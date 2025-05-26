@@ -22,6 +22,11 @@
     <button class="btn mb-3" wire:click="crawlDomain">
         {{ __('text.crawl') }}
     </button>
+    <div class="mb-3">
+        <p class="mb-1">{{ __('text.sitemaps') }}</p>
+        <textarea rows="3" class="w-full mb-2 rounded dark:bg-secondary-light" wire:model="sitemapsInput"></textarea>
+        <button class="btn" wire:click="runSitemaps">{{ __('text.run_sitemaps') }}</button>
+    </div>
     <button class="btn mb-3" wire:click="fetchAll">
         {{ __('text.fetch_all') }}
     </button>
