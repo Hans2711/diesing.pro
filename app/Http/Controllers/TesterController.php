@@ -88,4 +88,10 @@ class TesterController extends Controller
 
         return view("tester.diff", ["error" => "Some Erro"]);
     }
+
+    public function testerObjectDiff($id)
+    {
+        $testobject = Testobject::find($id);
+        return view("tester.objectdiff", ["testobject" => $testobject]);
+    }
 }
