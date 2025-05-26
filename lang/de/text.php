@@ -52,6 +52,8 @@ return [
     "fetch_all" => "Alle abrufen",
     "bulk_diff" => "Alle vergleichen",
     "crawl_completed" => "Crawl abgeschlossen. Gefundene Links:",
+    "crawl_started" => "Crawl in Warteschlange",
+    "processed" => "verarbeitet",
     "fetch_completed" => "Abrufen abgeschlossen",
     "random-teams" => "Zufallsteams",
     "players" => "Spieler",
