@@ -8,6 +8,7 @@ use App\Utilities\CrawlerUtility;
 use App\Jobs\CrawlTestRunJob;
 use App\Jobs\FetchTestrunJob;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 
 class Testobject extends Component
 {
@@ -98,20 +99,30 @@ class Testobject extends Component
 
     public function fetchAll()
     {
-        $total = $this->testobject->testruns->count();
-
-        Storage::put(
-            'testobject-' . $this->testobject->id . '-fetch.json',
-            json_encode(['total' => $total, 'completed' => 0])
-        );
+        $dispatchedCount = 0;
 
         foreach ($this->testobject->testruns as $run) {
-            FetchTestrunJob::dispatch($run->id);
+            $cacheKey = "fetch-dispatched-{$run->id}";
+
+            // Only dispatch if not already dispatched recently
+            if (!Cache::has($cacheKey)) {
+                FetchTestrunJob::dispatch($run->id);
+                Cache::put($cacheKey, true, now()->addMinute());
+                $dispatchedCount++;
+            }
         }
 
-        $this->updateFetchStatus();
-        $this->testobject->refresh();
-        session()->flash('message', __('text.fetch_started'));
+        // Optionally update fetchStatus if at least one dispatch happened
+        if ($dispatchedCount > 0) {
+            Storage::put(
+                'testobject-' . $this->testobject->id . '-fetch.json',
+                json_encode(['total' => $dispatchedCount, 'completed' => 0])
+            );
+            $this->updateFetchStatus();
+            session()->flash('message', __('text.fetch_started'));
+        } else {
+            session()->flash('message', __('text.fetch_already_dispatched'));
+        }
     }
 
     public function deleteAll() {

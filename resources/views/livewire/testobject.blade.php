@@ -38,9 +38,9 @@
             </div>
         @endif
     </div>
-    <button class="btn mb-3" wire:click="bulkDiff">
+    <a class="btn mb-3 w-fit" href="{{url(Config::get('app.locale') . "/tester/testobject/{$testobject->id}/diff")}}">
         {{ __('text.bulk_diff') }}
-    </button>
+    </a>
     <button class="btn mb-3" wire:click="deleteAll">
         <span wire:loading.remove wire:target="deleteAll">{{ __('text.delete_all') }}</span>
         <img wire:loading wire:target="deleteAll" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
