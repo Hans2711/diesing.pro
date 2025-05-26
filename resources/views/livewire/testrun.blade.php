@@ -63,8 +63,9 @@
         'value' => $testrun->name
     ])
 
-    <button class="btn mb-3" wire:click="createInstance">
-        <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
+    <button class="btn mb-3" wire:click="createInstance" wire:loading.attr="disabled" wire:target="createInstance">
+        <img wire:loading.remove wire:target="createInstance" class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
+        <img wire:loading wire:target="createInstance" class="w-4 h-4 invert animate-spin" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
     </button>
 
     @foreach ($testrun->testinstances as $testinstance)
