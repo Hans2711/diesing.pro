@@ -9,56 +9,26 @@ use Illuminate\Support\Facades\Auth;
 class AccountAuth extends Component
 {
     public $login;
+    public $loginPassword;
+
     public $username;
     public $email;
     public $name;
-    public $password;
-    public $passwordConfirm;
+    public $registerPassword;
+    public $registerPasswordConfirm;
 
     public $returnUrl;
-
-    public $type = "begin";
-
-    public function begin()
-    {
-        $user = User::where("email", $this->login)
-            ->orWhere("username", $this->login)
-            ->first();
-
-        if ($user) {
-            $this->type = "login";
-            //Todo
-        } else {
-            $this->type = "register";
-            if (str_contains($this->login, "@")) {
-                $this->email = $this->login;
-            } else {
-                $this->username = $this->login;
-            }
-        }
-    }
-
-    public function resetLogin()
-    {
-        $this->type = "begin";
-        $this->login = "";
-        $this->username = "";
-        $this->email = "";
-        $this->name = "";
-        $this->password = "";
-        $this->passwordConfirm = "";
-    }
 
     public function loginUser()
     {
         if (
             Auth::attempt([
                 "email" => $this->login,
-                "password" => $this->password,
+                "password" => $this->loginPassword,
             ], true) ||
                 Auth::attempt([
                     "username" => $this->login,
-                    "password" => $this->password,
+                    "password" => $this->loginPassword,
                 ], true)
         ) {
             if (empty($this->returnUrl)) {
@@ -73,7 +43,7 @@ class AccountAuth extends Component
 
     public function register()
     {
-        if ($this->password != $this->passwordConfirm) {
+        if ($this->registerPassword != $this->registerPasswordConfirm) {
             session()->flash("error", __("text.passwords_do_not_match"));
             return;
         }
@@ -103,7 +73,7 @@ class AccountAuth extends Component
             "username" => $this->username,
             "email" => $this->email,
             "name" => $this->name,
-            "password" => bcrypt($this->password),
+            "password" => bcrypt($this->registerPassword),
         ]);
         $user->save();
         Auth::login($user, $remember = true);
