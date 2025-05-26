@@ -34,5 +34,10 @@
             </select>
         </div>
     </div>
+    <button class="btn mb-3" wire:click="updateDiff">
+        <span wire:loading.remove wire:target="updateDiff">{{ __('text.compare') }}</span>
+        <img wire:loading wire:target="updateDiff" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
+    </button>
+
     {!! $diff !!}
 </div>

@@ -17,8 +17,10 @@ class TestobjectDiff extends Component
 
     public function mount()
     {
+        $this->instanceCount = collect($this->testobject->testruns)->pluck('testinstances')->map->count()->max() ?? 0;
         $this->generateDiff();
     }
+
 
     public function updated($name)
     {
@@ -27,8 +29,17 @@ class TestobjectDiff extends Component
         }
     }
 
+    public function updateDiff()
+    {
+        $this->generateDiff();
+    }
+
     protected function generateDiff()
     {
+        if ($this->instanceOne >= $this->instanceCount || $this->instanceTwo >= $this->instanceCount) {
+            $this->diff = '<p>Invalid instance selection.</p>';
+            return;
+        }
         $this->instanceCount = 0;
         $html = '';
         foreach ($this->testobject->testruns as $run) {
@@ -38,8 +49,11 @@ class TestobjectDiff extends Component
 
             if (
                 $run->testinstances->count() > max($this->instanceOne, $this->instanceTwo) &&
-                isset($run->testinstances[$this->instanceOne]) &&
-                isset($run->testinstances[$this->instanceTwo])
+                    isset($run->testinstances[$this->instanceOne]) &&
+                    isset($run->testinstances[$this->instanceTwo]) &&
+
+                    !empty($run->testinstances[$this->instanceOne]->html) &&
+                    !empty($run->testinstances[$this->instanceTwo]->html)
             ) {
                 $a = $run->testinstances[$this->instanceOne];
                 $b = $run->testinstances[$this->instanceTwo];
