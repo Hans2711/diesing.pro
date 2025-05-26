@@ -4,7 +4,7 @@
             <label for="instanceOne" class="block text-sm font-medium">{{ __('text.instance-one') }}</label>
             <select id="instanceOne" wire:model="instanceOne" class="mt-1 block w-full rounded dark:bg-secondary-light">
                 @for ($i = 0; $i < $instanceCount; $i++)
-                    <option value="{{ $i }}">{{ $i + 1 }}</option>
+                <option value="{{ $i }}">{{ $i + 1 }}</option>
                 @endfor
             </select>
         </div>
@@ -12,7 +12,7 @@
             <label for="instanceTwo" class="block text-sm font-medium">{{ __('text.instance-two') }}</label>
             <select id="instanceTwo" wire:model="instanceTwo" class="mt-1 block w-full rounded dark:bg-secondary-light">
                 @for ($i = 0; $i < $instanceCount; $i++)
-                    <option value="{{ $i }}">{{ $i + 1 }}</option>
+                <option value="{{ $i }}">{{ $i + 1 }}</option>
                 @endfor
             </select>
         </div>
@@ -40,16 +40,13 @@
     </button>
 
     @foreach ($diffs as $runId => $data)
-        <div class="border px-3 mb-4 pb-3 rounded border-primary-dark dark:border-primary-light">
-            <div class="flex justify-between items-center">
-                <h3>{{ $data['run']->name }} ({{ $data['run']->testinstances->count() }})</h3>
-                <button class="btn" wire:click="toggleRun({{ $runId }})">
-                    {{ $hideDiff[$runId] ? __('text.show_diff') : __('text.hide_diff') }}
-                </button>
-            </div>
-            @unless ($hideDiff[$runId])
-                {!! $data['diff'] !!}
-            @endunless
-        </div>
+    <div class="border p-3 mb-4 pb-3 rounded border-primary-dark dark:border-primary-light">
+        <h3 id="{{ $data['run']->name }}">
+            <a href="#{{ $data['run']->name }}">
+                {{ $data['run']->name }} ({{ $data['run']->testinstances->count() }})
+            </a>
+        </h3>
+        {!! $data['diff'] !!}
+    </div>
     @endforeach
 </div>
