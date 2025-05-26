@@ -40,6 +40,10 @@ class FetchTestrunJob implements ShouldQueue
             $status = json_decode(Storage::get($path), true) ?: $status;
         }
         $status['completed'] = ($status['completed'] ?? 0) + 1;
+
+        if ($status['completed'] >= $status['total']) {
+            Storage::delete($path);
+        }
         Storage::put($path, json_encode($status));
     }
 }
