@@ -12,25 +12,44 @@ class TestobjectDiff extends Component
 
     public $instanceOne = 1;
     public $instanceTwo = 0;
+    public $renderName = 'Inline';
+    public $detailLevel = 'line';
 
-    public function mount() {
-        $html = "";
+    public function mount()
+    {
+        $this->generateDiff();
+    }
+
+    public function updated($name)
+    {
+        if (in_array($name, ['instanceOne', 'instanceTwo', 'renderName', 'detailLevel'])) {
+            $this->generateDiff();
+        }
+    }
+
+    protected function generateDiff()
+    {
+        $this->instanceCount = 0;
+        $html = '';
         foreach ($this->testobject->testruns as $run) {
             if ($run->testinstances->count() > $this->instanceCount) {
                 $this->instanceCount = $run->testinstances->count();
             }
 
             if (
-                $run->testinstances->count() >= 2 &&
-                    isset($run->testinstances[$this->instanceOne]) &&
-                    isset($run->testinstances[$this->instanceTwo])
+                $run->testinstances->count() > max($this->instanceOne, $this->instanceTwo) &&
+                isset($run->testinstances[$this->instanceOne]) &&
+                isset($run->testinstances[$this->instanceTwo])
             ) {
                 $a = $run->testinstances[$this->instanceOne];
                 $b = $run->testinstances[$this->instanceTwo];
-                $html .= "<h3>" . e($run->name) . "</h3>";
-                $html .= $a->diff($b, "Inline");
+                $html .= '<h3>' . e($run->name) . ' (' . $run->testinstances->count() . ')</h3>';
+                $html .= $a->diff($b, $this->renderName, [], ['detailLevel' => $this->detailLevel]);
+            } else {
+                $html .= '<h3>' . e($run->name) . ' (' . $run->testinstances->count() . ')</h3>';
             }
         }
+
         $this->diff = $html;
     }
 
