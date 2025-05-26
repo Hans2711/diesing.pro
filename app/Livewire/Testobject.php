@@ -4,9 +4,9 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Testrun;
-use App\Models\Testinstance;
 use App\Utilities\CrawlerUtility;
 use App\Jobs\CrawlTestRunJob;
+use App\Jobs\FetchTestrunJob;
 use Illuminate\Support\Facades\Storage;
 
 class Testobject extends Component
@@ -16,6 +16,7 @@ class Testobject extends Component
     public $deleteAfterOptions;
     public $bulkDiffContent;
     public $crawlStatus;
+    public $fetchStatus;
     public $sitemapsInput;
 
     public function mount()
@@ -28,6 +29,7 @@ class Testobject extends Component
         ];
 
         $this->updateStatus();
+        $this->updateFetchStatus();
         $this->sitemapsInput = implode("\n", $this->testobject->sitemaps ?? []);
     }
 
@@ -53,6 +55,16 @@ class Testobject extends Component
             $this->crawlStatus = json_decode(Storage::get($path), true);
         } else {
             $this->crawlStatus = null;
+        }
+    }
+
+    public function updateFetchStatus()
+    {
+        $path = 'testobject-' . $this->testobject->id . '-fetch.json';
+        if (Storage::exists($path)) {
+            $this->fetchStatus = json_decode(Storage::get($path), true);
+        } else {
+            $this->fetchStatus = null;
         }
     }
 
@@ -86,14 +98,20 @@ class Testobject extends Component
 
     public function fetchAll()
     {
+        $total = $this->testobject->testruns->count();
+
+        Storage::put(
+            'testobject-' . $this->testobject->id . '-fetch.json',
+            json_encode(['total' => $total, 'completed' => 0])
+        );
+
         foreach ($this->testobject->testruns as $run) {
-            $instance = new Testinstance();
-            $instance->testrun_id = $run->id;
-            $instance->save();
-            $instance->fetch();
+            FetchTestrunJob::dispatch($run->id);
         }
+
+        $this->updateFetchStatus();
         $this->testobject->refresh();
-        session()->flash("message", __("text.fetch_completed"));
+        session()->flash('message', __('text.fetch_started'));
     }
 
     public function deleteAll() {
