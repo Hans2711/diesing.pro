@@ -123,6 +123,7 @@ class Testobject extends Component
             $objectId = $this->testobject->id;
             Cache::put("fetch-total-{$objectId}", $dispatchedCount);
             Cache::forget("fetch-completed-{$objectId}");
+            Cache::set("fetch-completed-{$objectId}", 0);
 
             $this->updateFetchStatus();
             session()->flash('message', __('text.fetch_started'));
