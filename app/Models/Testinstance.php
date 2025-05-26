@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Pool;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Carbon;
 
 class Testinstance extends Model
@@ -57,24 +59,44 @@ class Testinstance extends Model
         );
     }
 
-    public function fetch()
+    public static function fetchAll(array $instances, int $concurrency = 5): void
     {
-        $url = $this->testrun->url ?? $this->testrun->testobject->url;
         $client = new Client();
 
-        try {
-            $response = $client->get($url);
-            $this->html = $response->getBody();
-            $this->headers = json_encode(
-                $response->getHeaders(),
-                JSON_PRETTY_PRINT |
-                    JSON_UNESCAPED_SLASHES |
-                    JSON_UNESCAPED_UNICODE
-            );
-        } catch (RequestException $e) {
-            $this->html = $e->getMessage();
-        }
+        $requests = function () use ($instances) {
+            foreach ($instances as $instance) {
+                $url = $instance->testrun->url ?? $instance->testrun->testobject->url;
+                yield new Request('GET', $url);
+            }
+        };
 
-        $this->save();
+        $pool = new Pool($client, $requests(), [
+            'concurrency' => $concurrency,
+            'fulfilled' => function ($response, $index) use ($instances) {
+                $instance = $instances[$index];
+                $instance->html = (string) $response->getBody();
+                $instance->headers = json_encode(
+                    $response->getHeaders(),
+                    JSON_PRETTY_PRINT |
+                        JSON_UNESCAPED_SLASHES |
+                        JSON_UNESCAPED_UNICODE
+                );
+            },
+            'rejected' => function ($reason, $index) use ($instances) {
+                $instance = $instances[$index];
+                $instance->html = $reason instanceof RequestException ? $reason->getMessage() : (string) $reason;
+            },
+        ]);
+
+        $pool->promise()->wait();
+
+        foreach ($instances as $instance) {
+            $instance->save();
+        }
+    }
+
+    public function fetch(): void
+    {
+        self::fetchAll([$this]);
     }
 }

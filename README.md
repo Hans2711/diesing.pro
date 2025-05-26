@@ -26,3 +26,13 @@ The site is available in English and German. It provides both public pages and a
 
 All content is located within the `resources` folder, and the routing logic can be found under `routes/`.
 
+## Queue Workers
+
+Background jobs rely on Laravel's queue system. For faster processing, configure a Redis queue connection and run multiple workers:
+
+```bash
+php artisan queue:work --queue=default --tries=3
+```
+
+Using several workers allows asynchronous fetching of URLs to complete more quickly.
+
