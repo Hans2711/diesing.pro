@@ -49,12 +49,15 @@ tertiary-light    #FFFFFF
     }
 
     .timeline-card h3 {
-        @apply text-base md:text-xl font-bold mb-1 md:mb-2 text-left;
+        @apply text-xl font-bold mb-1 md:mb-2 text-left;
     }
 
     .timeline-card p {
-        @apply text-sm md:text-base leading-snug md:leading-relaxed;
-        @apply break-words hyphens-auto;
+        @apply whitespace-normal break-words text-left md:text-base;
+    }
+
+    .timeline-card strong {
+        @apply text-lg leading-8;
     }
 
     .timeline-card hr {
