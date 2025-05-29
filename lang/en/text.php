@@ -120,6 +120,7 @@ return [
     'delete' => 'Delete',
     'users' => 'Users',
     'user_deleted' => 'User deleted',
+    'permissions_updated' => 'Permissions updated',
     'private' => 'Private',
     'cv' => 'CV',
     'cv-description' => 'The CVs of the Diesings',

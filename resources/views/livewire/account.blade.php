@@ -86,12 +86,25 @@
         <h2>{{ __('text.users') }}</h2>
         <div class="p-2 border mb-3 rounded border-primary-dark dark:border-primary-light">
             @foreach ($users as $user)
-                <div class="grid grid-cols-3 mb-3">
-                    <p class="break-words">{{ $user->name }}</p>
-                    <p class="break-words">{{ $user->email }}</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <button class="btn m-0 md:mx-2 mb-2 md:mb-0 btn-delete" id="{{ $user->id }}" wire:click="deleteUser($event.target.id)" wire:confirm="Are you sure?">{{ __('text.delete') }}</button>
-                        <button class="btn m-0 md:mx-2" id="{{ $user->id }}" wire:click="loginUser($event.target.id)">{{ __('text.login') }}</button>
+                <div class="mb-4">
+                    <div class="grid grid-cols-3 mb-1">
+                        <p class="break-words">{{ $user->name }}</p>
+                        <p class="break-words">{{ $user->email }}</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2">
+                            <button class="btn m-0 md:mx-2 mb-2 md:mb-0 btn-delete" id="{{ $user->id }}" wire:click="deleteUser($event.target.id)" wire:confirm="Are you sure?">{{ __('text.delete') }}</button>
+                            <button class="btn m-0 md:mx-2" id="{{ $user->id }}" wire:click="loginUser($event.target.id)">{{ __('text.login') }}</button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3">
+                        <p></p>
+                        <div class="col-span-2 flex flex-wrap gap-2">
+                            @foreach ($permissions as $key => $permission)
+                                <label class="flex items-center text-sm">
+                                    <input type="checkbox" class="mr-1" wire:click="togglePermission('{{ $user->id }}','{{ $key }}')" @checked($user->getPermission($key))>
+                                    <span>{{ $permission }}</span>
+                                </label>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             @endforeach
