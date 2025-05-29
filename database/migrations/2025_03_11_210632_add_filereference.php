@@ -11,11 +11,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create("file_reference", function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->timestamps();
             $table->string("path");
             $table->string("model");
-            $table->integer("foreign_id");
+            $table->uuid("foreign_id");
         });
     }
 

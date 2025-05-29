@@ -11,11 +11,11 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table("note", function (Blueprint $table) {
-            $table->integer("user")->nullable();
+            $table->uuid("user")->nullable();
         });
 
         Schema::table("redirect", function (Blueprint $table) {
-            $table->integer("user")->nullable();
+            $table->uuid("user")->nullable();
         });
     }
 
