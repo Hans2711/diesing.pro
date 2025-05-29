@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table("redirect_hit", function (Blueprint $table) {
-            $table->integer("redirect")->nullable();
+            $table->uuid("redirect")->nullable();
         });
     }
 
