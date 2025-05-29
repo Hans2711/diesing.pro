@@ -13,7 +13,7 @@ return new class extends Migration
     {
         //
         Schema::table("timetrack", function (Blueprint $table) {
-            $table->integer("user")->nullable();
+            $table->uuid("user")->nullable();
         });
     }
 

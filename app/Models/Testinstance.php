@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Utilities\DiffUtility;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
@@ -13,7 +14,7 @@ use Illuminate\Support\Carbon;
 
 class Testinstance extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
     protected $table = "testinstance";
     protected $primaryKey = "id";
 
