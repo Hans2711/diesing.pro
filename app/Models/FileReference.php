@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 class FileReference extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuids;
     protected $table = "file_reference";
     protected $primaryKey = "id";
 
