@@ -120,6 +120,7 @@ return [
     'users' => 'Benutzer',
     'private' => 'Privat',
     'user_deleted' => 'Benutzer gelöscht',
+    'permissions_updated' => 'Berechtigungen aktualisiert',
     'cv' => 'Lebenslauf',
     'cv-description' => 'Die Lebensläufe der Diesings',
     'print' => 'Drucken (PDF)',

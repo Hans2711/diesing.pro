@@ -87,6 +87,23 @@ class Account extends Component
         }
     }
 
+    public function togglePermission($id, $permission)
+    {
+        if (!Auth::user()->isAdmin()) {
+            abort(403);
+        }
+
+        $user = User::find($id);
+        if ($user && !$user->isAdmin()) {
+            $current = $user->getPermission($permission);
+            $user->setPermission($permission, !$current);
+            $user->save();
+            $this->fillUsers();
+
+            session()->flash('status', __('text.permissions_updated'));
+        }
+    }
+
     public function editAccount()
     {
         $this->edit = true;
