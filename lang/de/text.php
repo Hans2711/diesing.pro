@@ -70,7 +70,6 @@ return [
 
     'notes' => 'Notizen',
     'redirects' => 'Weiterleitungen',
-    'private-area' => 'Privater Bereich',
     'share' => 'Teilen',
 
     'copy_success' => 'Text erfolgreich in die Zwischenablage kopiert!',
