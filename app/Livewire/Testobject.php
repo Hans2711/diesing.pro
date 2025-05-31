@@ -97,7 +97,7 @@ class Testobject extends Component
             'completed' => 0,
         ]));
 
-        CrawlTestRunJob::dispatch($this->testobject->id, $this->testobject->url);
+        CrawlTestRunJob::dispatch((int)$this->testobject->id, $this->testobject->url);
 
         $this->testobject->refresh();
         session()->flash('message', __('text.crawl_started'));
@@ -112,7 +112,7 @@ class Testobject extends Component
 
             // Only dispatch if not already dispatched recently
             if (!Cache::has($cacheKey)) {
-                FetchTestrunJob::dispatch($run->id);
+                FetchTestrunJob::dispatch((int)$run->id);
                 Cache::put($cacheKey, true, now()->addMinute());
                 $dispatchedCount++;
             }
