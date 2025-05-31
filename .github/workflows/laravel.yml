@@ -77,6 +77,7 @@ jobs:
           cd /var/www/vhosts/diesing.pro
           git pull origin master
           composer install --no-interaction --prefer-dist --optimize-autoloader
+          npm install
           php artisan migrate --force
           npm run build
           php artisan config:cache
