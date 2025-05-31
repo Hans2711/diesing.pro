@@ -7,6 +7,7 @@ use App\Http\Controllers\ShareController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\TesterController;
 use App\Http\Controllers\ZenquotesController;
+use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 
 if (!function_exists("route_trans")) {
@@ -28,6 +29,10 @@ foreach (['de', 'en'] as $locale) {
             Route::get("/", function () {
                 return view("home");
             })->name("home");
+
+            Route::get("/react", function () {
+                return Inertia::render("Home");
+            })->name("reactHome");
 
             Route::get("/" . route_trans("imprint", $locale), function () {
                 return view("impressum");

@@ -10,6 +10,7 @@ export default defineConfig({
             input: [
                 "resources/css/app.css",
                 "resources/css/diff-table.css",
+                "resources/js/app.jsx",
                 "resources/js/app.js",
                 "resources/js/gradient-scroll.js",
                 "resources/js/utils/clipboard.js",
