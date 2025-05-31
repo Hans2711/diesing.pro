@@ -2,15 +2,29 @@
 
 @section('content')
 <div class="overflow-x-hidden">
-<h1 class="lg:text-center md:origin-bottom">{{ __('text.cv-headline') }}</h1>
-<div class="lg:text-center">
+<h1 class="md:text-center md:origin-bottom">{{ __('text.cv-headline') }}</h1>
+<div class="md:text-center">
     <p class="mb-5 lg:w-2/3 md:mx-auto md:text-center">
         {{ __('text.cv-intro') }}
     </p>
 </div>
 
-<div class="lg:text-center">
-    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit lg:mx-auto gap-4">
+<h2 class="mt-10 mb-5 md:text-center origin-bottom">{{ __('text.cv-section-personal') }}</h2>
+<div class="">
+    <ul class="mb-5 lg:w-2/4 w-full md:w-3/4 md:mx-auto list-none grid grid-cols-2 mx-auto">
+        <li class=" mb-1"><strong>{{ __('text.cv-fullname-label') }}</strong></li>
+        <li class=" mb-1">{{ __('text.cv-fullname') }}</li>
+        <li class=" mb-1"><strong>{{ __('text.cv-nickname-label') }}</strong></li>
+        <li class=" mb-1">{{ __('text.cv-nickname') }}</li>
+        <li class=" mb-1"><strong>{{ __('text.cv-birthday-label') }}</strong></li>
+        <li class=" mb-1">{{ __('text.cv-birthday') }}</li>
+        <li class=""><strong>{{ __('text.cv-nationality-label') }}</strong></li>
+        <li class="">{{ __('text.cv-nationality') }}</li>
+    </ul>
+</div>
+
+<div class="text-center mt-10">
+    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit mx-auto gap-4">
             <img class="w-6 h-6 invert dark:invert-0" src="{{ Vite::asset('resources/icons/envelope.svg') }}" alt="Send" />
             {{ __('text.cv-contact-button') }}
         </a>
