@@ -15,9 +15,9 @@ class FetchTestrunJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected int $testrunId;
+    protected string $testrunId;
 
-    public function __construct(int $testrunId)
+    public function __construct(string $testrunId)
     {
         $this->testrunId = $testrunId;
     }

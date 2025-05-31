@@ -112,7 +112,7 @@ class Testobject extends Component
 
             // Only dispatch if not already dispatched recently
             if (!Cache::has($cacheKey)) {
-                FetchTestrunJob::dispatch((int)$run->id);
+                FetchTestrunJob::dispatch($run->id);
                 Cache::put($cacheKey, true, now()->addMinute());
                 $dispatchedCount++;
             }
