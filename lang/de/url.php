@@ -8,7 +8,6 @@ return [
     "imprint" => "impressum",
     "data-protection" => "datenschutz",
 
-    "private-area" => "privater-bereich",
     "fingerprint" => "fingerabdruck",
     "note" => "notiz",
     "redirect" => "weiterleitung",

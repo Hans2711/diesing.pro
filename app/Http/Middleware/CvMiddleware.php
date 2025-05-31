@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use App\Utilities\FingerprintUtility;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -25,10 +25,6 @@
     
             </url>
     <url>
-        <loc>https://www.diesing.pro/de/privater-bereich</loc>
-    
-            </url>
-    <url>
         <loc>https://www.diesing.pro/de/impressum</loc>
     
             </url>
@@ -53,10 +49,6 @@
     
             </url>
     <url>
-        <loc>https://www.diesing.pro/en/private-area</loc>
-    
-            </url>
-    <url>
         <loc>https://www.diesing.pro/de/tester/auth?return_url=https%3A%2F%2Fwww.diesing.pro%2Fde%2Ftester</loc>
     
             </url>
@@ -65,15 +57,7 @@
     
             </url>
     <url>
-        <loc>https://www.diesing.pro/de/privater-bereich/notizen</loc>
-    
-            </url>
-    <url>
         <loc>https://www.diesing.pro/en/teams</loc>
-    
-            </url>
-    <url>
-        <loc>https://www.diesing.pro/de/privater-bereich/dateien</loc>
     
             </url>
     <url>
@@ -81,51 +65,11 @@
     
             </url>
     <url>
-        <loc>https://www.diesing.pro/de/privater-bereich/weiterleitungen</loc>
-    
-            </url>
-    <url>
-        <loc>https://www.diesing.pro/en/private-area/notes</loc>
-    
-            </url>
-    <url>
         <loc>https://www.diesing.pro</loc>
     
             </url>
     <url>
-        <loc>https://www.diesing.pro/en/private-area/redirects</loc>
-    
-            </url>
-    <url>
-        <loc>https://www.diesing.pro/en/private-area/files</loc>
-    
-            </url>
-    <url>
         <loc>https://www.diesing.pro/en/tester/auth?return_url=https%3A%2F%2Fwww.diesing.pro%2Fen%2Ftester</loc>
-    
-            </url>
-    <url>
-        <loc>https://www.diesing.pro/de/privater-bereich?return_url=https%3A%2F%2Fwww.diesing.pro%2Fde%2Fprivater-bereich%2Fnotizen</loc>
-    
-            </url>
-    <url>
-        <loc>https://www.diesing.pro/de/privater-bereich?return_url=https%3A%2F%2Fwww.diesing.pro%2Fde%2Fprivater-bereich%2Fdateien</loc>
-    
-            </url>
-    <url>
-        <loc>https://www.diesing.pro/de/privater-bereich?return_url=https%3A%2F%2Fwww.diesing.pro%2Fde%2Fprivater-bereich%2Fweiterleitungen</loc>
-    
-            </url>
-    <url>
-        <loc>https://www.diesing.pro/en/private-area?return_url=https%3A%2F%2Fwww.diesing.pro%2Fen%2Fprivate-area%2Fnotes</loc>
-    
-            </url>
-    <url>
-        <loc>https://www.diesing.pro/en/private-area?return_url=https%3A%2F%2Fwww.diesing.pro%2Fen%2Fprivate-area%2Fredirects</loc>
-    
-            </url>
-    <url>
-        <loc>https://www.diesing.pro/en/private-area?return_url=https%3A%2F%2Fwww.diesing.pro%2Fen%2Fprivate-area%2Ffiles</loc>
     
             </url>
 </urlset>

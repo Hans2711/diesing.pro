@@ -5,7 +5,6 @@ return [
     App\Providers\CvAuthProvider::class,
     App\Providers\NotesAuthProvider::class,
     App\Providers\PortfolioAuthProvider::class,
-    App\Providers\PrivateAuthProvider::class,
     App\Providers\RedirectsAuthProvider::class,
     App\Providers\ScheduleProvider::class,
     App\Providers\TesterAuthProvider::class,

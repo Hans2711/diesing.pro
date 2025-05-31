@@ -70,7 +70,6 @@ return [
 
     'notes' => 'Notes',
     'redirects' => 'Redirects',
-    'private-area' => 'Private Area',
     'share' => 'Share',
 
     'copy_success' => 'Text copied to clipboard successfully!',
