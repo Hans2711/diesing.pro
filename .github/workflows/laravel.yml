@@ -81,3 +81,12 @@ jobs:
           npm run build
           php artisan config:cache
           php artisan view:cache
+    - name: Deploy to Production (ROOT)
+      if: success()
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: diesing.pro
+        username: root
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          supervisorctl restart laravel-worker:*
