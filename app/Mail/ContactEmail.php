@@ -4,12 +4,13 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactEmail extends Mailable
+class ContactEmail extends Mailable implements ShouldQueue, ShouldBeUnique
 {
     use Queueable, SerializesModels;
 
@@ -21,6 +22,7 @@ class ContactEmail extends Mailable
     public function __construct(array $data)
     {
         $this->data = $data;
+
         $this->replyTo(
             $data["email"] ?? "info@diesing.pro",
             $data["name"] ?? "Diesing.pro"
@@ -61,4 +63,21 @@ class ContactEmail extends Mailable
     {
         return [];
     }
+
+    /**
+     * Generate a unique identifier hash based on the $data array.
+     */
+    public function uniqueId(): string
+    {
+        return md5(serialize($this->data));
+    }
+
+    /**
+     * Set how long the uniqueness should be enforced (in seconds).
+     */
+    public function uniqueFor(): int
+    {
+        return 300; // 5 minutes
+    }
 }
+
