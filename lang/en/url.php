@@ -8,7 +8,6 @@ return [
     "imprint" => "imprint",
     "data-protection" => "data-protection",
 
-    "private-area" => "private-area",
     "fingerprint" => "fingerprint",
     "note" => "note",
     "redirect" => "redirect",
