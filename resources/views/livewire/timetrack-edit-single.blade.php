@@ -1,6 +1,6 @@
 <div>
-    <a wire:navigate.hover href="{{url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.timetracking'))}}" class="flex gap-2 mb-4 align-center btn-back dark:text-secondary-dark dark:invert">
-        <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" />
+    <a alt="" wire:navigate.hover href="{{url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.timetracking'))}}" class="flex gap-2 mb-4 align-center btn-back dark:text-secondary-dark dark:invert">
+        <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}"  alt=""/>
         <span class="leading-none">
             {{__('text.back')}}
         </span>
@@ -53,7 +53,7 @@
     </button>
 
     <button class="btn" wire:click="updateTimetrack">
-        <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
+        <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt=""/>
     </button>
 
     <div class="mt-3">

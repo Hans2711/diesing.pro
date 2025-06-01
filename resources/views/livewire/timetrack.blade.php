@@ -22,7 +22,7 @@
         <div class="grid grid-cols-3 gap-x-6 items-baseline border p-2 text-base rounded">
         <div class="truncate">
             @if (isset($row['link']) && $row['link'])
-                <a href="{{ $row['link'] }}" target="_blank" class="text-blue-500 hover:underline">
+                <a alt="" href="{{ $row['link'] }}" target="_blank" class="text-blue-500 hover:underline">
             @endif
             {{ $row['title'] }}
             @if (isset($row['link']) && $row['link'])
