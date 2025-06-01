@@ -6,11 +6,11 @@
             @if ($user->portfolios->count() > 0)
             <li>
                 @if (($selectedUser ? $selectedUser->id : null) == $user->id)
-                <a href="#" class="px-4 py-3 rounded-lg w-full ibtn active" aria-current="page">
+                <a alt="" href="#" class="px-4 py-3 rounded-lg w-full ibtn active" aria-current="page">
                     {{ $user->name }}
                 </a>
                 @else
-                <a href="#" class="px-4 py-3 rounded-lg w-full ibtn" wire:click="selectUser($event.target.id)" id="{{ $user->id }}" >
+                <a alt="" href="#" class="px-4 py-3 rounded-lg w-full ibtn" wire:click="selectUser($event.target.id)" id="{{ $user->id }}" >
                     {{ $user->name }}
                 </a>
                 @endif
@@ -24,10 +24,10 @@
                 @foreach ($portfolios as $portfolio)
                 @foreach ($portfolio as $item)
                 <div class="max-w-lg w-full rounded overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-                    <a href="{{ $item->url }}" target="_blank">
+                    <a alt="" href="{{ $item->url }}" target="_blank">
                         @if ($item->media && count($item->media) > 0)
                         <div class="relative h-0 pb-56 overflow-hidden">
-                            <img class="absolute inset-0 w-full h-full object-cover" loading="lazy" src="{{ Storage::url($item->media[0]->path) }}">
+                            <img class="absolute inset-0 w-full h-full object-cover" loading="lazy" src="{{ Storage::url($item->media[0]->path) }}" alt="">
                         </div>
                         @endif
                         <div class="px-6 py-4">
@@ -43,7 +43,7 @@
 
             <div class="mb-5">
                 @if ($selectedUser)
-                <a wire:navigate.hover class="btn w-fit" href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/{{ $selectedUser->email }}" >{{ __('text.contact') }}</a>
+                <a alt="" wire:navigate.hover class="btn w-fit" href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/{{ $selectedUser->email }}" >{{ __('text.contact') }}</a>
                 @endif
             </div>
         </div>
