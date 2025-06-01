@@ -1,6 +1,6 @@
 <div>
-    <a wire:navigate.hover href="{{url(Config::get('app.locale') ."/tester/")}}" class="flex gap-2 mb-4 align-center btn-back dark:invert dark:text-secondary-dark">
-        <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" />
+    <a alt="" wire:navigate.hover href="{{url(Config::get('app.locale') ."/tester/")}}" class="flex gap-2 mb-4 align-center btn-back dark:invert dark:text-secondary-dark">
+        <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}"  alt=""/>
         <span class="leading-none">
             {{__('text.back')}}
         </span>
@@ -16,7 +16,7 @@
     </select>
 
     <button class="btn mb-3" wire:click="createRun">
-        <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
+        <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}"  alt=""/>
     </button>
 
     <div class="mb-3">
@@ -25,11 +25,11 @@
         <div class="grid grid-cols-2 gap-5">
             <button class="btn" wire:click="runSitemaps" wire:loading.attr="disabled" wire:target="runSitemaps">
                 <span wire:loading.remove wire:target="runSitemaps">{{ __('text.run_sitemaps') }}</span>
-                <img wire:loading wire:target="runSitemaps" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
+                <img wire:loading wire:target="runSitemaps" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt=""/>
             </button>
             <button class="btn" wire:click="fetchAll">
                 <span wire:loading.remove wire:target="fetchAll">{{ __('text.fetch_all') }}</span>
-                <img wire:loading wire:target="fetchAll" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
+                <img wire:loading wire:target="fetchAll" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt=""/>
             </button>
         </div>
         @if ($fetchStatus)
@@ -38,12 +38,12 @@
             </div>
         @endif
     </div>
-    <a class="btn mb-3 w-fit" href="{{url(Config::get('app.locale') . "/tester/testobject/{$testobject->id}/diff")}}">
+    <a alt="" class="btn mb-3 w-fit" href="{{url(Config::get('app.locale') . "/tester/testobject/{$testobject->id}/diff")}}">
         {{ __('text.bulk_diff') }}
     </a>
     <button class="btn mb-3" wire:click="deleteAll">
         <span wire:loading.remove wire:target="deleteAll">{{ __('text.delete_all') }}</span>
-        <img wire:loading wire:target="deleteAll" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
+        <img wire:loading wire:target="deleteAll" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt=""/>
     </button>
 
     <p>{{ count($testobject->testruns) }} Testruns</p>
@@ -56,10 +56,10 @@
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
                 <button class="btn btn-delete" wire:click="deleteRun({{$testrun->id}})" wire:confirm="Are you sure?">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}" />
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}"  alt=""/>
                 </button>
-                <a class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testrun/{$testrun->id}")}}" >
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/eye.svg') }}" />
+                <a alt="" class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testrun/{$testrun->id}")}}" >
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/eye.svg') }}"  alt=""/>
                 </a>
             </div>
         </div>

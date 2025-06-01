@@ -6,10 +6,10 @@
             @endforeach
         </select>
         <button wire:click="addNote" class="ml-2 btn btn-details" id="add-note">
-            <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
+            <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}"  alt=""/>
         </button>
         <button wire:click="deleteNote" wire:confirm="{{ __('text.are-you-sure') }}" class="ml-2 btn btn-delete" id="delete-note">
-            <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}" />
+            <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}"  alt=""/>
         </button>
     </div>
     <br>
@@ -26,7 +26,7 @@
                     </label>
                 </div>
                 <button data-copy="true" data-text="{{ $selectedNote->getPublicUrl() }}" class="{{ $selectedNote->share ? '' : 'hidden' }} ml-2 btn btn-diff" id="add-note">
-                    <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/link-outline.svg') }}" />
+                    <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/link-outline.svg') }}"  alt=""/>
                 </button>
             </div>
         </div>

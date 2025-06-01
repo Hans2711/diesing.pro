@@ -1,6 +1,6 @@
 <div>
     <button wire:click="addPortfolio" class="btn" id="add-note">
-        <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
+        <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" alt="" />
     </button>
 
     @if (!$activePortfolio)
@@ -9,18 +9,18 @@
                 <span>{{ $portfolio->name }}</span>
                 <div class="grid md:grid-cols-2 gap-5 mt-2">
                     <button wire:click="deletePortfolio({{ $portfolio->id }})" wire:confirm="{{ __('text.are-you-sure') }}" class="btn-delete" id="delete-redirect" data-id="{{ $portfolio->id }}">
-                        <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}" />
+                        <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}" alt="" />
                     </button>
                     <button wire:click="editPortfolio({{ $portfolio->id }})" id="{{ $portfolio->id }}" class="btn btn-edit">
-                        <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/pencil-outline.svg') }}" />
+                        <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/pencil-outline.svg') }}" alt="" />
                     </button>
                 </div>
             </div>
         @endforeach
     @else
     <div class="mt-3">
-        <a wire:click="cancelEdit" class="flex gap-2 mb-4 align-center hover:cursor-pointer btn-back">
-            <img class="w-4 dark:invert" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" />
+        <a alt="" wire:click="cancelEdit" class="flex gap-2 mb-4 align-center hover:cursor-pointer btn-back">
+            <img class="w-4 dark:invert" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" alt="" />
             <span class="leading-none">
                 {{__('text.back')}}
             </span>
@@ -51,7 +51,7 @@
                 <div class="my-3 flex flex-wrap gap-3">
                     @foreach ($activePortfolio->media as $photo)
                         <div class="">
-                            <img class="w-24 h-24 object-cover rounded border" src="{{ Storage::url($photo->path) }}">
+                            <img class="w-24 h-24 object-cover rounded border" src="{{ Storage::url($photo->path) }}" alt="">
                             <button class="btn mt-3 w-full btn-delete" id="{{ $photo->id }}" wire:click="deleteMedia($event.target.id)" wire:confirm="Are you sure?">{{ __('text.delete') }}</button>
                         </div>
                     @endforeach
@@ -66,7 +66,7 @@
                     <div class="my-3 flex flex-wrap gap-3">
                     @foreach ($media as $photo)
                         @if (in_array($photo->getMimeType(), ['image/jpeg', 'image/png', 'image/gif']))
-                            <img class="w-24 h-24 object-cover rounded border" src="{{ $photo->temporaryUrl() }}">
+                            <img class="w-24 h-24 object-cover rounded border" src="{{ $photo->temporaryUrl() }}" alt="">
                         @endif
                     @endforeach
                     </div>

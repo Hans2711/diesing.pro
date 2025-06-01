@@ -22,8 +22,8 @@
 <p>Username: {{ $user->username }}</p>
 <p>Email: {{ $user->email }}</p>
 <p>Permission: {{ $permission }}</p>
-<p><a href="{{ url('/grant/' . $user->username . '/' . $permission . '/' . $user->permissions_token) }}">Grant Access</a></p>
-<p><a href="{{ url('/ungrant/' . $user->username . '/' . $permission . '/' . $user->permissions_token) }}">Remove Access</a></p>
+<p><a alt="{{ __('alt.grant_access') }}" href="{{ url('/grant/' . $user->username . '/' . $permission . '/' . $user->permissions_token) }}">Grant Access</a></p>
+<p><a alt="{{ __('alt.remove_access') }}" href="{{ url('/ungrant/' . $user->username . '/' . $permission . '/' . $user->permissions_token) }}">Remove Access</a></p>
 
 
 </div>

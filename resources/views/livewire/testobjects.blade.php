@@ -24,7 +24,7 @@
                     'livewire' => true
                 ])
                 <button type="submit" class="btn">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" />
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}"  alt=""/>
                 </button>
             </form>
         </div>
@@ -57,7 +57,7 @@
                     'value' => $url
                 ])
                 <button type="submit" class="btn btn-edit">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt=""/>
                 </button>
             </form>
         </div>
@@ -71,13 +71,13 @@
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
                 <button class="btn btn-delete" wire:click="deleteObject({{ $testObj->id }})" wire:confirm="Are you sure?">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}" />
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}"  alt=""/>
                 </button>
                 <button class="btn btn-edit" wire:click="editObject({{ $testObj->id }})">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" />
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt=""/>
                 </button>
-                <a class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testobject/{$testObj->id}")}}">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/eye.svg') }}" />
+                <a alt="" class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testobject/{$testObj->id}")}}">
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/eye.svg') }}"  alt=""/>
                 </a>
             </div>
         </div>
