@@ -11,10 +11,6 @@
         @include('global.head.font-preload')
         @include('global.head.title', ['title' => $title ?? null])
         @include('global.head.og-tags', ['title' => $title ?? null])
-        @include('global.head.google-analytics', ['title' => $title ?? null])
-
-        @vite(['resources/js/app.js'])
-
         <style>
         {!! Vite::content('resources/css/app.css') !!}
         </style>
@@ -25,5 +21,8 @@
                 @yield('content')
             </div>
         </div>
+
+        @vite(['resources/js/app.js'])
+        @include('global.head.google-analytics', ['title' => $title ?? null])
     </body>
 </html>
