@@ -11,5 +11,18 @@ return [
     'open_menu' => 'Open Menu',
     'close_menu' => 'Close Menu',
     'send' => 'Send',
+    'add' => 'Add',
+    'back' => 'Back',
+    'close' => 'Close',
+    'delete' => 'Delete',
+    'edit' => 'Edit',
+    'view' => 'View',
+    'download' => 'Download',
+    'sync' => 'Loading',
+    'save' => 'Save',
+    'link' => 'Link',
+    'shuffle' => 'Shuffle',
+    'login' => 'Login',
+    'compare' => 'Compare',
 ];
 
