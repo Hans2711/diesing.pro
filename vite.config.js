@@ -22,9 +22,25 @@ export default defineConfig({
             refresh: true,
         }),
         ViteMinifyPlugin({ minify: 'terser' }),
-        // obfuscator(),
-        // viteCompression(),
-        // viteCompression({ algorithm: 'brotliCompress', ext: '.br' }),
+        obfuscator({
+            apply: "build",
+            options: {
+                compact: true,
+                controlFlowFlattening: true,
+                debugProtection: false,
+                disableConsoleOutput: true,
+                identifierNamesGenerator: "hexadecimal",
+                numbersToExpressions: true,
+                renameGlobals: false,
+                selfDefending: true,
+                renameProperties: true,
+                simplify: true,
+                splitStrings: true,
+                target: "browser-no-eval",
+                transformObjectKeys: true,
+            },
+        }),
+        viteCompression(),
     ],
     server: {
         hmr: {
