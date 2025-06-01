@@ -6,7 +6,7 @@
     @if (isset($error))
         <div class="alert alert-danger">{{ $error }}</div>
     @else
-        <h1>Diff: <a href="{{$testobject->url}}" class="underline">{{$testobject->name}} {{$testrun->name}}</a> ({{$testrun->created_at}})</h1>
+        <h1>Diff: <a alt="" href="{{$testobject->url}}" class="underline">{{$testobject->name}} {{$testrun->name}}</a> ({{$testrun->created_at}})</h1>
         {!! $diff !!}
     @endif
 @endsection

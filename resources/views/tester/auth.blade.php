@@ -13,7 +13,7 @@
         </div>
         <div class="flex items-center justify-between">
             <button class="btn" type="submit">
-                <img class="w-20 h-6 invert" src="{{ Vite::asset('resources/icons/lock-open.svg') }}" />
+                <img class="w-20 h-6 invert" src="{{ Vite::asset('resources/icons/lock-open.svg') }}"  alt=""/>
             </button>
         </div>
     </form>

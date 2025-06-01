@@ -24,7 +24,7 @@
 </div>
 
 <div class="text-center mt-10">
-    <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit mx-auto gap-4">
+    <a alt="{{ __('text.contact') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit mx-auto gap-4">
             <img class="w-6 h-6 invert dark:invert-0" src="{{ Vite::asset('resources/icons/envelope.svg') }}" alt="Send" />
             {{ __('text.cv-contact-button') }}
         </a>
@@ -40,9 +40,9 @@
             <div class="primary-gradient left timeline-card group col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto shadow-md">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="font-bold text-xl">
-                        <a class="underline" href="https://www.netigo.de" target="_blank" rel="noopener noreferrer">Netigo GmbH</a>, Düsseldorf
+                        <a alt="Netigo GmbH" class="underline" href="https://www.netigo.de" target="_blank" rel="noopener noreferrer">Netigo GmbH</a>, Düsseldorf
                     </h3>
-                    <img src="{{ Vite::asset('resources/images/netigo.svg') }}" class="w-16 h-auto ml-4 invert dark:invert-0" />
+                    <img src="{{ Vite::asset('resources/images/netigo.svg') }}" class="w-16 h-auto ml-4 invert dark:invert-0"  alt="{{ __('alt.netigo_logo') }}"/>
                 </div>
                 <p class="text-sm mb-2">{{ __('text.cv-backend-period') }}</p>
                 <hr class="mb-2" />
@@ -78,9 +78,9 @@
             <div class="primary-gradient timeline-card col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="font-bold text-xl">
-                        <a class="underline" href="https://www.netigo.de" target="_blank" rel="noopener noreferrer">Netigo GmbH</a>, Düsseldorf
+                        <a alt="Netigo GmbH" class="underline" href="https://www.netigo.de" target="_blank" rel="noopener noreferrer">Netigo GmbH</a>, Düsseldorf
                     </h3>
-                    <img src="{{ Vite::asset('resources/images/netigo.svg') }}" class="w-16 h-auto ml-4 invert dark:invert-0" />
+                    <img src="{{ Vite::asset('resources/images/netigo.svg') }}" class="w-16 h-auto ml-4 invert dark:invert-0"  alt="{{ __('alt.netigo_logo') }}"/>
                 </div>
                 <p class="text-sm mb-2">{{ __('text.cv-apprenticeship-period') }}</p>
                 <hr class="mb-2" />
@@ -101,9 +101,9 @@
             <div class="primary-gradient left timeline-card col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto shadow-md">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="font-bold text-xl">
-                        <a class="underline" href="https://berufskolleg.de/" target="_blank" rel="noopener noreferrer">Berufskolleg Hilden</a>
+                        <a alt="Berufskolleg Hilden" class="underline" href="https://berufskolleg.de/" target="_blank" rel="noopener noreferrer">Berufskolleg Hilden</a>
                     </h3>
-                    <img src="{{ Vite::asset('resources/images/bkh.png') }}" class="w-10 h-auto ml-4 " />
+                    <img src="{{ Vite::asset('resources/images/bkh.png') }}" class="w-10 h-auto ml-4 "  alt="{{ __('alt.bkh_logo') }}"/>
                 </div>
                 <p class="text-sm mb-2">{{ __('text.cv-school1-period') }}</p>
                 <hr class=" mb-2" />
@@ -131,9 +131,9 @@
             <div class="primary-gradient timeline-card col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="font-bold text-xl">
-                        <a class="underline" href="https://www.lgbk.de/" target="_blank" rel="noopener noreferrer">Lessing Berufskolleg</a>, Düsseldorf
+                        <a alt="Lessing Berufskolleg" class="underline" href="https://www.lgbk.de/" target="_blank" rel="noopener noreferrer">Lessing Berufskolleg</a>, Düsseldorf
                     </h3>
-                    <img src="{{ Vite::asset('resources/images/lessing.png') }}" class="w-16 h-auto ml-4" />
+                    <img src="{{ Vite::asset('resources/images/lessing.png') }}" class="w-16 h-auto ml-4"  alt="{{ __('alt.lessing_logo') }}"/>
                 </div>
                 <p class="text-sm mb-2">{{ __('text.cv-school2-period') }}</p>
                 <hr class=" mb-2" />
@@ -161,7 +161,7 @@
             <div class="primary-gradient left timeline-card col-start-1 col-end-5 p-4 rounded-xl my-4 ml-auto shadow-md">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="font-bold text-xl">
-                        <a class="underline" href="https://www.annettegymnasium.de/" target="_blank" rel="noopener noreferrer">Annette-von-Droste-Hülshoff-Gymnasium</a>, Düsseldorf
+                        <a alt="Annette Gymnasium">Annette-von-Droste-Hülshoff-Gymnasium</a>, Düsseldorf
                     </h3>
                 </div>
                 <p class="text-sm mb-2">{{ __('text.cv-school3-period') }}</p>
@@ -190,7 +190,7 @@
             <div class="primary-gradient timeline-card col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md">
                 <div class="flex justify-between items-start mb-2">
                     <h3 class="font-bold text-xl">
-                        <a class="underline" href="https://kgs-marienschule-duesseldorf.de/" target="_blank" rel="noopener noreferrer">{{ __('text.cv-school4-name') }}</a>, Düsseldorf
+                        <a alt="{{ __('text.cv-school4-name') }}" class="underline" href="https://kgs-marienschule-duesseldorf.de/" target="_blank" rel="noopener noreferrer">{{ __('text.cv-school4-name') }}</a>, Düsseldorf
                     </h3>
                 </div>
                 <p class="text-sm mb-2">{{ __('text.cv-school4-period') }}</p>
@@ -312,7 +312,7 @@
             <p class="text-sm mb-2">{{ __('text.cv-certificate1-period') }}</p>
             <hr class="mb-2" />
             <p class="text-sm">
-                <a href="https://typo3.com/services/certifications/certified-integrator-listing" class="btn btn-secondary w-fit no-underline" target="_blank">{{ __('text.cv-certificate1-link') }}</a>
+                <a alt="{{ __('text.cv-certificate1-link') }}" href="https://typo3.com/services/certifications/certified-integrator-listing" class="btn btn-secondary w-fit no-underline" target="_blank">{{ __('text.cv-certificate1-link') }}</a>
             </p>
         </div>
     </div>
@@ -340,20 +340,20 @@
     <div class="flex flex-col lg:grid grid-cols-4 mx-auto p-2 gap-5">
         <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
             <p class="text-sm mb-3 text-center">
-                <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit no-underline" target="_blank">{{ __('text.cv-contact-link') }}</a>
+                <a alt="{{ __('text.cv-contact-link') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit no-underline" target="_blank">{{ __('text.cv-contact-link') }}</a>
             </p>
             <hr class="mb-2" />
             <div class="grid grid-cols-2">
                 <div>
                     <h3>{{ __('text.cv-contact-phone-label') }}</h3>
                     <p class="text-sm mb-2">
-                        <a href="tel:01731758175">0173 / 1758175</a>
+                        <a alt="0173 1758175" href="tel:01731758175">0173 / 1758175</a>
                     </p>
                 </div>
                 <div>
                     <h3>{{ __('text.cv-contact-email-label') }}</h3>
                     <p class="text-sm mb-2">
-                        <a href="mailto:hp@diesing.pro">hp@diesing.pro</a>
+                        <a alt="hp@diesing.pro" href="mailto:hp@diesing.pro">hp@diesing.pro</a>
                     </p>
                 </div>
             </div>

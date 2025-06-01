@@ -2,8 +2,8 @@
 
 @section('content')
     <h1>{{ __('text.testinstance') }} {{$instance->created_at_clean}}</h1>
-    <a wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testrun/{$instance->testrun->id}")}}" class="flex gap-2 mb-4 align-center btn-back dark:text-secondary-dark dark:invert">
-        <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" />
+    <a alt="" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testrun/{$instance->testrun->id}")}}" class="flex gap-2 mb-4 align-center btn-back dark:text-secondary-dark dark:invert">
+        <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}"  alt=""/>
         <span class="leading-none">
             {{__('text.back')}}
         </span>
