@@ -36,13 +36,13 @@
     </div>
     <button class="btn mb-3" wire:click="updateDiff">
         <span wire:loading.remove wire:target="updateDiff">{{ __('text.compare') }}</span>
-        <img wire:loading wire:target="updateDiff" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt=""/>
+        <img wire:loading wire:target="updateDiff" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt="{{ __('alt.sync') }}"/>
     </button>
 
     @foreach ($diffs as $runId => $data)
     <div class="border p-3 mb-4 pb-3 rounded border-primary-dark dark:border-primary-light">
         <h3 id="{{ $data['run']->name }}">
-            <a alt="" href="#{{ $data['run']->name }}">
+            <a alt="{{ __('text.testrun') }}" href="#{{ $data['run']->name }}">
                 {{ $data['run']->name }} ({{ $data['run']->testinstances->count() }})
             </a>
         </h3>
