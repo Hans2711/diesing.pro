@@ -260,4 +260,70 @@ tertiary-light    #FFFFFF
     .overflow-x-hidden {
         overflow: visible !important;
     }
+
+    .break-page {
+        page-break-before: always !important;
+        break-before: page !important;
+    }
+
+    .break-page.hidden {
+        display: block !important;
+    }
+
+    .print-only {
+        display: block !important;
+    }
+
+    a.btn,
+    button.btn,
+    .btn,
+    .btn-secondary,
+    .btn-primary,
+    .btn-delete,
+    .btn-edit,
+    .btn-details,
+    .btn-fetch,
+    .btn-diff,
+    .ibtn,
+    .btn-neutral {
+        all: unset !important;
+        display: inline !important;
+        color: #000 !important;
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        font-weight: normal !important;
+        text-decoration: underline !important;
+        cursor: default !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Also disable rounded corners if undesired */
+    .rounded,
+    .rounded-md,
+    .rounded-xl,
+    .rounded-2xl,
+    .rounded-full {
+        border-radius: 0 !important;
+    }
+
+    /* Optionally, remove grayscale backgrounds */
+    .bg-gray-100,
+    .bg-gray-200,
+    .bg-gray-300,
+    .bg-gray-400,
+    .bg-tertiary-dark,
+    .bg-tertiary,
+    .bg-secondary,
+    .bg-secondary-light,
+    .bg-secondary-dark {
+        background-color: #fff !important;
+    }
 }

@@ -123,6 +123,7 @@ return [
     'permissions_updated' => 'Permissions updated',
     'private' => 'Private',
     'cv' => 'CV',
+    'cv-website' => 'CV-Website',
     'cv-description' => 'The CVs of the Diesings',
     'print' => 'Print (PDF)',
     'rt-share' => 'Real-Time Share',

@@ -122,6 +122,7 @@ return [
     'user_deleted' => 'Benutzer gelöscht',
     'permissions_updated' => 'Berechtigungen aktualisiert',
     'cv' => 'Lebenslauf',
+    'cv-website' => 'Lebenslauf-Website',
     'cv-description' => 'Die Lebensläufe der Diesings',
     'print' => 'Drucken (PDF)',
     'rt-share' => 'Echtzeit-Teilen',
