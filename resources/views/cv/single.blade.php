@@ -4,6 +4,6 @@
     @include('cv.content', ['cv' => $cv, 'user' => $user])
 
     <div class="">
-        <a alt="{{ __('text.print') }}" class="btn md:w-fit" href="{{ url()->current() . '/print' }}" target="_blank">{{ __('text.print') }}</a>
+        <a alt="{{ __('text.print') }}" title="{{ __('text.print') }}" class="btn md:w-fit" href="{{ url()->current() . '/print' }}" target="_blank">{{ __('text.print') }}</a>
     </div>
 @endsection

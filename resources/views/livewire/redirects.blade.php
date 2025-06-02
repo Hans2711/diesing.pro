@@ -1,6 +1,6 @@
 <div>
     <button wire:click="addRedirect" class="btn" id="add-redirect">
-        <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}"  alt="{{ __('alt.add') }}"/>
+        <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}"  alt="{{ __('alt.add') }}" title="{{ __('alt.add') }}"/>
     </button>
     <div class="mt-3 w-full" id="redirects-wrapper">
         @foreach ($redirects ?? [] as $redirect)
@@ -28,10 +28,10 @@
                         </div>
                         <div class="flex justify-end gap-3 mt-3">
                             <button type="button" wire:click="cancelEdit" class="btn btn-delete">
-                                <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}"  alt="{{ __('alt.close') }}"/>
+                                <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}"  alt="{{ __('alt.close') }}" title="{{ __('alt.close') }}"/>
                             </button>
                             <button type="submit" class="btn btn-fetch">
-                                <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/save-outline.svg') }}"  alt="{{ __('alt.save') }}"/>
+                                <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/save-outline.svg') }}"  alt="{{ __('alt.save') }}" title="{{ __('alt.save') }}"/>
                             </button>
                         </div>
                     </form>
@@ -74,13 +74,13 @@
                     </div>
                     <div class="grid grid-cols-3 gap-5 mt-2">
                         <button wire:click="deleteRedirect({{ $redirect->id }})" wire:confirm="{{ __('text.are-you-sure') }}" class="btn btn-delete" id="delete-redirect" data-id="{{ $redirect->id }}">
-                            <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}"  alt="{{ __('alt.close') }}"/>
+                            <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}"  alt="{{ __('alt.close') }}" title="{{ __('alt.close') }}"/>
                         </button>
                         <button wire:click="editRedirect({{ $redirect->id }})" id="e-{{ $redirect->id }}" class="btn btn-edit">
-                            <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/pencil-outline.svg') }}"  alt="{{ __('alt.edit') }}"/>
+                            <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/pencil-outline.svg') }}"  alt="{{ __('alt.edit') }}" title="{{ __('alt.edit') }}"/>
                         </button>
                         <button data-copy="true" data-text="{{ $redirect->url }}" class="btn btn-diff">
-                            <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/link-outline.svg') }}"  alt="{{ __('alt.link') }}"/>
+                            <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/link-outline.svg') }}"  alt="{{ __('alt.link') }}" title="{{ __('alt.link') }}"/>
                         </button>
                     </div>
                 @endif
