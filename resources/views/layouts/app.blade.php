@@ -31,7 +31,7 @@
                 aria-label="Toggle menu"
             >
                 <!-- Menu Icon -->
-                <img x-show="!sidebarOpen" src="{{ Vite::asset('resources/icons/menu.svg') }}" class="h-8 w-8" alt="Open Menu" />
+                <img x-show="!sidebarOpen" src="{{ Vite::asset('resources/icons/menu.svg') }}" class="h-8 w-8" alt="Open Menu" title="Open Menu" />
             </button>
 
             @include('global.header', ['active' => $active ?? null, 'activeTool' => $activeTool ?? null])
@@ -45,7 +45,7 @@
                 @yield('content')
             </main>
             <button id="scroll-top-button" class="btn btn-secondary fixed bottom-4 right-4 md:bottom-8 md:right-8 rounded-full scroll-hidden transition-all duration-300 transform" aria-label="Scroll to top">
-                <img class="w-6 h-6 invert dark:invert-0" src="{{ Vite::asset('resources/icons/chevron-up.svg') }}" alt="Scroll to top" />
+                <img class="w-6 h-6 invert dark:invert-0" src="{{ Vite::asset('resources/icons/chevron-up.svg') }}" alt="Scroll to top" title="Scroll to top" />
             </button>
         </div>
         </div>
