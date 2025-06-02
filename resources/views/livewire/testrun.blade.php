@@ -1,8 +1,8 @@
 <div>
     @vite(['resources/css/diff-table.css'])
 
-    <a alt="{{ __('text.back') }}" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testobject/{$testrun->testobject->id}")}}" class="flex gap-2 mb-4 align-center btn-back dark:text-secondary-dark dark:invert">
-        <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" alt="{{ __('alt.back') }}" />
+    <a alt="{{ __('text.back') }}" title="{{ __('text.back') }}" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testobject/{$testrun->testobject->id}")}}" class="flex gap-2 mb-4 align-center btn-back dark:text-secondary-dark dark:invert">
+        <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" alt="{{ __('alt.back') }}" title="{{ __('alt.back') }}" />
         <span class="leading-none">
             {{__('text.back')}}
         </span>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="grid-cols-2 grid align-middle gap-5 mb-3">
                         <button type="submit" class="btn">
-                            <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/git-compare.svg') }}" alt="{{ __('alt.compare') }}" />
+                            <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/git-compare.svg') }}" alt="{{ __('alt.compare') }}" title="{{ __('alt.compare') }}" />
                         </button>
                     </div>
                 </form>
@@ -64,8 +64,8 @@
     ])
 
     <button class="btn mb-3" wire:click="createInstance" wire:loading.attr="disabled" wire:target="createInstance">
-        <img wire:loading.remove wire:target="createInstance" class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" alt="{{ __('alt.add') }}" />
-        <img wire:loading wire:target="createInstance" class="w-4 h-4 invert animate-spin" src="{{ Vite::asset('resources/icons/sync.svg') }}" alt="{{ __('alt.sync') }}" />
+        <img wire:loading.remove wire:target="createInstance" class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" alt="{{ __('alt.add') }}" title="{{ __('alt.add') }}" />
+        <img wire:loading wire:target="createInstance" class="w-4 h-4 invert animate-spin" src="{{ Vite::asset('resources/icons/sync.svg') }}" alt="{{ __('alt.sync') }}" title="{{ __('alt.sync') }}" />
     </button>
 
     @foreach ($testrun->testinstances as $testinstance)
@@ -75,20 +75,20 @@
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
                 <button class="btn btn-delete" wire:click="deleteInstance({{$testinstance->id}})" wire:confirm="Are you sure?">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}" alt="{{ __('alt.delete') }}" />
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}" alt="{{ __('alt.delete') }}" title="{{ __('alt.delete') }}" />
                 </button>
-                <a alt="{{ __('alt.view') }}" class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testinstance/{$testinstance->id}")}}" >
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/eye.svg') }}" alt="{{ __('alt.view') }}" />
+                <a alt="{{ __('alt.view') }}" title="{{ __('alt.view') }}" class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testinstance/{$testinstance->id}")}}" >
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/eye.svg') }}" alt="{{ __('alt.view') }}" title="{{ __('alt.view') }}" />
                 </a>
                 <button class="btn btn-fetch" wire:navigate wire:click="fetchInstance({{$testinstance->id}})"")}}" >
                     <img
                         class="w-20 h-5 invert"
                         src="{{ Vite::asset('resources/icons/' . (empty($testinstance->html) ? 'download.svg' : 'arrow-down.svg')) }}"
-                        alt="{{ __('alt.download') }}"
+                        alt="{{ __('alt.download') }}" title="{{ __('alt.download') }}"
                     />
                 </button>
                 <button class="btn btn-diff" wire:click="addToDiff({{$testinstance->id}})">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/git-compare.svg') }}" alt="{{ __('alt.compare') }}" />
+                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/git-compare.svg') }}" alt="{{ __('alt.compare') }}" title="{{ __('alt.compare') }}" />
                 </button>
             </div>
         </div>
