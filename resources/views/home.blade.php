@@ -6,10 +6,10 @@
     <div class="md:columns-2 columns-1 md:mb-8 mb-0" id="portfolio">
         <!-- Card: Contact -->
         <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-left">
-            <a alt="{{ __('text.contact') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}" wire:navigate.hover >
+            <a alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}" wire:navigate.hover >
                 <div class="relative h-0 pb-44">
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                         src="{{ Vite::asset('resources/images/kontakt.jpg') }}" alt="{{ __('text.contact') }}">
+                         src="{{ Vite::asset('resources/images/kontakt.jpg') }}" alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}">
                 </div>
                 <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                     <div class="font-bold text-xl mb-2">
@@ -24,10 +24,10 @@
 
         <!-- Card: Portfolio -->
         <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-right">
-            <a alt="{{ __('text.cv') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}" wire:navigate.hover >
+            <a alt="{{ __('text.cv') }}" title="{{ __('text.cv') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}" wire:navigate.hover >
                 <div class="relative h-0 pb-44">
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                         src="{{ Vite::asset('resources/images/portfolio.jpg') }}" alt="{{ __('text.cv') }}">
+                         src="{{ Vite::asset('resources/images/portfolio.jpg') }}" alt="{{ __('text.cv') }}" title="{{ __('text.cv') }}">
                 </div>
                 <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                     <div class="font-bold text-xl mb-2">
@@ -43,10 +43,10 @@
 
     <div class="md:columns-2 columns-1 md:mb-8 md-0" id="portfolio">
         <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-left">
-            <a alt="{{ __('text.tester') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}" wire:navigate.hover >
+            <a alt="{{ __('text.tester') }}" title="{{ __('text.tester') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}" wire:navigate.hover >
                 <div class="relative h-0 pb-44">
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                         src="{{ Vite::asset('resources/images/testing.jpg') }}" alt="{{ __('text.tester') }}">
+                         src="{{ Vite::asset('resources/images/testing.jpg') }}" alt="{{ __('text.tester') }}" title="{{ __('text.tester') }}">
                 </div>
                 <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                     <div class="font-bold text-xl mb-2 ">
@@ -59,10 +59,10 @@
             </a>
         </div>
         <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-right">
-            <a alt="{{ __('text.random-teams') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}" wire:navigate.hover >
+            <a alt="{{ __('text.random-teams') }}" title="{{ __('text.random-teams') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}" wire:navigate.hover >
                 <div class="relative h-0 pb-44">
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                         src="{{ Vite::asset('resources/images/random.jpg') }}" alt="{{ __('text.random-teams') }}">
+                         src="{{ Vite::asset('resources/images/random.jpg') }}" alt="{{ __('text.random-teams') }}" title="{{ __('text.random-teams') }}">
                 </div>
                 <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                     <div class="font-bold text-xl mb-2">
@@ -79,10 +79,10 @@
     <div class="md:columns-2 columns-1 md:mb-8 md-0" id="portfolio">
         <!-- Card: Private Tools -->
         <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-left">
-            <a alt="{{ __('text.account') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" wire:navigate.hover >
+            <a alt="{{ __('text.account') }}" title="{{ __('text.account') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" wire:navigate.hover >
                 <div class="relative h-0 pb-44">
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                         src="{{ Vite::asset('resources/images/private.jpg') }}" alt="{{ __('text.account') }}">
+                         src="{{ Vite::asset('resources/images/private.jpg') }}" alt="{{ __('text.account') }}" title="{{ __('text.account') }}">
                 </div>
                 <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                     <div class="font-bold text-xl mb-2">
@@ -97,14 +97,14 @@
 
         <!-- Card: Imprint & Data Protection -->
         <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-right">
-            <a alt="{{ __('text.imprint') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.imprint')) }}" wire:navigate.hover >
+            <a alt="{{ __('text.imprint') }}" title="{{ __('text.imprint') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.imprint')) }}" wire:navigate.hover >
                 <div class="relative h-0 pb-44">
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                         src="{{ Vite::asset('resources/images/law.jpg') }}" alt="{{ __('text.imprint') }}">
+                         src="{{ Vite::asset('resources/images/law.jpg') }}" alt="{{ __('text.imprint') }}" title="{{ __('text.imprint') }}">
                 </div>
                 <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                     <div class="font-bold text-xl mb-2">
-                        <a alt="{{ __('text.imprint') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.imprint')) }}">{{ __('text.imprint') }}</a> {{ __('text.and') }} <a alt="{{ __('text.data-protection') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.data-protection')) }}">{{ __('text.data-protection') }}</a>
+                        <a alt="{{ __('text.imprint') }}" title="{{ __('text.imprint') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.imprint')) }}">{{ __('text.imprint') }}</a> {{ __('text.and') }} <a alt="{{ __('text.data-protection') }}" title="{{ __('text.data-protection') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.data-protection')) }}">{{ __('text.data-protection') }}</a>
                     </div>
                 </div>
             </a>
