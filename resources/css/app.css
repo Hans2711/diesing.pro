@@ -326,4 +326,63 @@ tertiary-light    #FFFFFF
     .bg-secondary-dark {
         background-color: #fff !important;
     }
+
+    .mr-5 {
+        margin-right: 0 !important;
+    }
+
+
+
+        /* Remove text centering on print */
+    .text-center,
+    .md\:text-center,
+    .lg\:text-center {
+        text-align: left !important;
+    }
+
+    /* Remove horizontal padding and margins */
+    .px-1, .px-2, .px-3, .px-4, .px-5,
+    .pl-1, .pl-2, .pl-3, .pl-4, .pl-5,
+    .pr-1, .pr-2, .pr-3, .pr-4, .pr-5,
+    .md\:px-1, .md\:px-2, .md\:px-3, .md\:px-4, .md\:px-5,
+    .lg\:px-1, .lg\:px-2, .lg\:px-3, .lg\:px-4, .lg\:px-5,
+    .mx-auto,
+    .ml-auto, .mr-auto,
+    .md\:mx-auto, .lg\:mx-auto,
+    .md\:ml-auto, .md\:mr-auto {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* Remove grid/container left/right padding and centering */
+    .container,
+    .lg\:container,
+    .grid,
+    .flex {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        justify-content: flex-start !important;
+    }
+
+    /* Optional: ensure columns don't auto-center */
+    .col-start-2,
+    .col-start-3,
+    .col-start-4,
+    .col-start-5,
+    .col-start-6 {
+        grid-column-start: auto !important;
+    }
+
+    .col-end-4,
+    .col-end-5,
+    .col-end-6,
+    .col-end-10 {
+        grid-column-end: auto !important;
+    }
+
+
 }
