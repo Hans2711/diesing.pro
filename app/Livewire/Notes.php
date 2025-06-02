@@ -74,10 +74,12 @@ class Notes extends Component
     public function mount()
     {
         $this->notes = Auth::user()->notes;
-        if (empty($this->notes)) {
+        if ($this->notes->isEmpty()) {
             $note = new Note();
+            $note->user = Auth::user()->id;
             $note->save();
-            $this->notes = Note::all();
+
+            $this->notes = Auth::user()->notes;
         }
 
         if (session()->has("selectedNote")) {
