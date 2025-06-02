@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Timetrack;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class TimetrackEdit extends Component
@@ -11,12 +12,13 @@ class TimetrackEdit extends Component
 
     public function mount()
     {
-        $this->timetracks = Timetrack::all();
+        $this->timetracks = Timetrack::where('user', Auth::id())->get();
     }
 
     public function createTimetrack()
     {
         $this->timetracks->push(Timetrack::makeInstance('New Timetrack', '[]'));
+        $this->timetracks->last()->user = Auth::id();
         $this->timetracks->last()->save();
     }
 
