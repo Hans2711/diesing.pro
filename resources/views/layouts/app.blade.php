@@ -14,6 +14,16 @@
         @include('global.head.title', ['title' => $title ?? null])
         @include('global.head.og-tags', ['title' => $title ?? null, 'description' => $description ?? null])
 
+        @vite([
+            'resources/js/app.js',
+            'resources/js/utils/zenquotes.js',
+            'resources/js/gradient-scroll.js',
+            'resources/js/swipe-sidebar.js',
+            'resources/js/scroll-to-top.js',
+            'resources/js/logo-animation.js',
+            'resources/css/app.css'
+        ])
+
         @livewireStyles
     </head>
     <body class="bg-tertiary dark:bg-secondary-dark text-black dark:text-white">
@@ -58,15 +68,6 @@
         </div>
         @livewireScripts
 
-        @vite([
-            'resources/js/app.js',
-            'resources/js/utils/zenquotes.js',
-            'resources/js/gradient-scroll.js',
-            'resources/js/swipe-sidebar.js',
-            'resources/js/scroll-to-top.js',
-            'resources/js/logo-animation.js',
-            'resources/css/app.css'
-        ])
         @include('global.head.google-analytics', ['title' => $title ?? null])
     </body>
 </html>
