@@ -210,3 +210,54 @@ tertiary-light    #FFFFFF
         @apply translate-x-20 opacity-0 pointer-events-none;
     }
 }
+
+@media print {
+    /* Hide interactive elements on print */
+    #burger-menu-button,
+    #scroll-top-button,
+    aside,
+    footer {
+        display: none !important;
+    }
+
+    /* Ensure animated cards are visible */
+    .primary-gradient,
+    .left,
+    .mobile-left {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
+
+    /* Force light theme colors */
+    body {
+        color: #000 !important;
+        background: #fff !important;
+    }
+    .bg-white {
+        background-color: #fff !important;
+    }
+    .text-white,
+    .text-gray-100,
+    .text-gray-200,
+    .text-gray-300,
+    .text-gray-400,
+    .text-gray-500,
+    .text-gray-600,
+    .text-gray-700,
+    .text-gray-800,
+    .text-gray-900 {
+        color: #000 !important;
+    }
+    .border,
+    .border-gray-300,
+    .border-gray-800 {
+        border-color: #E5E7EB !important;
+    }
+    .shadow-sm,
+    .shadow {
+        box-shadow: none !important;
+    }
+    .overflow-x-hidden {
+        overflow: visible !important;
+    }
+}
