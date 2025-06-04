@@ -16,9 +16,10 @@ class RssFeedNotification extends Mailable implements ShouldQueue, ShouldBeUniqu
 
     protected $data;
 
-    public function __construct(array $data)
+    public function __construct(array $data, ?string $locale = null)
     {
         $this->data = $data;
+        $this->locale = $locale ?? app()->getLocale();
     }
 
     public function envelope(): Envelope
@@ -36,6 +37,7 @@ class RssFeedNotification extends Mailable implements ShouldQueue, ShouldBeUniqu
                 'description' => $this->data['description'] ?? '',
                 'link' => $this->data['link'] ?? '',
                 'pubDate' => $this->data['pubDate'] ?? '',
+                'locale' => $this->locale,
             ]
         );
     }
