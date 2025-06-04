@@ -169,6 +169,7 @@ tertiary-light    #FFFFFF
 
     /* ───────── cards, sidebar etc. ───────── */
     .home-card-left  {@apply hover:scale-105 transform transition duration-300 hover:shadow-xl md:origin-right;}
+    .home-card  {@apply hover:scale-105 transform transition duration-300 hover:shadow-xl ;}
     .home-card-right {@apply hover:scale-105 transform transition duration-300 hover:shadow-xl md:origin-left;}
     .tools-sidebar-active {@apply bg-tertiary;}
 
