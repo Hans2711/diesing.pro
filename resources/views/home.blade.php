@@ -78,7 +78,7 @@
 
     <div class="md:columns-1 columns-1 md:mb-8 md-0" id="portfolio">
         <!-- Card: Account -->
-        <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0">
+        <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card">
             <a alt="{{ __('text.account') }}" title="{{ __('text.account') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" wire:navigate.hover >
                 <div class="relative h-0 pb-44">
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
