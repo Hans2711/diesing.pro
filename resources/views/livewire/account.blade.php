@@ -100,7 +100,7 @@
                         <div class="col-span-2 flex flex-wrap gap-2">
                             @foreach ($permissions as $key => $permission)
                                 <label class="flex items-center text-sm">
-                                    <input type="checkbox" class="mr-1" wire:click="togglePermission('{{ $user->id }}','{{ $key }}')" @checked($user->getPermission($key))>
+                                    <input type="checkbox" class="mr-1" id="{{ $user->id }}" wire:click="togglePermission($event.target.id, '{{ $key }}')" @checked($user->getPermission($key))>
                                     <span>{{ $permission }}</span>
                                 </label>
                             @endforeach

@@ -8,10 +8,10 @@
             <div class="border mt-3 p-3 rounded border-primary-dark dark:border-primary-light">
                 <span>{{ $portfolio->name }}</span>
                 <div class="grid md:grid-cols-2 gap-5 mt-2">
-                    <button wire:click="deletePortfolio({{ $portfolio->id }})" wire:confirm="{{ __('text.are-you-sure') }}" class="btn-delete" id="delete-redirect" data-id="{{ $portfolio->id }}">
+                    <button id="{{ $portfolio->id }}" wire:click="deletePortfolio($event.target.id)" wire:confirm="{{ __('text.are-you-sure') }}" class="btn-delete" data-id="{{ $portfolio->id }}">
                         <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}" alt="{{ __('alt.close') }}" title="{{ __('alt.close') }}" />
                     </button>
-                    <button wire:click="editPortfolio({{ $portfolio->id }})" id="{{ $portfolio->id }}" class="btn btn-edit">
+                    <button id="{{ $portfolio->id }}" wire:click="editPortfolio($event.target.id)" class="btn btn-edit">
                         <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/pencil-outline.svg') }}" alt="{{ __('alt.edit') }}" title="{{ __('alt.edit') }}" />
                     </button>
                 </div>

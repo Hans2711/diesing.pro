@@ -19,9 +19,9 @@
                 'additional' => "wire:model='fields.{$index}.content'"
             ])
             <div class="flex gap-2 mt-2">
-                <button type="button" class="btn" wire:click="moveFieldUp({{ $index }})" @if($index === 0) disabled @endif>↑</button>
-                <button type="button" class="btn" wire:click="moveFieldDown({{ $index }})" @if($index === count($fields) - 1) disabled @endif>↓</button>
-                <button type="button" class="btn btn-delete btn-sm" wire:click="removeField({{ $index }})">Remove</button>
+                <button type="button" class="btn" id="{{ $index }}" wire:click="moveFieldUp($event.target.id)" @if($index === 0) disabled @endif>↑</button>
+                <button type="button" class="btn" id="{{ $index }}" wire:click="moveFieldDown($event.target.id)" @if($index === count($fields) - 1) disabled @endif>↓</button>
+                <button type="button" class="btn btn-delete btn-sm" id="{{ $index }}" wire:click="removeField($event.target.id)">Remove</button>
             </div>
         </div>
     @endforeach
@@ -76,21 +76,21 @@
                     </div>
 
                     <div class="flex gap-2 mt-2">
-                        <button type="button" class="btn" wire:click="moveListItemUp({{ $listIndex }}, {{ $itemIndex }})" @if($itemIndex === 0) disabled @endif>↑</button>
-                        <button type="button" class="btn" wire:click="moveListItemDown({{ $listIndex }}, {{ $itemIndex }})" @if($itemIndex === count($list['items']) - 1) disabled @endif>↓</button>
-                        <button type="button" class="btn btn-delete btn-sm" wire:click="removeListItem({{ $listIndex }}, {{ $itemIndex }})">Remove Item</button>
+                        <button type="button" class="btn" id="{{ $itemIndex }}" wire:click="moveListItemUp({{ $listIndex }}, $event.target.id)" @if($itemIndex === 0) disabled @endif>↑</button>
+                        <button type="button" class="btn" id="{{ $itemIndex }}" wire:click="moveListItemDown({{ $listIndex }}, $event.target.id)" @if($itemIndex === count($list['items']) - 1) disabled @endif>↓</button>
+                        <button type="button" class="btn btn-delete btn-sm" id="{{ $itemIndex }}" wire:click="removeListItem({{ $listIndex }}, $event.target.id)">Remove Item</button>
                     </div>
                 </div>
             @endforeach
 
             <div class="flex justify-start gap-3">
-                <button type="button" class="btn btn-delete" wire:click="removeList({{ $listIndex }})">Remove List</button>
-                <button type="button" class="btn" wire:click="addListItem({{ $listIndex }})">Add Item</button>
+                <button type="button" class="btn btn-delete" id="{{ $listIndex }}" wire:click="removeList($event.target.id)">Remove List</button>
+                <button type="button" class="btn" id="{{ $listIndex }}" wire:click="addListItem($event.target.id)">Add Item</button>
             </div>
 
             <div class="flex gap-2 mt-2">
-                <button type="button" class="btn" wire:click="moveListUp({{ $listIndex }})" @if($listIndex === 0) disabled @endif>↑ Move List Up</button>
-                <button type="button" class="btn" wire:click="moveListDown({{ $listIndex }})" @if($listIndex === count($lists) - 1) disabled @endif>↓ Move List Down</button>
+                <button type="button" class="btn" id="{{ $listIndex }}" wire:click="moveListUp($event.target.id)" @if($listIndex === 0) disabled @endif>↑ Move List Up</button>
+                <button type="button" class="btn" id="{{ $listIndex }}" wire:click="moveListDown($event.target.id)" @if($listIndex === count($lists) - 1) disabled @endif>↓ Move List Down</button>
             </div>
         </div>
     @endforeach
