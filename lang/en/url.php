@@ -20,4 +20,5 @@ return [
     "rt-share" => "realtime-share",
 
     "timetracking" => "timetracking",
+    "rss-feeds" => "rss-feeds",
 ];

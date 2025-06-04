@@ -131,6 +131,7 @@ return [
     'overview' => 'Übersicht',
 
     'timetracking' => 'Zeiterfassung',
+    'rss-feeds' => 'RSS-Feeds',
 
     // CV Page
     'cv-headline' => 'Hans Peter (HP) Diesing - Software-Entwickler',

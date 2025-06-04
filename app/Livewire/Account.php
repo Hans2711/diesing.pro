@@ -26,6 +26,7 @@ class Account extends Component
         "portfolio" => "Portfolio",
         "cv" => "Cv",
         "timetracking" => "Timetracking",
+        "rss-feeds" => "RSS Feeds",
     ];
 
     private function fillUsers()

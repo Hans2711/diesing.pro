@@ -12,4 +12,5 @@ return [
     "data-protection" => "Informationen darüber, wie wir Ihre Daten behandeln.",
     "imprint" => "Gesetzliche Angaben zu dieser Seite.",
     "cv" => "Übersicht über Qualifikationen und Berufserfahrung.",
+    "rss-feeds" => "RSS-Feeds speichern und E-Mail-Benachrichtigungen erhalten.",
 ];

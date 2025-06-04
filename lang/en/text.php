@@ -130,6 +130,7 @@ return [
     'open' => 'Open',
     'overview' => 'Overview',
     'timetracking' => 'Timetracking',
+    'rss-feeds' => 'RSS Feeds',
 
     // CV Page
     'cv-headline' => 'Hans Peter (HP) Diesing - Software Developer',
