@@ -5,6 +5,8 @@ return [
     'contact' => 'Kontakt',
     'contact-description' => 'Wenn Sie Fragen haben oder Unterstützung benötigen, können Sie uns gerne kontaktieren.',
     'message-sent' => 'Ihre Nachricht wurde erfolgreich gesendet!',
+    'contact-confirmation-subject' => 'Vielen Dank für Ihre Anfrage',
+    'contact-confirmation-body' => 'Vielen Dank für Ihre Kontaktaufnahme. Wir werden so schnell wie möglich antworten.',
     'select-recepient' => 'Empfänger auswählen',
     'portfolio' => 'Portfolio',
     'portfolio-description' => 'Hier finden Sie eine Auswahl unserer Projekte.',
