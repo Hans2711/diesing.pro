@@ -70,10 +70,10 @@
             <p><strong>URL:</strong> {{ $testObj->url }}</p>
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
-                <button class="btn btn-delete" wire:click="deleteObject({{ $testObj->id }})" wire:confirm="Are you sure?">
+                <button class="btn btn-delete" id="{{ $testObj->id }}" wire:click="deleteObject($event.target.id)" wire:confirm="Are you sure?">
                     <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}"  alt="{{ __('alt.delete') }}" title="{{ __('alt.delete') }}"/>
                 </button>
-                <button class="btn btn-edit" wire:click="editObject({{ $testObj->id }})">
+                <button class="btn btn-edit" id="{{ $testObj->id }}" wire:click="editObject($event.target.id)">
                     <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt="{{ __('alt.sync') }}" title="{{ __('alt.sync') }}"/>
                 </button>
                 <a alt="{{ __('alt.view') }}" title="{{ __('alt.view') }}" class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testobject/{$testObj->id}")}}">

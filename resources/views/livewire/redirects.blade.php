@@ -73,10 +73,10 @@
                         </div>
                     </div>
                     <div class="grid grid-cols-3 gap-5 mt-2">
-                        <button wire:click="deleteRedirect({{ $redirect->id }})" wire:confirm="{{ __('text.are-you-sure') }}" class="btn btn-delete" id="delete-redirect" data-id="{{ $redirect->id }}">
+                        <button id="{{ $redirect->id }}" wire:click="deleteRedirect($event.target.id)" wire:confirm="{{ __('text.are-you-sure') }}" class="btn btn-delete" data-id="{{ $redirect->id }}">
                             <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}"  alt="{{ __('alt.close') }}" title="{{ __('alt.close') }}"/>
                         </button>
-                        <button wire:click="editRedirect({{ $redirect->id }})" id="e-{{ $redirect->id }}" class="btn btn-edit">
+                        <button id="{{ $redirect->id }}" wire:click="editRedirect($event.target.id)" class="btn btn-edit">
                             <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/pencil-outline.svg') }}"  alt="{{ __('alt.edit') }}" title="{{ __('alt.edit') }}"/>
                         </button>
                         <button data-copy="true" data-text="{{ $redirect->url }}" class="btn btn-diff">

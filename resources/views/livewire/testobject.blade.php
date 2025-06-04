@@ -55,7 +55,7 @@
             <p><strong>{{ __('text.deleted') }}:</strong> {{ $testrun->deletedWhen()}}</p>
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
-                <button class="btn btn-delete" wire:click="deleteRun({{$testrun->id}})" wire:confirm="Are you sure?">
+                <button class="btn btn-delete" id="{{ $testrun->id }}" wire:click="deleteRun($event.target.id)" wire:confirm="Are you sure?">
                     <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}"  alt="{{ __('alt.delete') }}" title="{{ __('alt.delete') }}"/>
                 </button>
                 <a alt="{{ __('alt.view') }}" title="{{ __('alt.view') }}" class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testrun/{$testrun->id}")}}" >

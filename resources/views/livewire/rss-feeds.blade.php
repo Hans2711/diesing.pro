@@ -27,7 +27,7 @@
                 <button id="{{ $feed->id }}" wire:click="deleteFeed($event.target.id)" class="btn btn-delete" type="button" wire:confirm="{{ __('text.are-you-sure') }}">
                     <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}" alt="{{ __('alt.close') }}" title="{{ __('alt.close') }}"/>
                 </button>
-                <button wire:click="editFeed({{ $feed->id }})" class="btn btn-edit">
+                <button id="{{ $feed->id }}" wire:click="editFeed($event.target.id)" class="btn btn-edit">
                     <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/pencil-outline.svg') }}" alt="{{ __('alt.edit') }}" title="{{ __('alt.edit') }}"/>
                 </button>
             </div>
