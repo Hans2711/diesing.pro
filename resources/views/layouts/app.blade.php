@@ -23,8 +23,6 @@
             'resources/js/logo-animation.js',
             'resources/css/app.css'
         ])
-
-        @livewireStyles
     </head>
     <body class="bg-tertiary dark:bg-secondary-dark text-black dark:text-white">
         <div
@@ -66,8 +64,6 @@
                 @include('global.footer')
             </div>
         </div>
-        @livewireScripts
-
         @include('global.head.google-analytics', ['title' => $title ?? null])
     </body>
 </html>
