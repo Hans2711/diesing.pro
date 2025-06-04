@@ -43,11 +43,13 @@ export function copyText(text) {
     document.body.removeChild(tempInput);
 }
 
+document.addEventListener('DOMContentLoaded', updateCopyEventListeners);
 document.addEventListener("livewire:navigated", updateCopyEventListeners);
-
-Livewire.hook("morphed", (componet) => {
-    updateCopyEventListeners();
-});
+if (window.Livewire) {
+    Livewire.hook("morphed", (componet) => {
+        updateCopyEventListeners();
+    });
+}
 
 function updateCopyEventListeners() {
     document.querySelectorAll('[data-copy="true"]').forEach(function (button) {
