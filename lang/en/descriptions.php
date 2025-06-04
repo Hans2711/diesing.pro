@@ -12,4 +12,5 @@ return [
     "data-protection" => "Information about how we handle your data.",
     "imprint" => "Legal information about this site.",
     "cv" => "Overview of qualifications and professional experience.",
+    "rss-feeds" => "Subscribe to RSS feeds and receive email updates.",
 ];

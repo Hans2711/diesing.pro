@@ -20,4 +20,5 @@ return [
     "rt-share" => "echtzeit-teilen",
 
     "timetracking" => "zeiterfassung",
+    "rss-feeds" => "rss-feeds",
 ];

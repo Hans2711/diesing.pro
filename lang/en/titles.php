@@ -12,5 +12,6 @@ return [
     "imprint" => "Imprint",
     "cv" => "CV HP Diesing",
     "rt-share" => "Real-Time Share",
+    "rss-feeds" => "RSS Feeds",
 ];
 
