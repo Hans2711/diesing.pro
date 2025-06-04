@@ -13,7 +13,7 @@
             <button data-copy="true" data-text="{{url(Config::get('app.locale') . '/' . __('url.timetracking') . '/' . $timetrack->id)}}" class="justify-center w-full p-2 py-2.5 px-4 bg-blue-500 text-white rounded hover:bg-blue-700 flex items-center edit-redirect">
                 <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/link-outline.svg') }}"  alt="{{ __('alt.link') }}" title="{{ __('alt.link') }}"/>
             </button>
-            <button class="btn btn-delete" wire:click="deleteTimetrack({{$timetrack->id}})" wire:confirm="Are you sure?">
+            <button class="btn btn-delete" id="{{ $timetrack->id }}" wire:click="deleteTimetrack($event.target.id)" wire:confirm="Are you sure?">
                 <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}"  alt="{{ __('alt.delete') }}" title="{{ __('alt.delete') }}"/>
             </button>
         </div>
