@@ -12,4 +12,5 @@ return [
     "imprint" => "Impressum",
     "cv" => "Lebenslauf HP Diesing",
     "rt-share" => "Echtzeit-Teilen",
+    "rss-feeds" => "RSS-Feeds",
 ];

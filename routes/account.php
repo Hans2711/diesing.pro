@@ -120,5 +120,17 @@ foreach (['de', 'en'] as $locale) {
                     }
                 )->name("timetracking-edit");
             });
+
+            Route::middleware(['rss-feeds'])->group(function () use ($locale) {
+                Route::get(
+                    '/' .
+                        route_trans('account', $locale) .
+                        '/' .
+                        route_trans('rss-feeds', $locale),
+                    function () {
+                        return view('accounts.rss-feeds');
+                    }
+                )->name('rss-feeds');
+            });
         });
 }

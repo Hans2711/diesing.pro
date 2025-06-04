@@ -24,5 +24,6 @@ return [
     'shuffle' => 'Mischen',
     'login' => 'Anmelden',
     'compare' => 'Vergleichen',
+    'rss' => 'RSS',
 ];
 
