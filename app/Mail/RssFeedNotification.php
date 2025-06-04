@@ -15,7 +15,6 @@ class RssFeedNotification extends Mailable implements ShouldQueue, ShouldBeUniqu
     use Queueable, SerializesModels;
 
     protected $data;
-    public string $locale;
 
     public function __construct(array $data, ?string $locale = null)
     {

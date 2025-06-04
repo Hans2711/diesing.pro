@@ -15,7 +15,6 @@ class RequestAccess extends Mailable implements ShouldQueue, ShouldBeUnique
     use Queueable, SerializesModels;
 
     protected $data;
-    public string $locale;
 
     /**
      * Create a new message instance.
