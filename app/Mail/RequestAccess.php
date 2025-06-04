@@ -15,13 +15,15 @@ class RequestAccess extends Mailable implements ShouldQueue, ShouldBeUnique
     use Queueable, SerializesModels;
 
     protected $data;
+    public string $locale;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(array $data)
+    public function __construct(array $data, ?string $locale = null)
     {
         $this->data = $data;
+        $this->locale = $locale ?? app()->getLocale();
     }
 
     /**
@@ -42,6 +44,7 @@ class RequestAccess extends Mailable implements ShouldQueue, ShouldBeUnique
             with: [
                 "user" => $this->data["user"],
                 "permission" => $this->data["permission"],
+                "locale" => $this->locale,
             ]
         );
     }
