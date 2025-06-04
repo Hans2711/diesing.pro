@@ -2,6 +2,5 @@
 @disableMinifier
 
 @section('tool-content')
-@vite(['resources/js/utils/clipboard.js'])
 <livewire:notes />
 @endsection
