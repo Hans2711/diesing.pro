@@ -33,6 +33,9 @@ class RssFeedNotification extends Mailable implements ShouldQueue, ShouldBeUniqu
             with: [
                 'url' => $this->data['url'],
                 'title' => $this->data['title'],
+                'description' => $this->data['description'] ?? '',
+                'link' => $this->data['link'] ?? '',
+                'pubDate' => $this->data['pubDate'] ?? '',
             ]
         );
     }

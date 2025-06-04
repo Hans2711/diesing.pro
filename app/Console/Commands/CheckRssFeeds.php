@@ -22,7 +22,8 @@ class CheckRssFeeds extends Command
                 if (!$xml || !isset($xml->channel->item[0])) {
                     return;
                 }
-                $latest = (string)$xml->channel->item[0]->title;
+                $item = $xml->channel->item[0];
+                $latest = (string)($item->title ?? '');
                 if ($feed->last_title !== $latest) {
                     $feed->last_title = $latest;
                     $feed->last_checked_at = now();
@@ -33,6 +34,9 @@ class CheckRssFeeds extends Command
                         Mail::to($user->email)->queue(new RssFeedNotification([
                             'url' => $feed->url,
                             'title' => $latest,
+                            'description' => (string)($item->description ?? ''),
+                            'link' => (string)($item->link ?? ''),
+                            'pubDate' => (string)($item->pubDate ?? ''),
                         ]));
                     }
                 }
