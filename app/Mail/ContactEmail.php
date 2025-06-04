@@ -19,9 +19,10 @@ class ContactEmail extends Mailable implements ShouldQueue, ShouldBeUnique
     /**
      * Create a new message instance.
      */
-    public function __construct(array $data)
+    public function __construct(array $data, ?string $locale = null)
     {
         $this->data = $data;
+        $this->locale = $locale ?? app()->getLocale();
 
         $this->replyTo(
             $data["email"] ?? "info@diesing.pro",
@@ -50,6 +51,7 @@ class ContactEmail extends Mailable implements ShouldQueue, ShouldBeUnique
                 "email" => $this->data["email"],
                 "tel" => $this->data["tel"],
                 "user_msg" => $this->data["user_message"],
+                "locale" => $this->locale,
             ]
         );
     }
