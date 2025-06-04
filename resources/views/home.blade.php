@@ -43,22 +43,6 @@
 
     <div class="md:columns-2 columns-1 md:mb-8 md-0" id="portfolio">
         <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-left">
-            <a alt="{{ __('text.tester') }}" title="{{ __('text.tester') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}" wire:navigate.hover >
-                <div class="relative h-0 pb-44">
-                    <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                         src="{{ Vite::asset('resources/images/testing.jpg') }}" alt="{{ __('text.tester') }}" title="{{ __('text.tester') }}">
-                </div>
-                <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
-                    <div class="font-bold text-xl mb-2 ">
-                        {{ __('text.tester') }}
-                    </div>
-                    <div class="mb-2">
-                        {{ __('text.tester-description') }}
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-right">
             <a alt="{{ __('text.random-teams') }}" title="{{ __('text.random-teams') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}" wire:navigate.hover >
                 <div class="relative h-0 pb-44">
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
@@ -74,11 +58,27 @@
                 </div>
             </a>
         </div>
+        <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-right">
+            <a alt="{{ __('text.rt-share') }}" title="{{ __('text.rt-share') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.rt-share')) }}" wire:navigate.hover >
+                <div class="relative h-0 pb-44">
+                    <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
+                         src="{{ Vite::asset('resources/images/private.jpg') }}" alt="{{ __('text.rt-share') }}" title="{{ __('text.rt-share') }}">
+                </div>
+                <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
+                    <div class="font-bold text-xl mb-2">
+                        {{ __('text.rt-share') }}
+                    </div>
+                    <div class="mb-2">
+                        {!! __('descriptions.rt-share') !!}
+                    </div>
+                </div>
+            </a>
+        </div>
     </div>
 
-    <div class="md:columns-2 columns-1 md:mb-8 md-0" id="portfolio">
-        <!-- Card: Private Tools -->
-        <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-left">
+    <div class="md:columns-1 columns-1 md:mb-8 md-0" id="portfolio">
+        <!-- Card: Account -->
+        <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card">
             <a alt="{{ __('text.account') }}" title="{{ __('text.account') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" wire:navigate.hover >
                 <div class="relative h-0 pb-44">
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
@@ -89,14 +89,24 @@
                         {{ __('text.account') }}
                     </div>
                     <div class="mb-2">
-                        {{ __('text.account-description') }}
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>{{ __('text.tester') }}</li>
+                            <li>{{ __('text.notes') }}</li>
+                            <li>{{ __('text.redirects') }}</li>
+                            <li>{{ __('text.timetracking') }}</li>
+                            <li>{{ __('text.rss-feeds') }}</li>
+                            <li>{{ __('text.portfolio') }}</li>
+                            <li>{{ __('text.cv') }}</li>
+                        </ul>
                     </div>
                 </div>
             </a>
         </div>
+    </div>
 
-        <!-- Card: Imprint & Data Protection -->
-        <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-right">
+    <div class="md:columns-2 columns-1 md:mb-8 md-0" id="portfolio">
+        <!-- Card: Imprint -->
+        <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-left">
             <a alt="{{ __('text.imprint') }}" title="{{ __('text.imprint') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.imprint')) }}" wire:navigate.hover >
                 <div class="relative h-0 pb-44">
                     <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
@@ -104,7 +114,22 @@
                 </div>
                 <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                     <div class="font-bold text-xl mb-2">
-                        <a alt="{{ __('text.imprint') }}" title="{{ __('text.imprint') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.imprint')) }}">{{ __('text.imprint') }}</a> {{ __('text.and') }} <a alt="{{ __('text.data-protection') }}" title="{{ __('text.data-protection') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.data-protection')) }}">{{ __('text.data-protection') }}</a>
+                        {{ __('text.imprint') }}
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Card: Data Protection -->
+        <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-right">
+            <a alt="{{ __('text.data-protection') }}" title="{{ __('text.data-protection') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.data-protection')) }}" wire:navigate.hover >
+                <div class="relative h-0 pb-44">
+                    <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
+                         src="{{ Vite::asset('resources/images/law.jpg') }}" alt="{{ __('text.data-protection') }}" title="{{ __('text.data-protection') }}">
+                </div>
+                <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
+                    <div class="font-bold text-xl mb-2">
+                        {{ __('text.data-protection') }}
                     </div>
                 </div>
             </a>
