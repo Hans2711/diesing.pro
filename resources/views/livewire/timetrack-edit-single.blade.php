@@ -43,8 +43,8 @@
 
     </div>
     <button type="button"
-        class="btn btn-delete mb-3"
-        wire:click="removeTimeTrack({{ $i }})">✕</button>
+        class="btn btn-delete mb-3" id="{{ $i }}"
+        wire:click="removeTimeTrack($event.target.id)">✕</button>
     <hr class="w-full border-t border-gray-300 mb-3">
     @endforeach
 

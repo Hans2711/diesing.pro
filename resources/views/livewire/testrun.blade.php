@@ -74,20 +74,20 @@
             <p><strong>Status:</strong> {{ empty($testinstance->html) ? __('text.empty') : __('text.filled')}}</p>
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
-                <button class="btn btn-delete" wire:click="deleteInstance({{$testinstance->id}})" wire:confirm="Are you sure?">
+                <button class="btn btn-delete" id="{{ $testinstance->id }}" wire:click="deleteInstance($event.target.id)" wire:confirm="Are you sure?">
                     <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}" alt="{{ __('alt.delete') }}" title="{{ __('alt.delete') }}" />
                 </button>
                 <a alt="{{ __('alt.view') }}" title="{{ __('alt.view') }}" class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testinstance/{$testinstance->id}")}}" >
                     <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/eye.svg') }}" alt="{{ __('alt.view') }}" title="{{ __('alt.view') }}" />
                 </a>
-                <button class="btn btn-fetch" wire:navigate wire:click="fetchInstance({{$testinstance->id}})"")}}" >
+                <button class="btn btn-fetch" wire:navigate id="{{ $testinstance->id }}" wire:click="fetchInstance($event.target.id)">
                     <img
                         class="w-20 h-5 invert"
                         src="{{ Vite::asset('resources/icons/' . (empty($testinstance->html) ? 'download.svg' : 'arrow-down.svg')) }}"
                         alt="{{ __('alt.download') }}" title="{{ __('alt.download') }}"
                     />
                 </button>
-                <button class="btn btn-diff" wire:click="addToDiff({{$testinstance->id}})">
+                <button class="btn btn-diff" id="{{ $testinstance->id }}" wire:click="addToDiff($event.target.id)">
                     <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/git-compare.svg') }}" alt="{{ __('alt.compare') }}" title="{{ __('alt.compare') }}" />
                 </button>
             </div>
