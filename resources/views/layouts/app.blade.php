@@ -15,13 +15,14 @@
         @include('global.head.og-tags', ['title' => $title ?? null, 'description' => $description ?? null])
 
         @vite([
+            'resources/css/app.css',
             'resources/js/app.js',
             'resources/js/utils/zenquotes.js',
             'resources/js/gradient-scroll.js',
             'resources/js/swipe-sidebar.js',
             'resources/js/scroll-to-top.js',
             'resources/js/logo-animation.js',
-            'resources/css/app.css'
+            'resources/js/utils/clipboard.js',
         ])
     </head>
     <body class="bg-tertiary dark:bg-secondary-dark text-black dark:text-white">
