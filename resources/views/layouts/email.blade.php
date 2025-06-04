@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
 </head>
 <body style="font-family: Arial, sans-serif;">
-    <header style="text-align: center; margin-bottom: 20px;">
-        @include('global.logo')
-    </header>
+        <header style="text-align: center; margin-bottom: 20px;">
+            <div style="display: inline-block; width: 120px;"> <!-- Adjust width as needed -->
+                @include('global.logo')
+            </div>
+        </header>
 
     <main>
         @yield('content')
