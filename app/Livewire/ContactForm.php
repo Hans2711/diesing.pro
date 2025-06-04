@@ -39,7 +39,6 @@ class ContactForm extends Component
 
         Mail::to($this->recepient)
             ->locale(app()->getLocale())
-            ->cc("info@diesing.pro")
             ->queue(
                 new ContactEmail([
                     "name" => $this->name,
