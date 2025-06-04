@@ -24,5 +24,6 @@ class ScheduleProvider extends ServiceProvider
         $schedule->command("generate:sitemap")->cron("0 5 * * *");
         $schedule->command("clean:file-references")->cron("10 5 * * *");
         $schedule->command("work:redirect-hits")->cron("*/5 * * * *");
+        $schedule->command('rss-feed:check')->cron('0 * * * *');
     }
 }

@@ -24,5 +24,6 @@ return [
     'shuffle' => 'Shuffle',
     'login' => 'Login',
     'compare' => 'Compare',
+    'rss' => 'RSS',
 ];
 

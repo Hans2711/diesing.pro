@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\RssFeed;
 
 class User extends Authenticatable
 {
@@ -114,5 +115,10 @@ class User extends Authenticatable
     public function timetracks(): HasMany
     {
         return $this->hasMany(Timetrack::class, "user", "id");
+    }
+
+    public function rssFeeds(): HasMany
+    {
+        return $this->hasMany(RssFeed::class, 'user', 'id');
     }
 }
