@@ -37,6 +37,7 @@ class ContactForm extends Component
         $validatedData = $this->validate();
 
         Mail::to($this->recepient)
+            ->locale(app()->getLocale())
             ->bcc("info@diesing.pro")
             ->queue(
                 new ContactEmail([
@@ -45,7 +46,7 @@ class ContactForm extends Component
                     "email" => $this->email,
                     "tel" => $this->tel,
                     "user_message" => $this->message,
-                ])
+                ], app()->getLocale())
             );
 
         $this->reset();

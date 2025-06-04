@@ -53,11 +53,13 @@ class Account extends Component
         $this->user->generatePermissionsToken();
         $this->user->save();
 
-        Mail::to("hp@diesing.pro")->queue(
+        Mail::to("hp@diesing.pro")
+            ->locale(app()->getLocale())
+            ->queue(
             new \App\Mail\RequestAccess([
                 "user" => $this->user,
                 "permission" => $permission,
-            ])
+            ], app()->getLocale())
         );
 
         session()->flash("status", __("text.access_request_sent"));
