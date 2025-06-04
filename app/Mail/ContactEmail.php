@@ -35,7 +35,12 @@ class ContactEmail extends Mailable implements ShouldQueue, ShouldBeUnique
      */
     public function envelope(): Envelope
     {
-        return new Envelope(subject: "Kontaktanfrage");
+        $subject = 'Kontaktanfrage';
+        if (!empty($this->data['name'])) {
+            $subject .= ' (' . $this->data['name'] . ')';
+        }
+
+        return new Envelope(subject: $subject);
     }
 
     /**
