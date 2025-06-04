@@ -20,6 +20,11 @@ class ContactConfirmationEmail extends Mailable implements ShouldQueue
     {
         $this->name = $name;
         $this->locale = $locale ?? app()->getLocale();
+
+        $this->replyTo(
+            $data["email"] ?? "info@diesing.pro",
+            $data["name"] ?? "Diesing.pro"
+        );
     }
 
     public function envelope(): Envelope
