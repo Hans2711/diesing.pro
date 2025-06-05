@@ -4,9 +4,9 @@ namespace App\Console\Commands;
 
 use App\Models\RssFeed;
 use App\Mail\RssFeedNotification;
+use App\Jobs\SendEmail;
 use App\Models\User;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
 
 class CheckRssFeeds extends Command
@@ -31,16 +31,17 @@ class CheckRssFeeds extends Command
 
                     $user = User::find($feed->user);
                     if ($user) {
-                        Mail::to($user->email)
-                            ->locale(app()->getLocale())
-                            ->queue(new RssFeedNotification(
+                        SendEmail::dispatch(
+                            $user->email,
+                            new RssFeedNotification(
                                 $feed->url,
                                 $latest,
                                 (string)($item->description ?? ''),
                                 (string)($item->link ?? ''),
                                 (string)($item->pubDate ?? ''),
                                 app()->getLocale(),
-                            ));
+                            )
+                        );
                     }
                 }
             } catch (\Exception $e) {

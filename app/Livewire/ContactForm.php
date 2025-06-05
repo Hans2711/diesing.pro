@@ -4,9 +4,9 @@ namespace App\Livewire;
 
 use App\Mail\ContactEmail;
 use App\Mail\ContactConfirmationEmail;
+use App\Jobs\SendEmail;
 use App\Models\User;
 use Livewire\Component;
-use Illuminate\Support\Facades\Mail;
 
 class ContactForm extends Component
 {
@@ -37,24 +37,22 @@ class ContactForm extends Component
     {
         $validatedData = $this->validate();
 
-        Mail::to($this->recepient)
-            ->locale(app()->getLocale())
-            ->queue(
-                new ContactEmail(
-                    $this->name,
-                    $this->firma,
-                    $this->email,
-                    $this->tel,
-                    $this->message,
-                    app()->getLocale(),
-                )
-            );
+        SendEmail::dispatch(
+            $this->recepient,
+            new ContactEmail(
+                $this->name,
+                $this->firma,
+                $this->email,
+                $this->tel,
+                $this->message,
+                app()->getLocale(),
+            )
+        );
 
-        Mail::to($this->email)
-            ->locale(app()->getLocale())
-            ->queue(
-                new ContactConfirmationEmail($this->name, app()->getLocale())
-            );
+        SendEmail::dispatch(
+            $this->email,
+            new ContactConfirmationEmail($this->name, app()->getLocale())
+        );
 
         $this->reset();
         $this->mount();

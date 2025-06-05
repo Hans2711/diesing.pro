@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Mail;
+namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Mail;
 
 class SendEmail implements ShouldQueue, ShouldBeUnique
@@ -20,22 +18,34 @@ class SendEmail implements ShouldQueue, ShouldBeUnique
     public $mailable;
     public $recipient;
 
+    /**
+     * Create a new job instance.
+     */
     public function __construct($recipient, Mailable $mailable)
     {
         $this->recipient = $recipient;
         $this->mailable = $mailable;
     }
 
+    /**
+     * Execute the job.
+     */
     public function handle()
     {
         Mail::to($this->recipient)->send($this->mailable);
     }
 
+    /**
+     * Unique identifier for „ShouldBeUnique“.
+     */
     public function uniqueId(): string
     {
-        return md5($this->recipient . serialize($this->mailable->getData()));
+        return md5($this->recipient . serialize($this->mailable));
     }
 
+    /**
+     * Gültigkeit der Einzigartigkeit (in Sekunden).
+     */
     public function uniqueFor(): int
     {
         return 300;
