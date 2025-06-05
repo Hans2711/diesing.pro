@@ -14,11 +14,25 @@ class RssFeedNotification extends Mailable implements ShouldQueue, ShouldBeUniqu
 {
     use Queueable, SerializesModels;
 
-    protected $data;
+    protected string $url;
+    protected string $title;
+    protected ?string $description;
+    protected ?string $link;
+    protected ?string $pubDate;
 
-    public function __construct(array $data, ?string $locale = null)
-    {
-        $this->data = $data;
+    public function __construct(
+        string $url,
+        string $title,
+        ?string $description = '',
+        ?string $link = '',
+        ?string $pubDate = '',
+        ?string $locale = null
+    ) {
+        $this->url = $url;
+        $this->title = $title;
+        $this->description = $description;
+        $this->link = $link;
+        $this->pubDate = $pubDate;
         $this->locale = $locale ?? app()->getLocale();
     }
 
@@ -32,11 +46,11 @@ class RssFeedNotification extends Mailable implements ShouldQueue, ShouldBeUniqu
         return new Content(
             view: 'rss.email.new-item',
             with: [
-                'url' => $this->data['url'],
-                'title' => $this->data['title'],
-                'description' => $this->data['description'] ?? '',
-                'link' => $this->data['link'] ?? '',
-                'pubDate' => $this->data['pubDate'] ?? '',
+                'url' => $this->url,
+                'title' => $this->title,
+                'description' => $this->description ?? '',
+                'link' => $this->link ?? '',
+                'pubDate' => $this->pubDate ?? '',
                 'locale' => $this->locale,
             ]
         );
@@ -49,7 +63,13 @@ class RssFeedNotification extends Mailable implements ShouldQueue, ShouldBeUniqu
 
     public function uniqueId(): string
     {
-        return md5(serialize($this->data));
+        return md5(serialize([
+            $this->url,
+            $this->title,
+            $this->description,
+            $this->link,
+            $this->pubDate,
+        ]));
     }
 
     public function uniqueFor(): int
