@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Illuminate\Support\Facades\Auth;
-use App\Mail\SendEmail;
+use App\Jobs\SendEmail;
 use Livewire\Component;
 use App\Models\User;
 
