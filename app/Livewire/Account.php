@@ -2,9 +2,8 @@
 
 namespace App\Livewire;
 
-use Illuminate\Mail\Mailer;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 use Livewire\Component;
 use App\Models\User;
 
@@ -53,9 +52,8 @@ class Account extends Component
         $this->user->generatePermissionsToken();
         $this->user->save();
 
-        Mail::to("hp@diesing.pro")
-            ->locale(app()->getLocale())
-            ->queue(
+        SendEmail::dispatch(
+            "hp@diesing.pro",
             new \App\Mail\RequestAccess(
                 $this->user,
                 $permission,

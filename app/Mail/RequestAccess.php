@@ -4,14 +4,12 @@ namespace App\Mail;
 
 use App\Models\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class RequestAccess extends Mailable implements ShouldQueue, ShouldBeUnique
+class RequestAccess extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -61,23 +59,5 @@ class RequestAccess extends Mailable implements ShouldQueue, ShouldBeUnique
         return [];
     }
 
-    /**
-     * Generate a unique identifier hash based on the message data.
-     */
-    public function uniqueId(): string
-    {
-        return md5(serialize([
-            $this->user->id,
-            $this->permission,
-        ]));
-    }
-
-    /**
-     * Set how long the uniqueness should be enforced (in seconds).
-     */
-    public function uniqueFor(): int
-    {
-        return 300; // 5 minutes
-    }
 }
 
