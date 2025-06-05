@@ -42,19 +42,12 @@ class ContactEmail extends Mailable implements ShouldQueue, ShouldBeUnique
             $this->email ?? 'info@diesing.pro',
             $this->name ?? 'Diesing.pro'
         );
-    }
-
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
-    {
-        $subject = 'Kontaktanfrage';
+        $this->subject = 'Kontaktanfrage';
         if (!empty($this->name)) {
-            $subject .= ' (' . $this->name . ')';
+            $this->subject .= ' (' . $this->name . ')';
         }
 
-        return new Envelope(subject: $subject);
+        logger()->info('ContactEmail created');
     }
 
     /**
@@ -62,6 +55,7 @@ class ContactEmail extends Mailable implements ShouldQueue, ShouldBeUnique
      */
     public function content(): Content
     {
+        logger()->info('ContactEmail content method called');
         return new Content(
             view: 'contact.email',
             with: [
@@ -90,13 +84,7 @@ class ContactEmail extends Mailable implements ShouldQueue, ShouldBeUnique
      */
     public function uniqueId(): string
     {
-        return md5(serialize([
-            $this->name,
-            $this->firma,
-            $this->email,
-            $this->tel,
-            $this->userMessage,
-        ]));
+        return $this->email;
     }
 
     /**
