@@ -3,14 +3,12 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class RssFeedNotification extends Mailable implements ShouldQueue, ShouldBeUnique
+class RssFeedNotification extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -61,19 +59,4 @@ class RssFeedNotification extends Mailable implements ShouldQueue, ShouldBeUniqu
         return [];
     }
 
-    public function uniqueId(): string
-    {
-        return md5(serialize([
-            $this->url,
-            $this->title,
-            $this->description,
-            $this->link,
-            $this->pubDate,
-        ]));
-    }
-
-    public function uniqueFor(): int
-    {
-        return 300;
-    }
 }
