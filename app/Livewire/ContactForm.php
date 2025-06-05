@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use App\Mail\ContactEmail;
 use App\Mail\ContactConfirmationEmail;
-use App\Mail\SendEmail;
+use App\Jobs\SendEmail;
 use App\Models\User;
 use Livewire\Component;
 

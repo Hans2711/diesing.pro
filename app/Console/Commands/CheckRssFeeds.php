@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\RssFeed;
 use App\Mail\RssFeedNotification;
-use App\Mail\SendEmail;
+use App\Jobs\SendEmail;
 use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
