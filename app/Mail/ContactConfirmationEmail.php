@@ -3,14 +3,12 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Mail\Mailable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ContactConfirmationEmail extends Mailable implements ShouldQueue, ShouldBeUnique
+class ContactConfirmationEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -45,19 +43,4 @@ class ContactConfirmationEmail extends Mailable implements ShouldQueue, ShouldBe
         return [];
     }
 
-    /**
-     * Generate a unique identifier hash based on the $data array.
-     */
-    public function uniqueId(): string
-    {
-        return md5(serialize($this->name));
-    }
-
-    /**
-     * Set how long the uniqueness should be enforced (in seconds).
-     */
-    public function uniqueFor(): int
-    {
-        return 50; // 1 minute
-    }
 }
