@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -14,14 +15,16 @@ class RequestAccess extends Mailable implements ShouldQueue, ShouldBeUnique
 {
     use Queueable, SerializesModels;
 
-    protected $data;
+    protected User $user;
+    protected string $permission;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(array $data, ?string $locale = null)
+    public function __construct(User $user, string $permission, ?string $locale = null)
     {
-        $this->data = $data;
+        $this->user = $user;
+        $this->permission = $permission;
         $this->locale = $locale ?? app()->getLocale();
     }
 
@@ -39,11 +42,11 @@ class RequestAccess extends Mailable implements ShouldQueue, ShouldBeUnique
     public function content(): Content
     {
         return new Content(
-            view: "accounts.email.request-access",
+            view: 'accounts.email.request-access',
             with: [
-                "user" => $this->data["user"],
-                "permission" => $this->data["permission"],
-                "locale" => $this->locale,
+                'user' => $this->user,
+                'permission' => $this->permission,
+                'locale' => $this->locale,
             ]
         );
     }
@@ -59,11 +62,14 @@ class RequestAccess extends Mailable implements ShouldQueue, ShouldBeUnique
     }
 
     /**
-     * Generate a unique identifier hash based on the $data array.
+     * Generate a unique identifier hash based on the message data.
      */
     public function uniqueId(): string
     {
-        return md5(serialize($this->data));
+        return md5(serialize([
+            $this->user->id,
+            $this->permission,
+        ]));
     }
 
     /**

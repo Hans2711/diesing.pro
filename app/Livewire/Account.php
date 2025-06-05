@@ -56,10 +56,11 @@ class Account extends Component
         Mail::to("hp@diesing.pro")
             ->locale(app()->getLocale())
             ->queue(
-            new \App\Mail\RequestAccess([
-                "user" => $this->user,
-                "permission" => $permission,
-            ], app()->getLocale())
+            new \App\Mail\RequestAccess(
+                $this->user,
+                $permission,
+                app()->getLocale(),
+            )
         );
 
         session()->flash("status", __("text.access_request_sent"));

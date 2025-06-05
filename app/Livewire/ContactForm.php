@@ -40,13 +40,14 @@ class ContactForm extends Component
         Mail::to($this->recepient)
             ->locale(app()->getLocale())
             ->queue(
-                new ContactEmail([
-                    "name" => $this->name,
-                    "firma" => $this->firma,
-                    "email" => $this->email,
-                    "tel" => $this->tel,
-                    "user_message" => $this->message,
-                ], app()->getLocale())
+                new ContactEmail(
+                    $this->name,
+                    $this->firma,
+                    $this->email,
+                    $this->tel,
+                    $this->message,
+                    app()->getLocale(),
+                )
             );
 
         Mail::to($this->email)
