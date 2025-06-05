@@ -33,13 +33,14 @@ class CheckRssFeeds extends Command
                     if ($user) {
                         Mail::to($user->email)
                             ->locale(app()->getLocale())
-                            ->queue(new RssFeedNotification([
-                            'url' => $feed->url,
-                            'title' => $latest,
-                            'description' => (string)($item->description ?? ''),
-                            'link' => (string)($item->link ?? ''),
-                            'pubDate' => (string)($item->pubDate ?? ''),
-                        ], app()->getLocale()));
+                            ->queue(new RssFeedNotification(
+                                $feed->url,
+                                $latest,
+                                (string)($item->description ?? ''),
+                                (string)($item->link ?? ''),
+                                (string)($item->pubDate ?? ''),
+                                app()->getLocale(),
+                            ));
                     }
                 }
             } catch (\Exception $e) {

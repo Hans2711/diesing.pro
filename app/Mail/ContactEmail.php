@@ -14,19 +14,33 @@ class ContactEmail extends Mailable implements ShouldQueue, ShouldBeUnique
 {
     use Queueable, SerializesModels;
 
-    protected $data;
+    protected string $name;
+    protected ?string $firma;
+    protected string $email;
+    protected string $tel;
+    protected string $userMessage;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(array $data, ?string $locale = null)
-    {
-        $this->data = $data;
+    public function __construct(
+        string $name,
+        ?string $firma,
+        string $email,
+        string $tel,
+        string $userMessage,
+        ?string $locale = null
+    ) {
+        $this->name = $name;
+        $this->firma = $firma;
+        $this->email = $email;
+        $this->tel = $tel;
+        $this->userMessage = $userMessage;
         $this->locale = $locale ?? app()->getLocale();
 
         $this->replyTo(
-            $data["email"] ?? "info@diesing.pro",
-            $data["name"] ?? "Diesing.pro"
+            $this->email ?? 'info@diesing.pro',
+            $this->name ?? 'Diesing.pro'
         );
     }
 
@@ -36,8 +50,8 @@ class ContactEmail extends Mailable implements ShouldQueue, ShouldBeUnique
     public function envelope(): Envelope
     {
         $subject = 'Kontaktanfrage';
-        if (!empty($this->data['name'])) {
-            $subject .= ' (' . $this->data['name'] . ')';
+        if (!empty($this->name)) {
+            $subject .= ' (' . $this->name . ')';
         }
 
         return new Envelope(subject: $subject);
@@ -49,14 +63,14 @@ class ContactEmail extends Mailable implements ShouldQueue, ShouldBeUnique
     public function content(): Content
     {
         return new Content(
-            view: "contact.email",
+            view: 'contact.email',
             with: [
-                "name" => $this->data["name"],
-                "firma" => $this->data["firma"],
-                "email" => $this->data["email"],
-                "tel" => $this->data["tel"],
-                "user_msg" => $this->data["user_message"],
-                "locale" => $this->locale,
+                'name' => $this->name,
+                'firma' => $this->firma,
+                'email' => $this->email,
+                'tel' => $this->tel,
+                'user_msg' => $this->userMessage,
+                'locale' => $this->locale,
             ]
         );
     }
@@ -72,11 +86,17 @@ class ContactEmail extends Mailable implements ShouldQueue, ShouldBeUnique
     }
 
     /**
-     * Generate a unique identifier hash based on the $data array.
+     * Generate a unique identifier hash based on the message data.
      */
     public function uniqueId(): string
     {
-        return md5(serialize($this->data));
+        return md5(serialize([
+            $this->name,
+            $this->firma,
+            $this->email,
+            $this->tel,
+            $this->userMessage,
+        ]));
     }
 
     /**
