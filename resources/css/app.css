@@ -27,6 +27,25 @@ tertiary-light    #FFFFFF
         @apply w-full md:w-auto
     }
 
+    .burger-menu {
+        animation: pulse-spring 2s infinite;
+    }
+
+    @keyframes pulse-spring {
+        0%, 100% {
+            transform: scale(1) translateX(0);
+        }
+        25% {
+            transform: scale(1.03) translateX(3px);
+        }
+        50% {
+            transform: scale(1.05) translateX(10px);
+        }
+        75% {
+            transform: scale(1.03) translateX(3px);
+        }
+    }
+
     .left {
         @apply md:-translate-x-80;
     }
@@ -334,7 +353,7 @@ tertiary-light    #FFFFFF
 
 
 
-        /* Remove text centering on print */
+    /* Remove text centering on print */
     .text-center,
     .md\:text-center,
     .lg\:text-center {
