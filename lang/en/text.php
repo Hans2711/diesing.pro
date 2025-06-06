@@ -208,6 +208,8 @@ return [
     'cv-contact-link' => 'Contact form',
     'cv-contact-phone-label' => 'Phone',
     'cv-contact-email-label' => 'Email',
+    'account-auth.tester' => '<p>The Tester is a tool to create and compare snapshots of websites.</p>'.
+        '<p>The tester also features a HTML search, a sitemap crawler, and a bulk diff tool.</p>',
     'data-protection-page' => '
 <h1>Privacy Policy</h1>
 

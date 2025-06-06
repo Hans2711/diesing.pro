@@ -209,7 +209,8 @@ return [
     'cv-contact-link' => 'Kontaktformular',
     'cv-contact-phone-label' => 'Telefon',
     'cv-contact-email-label' => 'E-Mail',
-
+    'account-auth.tester' => '<p>Der Tester ist ein Tool, um Schnappschüsse von Websites zu erstellen und zu vergleichen.</p>'.
+        '<p>Der Tester bietet auch eine HTML-Suche, einen Sitemap-Crawler und ein Bulk-Diff-Tool.</p>',
     'data-protection-page' => '
     <h1>Datenschutzerklärung</h1>
 
