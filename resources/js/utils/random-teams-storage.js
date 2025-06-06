@@ -6,8 +6,11 @@ function initRandomTeamsStorage() {
         return;
     }
 
+    console.log('Initializing random teams storage');
+
     window.addEventListener('random-teams-save', (e) => {
         try {
+            console.log('Saving random teams state', e.detail);
             localStorage.setItem(STORAGE_KEY, JSON.stringify(e.detail));
         } catch (err) {
             console.warn('Could not save random teams state', err);
@@ -17,6 +20,7 @@ function initRandomTeamsStorage() {
     window.addEventListener('random-teams-request-state', () => {
         try {
             const stored = localStorage.getItem(STORAGE_KEY);
+            console.log('Requesting random teams state', stored);
             if (stored) {
                 Livewire.dispatch('loadState', JSON.parse(stored));
             }
@@ -28,6 +32,4 @@ function initRandomTeamsStorage() {
 
 document.addEventListener('DOMContentLoaded', initRandomTeamsStorage);
 document.addEventListener('livewire:navigated', initRandomTeamsStorage);
-if (window.Livewire) {
-    Livewire.hook('morphed', initRandomTeamsStorage);
-}
+initRandomTeamsStorage();
