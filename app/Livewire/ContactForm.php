@@ -7,6 +7,7 @@ use App\Mail\ContactConfirmationEmail;
 use App\Jobs\SendEmail;
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Support\Facades\Mail;
 
 class ContactForm extends Component
 {

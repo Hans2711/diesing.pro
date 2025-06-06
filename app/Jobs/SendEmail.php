@@ -16,15 +16,17 @@ class SendEmail implements ShouldQueue, ShouldBeUnique
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $mailable;
+    public $from;
     public $recipient;
 
     /**
      * Create a new job instance.
      */
-    public function __construct($recipient, Mailable $mailable)
+    public function __construct($recipient, Mailable $mailable, $from = null)
     {
         $this->recipient = $recipient;
         $this->mailable = $mailable;
+        $this->from= $from;
     }
 
     /**
@@ -32,6 +34,9 @@ class SendEmail implements ShouldQueue, ShouldBeUnique
      */
     public function handle()
     {
+        if (!empty($this->from)) {
+            $this->mailable->from($this->from);
+        }
         Mail::to($this->recipient)->send($this->mailable);
     }
 
