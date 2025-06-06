@@ -23,7 +23,7 @@ class PortfolioMiddleware
             return $next($request);
         }
 
-        if (env('APP_ENV') === 'local') {
+        if (env('APP_ENV') === 'local' && Auth::check()) {
             return $next($request);
         }
 
