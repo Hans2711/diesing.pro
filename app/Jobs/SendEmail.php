@@ -15,6 +15,13 @@ class SendEmail implements ShouldQueue, ShouldBeUnique
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    /**
+     * All email jobs should be pushed to the dedicated queue.
+     *
+     * @var string
+     */
+    public string $queue = 'email';
+
     public $mailable;
     public $from;
     public $recipient;

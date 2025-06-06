@@ -93,4 +93,4 @@ jobs:
         username: root
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          supervisorctl restart laravel-worker:*
+          supervisorctl restart laravel-worker:* laravel-email-worker:*
