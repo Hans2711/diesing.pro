@@ -28,6 +28,9 @@
         <a alt="{{ __('alt.unlock') }}" title="{{ __('alt.unlock') }}" wire:click="unlockTeams" wire:loading.class="opacity-50" class="btn btn-secondary mt-3 md:w-1/3">
             <img class="w-6 h-5 invert dark:invert-0" src="{{ Vite::asset('resources/icons/lock-open.svg') }}"  alt="{{ __('alt.unlock') }}" title="{{ __('alt.unlock') }}"/>
         </a>
+        <a alt="{{ __('alt.new-game') }}" title="{{ __('alt.new-game') }}" wire:click="newGame" wire:loading.class="opacity-50" class="btn btn-secondary mt-3 md:w-1/3">
+            <img class="w-6 h-5 invert dark:invert-0" src="{{ Vite::asset('resources/icons/add.svg') }}"  alt="{{ __('alt.new-game') }}" title="{{ __('alt.new-game') }}"/>
+        </a>
     @endif
 
     @if (count($teams) > 0)
@@ -64,7 +67,12 @@
         <ul>
             @foreach ($games as $gKey => $game)
                 <li class="rounded border mb-3 p-3">
-                    <strong>Game {{ $gKey + 1 }}</strong>
+                    <div class="flex justify-between items-center mb-2">
+                        <strong>Game {{ $gKey + 1 }}</strong>
+                        <button class="btn btn-delete" wire:click="removeGame({{ $gKey }})" wire:confirm="{{ __('text.are-you-sure') }}">
+                            <img class="w-4 h-4 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}" alt="{{ __('alt.delete') }}" title="{{ __('alt.delete') }}" />
+                        </button>
+                    </div>
                     <ul>
                         @foreach ($game['teams'] as $team)
                             <li>{{ $team['name'] }} - {{ __('text.wins') }}: {{ $team['wins'] }}</li>

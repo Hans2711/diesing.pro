@@ -30,5 +30,6 @@ return [
     'search' => 'Suchen',
     'compare' => 'Vergleichen',
     'rss' => 'RSS',
+    'new-game' => 'Neues Spiel',
 ];
 
