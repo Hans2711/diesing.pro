@@ -14,6 +14,7 @@ class RssFeedNotification extends Mailable
 
     protected string $url;
     protected string $title;
+    protected string $feedName;
     protected ?string $description;
     protected ?string $link;
     protected ?string $pubDate;
@@ -24,10 +25,12 @@ class RssFeedNotification extends Mailable
         ?string $description = '',
         ?string $link = '',
         ?string $pubDate = '',
-        ?string $locale = null
+        ?string $locale = null,
+        string $feedName = ''
     ) {
         $this->url = $url;
         $this->title = $title;
+        $this->feedName = $feedName;
         $this->description = $description;
         $this->link = $link;
         $this->pubDate = $pubDate;
@@ -36,7 +39,12 @@ class RssFeedNotification extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'New RSS Feed Item');
+        $subject = 'New RSS Feed Item';
+        if (!empty($this->feedName)) {
+            $subject .= ' - ' . $this->feedName;
+        }
+
+        return new Envelope(subject: $subject);
     }
 
     public function content(): Content

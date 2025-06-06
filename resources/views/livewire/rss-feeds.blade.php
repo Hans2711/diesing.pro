@@ -7,7 +7,9 @@
         <div class="p-3 mt-5 rounded border-solid border w-full" style="border-color: #6b7280;">
             @if (isset($selectedFeed['id']) && $feed->id == $selectedFeed['id'])
             <form wire:submit.prevent="updateFeed">
-                <label for="edit-url" class="font-bold text-lg">URL</label>
+                <label for="edit-name" class="font-bold text-lg">{{ __('text.name') }}</label>
+                <input id="edit-name" type="text" wire:model="selectedFeed.name" class="w-full p-2 border rounded dark:bg-secondary-light" />
+                <label for="edit-url" class="font-bold text-lg mt-2">URL</label>
                 <input id="edit-url" type="text" wire:model="selectedFeed.url" class="w-full p-2 border rounded dark:bg-secondary-light" />
                 <div class="flex justify-end gap-3 mt-3">
                     <button type="button" wire:click="cancelEdit" class="btn btn-delete">
@@ -20,7 +22,10 @@
             </form>
             @else
             <div class="flex justify-between">
-                <span class="break-all">{{ $feed->url }}</span>
+                <div>
+                    <span class="font-bold">{{ $feed->name }}</span>
+                    <p class="break-all text-sm">{{ $feed->url }}</p>
+                </div>
                 <span class="text-sm text-gray-500">{{ $feed->updated_at->format('d.m.Y H:i') }}</span>
             </div>
             <div class="grid grid-cols-2 gap-5 mt-2">

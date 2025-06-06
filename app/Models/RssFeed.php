@@ -13,8 +13,15 @@ class RssFeed extends Model
     protected $table = 'rss_feed';
     protected $primaryKey = 'id';
 
+    protected $attributes = [
+        'name' => 'New RSS Feed',
+        'url' => 'https://example.com/feed.xml',
+        'user' => 0,
+    ];
+
     protected $fillable = [
         'url',
+        'name',
         'user',
         'last_title',
         'last_checked_at',

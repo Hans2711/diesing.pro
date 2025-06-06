@@ -11,6 +11,7 @@ class RssFeeds extends Component
     public $feeds;
     public $selectedFeed = [
         'id' => null,
+        'name' => '',
         'url' => '',
     ];
 
@@ -23,6 +24,7 @@ class RssFeeds extends Component
     {
         $feed = RssFeed::create([
             'url' => 'https://example.com/feed.xml',
+            'name' => 'New RSS Feed',
             'user' => Auth::user()->id,
         ]);
 
@@ -51,11 +53,15 @@ class RssFeeds extends Component
     {
         $this->validate([
             'selectedFeed.url' => 'required|url',
+            'selectedFeed.name' => 'required|string|max:255',
         ]);
 
         $feed = RssFeed::find($this->selectedFeed['id']);
         if ($feed) {
-            $feed->update(['url' => $this->selectedFeed['url']]);
+            $feed->update([
+                'url' => $this->selectedFeed['url'],
+                'name' => $this->selectedFeed['name'],
+            ]);
         }
         $this->cancelEdit();
         $this->mount();
@@ -63,7 +69,7 @@ class RssFeeds extends Component
 
     public function cancelEdit()
     {
-        $this->selectedFeed = ['id' => null, 'url' => ''];
+        $this->selectedFeed = ['id' => null, 'name' => '', 'url' => ''];
     }
 
     public function render()
