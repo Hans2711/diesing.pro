@@ -22,3 +22,7 @@ yarn-error.log
 /.vscode
 fingerprints.json
 **/.DS_Store
+storage/framework
+storage/framework/*
+storage/logs
+storage/logs/*

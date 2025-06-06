@@ -23,6 +23,7 @@ return [
     'link' => 'Link',
     'shuffle' => 'Shuffle',
     'login' => 'Login',
+    'search' => 'Search',
     'compare' => 'Compare',
     'rss' => 'RSS',
 ];
