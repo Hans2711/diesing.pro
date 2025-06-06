@@ -24,7 +24,7 @@ class ContactForm extends Component
         "name" => "required|min:3",
         "firma" => "nullable|max:255",
         "email" => "required|email",
-        "tel" => 'required|regex:/^\+?[0-9\s\-]+$/',
+        "tel" => 'required|regex:/^[0-9\s\-\+\(\)]+$/',
         "message" => "required|min:10",
         "recepient" => "required|min:5",
     ];

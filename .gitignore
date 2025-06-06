@@ -21,3 +21,4 @@ yarn-error.log
 /.idea
 /.vscode
 fingerprints.json
+**/.DS_Store

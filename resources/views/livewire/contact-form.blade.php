@@ -73,7 +73,7 @@
                         'wrapperClass' => 'w-full sm:w-auto mb-3',
                         'tabindex' => 4,
                         'required' => true,
-                        'additional' => 'wire:model="tel"'
+                        'additional' => 'wire:model="tel" autocomplete="tel"'
                     ])
                     @error('tel')
                         <span class="text-primary-dark dark:text-primary-light text-sm block">{{ $message }}</span>
