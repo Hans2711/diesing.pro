@@ -23,9 +23,10 @@
             'resources/js/scroll-to-top.js',
             'resources/js/logo-animation.js',
             'resources/js/utils/clipboard.js',
+            'resources/js/utils/random-teams-storage.js',
         ])
     </head>
-    <body class="bg-tertiary dark:bg-secondary-dark text-black dark:text-white">
+    <body class="bg-tertiary dark:bg-secondary-dark text-black dark:text-white" data-user-logged-in="{{ Auth::check() ? '1' : '0' }}">
         <div
             x-data="{ sidebarOpen: false }"
             @swiperight.window="sidebarOpen = true"
