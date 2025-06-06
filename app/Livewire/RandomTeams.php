@@ -3,6 +3,9 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
+use App\Models\TeamsState;
+use Livewire\Attributes\On;
 
 class RandomTeams extends Component
 {
@@ -13,6 +16,45 @@ class RandomTeams extends Component
     public $teamsLocked = false;
     public $games = [];
 
+    private function getState(): array
+    {
+        return [
+            'players' => $this->players,
+            'teams' => $this->teams,
+            'numberOfTeams' => $this->numberOfTeams,
+            'teamsLocked' => $this->teamsLocked,
+            'games' => $this->games,
+        ];
+    }
+
+    private function persistState(): void
+    {
+        if (Auth::check()) {
+            TeamsState::updateOrCreate(
+                ['user' => Auth::id()],
+                [
+                    'players' => $this->players,
+                    'teams' => $this->teams,
+                    'number_of_teams' => $this->numberOfTeams,
+                    'teams_locked' => $this->teamsLocked,
+                    'games' => $this->games,
+                ]
+            );
+        } else {
+            $this->dispatch('random-teams-save', $this->getState());
+        }
+    }
+
+    #[On('loadState')]
+    public function loadState($data): void
+    {
+        $this->players = $data['players'] ?? [];
+        $this->teams = $data['teams'] ?? [];
+        $this->numberOfTeams = $data['numberOfTeams'] ?? 2;
+        $this->teamsLocked = $data['teamsLocked'] ?? false;
+        $this->games = $data['games'] ?? [];
+    }
+
     public function newPlayer()
     {
         if ($this->teamsLocked) {
@@ -20,6 +62,7 @@ class RandomTeams extends Component
         }
 
         $this->players[] = "";
+        $this->persistState();
     }
 
     public function updatePlayerName($name, $key)
@@ -32,6 +75,7 @@ class RandomTeams extends Component
         $this->players[$key] = $name;
 
         session(["teams-players" => $this->players]);
+        $this->persistState();
     }
 
     public function deletePlayer($key)
@@ -50,6 +94,7 @@ class RandomTeams extends Component
 
         session(["teams-players" => $this->players]);
         session(["teams-teams" => $this->teams]);
+        $this->persistState();
     }
 
     public function updateNumberOfTeams($number)
@@ -60,6 +105,7 @@ class RandomTeams extends Component
 
         $this->numberOfTeams = $number;
         session(["teams-number-of-teams" => $this->numberOfTeams]);
+        $this->persistState();
     }
 
     public function generateTeams()
@@ -91,6 +137,7 @@ class RandomTeams extends Component
         shuffle($this->teams);
 
         session(["teams-teams" => $this->teams]);
+        $this->persistState();
     }
 
     public function updateTeamName($name, $index)
@@ -106,6 +153,7 @@ class RandomTeams extends Component
 
         $this->teams[$index]['name'] = $name;
         session(["teams-teams" => $this->teams]);
+        $this->persistState();
     }
 
     public function lockTeams()
@@ -129,12 +177,14 @@ class RandomTeams extends Component
             'teams-games' => $this->games,
             'teams-locked' => $this->teamsLocked,
         ]);
+        $this->persistState();
     }
 
     public function unlockTeams()
     {
         $this->teamsLocked = false;
         session(['teams-locked' => $this->teamsLocked]);
+        $this->persistState();
     }
 
     public function updateWins($index, $delta)
@@ -155,6 +205,7 @@ class RandomTeams extends Component
         $this->games[$gameIndex]['teams'][$index]['wins'] = $wins;
 
         session(['teams-games' => $this->games]);
+        $this->persistState();
     }
 
     public function newGame()
@@ -190,11 +241,24 @@ class RandomTeams extends Component
 
     public function mount()
     {
-        $this->players = session("teams-players", []);
-        $this->teams = session("teams-teams", []);
-        $this->numberOfTeams = session("teams-number-of-teams", 2);
-        $this->teamsLocked = session('teams-locked', false);
-        $this->games = session('teams-games', []);
+        if (Auth::check()) {
+            $state = TeamsState::firstOrCreate(
+                ['user' => Auth::id()],
+                ['players' => [], 'teams' => [], 'number_of_teams' => 2, 'teams_locked' => false, 'games' => []]
+            );
+            $this->players = $state->players ?? [];
+            $this->teams = $state->teams ?? [];
+            $this->numberOfTeams = $state->number_of_teams ?? 2;
+            $this->teamsLocked = $state->teams_locked ?? false;
+            $this->games = $state->games ?? [];
+        } else {
+            $this->players = session("teams-players", []);
+            $this->teams = session("teams-teams", []);
+            $this->numberOfTeams = session("teams-number-of-teams", 2);
+            $this->teamsLocked = session('teams-locked', false);
+            $this->games = session('teams-games', []);
+            $this->dispatch('random-teams-request-state');
+        }
     }
 
     public function render()
