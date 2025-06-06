@@ -17,13 +17,28 @@ class SetLocale
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->segment(1) === "de") {
-            App::setLocale("de");
-            Carbon::setLocale('de');
-        } else {
-            App::setLocale("en");
-            Carbon::setLocale('en');
+        $locale = 'en';
+
+        $acceptLanguage = $request->server('HTTP_ACCEPT_LANGUAGE');
+        if ($acceptLanguage !== null) {
+            $browserLocales = explode(',', $acceptLanguage);
+            foreach ($browserLocales as $browserLocale) {
+                $langPrefix = substr($browserLocale, 0, 2);
+                if (in_array($langPrefix, ['de', 'en'])) {
+                    $locale = $langPrefix;
+                    break;
+                }
+            }
         }
+
+        if ($request->segment(1) === 'de') {
+            $locale = 'de';
+        } elseif ($request->segment(1) === 'en') {
+            $locale = 'en';
+        }
+
+        App::setLocale($locale);
+        Carbon::setLocale($locale);
 
         return $next($request);
     }
