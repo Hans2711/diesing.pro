@@ -157,6 +157,37 @@ class RandomTeams extends Component
         session(['teams-games' => $this->games]);
     }
 
+    public function newGame()
+    {
+        if (!$this->teamsLocked || empty($this->teams)) {
+            return;
+        }
+
+        $gameTeams = [];
+        foreach ($this->teams as $team) {
+            $gameTeams[] = [
+                'name' => $team['name'],
+                'players' => $team['players'],
+                'wins' => 0,
+            ];
+        }
+        $this->games[] = ['teams' => $gameTeams];
+
+        session(['teams-games' => $this->games]);
+    }
+
+    public function removeGame($index)
+    {
+        if (!isset($this->games[$index])) {
+            return;
+        }
+
+        unset($this->games[$index]);
+        $this->games = array_values($this->games);
+
+        session(['teams-games' => $this->games]);
+    }
+
     public function mount()
     {
         $this->players = session("teams-players", []);
