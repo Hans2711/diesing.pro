@@ -69,6 +69,11 @@ return [
     'players' => 'Players',
     'player-name' => 'Player Name',
     'number-of-teams' => 'Number of Teams',
+    'team-name' => 'Team',
+    'lock-teams' => 'Lock Teams',
+    'unlock-teams' => 'Unlock Teams',
+    'wins' => 'Wins',
+    'game-history' => 'Game History',
     'today' => 'today',
     'are-you-sure' => 'Are you sure?',
 

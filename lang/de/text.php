@@ -69,6 +69,11 @@ return [
     'players' => 'Spieler',
     'player-name' => 'Spielername',
     'number-of-teams' => 'Anzahl der Teams',
+    'team-name' => 'Team',
+    'lock-teams' => 'Teams sperren',
+    'unlock-teams' => 'Teams entsperren',
+    'wins' => 'Siege',
+    'game-history' => 'Spielverlauf',
     'today' => 'Heute',
     'are-you-sure' => 'Bist du sicher?',
 
