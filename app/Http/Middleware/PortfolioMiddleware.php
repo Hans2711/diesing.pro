@@ -23,6 +23,10 @@ class PortfolioMiddleware
             return $next($request);
         }
 
+        if (env('APP_ENV') === 'local') {
+            return $next($request);
+        }
+
         $currentUrl = URL::full();
         $redirectUrl =
             Config::get("app.locale") .
