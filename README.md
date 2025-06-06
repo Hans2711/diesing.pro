@@ -6,7 +6,7 @@ This repository contains the source code for [diesing.pro](https://www.diesing.p
 
 Visit: <https://www.diesing.pro/>
 
-The site is available in English and German. It provides both public pages and a private account area for registered users.
+The site is available in English and German. It provides both public pages and a private account area for registered users. The displayed language is automatically selected based on the visitor's region when possible.
 
 ## Features
 
