@@ -210,6 +210,12 @@ return [
     'cv-contact-email-label' => 'Email',
     'account-auth.tester' => '<p>The Tester is a tool to create and compare snapshots of websites.</p>'.
         '<p>The tester also features a HTML search, a sitemap crawler, and a bulk diff tool.</p>',
+    'account-auth.notes' => '<p>The Notes tool lets you store personal notes.</p>',
+    'account-auth.redirects' => '<p>Redirects allow you to manage shortlinks to other websites.</p>',
+    'account-auth.portfolio' => '<p>Manage your projects and portfolio entries.</p>',
+    'account-auth.cv' => '<p>Edit your personal curriculum vitae.</p>',
+    'account-auth.timetracking' => '<p>Track the time spent on tasks and projects.</p>',
+    'account-auth.rss-feeds' => '<p>Manage personalized RSS feeds.</p>',
     'data-protection-page' => '
 <h1>Privacy Policy</h1>
 

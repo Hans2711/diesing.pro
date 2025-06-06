@@ -211,6 +211,12 @@ return [
     'cv-contact-email-label' => 'E-Mail',
     'account-auth.tester' => '<p>Der Tester ist ein Tool, um Schnappschüsse von Websites zu erstellen und zu vergleichen.</p>'.
         '<p>Der Tester bietet auch eine HTML-Suche, einen Sitemap-Crawler und ein Bulk-Diff-Tool.</p>',
+    'account-auth.notes' => '<p>Mit den Notizen kannst du persönliche Notizen speichern.</p>',
+    'account-auth.redirects' => '<p>Weiterleitungen ermöglichen dir die Verwaltung von Kurzlinks zu anderen Websites.</p>',
+    'account-auth.portfolio' => '<p>Verwalte deine Projekte und Portfolioeinträge.</p>',
+    'account-auth.cv' => '<p>Bearbeite deinen persönlichen Lebenslauf.</p>',
+    'account-auth.timetracking' => '<p>Verfolge die auf Aufgaben und Projekte aufgewendete Zeit.</p>',
+    'account-auth.rss-feeds' => '<p>Verwalte personalisierte RSS-Feeds.</p>',
     'data-protection-page' => '
     <h1>Datenschutzerklärung</h1>
 
