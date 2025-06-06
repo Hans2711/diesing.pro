@@ -40,6 +40,7 @@ class CheckRssFeeds extends Command
                                 (string)($item->link ?? ''),
                                 (string)($item->pubDate ?? ''),
                                 app()->getLocale(),
+                                $feed->name,
                             )
                         );
                     }
