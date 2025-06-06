@@ -41,6 +41,9 @@
     <a alt="{{ __('alt.compare') }}" title="{{ __('alt.compare') }}" class="btn mb-3 w-fit" href="{{url(Config::get('app.locale') . "/tester/testobject/{$testobject->id}/diff")}}">
         {{ __('text.bulk_diff') }}
     </a>
+    <a alt="{{ __('alt.search') }}" title="{{ __('alt.search') }}" class="btn mb-3 w-fit" href="{{url(Config::get('app.locale') . "/tester/testobject/{$testobject->id}/search")}}">
+        {{ __('text.search_html') }}
+    </a>
     <button class="btn mb-3" wire:click="deleteAll">
         <span wire:loading.remove wire:target="deleteAll">{{ __('text.delete_all') }}</span>
         <img wire:loading wire:target="deleteAll" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt="{{ __('alt.sync') }}" title="{{ __('alt.sync') }}"/>

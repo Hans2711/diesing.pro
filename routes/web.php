@@ -69,6 +69,11 @@ foreach (['de', 'en'] as $locale) {
                 "testerObjectDiff",
             ])->name("testerObject");
 
+            Route::get("/tester/testobject/{id}/search", [
+                TesterController::class,
+                "testerObjectSearch",
+            ])->name("testerObjectSearch");
+
             Route::middleware(["tester"])->group(function () use ($locale) {
                 Route::get("/tester", [TesterController::class, "index"])->name(
                     "testerIndex"

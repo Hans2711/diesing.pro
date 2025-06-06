@@ -94,4 +94,10 @@ class TesterController extends Controller
         $testobject = Testobject::find($id);
         return view("tester.objectdiff", ["testobject" => $testobject]);
     }
+
+    public function testerObjectSearch($id)
+    {
+        $testobject = Testobject::find($id);
+        return view('tester.objectsearch', ['testobject' => $testobject]);
+    }
 }
