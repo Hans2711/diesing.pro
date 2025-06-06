@@ -23,6 +23,10 @@ class TesterMiddleware
             return $next($request);
         }
 
+        if (env('APP_ENV') === 'local' && Auth::check()) {
+            return $next($request);
+        }
+
         $currentUrl = URL::full();
         $redirectUrl =
             Config::get("app.locale") .
