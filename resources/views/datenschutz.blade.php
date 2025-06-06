@@ -1,6 +1,8 @@
 @extends('layouts.app', ['title' => __('titles.data-protection')])
 
 @section('content')
-{!! __('text.data-protection-page') !!}
+<div class="break-words break-all whitespace-normal">
+    {!! __('text.data-protection-page') !!}
+</div>
 @endsection
 
