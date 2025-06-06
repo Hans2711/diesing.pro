@@ -6,9 +6,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\RssFeed;
+use App\Models\TeamsState;
 
 class User extends Authenticatable
 {
@@ -120,5 +122,10 @@ class User extends Authenticatable
     public function rssFeeds(): HasMany
     {
         return $this->hasMany(RssFeed::class, 'user', 'id');
+    }
+
+    public function teamsState()
+    {
+        return $this->hasOne(TeamsState::class, 'user', 'id');
     }
 }
