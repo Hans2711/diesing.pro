@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Models\TeamsState;
+use Livewire\Attributes\On;
 
 class RandomTeams extends Component
 {
@@ -40,10 +41,11 @@ class RandomTeams extends Component
                 ]
             );
         } else {
-            $this->dispatchBrowserEvent('random-teams-save', $this->getState());
+            $this->dispatch('random-teams-save', $this->getState());
         }
     }
 
+    #[On('loadState')]
     public function loadState($data): void
     {
         $this->players = $data['players'] ?? [];
@@ -224,7 +226,7 @@ class RandomTeams extends Component
             $this->numberOfTeams = session("teams-number-of-teams", 2);
             $this->teamsLocked = session('teams-locked', false);
             $this->games = session('teams-games', []);
-            $this->dispatchBrowserEvent('random-teams-request-state');
+            $this->dispatch('random-teams-request-state');
         }
     }
 
