@@ -33,7 +33,8 @@ class CvMiddleware
             "/" .
             __("url.account") .
             "?return_url=" .
-            urlencode($currentUrl);
+            urlencode($currentUrl) .
+            "&from=cv";
 
         return redirect($redirectUrl);
     }

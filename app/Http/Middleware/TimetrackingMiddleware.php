@@ -33,7 +33,8 @@ class TimetrackingMiddleware
             "/" .
             __("url.account") .
             "?return_url=" .
-            urlencode($currentUrl);
+            urlencode($currentUrl) .
+            "&from=timetracking";
 
         return redirect($redirectUrl);
     }
