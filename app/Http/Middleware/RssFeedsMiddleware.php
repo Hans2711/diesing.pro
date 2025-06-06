@@ -22,7 +22,7 @@ class RssFeedsMiddleware
         }
 
         $currentUrl = URL::full();
-        $redirectUrl = Config::get('app.locale') . '/' . __('url.account') . '?return_url=' . urlencode($currentUrl);
+        $redirectUrl = Config::get('app.locale') . '/' . __('url.account') . '?return_url=' . urlencode($currentUrl) . '&from=rss-feeds';
         return redirect($redirectUrl);
     }
 }
