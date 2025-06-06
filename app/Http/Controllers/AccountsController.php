@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AccountsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
         $loggedIn = Auth::check();
@@ -23,6 +23,7 @@ class AccountsController extends Controller
             $return_url = request()->get("return_url");
             return view("accounts.index-auth", [
                 "return_url" => $return_url,
+                "from" => request()->get("from", ""),
             ]);
         }
     }
