@@ -14,16 +14,13 @@ class RandomTeamsTest extends TestCase
 
         $component->generateTeams();
 
-        // Assert there are exactly 3 teams
         $this->assertCount(3, $component->teams);
 
-        // Collect all players from the generated teams
         $allPlayers = [];
         foreach ($component->teams as $team) {
-            $allPlayers = array_merge($allPlayers, $team);
+            $allPlayers = array_merge($allPlayers, $team['players']);
         }
 
-        // Each player should appear exactly once
         $this->assertCount(count($component->players), $allPlayers);
         $counts = array_count_values($allPlayers);
         foreach ($component->players as $player) {
