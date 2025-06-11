@@ -1,6 +1,11 @@
 import "./bootstrap";
 import "../css/app.css";
 
+import { Livewire, Alpine } from "../../vendor/livewire/livewire/dist/livewire.esm";
+
+window.Alpine = Alpine;
+Livewire.start();
+
 const images = import.meta.glob(
   '../images/*.{png,jpg,jpeg,svg,gif,webp}',
   {
