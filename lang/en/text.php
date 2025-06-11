@@ -11,7 +11,7 @@ return [
     'portfolio' => 'Portfolio',
     'portfolio-description' => 'Here you can find a selection of our projects.',
     'tester-description' => 'The A-B Tester is a tool to create and compare snapshots of websites.',
-    'random-teams-description' => 'The Random Teams tool is used to create random teams.',
+    'random-teams-description' => 'The Random Teams tool is used to create random teams and store player results.',
     'private-tools' => 'Private Tools',
     'imprint' => 'Imprint',
     'data-protection' => 'Data Protection',

@@ -11,7 +11,7 @@ return [
     'portfolio' => 'Portfolio',
     'portfolio-description' => 'Hier finden Sie eine Auswahl unserer Projekte.',
     'tester-description' => 'Der A-B-Tester ist ein Werkzeug, um Schnappschüsse von Websites zu erstellen und zu vergleichen.',
-    'random-teams-description' => 'Das Tool Random Teams dient zur Erstellung zufälliger Teams.',
+    'random-teams-description' => 'Das Tool Random Teams dient zur Erstellung zufälliger Teams und speichern von Spielergebnissen.',
     'portfolio' => 'Portfolio',
     'private-tools' => 'Private Werkzeuge',
     'imprint' => 'Impressum',
