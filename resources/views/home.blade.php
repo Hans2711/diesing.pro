@@ -8,7 +8,7 @@
     <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-left">
         <a alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
-                <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
+                <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="eager"
                     src="{{ Vite::asset('resources/images/kontakt.jpg') }}" alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}">
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
