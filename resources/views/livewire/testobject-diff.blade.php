@@ -36,7 +36,7 @@
     </div>
     <button class="btn mb-3" wire:click="updateDiff">
         <span wire:loading.remove wire:target="updateDiff">{{ __('text.compare') }}</span>
-        <img wire:loading wire:target="updateDiff" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt="{{ __('alt.sync') }}" title="{{ __('alt.sync') }}"/>
+        <x-inline-svg wire:loading wire:target="updateDiff" icon="icons/sync" class="w-4 h-4 m-auto animate-spin invert" title="{{ __('alt.sync') }}" />
     </button>
 
     @foreach ($diffs as $runId => $data)

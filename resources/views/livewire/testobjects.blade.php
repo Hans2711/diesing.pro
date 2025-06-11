@@ -24,7 +24,7 @@
                     'livewire' => true
                 ])
                 <button type="submit" class="btn">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}"  alt="{{ __('alt.add') }}" title="{{ __('alt.add') }}"/>
+                    <x-inline-svg icon="icons/add" class="w-20 h-5 invert" title="{{ __('alt.add') }}" />
                 </button>
             </form>
         </div>
@@ -57,7 +57,7 @@
                     'value' => $url
                 ])
                 <button type="submit" class="btn btn-edit">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt="{{ __('alt.sync') }}" title="{{ __('alt.sync') }}"/>
+                    <x-inline-svg icon="icons/sync" class="w-20 h-5 invert" title="{{ __('alt.sync') }}" />
                 </button>
             </form>
         </div>
@@ -71,13 +71,13 @@
 
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 align-middle">
                 <button class="btn btn-delete" id="{{ $testObj->id }}" wire:click="deleteObject($event.target.id)" wire:confirm="Are you sure?">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/trash.svg') }}"  alt="{{ __('alt.delete') }}" title="{{ __('alt.delete') }}"/>
+                    <x-inline-svg icon="icons/trash" class="w-20 h-5 invert" title="{{ __('alt.delete') }}" />
                 </button>
                 <button class="btn btn-edit" id="{{ $testObj->id }}" wire:click="editObject($event.target.id)">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt="{{ __('alt.sync') }}" title="{{ __('alt.sync') }}"/>
+                    <x-inline-svg icon="icons/sync" class="w-20 h-5 invert" title="{{ __('alt.sync') }}" />
                 </button>
                 <a alt="{{ __('alt.view') }}" title="{{ __('alt.view') }}" class="btn btn-details" wire:navigate.hover href="{{url(Config::get('app.locale') . "/tester/testobject/{$testObj->id}")}}">
-                    <img class="w-20 h-5 invert" src="{{ Vite::asset('resources/icons/eye.svg') }}"  alt="{{ __('alt.view') }}" title="{{ __('alt.view') }}"/>
+                    <x-inline-svg icon="icons/eye" class="w-20 h-5 invert" title="{{ __('alt.view') }}" />
                 </a>
             </div>
         </div>

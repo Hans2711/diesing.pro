@@ -87,9 +87,9 @@
                 <span class="text-red-500 text-sm block">{{ $message }}</span>
             @enderror
             <button type="submit" id="contact-submit" tabindex="6" class="mt-2 p-4 btn flex items-center gap-2" wire:loading.attr="disabled">
-                <img wire:loading.remove class="w-6 h-6 invert" src="{{ Vite::asset('resources/icons/envelope.svg') }}" alt="Send" title="Send" />
+                <x-inline-svg wire:loading.remove icon="icons/envelope" class="w-6 h-6 invert" title="Send" />
                 <span wire:loading.remove>{{ __('text.submit') }}</span>
-                <img wire:loading class="w-4 h-4 animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}" alt="{{ __('alt.sync') }}" title="{{ __('alt.sync') }}" />
+                <x-inline-svg wire:loading icon="icons/sync" class="w-4 h-4 animate-spin invert" title="{{ __('alt.sync') }}" />
             </button>
         </div>
     </form>

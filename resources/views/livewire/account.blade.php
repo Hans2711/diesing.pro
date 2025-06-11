@@ -38,7 +38,7 @@
             <div class="mt-3 flex gap-4 items-center">
                 <button class="btn" wire:click="saveAccount">{{ __('text.save') }}</button>
                 <a alt="{{ __('text.back') }}" title="{{ __('text.back') }}" wire:click="cancelEdit" class="flex items-center gap-2 py-auto hover:cursor-grab btn-back dark:invert dark:text-secondary-dark">
-                    <img class="w-4" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" alt="Back Icon" title="Back Icon" />
+                    <x-inline-svg icon="icons/chevron-back" class="w-4" title="Back Icon" />
                     <span class="leading-none">{{ __('text.back') }}</span>
                 </a>
             </div>

@@ -25,14 +25,14 @@
 
     <div class="text-center mt-10">
         <a alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit mx-auto gap-4">
-            <img class="w-6 h-6 invert dark:invert-0" src="{{ Vite::asset('resources/icons/envelope.svg') }}" alt="Send" title="Send" />
+            <x-inline-svg class="w-6 h-6 invert dark:invert-0" icon="icons/envelope" title="Send" />
             {{ __('text.cv-contact-button') }}
         </a>
     </div>
 
     <div class="hidden print-only text-center mt-10">
         <a alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}" class="btn btn-secondary w-fit mx-auto gap-4">
-            <img class="w-6 h-6 invert dark:invert-0" src="{{ Vite::asset('resources/icons/cv.svg') }}" alt="Send" title="Send" />
+            <x-inline-svg class="w-6 h-6 invert dark:invert-0" icon="icons/cv" title="Send" />
             {{ __('text.cv-website') }}
         </a>
     </div>
@@ -51,7 +51,7 @@
                         <h3 class="font-bold text-xl">
                             <a alt="Netigo GmbH" title="Netigo GmbH" class="underline" href="https://www.netigo.de" target="_blank" rel="noopener noreferrer">Netigo GmbH</a>, Düsseldorf
                         </h3>
-                        <img src="{{ Vite::asset('resources/images/netigo.svg') }}" class="w-16 h-auto ml-4 invert dark:invert-0"  alt="{{ __('alt.netigo_logo') }}" title="{{ __('alt.netigo_logo') }}"/>
+                        <x-inline-svg icon="images/netigo" class="w-16 h-auto ml-4 invert dark:invert-0" title="{{ __('alt.netigo_logo') }}" />
                     </div>
                     <p class="text-sm mb-2">{{ __('text.cv-backend-period') }}</p>
                     <hr class="mb-2" />
@@ -89,7 +89,7 @@
                         <h3 class="font-bold text-xl">
                             <a alt="Netigo GmbH" title="Netigo GmbH" class="underline" href="https://www.netigo.de" target="_blank" rel="noopener noreferrer">Netigo GmbH</a>, Düsseldorf
                         </h3>
-                        <img src="{{ Vite::asset('resources/images/netigo.svg') }}" class="w-16 h-auto ml-4 invert dark:invert-0"  alt="{{ __('alt.netigo_logo') }}" title="{{ __('alt.netigo_logo') }}"/>
+                        <x-inline-svg icon="images/netigo" class="w-16 h-auto ml-4 invert dark:invert-0" title="{{ __('alt.netigo_logo') }}" />
                     </div>
                     <p class="text-sm mb-2">{{ __('text.cv-apprenticeship-period') }}</p>
                     <hr class="mb-2" />

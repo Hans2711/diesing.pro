@@ -1,6 +1,6 @@
 <div>
     <button wire:click="addPortfolio" class="btn" id="add-note">
-        <img class="w-6 h-5 invert" src="{{ Vite::asset('resources/icons/add.svg') }}" alt="{{ __('alt.add') }}" title="{{ __('alt.add') }}" />
+        <x-inline-svg icon="icons/add" class="w-6 h-5 invert" title="{{ __('alt.add') }}" />
     </button>
 
     @if (!$activePortfolio)
@@ -9,10 +9,10 @@
                 <span>{{ $portfolio->name }}</span>
                 <div class="grid md:grid-cols-2 gap-5 mt-2">
                     <button id="{{ $portfolio->id }}" wire:click="deletePortfolio($event.target.id)" wire:confirm="{{ __('text.are-you-sure') }}" class="btn-delete" data-id="{{ $portfolio->id }}">
-                        <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/close.svg') }}" alt="{{ __('alt.close') }}" title="{{ __('alt.close') }}" />
+                        <x-inline-svg icon="icons/close" class="w-10 h-5 invert" title="{{ __('alt.close') }}" />
                     </button>
                     <button id="{{ $portfolio->id }}" wire:click="editPortfolio($event.target.id)" class="btn btn-edit">
-                        <img class="w-10 h-5 invert" src="{{ Vite::asset('resources/icons/pencil-outline.svg') }}" alt="{{ __('alt.edit') }}" title="{{ __('alt.edit') }}" />
+                        <x-inline-svg icon="icons/pencil-outline" class="w-10 h-5 invert" title="{{ __('alt.edit') }}" />
                     </button>
                 </div>
             </div>
@@ -20,7 +20,7 @@
     @else
     <div class="mt-3">
         <a alt="{{ __('text.back') }}" title="{{ __('text.back') }}" wire:click="cancelEdit" class="flex gap-2 mb-4 align-center hover:cursor-pointer btn-back">
-            <img class="w-4 dark:invert" src="{{ Vite::asset('resources/icons/chevron-back.svg') }}" alt="{{ __('alt.back') }}" title="{{ __('alt.back') }}" />
+            <x-inline-svg icon="icons/chevron-back" class="w-4 dark:invert" title="{{ __('alt.back') }}" />
             <span class="leading-none">
                 {{__('text.back')}}
             </span>
