@@ -9,7 +9,7 @@
         <a alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
                 <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="eager"
-                    src="{{ Vite::asset('resources/images/kontakt.jpg') }}" alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}">
+                    src="{{ Vite::asset('resources/images/kontakt.webp') }}" alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}">
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
@@ -27,7 +27,7 @@
         <a alt="{{ __('text.cv') }}" title="{{ __('text.cv') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
                 <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/portfolio.jpg') }}" alt="{{ __('text.cv') }}" title="{{ __('text.cv') }}">
+                    src="{{ Vite::asset('resources/images/portfolio.webp') }}" alt="{{ __('text.cv') }}" title="{{ __('text.cv') }}">
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
@@ -46,7 +46,7 @@
         <a alt="{{ __('text.random-teams') }}" title="{{ __('text.random-teams') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
                 <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/random.jpg') }}" alt="{{ __('text.random-teams') }}" title="{{ __('text.random-teams') }}">
+                    src="{{ Vite::asset('resources/images/random.webp') }}" alt="{{ __('text.random-teams') }}" title="{{ __('text.random-teams') }}">
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
@@ -62,7 +62,7 @@
         <a alt="{{ __('text.rt-share') }}" title="{{ __('text.rt-share') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.rt-share')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
                 <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/file-transfer.jpg') }}" alt="{{ __('text.rt-share') }}" title="{{ __('text.rt-share') }}">
+                    src="{{ Vite::asset('resources/images/file-transfer.webp') }}" alt="{{ __('text.rt-share') }}" title="{{ __('text.rt-share') }}">
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
@@ -82,7 +82,7 @@
         <a alt="{{ __('text.account') }}" title="{{ __('text.account') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
                 <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/private.jpg') }}" alt="{{ __('text.account') }}" title="{{ __('text.account') }}">
+                    src="{{ Vite::asset('resources/images/private.webp') }}" alt="{{ __('text.account') }}" title="{{ __('text.account') }}">
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
@@ -173,7 +173,7 @@
         <a alt="{{ __('text.imprint') }}" title="{{ __('text.imprint') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.imprint')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
                 <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/law.jpg') }}" alt="{{ __('text.imprint') }}" title="{{ __('text.imprint') }}">
+                    src="{{ Vite::asset('resources/images/law.webp') }}" alt="{{ __('text.imprint') }}" title="{{ __('text.imprint') }}">
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
@@ -188,7 +188,7 @@
         <a alt="{{ __('text.data-protection') }}" title="{{ __('text.data-protection') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.data-protection')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
                 <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/law.jpg') }}" alt="{{ __('text.data-protection') }}" title="{{ __('text.data-protection') }}">
+                    src="{{ Vite::asset('resources/images/law.webp') }}" alt="{{ __('text.data-protection') }}" title="{{ __('text.data-protection') }}">
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">

@@ -113,7 +113,7 @@
                         <h3 class="font-bold text-xl">
                             <a alt="Berufskolleg Hilden" title="Berufskolleg Hilden" class="underline" href="https://berufskolleg.de/" target="_blank" rel="noopener noreferrer">Berufskolleg Hilden</a>
                         </h3>
-                        <img src="{{ Vite::asset('resources/images/bkh.png') }}" class="w-10 h-auto ml-4 "  alt="{{ __('alt.bkh_logo') }}" title="{{ __('alt.bkh_logo') }}"/>
+                        <img src="{{ Vite::asset('resources/images/bkh.webp') }}" class="w-10 h-auto ml-4 "  alt="{{ __('alt.bkh_logo') }}" title="{{ __('alt.bkh_logo') }}"/>
                     </div>
                     <p class="text-sm mb-2">{{ __('text.cv-school1-period') }}</p>
                     <hr class=" mb-2" />
@@ -143,7 +143,7 @@
                         <h3 class="font-bold text-xl">
                             <a alt="Lessing Berufskolleg" title="Lessing Berufskolleg" class="underline" href="https://www.lgbk.de/" target="_blank" rel="noopener noreferrer">Lessing Berufskolleg</a>, Düsseldorf
                         </h3>
-                        <img src="{{ Vite::asset('resources/images/lessing.png') }}" class="w-16 h-auto ml-4"  alt="{{ __('alt.lessing_logo') }}" title="{{ __('alt.lessing_logo') }}"/>
+                        <img src="{{ Vite::asset('resources/images/lessing.webp') }}" class="w-16 h-auto ml-4"  alt="{{ __('alt.lessing_logo') }}" title="{{ __('alt.lessing_logo') }}"/>
                     </div>
                     <p class="text-sm mb-2">{{ __('text.cv-school2-period') }}</p>
                     <hr class=" mb-2" />
