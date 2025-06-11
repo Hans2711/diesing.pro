@@ -24,15 +24,18 @@ jobs:
     - name: Install NPM dependencies
       run: npm install
 
-    - name: Build assets
-      run: npm run build  # Or the specific command for building assets in your project
-
     # Set up environment
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Public
+      run: php artisan vendor:publish --tag=livewire:assets --ansi --force
+
+    - name: Build assets
+      run: npm run build  # Or the specific command for building assets in your project
 
     - name: Generate key
       run: php artisan key:generate
