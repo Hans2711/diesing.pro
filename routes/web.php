@@ -19,7 +19,7 @@ if (!function_exists("route_trans")) {
 Route::get("/quote/rand", [
     ZenquotesController::class,
     "random",
-])->name("grant");
+])->name("quoteRand");
 
 foreach (['de', 'en'] as $locale) {
     Route::prefix($locale)
@@ -50,7 +50,7 @@ foreach (['de', 'en'] as $locale) {
             Route::get("/" . route_trans("contact", $locale) . "/{email}", [
                 ContactController::class,
                 "form",
-            ])->name("contactForm");
+            ])->name("contactFormEmail");
 
             Route::get("/tester/auth", [TesterController::class, "auth"])->name(
                 "testerAuth"
@@ -67,7 +67,7 @@ foreach (['de', 'en'] as $locale) {
             Route::get("/tester/testobject/{id}/diff", [
                 TesterController::class,
                 "testerObjectDiff",
-            ])->name("testerObject");
+            ])->name("testerObjectDiff");
 
             Route::get("/tester/testobject/{id}/search", [
                 TesterController::class,
@@ -115,5 +115,3 @@ foreach (['de', 'en'] as $locale) {
 Route::get("/", function () {
     return redirect("/de");
 });
-
-require base_path("/routes/account.php");

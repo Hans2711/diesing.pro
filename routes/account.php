@@ -84,7 +84,7 @@ foreach (['de', 'en'] as $locale) {
                     function () {
                         return view("accounts.portfolio");
                     }
-                )->name("portfolio");
+                )->name("portfolioEdit");
             });
             Route::middleware(["cv"])->group(function () use ($locale) {
                 Route::get(
@@ -95,7 +95,7 @@ foreach (['de', 'en'] as $locale) {
                     function () {
                         return view("accounts.cv");
                     }
-                )->name("cv");
+                )->name("cvEdit");
             });
             Route::middleware(["timetracking"])->group(function () use ($locale) {
                 Route::get(
