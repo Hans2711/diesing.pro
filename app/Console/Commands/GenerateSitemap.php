@@ -2,11 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Testobject;
-use App\Models\Diffstore;
 use Illuminate\Console\Command;
-use Spatie\Sitemap\SitemapGenerator;
-use Psr\Http\Message\UriInterface;
+use SimpleXMLElement;
 
 class GenerateSitemap extends Command
 {
@@ -32,17 +29,47 @@ class GenerateSitemap extends Command
         $depath = public_path("sitemap.de.xml");
         $enpath = public_path("sitemap.en.xml");
 
-        SitemapGenerator::create("https://www.diesing.pro")
-            ->shouldCrawl(function (UriInterface $url) {
-                return strpos($url->getPath(), '/en') === false;
-            })
-            ->writeToFile($depath);
+        $deUrls = [
+            '/' => 'home',
+            '/de' => 'home',
+            '/de/impressum' => 'imprint',
+            '/de/datenschutz' => 'data-protection',
+            '/de/portfolio' => 'portfolio',
+            '/de/teams' => 'random-teams',
+            '/de/kontakt' => 'contact',
+            '/de/tester' => 'tester',
+            '/de/lebenslauf' => 'cv',
+            '/de/echtzeit-teilen' => 'rt-share',
+        ];
 
-        SitemapGenerator::create("https://www.diesing.pro/en")
-            ->shouldCrawl(function (UriInterface $url) {
-                return strpos($url->getPath(), '/de') === false;
-            })
-            ->writeToFile($enpath);
+        $enUrls = [
+            '/en' => 'home',
+            '/en/imprint' => 'imprint',
+            '/en/data-protection' => 'data-protection',
+            '/en/portfolio' => 'portfolio',
+            '/en/teams' => 'random-teams',
+            '/en/contact' => 'contact',
+            '/en/tester' => 'tester',
+            '/en/cv' => 'cv',
+            '/en/realtime-share' => 'rt-share',
+        ];
 
+        $this->writeSitemap($deUrls, 'de', $depath);
+        $this->writeSitemap($enUrls, 'en', $enpath);
+
+    }
+
+    private function writeSitemap(array $urls, string $locale, string $path): void
+    {
+        $xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><urlset></urlset>');
+        $xml->addAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
+
+        foreach ($urls as $fragment => $key) {
+            $url = $xml->addChild('url');
+            $url->addChild('loc', 'https://www.diesing.pro' . $fragment);
+            $url->addChild('description', __('descriptions.' . $key, [], $locale));
+        }
+
+        $xml->asXML($path);
     }
 }
