@@ -12,7 +12,7 @@
         @include('global.head.font-preload')
         @include('global.head.app-css-preload')
         @include('global.head.title', ['title' => $title ?? null])
-        @include('global.head.og-tags', ['title' => $title ?? null, 'description' => $description ?? null])
+        @include('global.head.og-tags', ['title' => $title ?? null, 'description' => $description ?? null, 'from' => $from ?? null])
 
         @vite([
             'resources/css/app.css',
