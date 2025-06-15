@@ -1,4 +1,4 @@
-@if (env('APP_ANALYTICS'))
+@if (env('APP_ENV') == 'production')
     <!-- Google tag (gtag.js) -->
     <script defer src="https://www.googletagmanager.com/gtag/js?id=G-SX1DCPHNNB"></script>
     <script>
