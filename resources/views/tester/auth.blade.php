@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Tester Auth', 'active' => 'tester', 'activeTool' => 'tester'])
+@extends('layouts.app', ['title' => 'Tester Auth', 'keywords' => __('keywords.tester'), 'active' => 'tester', 'activeTool' => 'tester'])
 
 @section('content')
     <h1>Tester</h1>

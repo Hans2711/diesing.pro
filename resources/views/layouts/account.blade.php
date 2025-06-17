@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => ($title ? $title : ''), 'active' => $active, 'activeTool' => $activeTool])
+@extends('layouts.app', ['title' => ($title ? $title : ''), 'description' => $description ?? null, 'keywords' => $keywords ?? null, 'active' => $active, 'activeTool' => $activeTool])
 
 @section('content')
 <h1>{{ $title }}</h1>

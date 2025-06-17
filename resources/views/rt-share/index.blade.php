@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('titles.rt-share'), 'description' => __('descriptions.rt-share'), 'active' => 'rt-share'])
+@extends('layouts.app', ['title' => __('titles.rt-share'), 'description' => __('descriptions.rt-share'), 'keywords' => __('keywords.rt-share'), 'active' => 'rt-share'])
 
 @section('content')
 <h1>{{ __('text.rt-share') }}</h1>
