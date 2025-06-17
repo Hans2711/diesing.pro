@@ -59,7 +59,13 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
                 aria-label="Toggle menu"
             >
                 <!-- Menu Icon -->
-                <img x-show="sidebarOpen" src="{{ Vite::asset('resources/icons/close.svg') }}" class="h-8 w-8 dark:invert" alt="Close Menu" title="Close Menu" />
+                <img
+                    x-show="sidebarOpen"
+                    src="{{ Vite::asset('resources/icons/close.svg') }}"
+                    class="h-8 w-8 dark:invert"
+                    alt="{{ __('alt.close_menu') }}"
+                    title="{{ __('alt.close_menu') }}"
+                />
             </button>
         </div>
 
