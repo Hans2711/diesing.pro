@@ -13,6 +13,15 @@ class RssFeed extends Model
     protected $table = 'rss_feed';
     protected $primaryKey = 'id';
 
+    /**
+     * Database indexes for this model.
+     *
+     * @var array<int, string>
+     */
+    protected $indexes = [
+        'user',
+    ];
+
     protected $attributes = [
         'name' => 'New RSS Feed',
         'url' => 'https://example.com/feed.xml',

@@ -12,6 +12,13 @@ class Redirect extends Model
     protected $table = "redirect";
     protected $primaryKey = "id";
 
+    /**
+     * Database indexes for this model.
+     *
+     * @var array<int, string>
+     */
+    protected $indexes = ["slug", "user"];
+
     protected $attributes = [
         "name" => "Neue Weiterleitung",
         "slug" => "neue-weiterleitung",
