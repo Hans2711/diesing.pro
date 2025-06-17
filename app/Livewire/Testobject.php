@@ -7,6 +7,8 @@ use App\Models\Testrun;
 use App\Utilities\CrawlerUtility;
 use App\Jobs\CrawlTestRunJob;
 use App\Jobs\FetchTestrunJob;
+use App\Jobs\DeleteTestobjectDataJob;
+use App\Jobs\GenerateBulkDiffJob;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Cache;
 
@@ -16,9 +18,11 @@ class Testobject extends Component
     public $deleteAfter;
     public $deleteAfterOptions;
     public $bulkDiffContent;
+    public $bulkDiffStatus;
     public $crawlStatus;
     public $fetchStatus;
     public $sitemapsInput;
+    public $deleteStatus;
 
     public function mount()
     {
@@ -31,6 +35,8 @@ class Testobject extends Component
 
         $this->updateStatus();
         $this->updateFetchStatus();
+        $this->updateDeleteStatus();
+        $this->updateBulkDiffStatus();
         $this->sitemapsInput = implode(', ', $this->testobject->sitemaps ?? []);
     }
 
@@ -72,6 +78,26 @@ class Testobject extends Component
             ];
         } else {
             $this->fetchStatus = null;
+        }
+    }
+
+    public function updateDeleteStatus()
+    {
+        $objectId = $this->testobject->id;
+        if (Cache::pull("delete-all-completed-{$objectId}")) {
+            $this->testobject->refresh();
+            $this->deleteStatus = 'completed';
+            session()->flash('message', __('text.all_deleted'));
+        }
+    }
+
+    public function updateBulkDiffStatus()
+    {
+        $objectId = $this->testobject->id;
+        if (Cache::has("bulk-diff-completed-{$objectId}")) {
+            $this->bulkDiffContent = Cache::pull("bulk-diff-content-{$objectId}");
+            Cache::forget("bulk-diff-completed-{$objectId}");
+            $this->bulkDiffStatus = 'completed';
         }
     }
 
@@ -132,29 +158,19 @@ class Testobject extends Component
         }
     }
 
-    public function deleteAll() {
-        foreach ($this->testobject->testruns as $run) {
-            foreach ($run->testinstances as $instance) {
-                $instance->delete();
-            }
-            $run->delete();
-        }
-        $this->testobject->refresh();
-        session()->flash("message", __("text.all_deleted"));
+    public function deleteAll()
+    {
+        Cache::forget("delete-all-completed-{$this->testobject->id}");
+        DeleteTestobjectDataJob::dispatch($this->testobject->id);
+        $this->deleteStatus = 'running';
     }
 
     public function bulkDiff()
     {
-        $html = "";
-        foreach ($this->testobject->testruns as $run) {
-            if ($run->testinstances->count() >= 2) {
-                $a = $run->testinstances[0];
-                $b = $run->testinstances[1];
-                $html .= "<h3>" . $run->name . "</h3>";
-                $html .= $a->diff($b, "Inline");
-            }
-        }
-        $this->bulkDiffContent = $html;
+        Cache::forget("bulk-diff-content-{$this->testobject->id}");
+        Cache::forget("bulk-diff-completed-{$this->testobject->id}");
+        GenerateBulkDiffJob::dispatch($this->testobject->id);
+        $this->bulkDiffStatus = 'running';
     }
 
     public function saveSitemaps()
