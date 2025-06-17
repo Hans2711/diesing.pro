@@ -48,6 +48,11 @@
         <span wire:loading.remove wire:target="deleteAll">{{ __('text.delete_all') }}</span>
         <img wire:loading wire:target="deleteAll" class="w-4 h-4 m-auto animate-spin invert" src="{{ Vite::asset('resources/icons/sync.svg') }}"  alt="{{ __('alt.sync') }}" title="{{ __('alt.sync') }}"/>
     </button>
+    @if ($deleteStatus === 'running')
+        <div wire:poll.1000ms="updateDeleteStatus">Deleting...</div>
+    @elseif ($deleteStatus === 'completed')
+        <div>{{ __('text.all_deleted') }}</div>
+    @endif
 
     <p>{{ count($testobject->testruns) }} Testruns</p>
 
