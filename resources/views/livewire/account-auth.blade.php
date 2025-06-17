@@ -3,7 +3,7 @@
     <form wire:submit.prevent="loginUser" class="mb-6">
         <h2 class="text-lg font-bold mb-2">{{ __('text.login') }}</h2>
         @include('global.partials.floating-label-input', [
-            'additional' => 'wire:model="login"',
+            'additional' => 'wire:model="login" autocomplete="username"',
             'id' => 'login',
             'name' => 'login',
             'label' => __('text.username_or_email'),
@@ -11,7 +11,7 @@
             'tabindex' => 1
         ])
         @include('global.partials.floating-label-input', [
-            'additional' => 'wire:model="loginPassword"',
+            'additional' => 'wire:model="loginPassword" autocomplete="current-password"',
             'id' => 'login-password',
             'name' => 'loginPassword',
             'label' => __('text.password'),
@@ -27,7 +27,7 @@
     <form wire:submit.prevent="register">
         <h2 class="text-lg font-bold mb-2">{{ __('text.register') }}</h2>
         @include('global.partials.floating-label-input', [
-            'additional' => 'wire:model="username"',
+            'additional' => 'wire:model="username" autocomplete="username"',
             'id' => 'username',
             'name' => 'username',
             'label' => __('text.username'),
@@ -35,7 +35,7 @@
             'tabindex' => 3
         ])
         @include('global.partials.floating-label-input', [
-            'additional' => 'wire:model="email"',
+            'additional' => 'wire:model="email" autocomplete="email"',
             'id' => 'email',
             'name' => 'email',
             'label' => __('text.email'),
@@ -43,7 +43,7 @@
             'tabindex' => 4
         ])
         @include('global.partials.floating-label-input', [
-            'additional' => 'wire:model="name"',
+            'additional' => 'wire:model="name" autocomplete="name"',
             'id' => 'name',
             'name' => 'name',
             'label' => __('text.name'),
@@ -51,7 +51,7 @@
             'tabindex' => 5
         ])
         @include('global.partials.floating-label-input', [
-            'additional' => 'wire:model="registerPassword"',
+            'additional' => 'wire:model="registerPassword" autocomplete="new-password"',
             'id' => 'register-password',
             'name' => 'registerPassword',
             'label' => __('text.password'),
@@ -60,7 +60,7 @@
             'type' => 'password'
         ])
         @include('global.partials.floating-label-input', [
-            'additional' => 'wire:model="registerPasswordConfirm"',
+            'additional' => 'wire:model="registerPasswordConfirm" autocomplete="new-password"',
             'id' => 'register-password-confirm',
             'name' => 'registerPasswordConfirm',
             'label' => __('text.confirm_password'),
