@@ -4,16 +4,16 @@
             <div class="sm:columns-1 columns-1 mt-2">
                 <div class="form-group mt-4 w-full sm:mt-0">
                     <div>
-                        <p class="block mb-2 mt-2">{{ __('text.recepient') }} *</p>
-                        <select name="recepient" class="rounded mb-3 dark:bg-secondary-light w-full md:w-fit" wire:model="recepient">
-                            <option value="">{{ __('text.select-recepient') }}</option>
+                        <p class="block mb-2 mt-2">{{ __('text.recipient') }} *</p>
+                        <select name="recipient" class="rounded mb-3 dark:bg-secondary-light w-full md:w-fit" wire:model="recipient">
+                            <option value="">{{ __('text.select-recipient') }}</option>
                             @foreach ($users as $user)
                                 @if ($user->portfolios->count() > 0)
-                                    <option value="{{$user->email}}" @if ($user->email === $recepient) selected @endif>{{$user->name}}</option>
+                                    <option value="{{$user->email}}" @if ($user->email === $recipient) selected @endif>{{$user->name}}</option>
                                 @endif
                             @endforeach
                         </select>
-                        @error('recepient')
+                        @error('recipient')
                             <span class="text-primary-dark dark:text-primary-light text-sm block">{{ $message }}</span>
                         @enderror
                     </div>
