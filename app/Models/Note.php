@@ -13,6 +13,13 @@ class Note extends Model
     protected $table = "note";
     protected $primaryKey = "id";
 
+    /**
+     * Database indexes for this model.
+     *
+     * @var array<int, string>
+     */
+    protected $indexes = ["slug", "user"];
+
     protected $attributes = [
         "name" => "Neue Notiz",
         "content" => "",
