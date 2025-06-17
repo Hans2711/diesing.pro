@@ -1,7 +1,7 @@
 <?php
 return [
     "home" => implode(', ', [
-        "HP Diesing", "software developer", "web development", "PHP", "TYPO3", "Laravel", "JavaScript",
+        "Hans Peter Diesing", "HP Diesing", "software developer", "web development", "PHP", "TYPO3", "Laravel", "JavaScript",
         "HTML5", "CSS3", "frontend", "backend", "fullstack", "portfolio", "digital portfolio",
         "online portfolio", "developer portfolio", "freelancer", "web designer", "realtime share",
         "peer-to-peer file transfer", "P2P", "WebRTC", "file sharing", "random teams",
