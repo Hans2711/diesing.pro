@@ -14,9 +14,9 @@ class GenerateBulkDiffJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected int $testobjectId;
+    protected $testobjectId;
 
-    public function __construct(int $testobjectId)
+    public function __construct($testobjectId)
     {
         $this->testobjectId = $testobjectId;
     }
