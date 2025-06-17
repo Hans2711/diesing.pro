@@ -10,7 +10,7 @@ return [
         "tel.regex" => "Please enter a valid phone number.",
         "message.required" => "Please enter a message.",
         "message.min" => "Your message must be at least 10 characters long.",
-        "recepient.required" => "Please select a recipient.",
-        "recepient.in" => "The selected recipient is invalid.",
+        "recipient.required" => "Please select a recipient.",
+        "recipient.in" => "The selected recipient is invalid.",
     ],
 ];

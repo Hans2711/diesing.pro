@@ -41,7 +41,13 @@
                 aria-label="Toggle menu"
             >
                 <!-- Menu Icon -->
-                <img x-show="!sidebarOpen" src="{{ Vite::asset('resources/icons/menu.svg') }}" class="h-10 w-10 burger-menu" alt="Open Menu" title="Open Menu" />
+                <img
+                    x-show="!sidebarOpen"
+                    src="{{ Vite::asset('resources/icons/menu.svg') }}"
+                    class="h-10 w-10 burger-menu"
+                    alt="{{ __('alt.open_menu') }}"
+                    title="{{ __('alt.open_menu') }}"
+                />
             </button>
 
             @include('global.header', ['active' => $active ?? null, 'activeTool' => $activeTool ?? null])
