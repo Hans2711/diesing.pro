@@ -1,5 +1,4 @@
 <meta property="og:title" content="{{ $title }}" />
-<meta property="og:url" content="{{ url()->current() }}" />
 <meta property="og:image" content="{{ Vite::asset('resources/logo/HPLogo.png') }}" />
 @if (isset($description) && empty($from))
     <meta property="og:description" content="{{ $description }}" />
@@ -18,4 +17,12 @@ $keywordsKey = isset($from) ? 'keywords.' . $from : 'keywords.default';
     <meta name="keywords" content="{{ __($keywordsKey) }}" />
 @endif
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="{{ url()->current() }}" />
+
+@php
+    $canonicalUrl = url()->current();
+    if (!empty($from)) {
+        $canonicalUrl = url(app()->getLocale() . '/' . __('url.' . $from));
+    }
+@endphp
+<link rel="canonical" href="{{ $canonicalUrl }}" />
+<meta property="og:url" content="{{ $canonicalUrl }}" />
