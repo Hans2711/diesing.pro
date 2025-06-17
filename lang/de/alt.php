@@ -5,6 +5,7 @@ return [
     'instagram' => 'Instagram',
     'linkedin' => 'LinkedIn',
     'discord' => 'Discord',
+    'github' => 'GitHub',
     'netigo_logo' => 'Netigo Logo',
     'bkh_logo' => 'Berufskolleg Hilden Logo',
     'lessing_logo' => 'Lessing Berufskolleg Logo',
