@@ -16,7 +16,7 @@ class ContactForm extends Component
     public $email;
     public $tel;
     public $message;
-    public $recepient;
+    public $recipient;
 
     public $users;
 
@@ -26,7 +26,7 @@ class ContactForm extends Component
         "email" => "required|email",
         "tel" => 'required|regex:/^[0-9\s\-\+\(\)]+$/',
         "message" => "required|min:10",
-        "recepient" => "required|min:5",
+        "recipient" => "required|min:5",
     ];
 
     public function mount()
@@ -39,7 +39,7 @@ class ContactForm extends Component
         $validatedData = $this->validate();
 
         SendEmail::dispatch(
-            $this->recepient,
+            $this->recipient,
             new ContactEmail(
                 $this->name,
                 $this->firma,
