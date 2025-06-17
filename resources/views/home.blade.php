@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('titles.home'), 'description' => __('descriptions.home'), 'dark' => false])
+@extends('layouts.app', ['title' => __('titles.home'), 'description' => __('descriptions.home'), 'keywords' => __('keywords.home'), 'dark' => false])
 
 @section('content')
 <h1>{{ __('text.welcome') }}</h1>
