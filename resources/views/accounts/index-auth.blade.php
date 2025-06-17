@@ -1,4 +1,4 @@
-@extends('layouts.account', ['title' => __('titles.account'), 'description' => __('descriptions.account'), 'active' => 'account', 'activeTool' => 'account', 'activeTool' => 'overview'])
+@extends('layouts.account', ['title' => __('titles.account'), 'description' => __('descriptions.account'), 'keywords' => __('keywords.account'), 'active' => 'account', 'activeTool' => 'account', 'activeTool' => 'overview'])
 
 @section('tool-content')
 <div class="mt-3">

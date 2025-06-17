@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('titles.cv'), 'description' => __('descriptions.cv'), 'active' => 'cv'])
+@extends('layouts.app', ['title' => __('titles.cv'), 'description' => __('descriptions.cv'), 'keywords' => __('keywords.cv'), 'active' => 'cv'])
 
 @section('content')
 <div class="overflow-x-hidden">
