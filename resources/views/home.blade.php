@@ -62,7 +62,7 @@
         <a alt="{{ __('text.rt-share') }}" title="{{ __('text.rt-share') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.rt-share')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
                 <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/file-transfer.webp') }}" alt="{{ __('text.rt-share') }}" title="{{ __('text.rt-share') }}">
+                    src="{{ Vite::asset('resources/images/rt-share.webp') }}" alt="{{ __('text.rt-share') }}" title="{{ __('text.rt-share') }}">
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
