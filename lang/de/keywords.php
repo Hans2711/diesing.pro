@@ -1,7 +1,7 @@
 <?php
 return [
     "home" => implode(', ', [
-        "Hans Peter Diesing", "HP Diesing", "Softwareentwickler", "Webentwicklung", "PHP", "TYPO3", "Laravel", "JavaScript", "HTML5", "CSS3",
+        "Diesing", "Hans Diesing", "Hans Peter Diesing", "HP Diesing", "Softwareentwickler", "Webentwicklung", "PHP", "TYPO3", "Laravel", "JavaScript", "HTML5", "CSS3",
         "Portfolio", "Online-Portfolio", "Digitales Portfolio", "Web-Portfolio", "Freelancer", "Webdesigner",
         "Realtime Share", "Echtzeit teilen", "P2P Dateiübertragung", "Peer-to-Peer", "WebRTC", "Dateitransfer",
         "Random Teams", "Zufallsteams", "Team-Generator", "faire Teams", "Gruppen Generator", "Team Building",
