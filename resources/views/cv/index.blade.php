@@ -223,93 +223,153 @@
         <div class="flex flex-col lg:grid grid-cols-2 mx-auto p-2 gap-5">
             <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-programming') }}</h3>
-                <ul class="list-disc ml-5">
-                    <li>
+                <ul class="space-y-1">
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         PHP
                     </li>
-                    <li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         JavaScript
                     </li>
-                    <li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         C#
                     </li>
-                    <li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         C / C++
                     </li>
-                    <li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         GoLang
                     </li>
                 </ul>
             </div>
             <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-frameworks') }}</h3>
-                <ul class="list-disc ml-5">
-                    <li>
+                <ul class="space-y-1">
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         TYPO3
                     </li>
-                    <li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         WordPress
                     </li>
-                    <li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         Laravel (Livewire)
                     </li>
-                    <li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         Symfony
                     </li>
-                    <li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         React
                     </li>
-                    <li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         Electron
                     </li>
-                    <li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         jQuery
                     </li>
                 </ul>
             </div>
             <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-script-languages') }}</h3>
-                <ul class="list-disc ml-5">
-                    <li>SQL (Mysql / MariaDB / PostgreSQL)</li>
-                    <li>TypoScript (TYPO3)</li>
-                    <li>HTML</li>
-                    <li>JSON</li>
-                    <li>YAML</li>
-                    <li>MD</li>
-                    <li>XML</li>
+                <ul class="space-y-1">
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        SQL (Mysql / MariaDB / PostgreSQL)
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        TypoScript (TYPO3)
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        HTML
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        JSON
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        YAML
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        MD
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        XML
+                    </li>
                 </ul>
             </div>
             <div class="break-page hidden"></div>
             <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md page-break">
                 <h3>{{ __('text.cv-skills-web-styling') }}</h3>
-                <ul class="list-disc ml-5">
-                    <li>CSS / SCSS</li>
-                    <li>Tailwind CSS</li>
-                    <li>Bootstrap</li>
+                <ul class="space-y-1">
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        CSS / SCSS
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        Tailwind CSS
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        Bootstrap
+                    </li>
                 </ul>
             </div>
             <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-operating-systems') }}</h3>
-                <ul class="list-disc ml-5">
-                    <li>
+                <ul class="space-y-1">
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         Linux (Debian / Ubuntu)
                     </li>
-                    <li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         Windows (10 / 11)
                     </li>
-                    <li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         MacOS (Intel / Apple Silicon)
                     </li>
                 </ul>
             </div>
             <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-development-tools') }}</h3>
-                <ul class="list-disc ml-5">
-                    <li>Git</li>
-                    <li>Docker</li>
-                    <li>Neovim (nvim)</li>
-                    <li>Tmux</li>
-                    <li>Postman</li>
+                <ul class="space-y-1">
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        Git
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        Docker
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        Neovim (nvim)
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        Tmux
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        Postman
+                    </li>
                 </ul>
             </div>
         </div>
