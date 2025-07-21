@@ -404,5 +404,23 @@ tertiary-light    #FFFFFF
         grid-column-end: auto !important;
     }
 
+    /* Convert custom lists to normal lists in print */
+    .skills ul,
+    .timeline-card ul {
+        list-style-type: disc !important;
+        padding-left: 20px !important;
+    }
+
+    .skills ul li,
+    .timeline-card ul li {
+        position: static !important;
+        padding-left: 0 !important;
+    }
+
+    .skills ul li span,
+    .timeline-card ul li span {
+        display: none !important;
+    }
+
 
 }

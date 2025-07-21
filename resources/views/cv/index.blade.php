@@ -219,7 +219,7 @@
         <p class="mb-5 lg:w-2/3 md:mx-auto md:text-center">{{ __('text.cv-skills-intro') }}</p>
     </div>
 
-    <div class="lg:container">
+    <div class="lg:container skills">
         <div class="flex flex-col lg:grid grid-cols-2 mx-auto p-2 gap-5">
             <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-programming') }}</h3>
