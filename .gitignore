@@ -26,3 +26,4 @@ storage/framework
 storage/framework/*
 storage/logs
 storage/logs/*
+/certificates/
