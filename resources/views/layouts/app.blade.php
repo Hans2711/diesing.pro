@@ -12,7 +12,14 @@
         @include('global.head.font-preload')
         @include('global.head.app-css-preload')
         @include('global.head.title', ['title' => $title ?? null])
-        @include('global.head.og-tags', ['title' => $title ?? null, 'description' => $description ?? null, 'keywords' => $keywords ?? null])
+        @include('global.head.og-tags', [
+            'title' => $title ?? null,
+            'description' => $description ?? null,
+            'keywords' => $keywords ?? null,
+            'type' => $type ?? null,
+            'published_time' => $published_time ?? null,
+            'modified_time' => $modified_time ?? null,
+        ])
 
         @vite([
             'resources/css/app.css',
@@ -57,13 +64,12 @@
                 @click="sidebarOpen = false"
                 x-transition.opacity
             ></div>
-            <main class="flex-1 p-4 pt-16 md:pt-4">
+            <main id="main-content" role="main" class="flex-1 p-4 pt-16 md:pt-4">
                 @yield('content')
             </main>
             <button id="scroll-top-button" class="btn btn-secondary fixed bottom-4 right-4 md:bottom-8 md:right-8 rounded-full scroll-hidden transition-all duration-300 transform" aria-label="Scroll to top">
                 <img class="w-6 h-6 invert dark:invert-0" src="{{ Vite::asset('resources/icons/chevron-up.svg') }}" alt="Scroll to top" title="Scroll to top" />
             </button>
-        </div>
         </div>
 
         <div class="flex h-fit">

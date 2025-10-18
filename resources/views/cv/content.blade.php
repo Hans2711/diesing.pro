@@ -1,3 +1,4 @@
+<article>
 <h1 class="">{{$user->name}}'s {{ __('text.cv') }}</h1>
 
 @php
@@ -46,3 +47,4 @@
     @endif
 @endforeach
 
+</article>

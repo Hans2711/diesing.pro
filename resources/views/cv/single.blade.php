@@ -1,4 +1,13 @@
-@extends('layouts.app', ['title' => $user->name . "'s " . __('text.cv'), 'description' => __('descriptions.cv'), 'keywords' => __('keywords.cv'), 'active' => 'cv', 'dark' => false])
+@extends('layouts.app', [
+    'title' => $user->name . "'s " . __('text.cv'),
+    'description' => __('descriptions.cv'),
+    'keywords' => __('keywords.cv'),
+    'active' => 'cv',
+    'dark' => false,
+    'type' => 'article',
+    'published_time' => $cv->created_at ?? null,
+    'modified_time' => $cv->updated_at ?? null,
+])
 
 @section('content')
     @include('cv.content', ['cv' => $cv, 'user' => $user])
