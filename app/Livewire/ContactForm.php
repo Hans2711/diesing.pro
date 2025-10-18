@@ -5,9 +5,7 @@ namespace App\Livewire;
 use App\Mail\ContactEmail;
 use App\Mail\ContactConfirmationEmail;
 use App\Jobs\SendEmail;
-use App\Models\User;
 use Livewire\Component;
-use Illuminate\Support\Facades\Mail;
 
 class ContactForm extends Component
 {
@@ -18,7 +16,7 @@ class ContactForm extends Component
     public $message;
     public $recipient;
 
-    public $users;
+    public array $recipients = [];
 
     protected $rules = [
         "name" => "required|min:3",
@@ -29,9 +27,17 @@ class ContactForm extends Component
         "recipient" => "required|min:5",
     ];
 
-    public function mount()
+    public function mount($recipient = null)
     {
-        $this->users = User::all();
+        $this->recipients = config('contact.recipients', []);
+
+        $emails = collect($this->recipients)->pluck('email');
+
+        if ($recipient && $emails->contains($recipient)) {
+            $this->recipient = $recipient;
+        } elseif (!$this->recipient && $emails->isNotEmpty()) {
+            $this->recipient = $emails->first();
+        }
     }
 
     public function submit()
