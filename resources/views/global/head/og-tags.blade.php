@@ -1,4 +1,9 @@
+@php
+    $ogType = $type ?? 'website';
+@endphp
 <meta property="og:title" content="{{ $title }}" />
+<meta property="og:type" content="{{ $ogType }}" />
+<meta property="og:site_name" content="{{ config('app.name', 'Diesing') }}" />
 <meta property="og:image" content="{{ Vite::asset('resources/logo/HPLogo.png') }}" />
 @if (isset($description) && empty($from))
     <meta property="og:description" content="{{ $description }}" />
@@ -26,3 +31,12 @@ $keywordsKey = isset($from) ? 'keywords.' . $from : 'keywords.default';
 @endphp
 <link rel="canonical" href="{{ $canonicalUrl }}" />
 <meta property="og:url" content="{{ $canonicalUrl }}" />
+
+@if (!empty($published_time))
+    <meta property="article:published_time" content="{{ is_string($published_time) ? $published_time : $published_time?->toIso8601String() }}" />
+@endif
+@if (!empty($modified_time))
+    <meta property="article:modified_time" content="{{ is_string($modified_time) ? $modified_time : $modified_time?->toIso8601String() }}" />
+@endif
+
+<meta name="twitter:card" content="summary_large_image" />

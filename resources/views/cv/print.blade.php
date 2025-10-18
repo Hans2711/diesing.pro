@@ -1,4 +1,14 @@
-@extends('layouts.minimal', ['title' => $user->name . "'s " . __('text.cv'), 'description' => __('descriptions.cv'), 'keywords' => __('keywords.cv'), 'active' => 'cv', 'print' => true, 'dark' => false])
+@extends('layouts.minimal', [
+    'title' => $user->name . "'s " . __('text.cv'),
+    'description' => __('descriptions.cv'),
+    'keywords' => __('keywords.cv'),
+    'active' => 'cv',
+    'print' => true,
+    'dark' => false,
+    'type' => 'article',
+    'published_time' => $cv->created_at ?? null,
+    'modified_time' => $cv->updated_at ?? null,
+])
 
 @section('content')
 <style>
@@ -42,4 +52,3 @@
 
     @include('cv.content', ['cv' => $cv, 'user' => $user, 'print' => true])
 @endsection
-

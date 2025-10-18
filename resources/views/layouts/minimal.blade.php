@@ -10,16 +10,23 @@
 
         @include('global.head.font-preload')
         @include('global.head.title', ['title' => $title ?? null])
-        @include('global.head.og-tags', ['title' => $title ?? null, 'description' => $description ?? null, 'keywords' => $keywords ?? null])
+        @include('global.head.og-tags', [
+            'title' => $title ?? null,
+            'description' => $description ?? null,
+            'keywords' => $keywords ?? null,
+            'type' => $type ?? null,
+            'published_time' => $published_time ?? null,
+            'modified_time' => $modified_time ?? null,
+        ])
         <style>
         {!! Vite::content('resources/css/app.css') !!}
         </style>
     </head>
     <body @if(isset($print)) onload="window.print()" @endif>
         <div id="app">
-            <div class="container mx-auto md:px-0 px-6 pt-5">
+            <main id="main-content" role="main" class="container mx-auto md:px-0 px-6 pt-5">
                 @yield('content')
-            </div>
+            </main>
         </div>
 
         @vite(['resources/js/app.js'])
