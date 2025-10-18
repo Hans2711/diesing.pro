@@ -7,10 +7,10 @@
                         <p class="block mb-2 mt-2">{{ __('text.recipient') }} *</p>
                         <select name="recipient" class="rounded mb-3 dark:bg-secondary-light w-full md:w-fit" wire:model="recipient">
                             <option value="">{{ __('text.select-recipient') }}</option>
-                            @foreach ($users as $user)
-                                @if ($user->portfolios->count() > 0)
-                                    <option value="{{$user->email}}" @if ($user->email === $recipient) selected @endif>{{$user->name}}</option>
-                                @endif
+                            @foreach ($recipients as $option)
+                                <option value="{{ $option['email'] }}" @selected($option['email'] === $recipient)>
+                                    {{ $option['label'] ?? $option['name'] ?? $option['email'] }}
+                                </option>
                             @endforeach
                         </select>
                         @error('recipient')
