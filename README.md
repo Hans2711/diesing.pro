@@ -15,7 +15,6 @@ The site is available in English and German. It provides both public pages and a
 * **Portfolio and CV** – project portfolio plus CV information
 * **Real-Time Share** – beam text and files to other devices directly via WebRTC
 * **Random Teams** – tool to create fair random teams
-* **A‑B Tester** – private website tester for comparing snapshots
 * **Account area** – contains private tools:
   * Notes
   * Redirects

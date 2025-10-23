@@ -19,7 +19,6 @@ class Account extends Component
     public $passwordConfirm;
 
     public $permissions = [
-        "tester" => "Tester",
         "notes" => "Notes",
         "redirects" => "Redirects",
         "portfolio" => "Portfolio",

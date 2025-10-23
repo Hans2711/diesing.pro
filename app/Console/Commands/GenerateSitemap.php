@@ -37,7 +37,6 @@ class GenerateSitemap extends Command
             '/de/portfolio' => 'portfolio',
             '/de/teams' => 'random-teams',
             '/de/kontakt' => 'contact',
-            '/de/tester' => 'tester',
             '/de/lebenslauf' => 'cv',
             '/de/echtzeit-teilen' => 'rt-share',
         ];
@@ -49,7 +48,6 @@ class GenerateSitemap extends Command
             '/en/portfolio' => 'portfolio',
             '/en/teams' => 'random-teams',
             '/en/contact' => 'contact',
-            '/en/tester' => 'tester',
             '/en/cv' => 'cv',
             '/en/realtime-share' => 'rt-share',
         ];

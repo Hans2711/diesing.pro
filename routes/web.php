@@ -5,7 +5,6 @@ use App\Http\Controllers\CvController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ShareController;
 use App\Http\Controllers\TeamsController;
-use App\Http\Controllers\TesterController;
 use App\Http\Controllers\ZenquotesController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,50 +50,6 @@ foreach (['de', 'en'] as $locale) {
                 ContactController::class,
                 "form",
             ])->name("contactFormEmail");
-
-            Route::get("/tester/auth", [TesterController::class, "auth"])->name(
-                "testerAuth"
-            );
-            Route::post("/tester/auth", [TesterController::class, "auth"])->name(
-                "testerAuthPost"
-            );
-
-            Route::get("/tester/diff/{instanceOne}/{instanceTwo}", [
-                TesterController::class,
-                "diff",
-            ])->name("testerDiff");
-
-            Route::get("/tester/testobject/{id}/diff", [
-                TesterController::class,
-                "testerObjectDiff",
-            ])->name("testerObjectDiff");
-
-            Route::get("/tester/testobject/{id}/search", [
-                TesterController::class,
-                "testerObjectSearch",
-            ])->name("testerObjectSearch");
-
-            Route::middleware(["tester"])->group(function () use ($locale) {
-                Route::get("/tester", [TesterController::class, "index"])->name(
-                    "testerIndex"
-                );
-                Route::get("/tester/testobject/{id}", [
-                    TesterController::class,
-                    "testobject",
-                ])->name("testerObject");
-                Route::get("/tester/testrun/{id}", [
-                    TesterController::class,
-                    "testrun",
-                ])->name("testerRun");
-                Route::get("/tester/testinstance/{id}", [
-                    TesterController::class,
-                    "instance",
-                ])->name("testerInstance");
-                Route::get("/tester/testinstance/{id}/fetch", [
-                    TesterController::class,
-                    "fetchInstance",
-                ])->name("testerFetch");
-            });
 
             Route::get("/" . route_trans("teams", $locale), [
                 TeamsController::class,

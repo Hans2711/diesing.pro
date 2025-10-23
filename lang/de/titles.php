@@ -5,7 +5,6 @@ return [
     "contact" => "Kontakt",
     "random-teams" => "Zufällige Teams Generator",
     "account" => "Benutzerkonto",
-    "tester" => "Tester",
     "notes" => "Notizen",
     "redirects" => "Weiterleitungen",
     "data-protection" => "Datenschutz",

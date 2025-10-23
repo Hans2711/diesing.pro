@@ -5,7 +5,6 @@ return [
         "Portfolio", "Online-Portfolio", "Digitales Portfolio", "Web-Portfolio", "Freelancer", "Webdesigner",
         "Realtime Share", "Echtzeit teilen", "P2P Dateiübertragung", "Peer-to-Peer", "WebRTC", "Dateitransfer",
         "Random Teams", "Zufallsteams", "Team-Generator", "faire Teams", "Gruppen Generator", "Team Building",
-        "A-B-Tester", "Website Test", "Split Testing", "Snapshot Tool", "Usability Test", "A/B Testing",
         "Notiz-Tool", "Private Notizen", "Notizen App", "Produktivität", "Todo-Liste",
         "URL Shortener", "Weiterleitungen", "Custom Redirects", "Link Management", "SEO", "Meta-Keywords",
         "Datenschutz", "Privacy Policy", "GDPR", "DSGVO", "Sicherheit", "Verschlüsselung",
@@ -30,11 +29,6 @@ return [
         "Zufallsteams", "Team Generator", "Gruppen Zuweisung", "Fair Teams", "Mannschaftsbildung",
         "Workshop Tools", "Klassenzimmer", "Event Management", "Teambuilding", "Moderation",
         "Randomizer", "Gruppen-Dynamics", "Pair Programming"
-    ]),
-    "tester" => implode(', ', [
-        "A-B-Tester", "Website Vergleich", "Split-Test", "Snapshot Tool", "Conversion Rate",
-        "Landing Page Test", "UX Test", "Performance-Messung", "Heatmap", "User Feedback",
-        "Experiment-Tracking", "Analytics", "Statistische Auswertung"
     ]),
     "notes" => implode(', ', [
         "Notizen", "Private Notizen", "Einfache Notizen", "Memo", "Notizbuch",

@@ -93,16 +93,6 @@
                         <li class="relative pl-5">
                             <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                             <a wire:navigate.hover
-                                href="{{ url(Config::get('app.locale') . '/' . __('url.tester') . '/') }}"
-                                alt="{{ __('text.tester') }}"
-                                title="{{ __('text.tester') }}"
-                                class="font-semibold hover:underline">
-                                {{ __('text.tester') }}
-                            </a>
-                        </li>
-                        <li class="relative pl-5">
-                            <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                            <a wire:navigate.hover
                                 href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.notes')) }}"
                                 alt="{{ __('text.notes') }}"
                                 title="{{ __('text.notes') }}"

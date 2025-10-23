@@ -5,7 +5,7 @@ $otherUrl = App\Utilities\LanguageUtility::getOtherLangUrl();
 $isActive = fn($key) => $active === $key ? 'bg-gray-300 text-black dark:text-white dark:bg-gray-700' : '';
 $isToolActive = fn($tool) => $activeTool === $tool ? 'bg-gray-300 text-black dark:text-white dark:bg-gray-700' : '';
 $isContactActive = fn($email) => $activeTool === $email ? 'bg-gray-300 text-black dark:text-white dark:bg-gray-700' : '';
-$accountOpen = in_array($activeTool ?? '', ['overview', 'tester', 'notes', 'redirects', 'portfolio', 'cv', 'timetracking', 'rss-feeds']);
+$accountOpen = in_array($activeTool ?? '', ['overview', 'notes', 'redirects', 'portfolio', 'cv', 'timetracking', 'rss-feeds']);
 $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@icloud.com']);
 
 
@@ -160,15 +160,6 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
                             <img src="{{ Vite::asset('resources/icons/user-gear.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt='{{ __('text.overview') }}' />
                             <span class="flex-grow text-left">
                                 {{ __('text.overview') }}
-                            </span>
-                            <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 dark:invert" alt="" />
-                        </a>
-                    </li>
-                    <li>
-                        <a alt="{{ __('text.tester') }}" title="{{ __('text.tester') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.tester')) }}" class="w-full flex gap-1 items-center hover:bg-gray-300 p-2 rounded  dark:hover:bg-gray-700 dark:hover:text-white {{ $isToolActive('tester') }}">
-                            <img src="{{ Vite::asset('resources/icons/quiz-alt.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt='{{ __('text.tester') }}' />
-                            <span class="flex-grow text-left">
-                                {{ __('text.tester') }}
                             </span>
                             <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 dark:invert" alt="" />
                         </a>
