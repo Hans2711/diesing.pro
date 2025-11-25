@@ -10,16 +10,6 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Serve pre-compressed .gz files for gzip-enabled clients
-    RewriteCond %{HTTP:Accept-Encoding} gzip
-    RewriteCond %{REQUEST_FILENAME}.gz -f
-    RewriteRule ^(.*)$ $1.gz [QSA,L]
-    
-    # Serve pre-compressed .br files for brotli-enabled clients
-    RewriteCond %{HTTP:Accept-Encoding} br
-    RewriteCond %{REQUEST_FILENAME}.br -f
-    RewriteRule ^(.*)$ $1.br [QSA,L]
-
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
@@ -48,15 +38,7 @@
 
 </IfModule>
 
-# MIME types and Encoding for pre-compressed files
-<IfModule mod_mime.c>
-    AddType application/javascript .js.gz
-    AddType text/css .css.gz
-    AddType application/gzip .gz
-    AddEncoding gzip .gz
-</IfModule>
-
-# Fallback: Enable on-the-fly compression for non-Vite files
+# Fallback: Enable on-the-fly compression for all content
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml application/xhtml+xml
 </IfModule>

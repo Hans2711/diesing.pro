@@ -28,3 +28,4 @@ storage/logs
 storage/logs/*
 /certificates/
 composer.phar
+diesi
