@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Note;
 use App\Models\Redirect;
 use App\Models\RedirectHit;
-use App\Models\Timetrack;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -87,14 +86,4 @@ class AccountsController extends Controller
         ]);
     }
 
-    public function timetrack($id) {
-        $timetrack = Timetrack::find($id);
-        if ($timetrack) {
-            return view("accounts.timetrack", [
-                "timetrack" => $timetrack,
-            ]);
-        } else {
-            return redirect("/");
-        }
-    }
 }

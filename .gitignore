@@ -27,3 +27,4 @@ storage/framework/*
 storage/logs
 storage/logs/*
 /certificates/
+composer.phar

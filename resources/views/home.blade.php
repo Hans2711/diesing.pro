@@ -93,16 +93,6 @@
                         <li class="relative pl-5">
                             <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                             <a wire:navigate.hover
-                                href="{{ url(Config::get('app.locale') . '/' . __('url.tester') . '/') }}"
-                                alt="{{ __('text.tester') }}"
-                                title="{{ __('text.tester') }}"
-                                class="font-semibold hover:underline">
-                                {{ __('text.tester') }}
-                            </a>
-                        </li>
-                        <li class="relative pl-5">
-                            <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                            <a wire:navigate.hover
                                 href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.notes')) }}"
                                 alt="{{ __('text.notes') }}"
                                 title="{{ __('text.notes') }}"
@@ -118,46 +108,6 @@
                                 title="{{ __('text.redirects') }}"
                                 class="font-semibold hover:underline">
                                 {{ __('text.redirects') }}
-                            </a>
-                        </li>
-                        <li class="relative pl-5">
-                            <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                            <a wire:navigate.hover
-                                href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.timetracking')) }}"
-                                alt="{{ __('text.timetracking') }}"
-                                title="{{ __('text.timetracking') }}"
-                                class="font-semibold hover:underline">
-                                {{ __('text.timetracking') }}
-                            </a>
-                        </li>
-                        <li class="relative pl-5">
-                            <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                            <a wire:navigate.hover
-                                href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.rss-feeds')) }}"
-                                alt="{{ __('text.rss-feeds') }}"
-                                title="{{ __('text.rss-feeds') }}"
-                                class="font-semibold hover:underline">
-                                {{ __('text.rss-feeds') }}
-                            </a>
-                        </li>
-                        <li class="relative pl-5">
-                            <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                            <a wire:navigate.hover
-                                href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.portfolio')) }}"
-                                alt="{{ __('text.portfolio') }}"
-                                title="{{ __('text.portfolio') }}"
-                                class="font-semibold hover:underline">
-                                {{ __('text.portfolio') }}
-                            </a>
-                        </li>
-                        <li class="relative pl-5">
-                            <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                            <a wire:navigate.hover
-                                href="{{ url(Config::get('app.locale') . '/' . __('url.account') . '/' . __('url.cv')) }}"
-                                alt="{{ __('text.cv') }}"
-                                title="{{ __('text.cv') }}"
-                                class="font-semibold hover:underline">
-                                {{ __('text.cv') }}
                             </a>
                         </li>
                     </ul>

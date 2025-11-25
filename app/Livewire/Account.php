@@ -19,13 +19,8 @@ class Account extends Component
     public $passwordConfirm;
 
     public $permissions = [
-        "tester" => "Tester",
         "notes" => "Notes",
         "redirects" => "Redirects",
-        "portfolio" => "Portfolio",
-        "cv" => "Cv",
-        "timetracking" => "Timetracking",
-        "rss-feeds" => "RSS Feeds",
     ];
 
     private function fillUsers()

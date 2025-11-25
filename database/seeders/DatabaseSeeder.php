@@ -13,18 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            CvSeeder::class,
-            ListModelSeeder::class,
             NoteSeeder::class,
             RedirectSeeder::class,
             RedirectHitSeeder::class,
-            PortfolioSeeder::class,
-            FileReferenceSeeder::class,
-            TestobjectSeeder::class,
-            TestrunSeeder::class,
-            TestinstanceSeeder::class,
-            DiffstoreSeeder::class,
-            TimetrackSeeder::class,
         ]);
     }
 }

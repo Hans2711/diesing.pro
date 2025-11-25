@@ -2,24 +2,16 @@
 return [
     "home" => implode(', ', [
         "Diesing", "Hans Diesing", "Hans Peter Diesing", "HP Diesing", "software developer", "web development", "PHP", "TYPO3", "Laravel", "JavaScript",
-        "HTML5", "CSS3", "frontend", "backend", "fullstack", "portfolio", "digital portfolio",
-        "online portfolio", "developer portfolio", "freelancer", "web designer", "realtime share",
-        "peer-to-peer file transfer", "P2P", "WebRTC", "file sharing", "random teams",
-        "team generator", "fair teams", "group generator", "team building", "A/B tester",
-        "website testing", "split testing", "snapshot tool", "usability testing", "notes tool",
-        "private notes", "productivity", "todo list", "url shortener", "redirects",
-        "custom redirects", "link management", "SEO", "meta keywords", "privacy policy",
-        "data protection", "GDPR", "security", "encryption", "imprint", "legal info",
-        "contact info", "rss feeds", "newsfeed", "updates", "subscriptions", "notifications",
+        "HTML5", "CSS3", "frontend", "backend", "fullstack",
+        "CV", "curriculum vitae", "resume",
+        "real-time share", "peer-to-peer file transfer", "P2P", "WebRTC", "file sharing",
+        "random teams", "team generator", "fair teams", "group generator", "team building",
+        "notes tool", "private notes", "productivity", "to-do list",
+        "url shortener", "redirects", "custom redirects", "link management",
+        "SEO", "meta keywords", "privacy policy", "data protection",
+        "GDPR", "security", "encryption", "imprint", "legal info",
+        "contact info", "newsfeed", "updates", "subscriptions", "notifications",
         "web tools", "developer tools", "open source", "API", "CLI", "scripts"
-    ]),
-    "portfolio" => implode(', ', [
-        "project portfolio", "portfolio showcase", "client projects", "software projects",
-        "web design", "PHP development", "Laravel", "JavaScript", "Vue.js", "React",
-        "Node.js", "responsive design", "UX/UI", "GitHub", "version control", "open source",
-        "agile methodologies", "Scrum", "Kanban", "code samples", "source code",
-        "system architecture", "module development", "API integration", "databases",
-        "MySQL", "PostgreSQL", "NoSQL", "MongoDB"
     ]),
     "contact" => implode(', ', [
         "contact form", "contact", "email", "send message", "inquiry", "support",
@@ -30,12 +22,6 @@ return [
         "random teams", "team generator", "group assignment", "fair teams",
         "workshop tools", "classroom", "event management", "team building",
         "moderation", "randomizer", "pair programming"
-    ]),
-    "tester" => implode(', ', [
-        "A/B tester", "website comparison", "split test", "snapshot tool",
-        "conversion rate", "landing page test", "UX test", "performance metrics",
-        "heatmap", "user feedback", "experiment tracking", "analytics",
-        "statistical analysis"
     ]),
     "notes" => implode(', ', [
         "notes", "personal notes", "simple notes", "memo", "notebook",
@@ -65,9 +51,5 @@ return [
         "professional experience", "qualifications", "skills",
         "education", "certifications", "soft skills", "hard skills",
         "project experience"
-    ]),
-    "rss-feeds" => implode(', ', [
-        "RSS feeds", "newsfeed", "updates", "subscription", "notifications",
-        "feed reader", "Atom", "XML feed", "push notifications", "content syndication"
     ]),
 ];

@@ -23,7 +23,12 @@ export default defineConfig({
             refresh: true,
         }),
         ViteMinifyPlugin({ minify: 'terser' }),
-        viteCompression(),
+        viteCompression({
+            algorithm: 'gzip',
+            ext: '.gz',
+            threshold: 10240,
+            deleteOriginFile: false
+        }),
     ],
     server: {
         hmr: {

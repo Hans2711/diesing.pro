@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\RssFeed;
 use App\Models\TeamsState;
 
 class User extends Authenticatable
@@ -89,11 +88,6 @@ class User extends Authenticatable
         return env("ADMIN_USER") === $this->username;
     }
 
-    public function testobjects(): HasMany
-    {
-        return $this->hasMany(Testobject::class, "user", "id");
-    }
-
     public function notes(): HasMany
     {
         return $this->hasMany(Note::class, "user", "id");
@@ -102,26 +96,6 @@ class User extends Authenticatable
     public function redirects(): HasMany
     {
         return $this->hasMany(Redirect::class, "user", "id");
-    }
-
-    public function portfolios(): HasMany
-    {
-        return $this->hasMany(Portfolio::class, "user", "id");
-    }
-
-    public function cv()
-    {
-        return $this->belongsTo(Cv::class, 'cv');
-    }
-
-    public function timetracks(): HasMany
-    {
-        return $this->hasMany(Timetrack::class, "user", "id");
-    }
-
-    public function rssFeeds(): HasMany
-    {
-        return $this->hasMany(RssFeed::class, 'user', 'id');
     }
 
     public function teamsState()

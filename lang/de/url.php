@@ -2,8 +2,6 @@
 
 return [
     "contact" => "kontakt",
-    "portfolio" => "portfolio",
-    "tester" => "tester",
     "teams" => "teams",
     "imprint" => "impressum",
     "data-protection" => "datenschutz",
@@ -18,7 +16,4 @@ return [
     "account" => "benutzerkonto",
     "cv" => "lebenslauf",
     "rt-share" => "echtzeit-teilen",
-
-    "timetracking" => "zeiterfassung",
-    "rss-feeds" => "rss-feeds",
 ];
