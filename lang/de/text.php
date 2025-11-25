@@ -8,7 +8,7 @@ return [
     'contact-confirmation-subject' => 'Vielen Dank für Ihre Anfrage',
     'contact-confirmation-body' => 'Vielen Dank für Ihre Kontaktaufnahme. Wir werden so schnell wie möglich antworten.',
     'select-recipient' => 'Empfänger auswählen',
-    'random-teams-description' => 'Das Tool Random Teams dient zur Erstellung zufälliger Teams und speichern von Spielergebnissen.',
+    'random-teams-description' => 'Das Tool Zufallsteams dient zur Erstellung zufälliger Teams und zum Speichern von Spielergebnissen.',
     'private-tools' => 'Private Werkzeuge',
 
     'imprint' => 'Impressum',
