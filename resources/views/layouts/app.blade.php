@@ -20,6 +20,15 @@
             'published_time' => $published_time ?? null,
             'modified_time' => $modified_time ?? null,
         ])
+        @include('global.head.json-ld', [
+            'title' => $title ?? null,
+            'description' => $description ?? null,
+            'keywords' => $keywords ?? null,
+            'type' => $type ?? null,
+            'published_time' => $published_time ?? null,
+            'modified_time' => $modified_time ?? null,
+            'from' => $from ?? null,
+        ])
 
         @vite([
             'resources/css/app.css',
