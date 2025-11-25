@@ -2,7 +2,7 @@
 return [
     "home" => "Willkommen bei diesing.pro",
     "contact" => "Kontakt",
-    "random-teams" => "Zufällige Teams Generator",
+    "random-teams" => "Zufallsteam-Generator",
     "account" => "Benutzerkonto",
     "notes" => "Notizen",
     "redirects" => "Weiterleitungen",
