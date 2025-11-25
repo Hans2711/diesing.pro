@@ -143,7 +143,7 @@ return [
     'cv-school4-degree' => 'Primary school certificate',
     'cv-section-skills' => 'Skills',
     'cv-skills-intro' => 'The skills are listed in descending order of experience.',
-    'cv-skills-programming' => 'Programming Languages',
+    'cv-skills-programming' => 'Programming Languages > Frameworks/CMS',
     'cv-skills-frameworks' => 'Frameworks / CMS',
     'cv-skills-script-languages' => 'Script & Markup Languages',
     'cv-skills-web-styling' => 'Web Styling',

@@ -221,74 +221,121 @@
 
     <div class="lg:container skills">
         <div class="flex flex-col lg:grid grid-cols-2 mx-auto p-2 gap-5">
-            <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md">
+            <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md lg:col-span-2 lg:max-w-4xl lg:mx-auto">
                 <h3>{{ __('text.cv-skills-programming') }}</h3>
-                <ul class="space-y-1">
-                    <li class="relative pl-5">
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        PHP
+                <ul class="grid gap-x-10 gap-y-4 md:grid-cols-2">
+                    <li class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block h-2 w-2 bg-white"></span>
+                            <span>PHP</span>
+                        </div>
+                        <ul class="space-y-1 mt-1 ml-5">
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                TYPO3
+                            </li>
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                WordPress
+                            </li>
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                Laravel
+                            </li>
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                Livewire
+                            </li>
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                Inertia
+                            </li>
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                Symfony
+                            </li>
+                        </ul>
                     </li>
-                    <li class="relative pl-5">
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        JavaScript
+                    <li class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block h-2 w-2 bg-white"></span>
+                            <span>JavaScript / TypeScript</span>
+                        </div>
+                        <ul class="space-y-1 mt-1 ml-5">
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                Vanilla JS
+                            </li>
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                React
+                            </li>
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                jQuery
+                            </li>
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                Electron
+                            </li>
+                        </ul>
                     </li>
-                    <li class="relative pl-5">
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        C#
+                    <li class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block h-2 w-2 bg-white"></span>
+                            <span>C#</span>
+                        </div>
+                        <ul class="space-y-1 mt-1 ml-5">
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                WPF UI
+                            </li>
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                CLI
+                            </li>
+                        </ul>
                     </li>
-                    <li class="relative pl-5">
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        C / C++
+                    <li class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block h-2 w-2 bg-white"></span>
+                            <span>C / C++</span>
+                        </div>
+                        <ul class="space-y-1 mt-1 ml-5">
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                CLI
+                            </li>
+                        </ul>
                     </li>
-                    <li class="relative pl-5">
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        GoLang
+                    <li class="flex flex-col gap-1">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block h-2 w-2 bg-white"></span>
+                            <span>Golang</span>
+                        </div>
+                        <ul class="space-y-1 mt-1 ml-5">
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                WebSockets
+                            </li>
+                            <li class="relative pl-5">
+                                <span class="absolute left-0 top-1/2 -translate-y-1/2 h-1.5 w-1.5 bg-blue-100"></span>
+                                CLI
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
             <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
-                <h3>{{ __('text.cv-skills-frameworks') }}</h3>
-                <ul class="space-y-1">
-                    <li class="relative pl-5">
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        TYPO3
-                    </li>
-                    <li class="relative pl-5">
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        WordPress
-                    </li>
-                    <li class="relative pl-5">
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        Laravel (Livewire)
-                    </li>
-                    <li class="relative pl-5">
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        Symfony
-                    </li>
-                    <li class="relative pl-5">
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        React
-                    </li>
-                    <li class="relative pl-5">
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        Electron
-                    </li>
-                    <li class="relative pl-5">
-                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        jQuery
-                    </li>
-                </ul>
-            </div>
-            <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-script-languages') }}</h3>
                 <ul class="space-y-1">
                     <li class="relative pl-5">
                         <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        SQL (Mysql / MariaDB / PostgreSQL)
+                        SQL (MySQL / MariaDB / PostgreSQL / SQLite)
                     </li>
                     <li class="relative pl-5">
                         <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        TypoScript (TYPO3)
+                        Bash
                     </li>
                     <li class="relative pl-5">
                         <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
@@ -300,7 +347,11 @@
                     </li>
                     <li class="relative pl-5">
                         <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        YAML
+                        TypoScript (TYPO3)
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        YAML / YML
                     </li>
                     <li class="relative pl-5">
                         <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
@@ -310,10 +361,13 @@
                         <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         XML
                     </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        Lua
+                    </li>
                 </ul>
             </div>
-            <div class="break-page hidden"></div>
-            <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md page-break">
+            <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-web-styling') }}</h3>
                 <ul class="space-y-1">
                     <li class="relative pl-5">
@@ -330,12 +384,13 @@
                     </li>
                 </ul>
             </div>
-            <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
+            <div class="break-page hidden"></div>
+            <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md page-break">
                 <h3>{{ __('text.cv-skills-operating-systems') }}</h3>
                 <ul class="space-y-1">
                     <li class="relative pl-5">
                         <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        Linux (Debian / Ubuntu)
+                        Linux (Debian / Ubuntu) (i3 Desktop Manager)
                     </li>
                     <li class="relative pl-5">
                         <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
@@ -347,7 +402,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
+            <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-development-tools') }}</h3>
                 <ul class="space-y-1">
                     <li class="relative pl-5">
@@ -360,7 +415,7 @@
                     </li>
                     <li class="relative pl-5">
                         <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
-                        Neovim (nvim)
+                        DDEV
                     </li>
                     <li class="relative pl-5">
                         <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
@@ -370,10 +425,26 @@
                         <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
                         Postman
                     </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        Neovim (nvim)
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        VsCode
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        Jetbrains IDEs
+                    </li>
+                    <li class="relative pl-5">
+                        <span class="absolute left-0 top-1/2 -translate-y-1/2 h-2 w-2 bg-white"></span>
+                        Div. AI Agents / Tools
+                    </li>
                 </ul>
             </div>
-        </div>
-    </div>
+         </div>
+     </div>
 
     <h2 class="mt-10 mb-5 text-center origin-bottom">{{ __('text.cv-section-certificates') }}</h2>
     <div class="lg:container">

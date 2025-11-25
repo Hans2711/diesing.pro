@@ -145,7 +145,7 @@ return [
     'cv-school4-degree' => 'Grundschulabschluss',
     'cv-section-skills' => 'Fachkenntnisse',
     'cv-skills-intro' => 'Die Fachkenntnisse sind entsprechend des jeweiligen Erfahrungsniveaus absteigend geordnet.',
-    'cv-skills-programming' => 'Programmiersprachen',
+    'cv-skills-programming' => 'Programmiersprachen > Frameworks/CMS',
     'cv-skills-frameworks' => 'Frameworks / CMS',
     'cv-skills-script-languages' => 'Script & Markup Languages',
     'cv-skills-web-styling' => 'Webstyling',
