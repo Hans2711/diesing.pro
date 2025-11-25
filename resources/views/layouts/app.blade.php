@@ -20,15 +20,6 @@
             'published_time' => $published_time ?? null,
             'modified_time' => $modified_time ?? null,
         ])
-        @include('global.head.json-ld', [
-            'title' => $title ?? null,
-            'description' => $description ?? null,
-            'keywords' => $keywords ?? null,
-            'type' => $type ?? null,
-            'published_time' => $published_time ?? null,
-            'modified_time' => $modified_time ?? null,
-            'from' => $from ?? null,
-        ])
 
         @vite([
             'resources/css/app.css',
@@ -87,6 +78,15 @@
                 @include('global.footer')
             </div>
         </div>
+        @include('global.head.json-ld', [
+            'title' => $title ?? null,
+            'description' => $description ?? null,
+            'keywords' => $keywords ?? null,
+            'type' => $type ?? null,
+            'published_time' => $published_time ?? null,
+            'modified_time' => $modified_time ?? null,
+            'from' => $from ?? null,
+        ])
         @include('global.head.google-analytics', ['title' => $title ?? null])
     </body>
 </html>

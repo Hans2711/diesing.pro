@@ -30,6 +30,15 @@
         </div>
 
         @vite(['resources/js/app.js'])
+        @include('global.head.json-ld', [
+            'title' => $title ?? null,
+            'description' => $description ?? null,
+            'keywords' => $keywords ?? null,
+            'type' => $type ?? null,
+            'published_time' => $published_time ?? null,
+            'modified_time' => $modified_time ?? null,
+            'from' => $from ?? null,
+        ])
         @include('global.head.google-analytics', ['title' => $title ?? null])
     </body>
 </html>
