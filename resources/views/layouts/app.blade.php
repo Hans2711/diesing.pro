@@ -9,8 +9,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        @include('global.head.font-preload')
-        @include('global.head.app-css-preload')
+        @include('global.head.critical-css')
         @include('global.head.title', ['title' => $title ?? null])
         @include('global.head.og-tags', [
             'title' => $title ?? null,
@@ -22,7 +21,7 @@
         ])
 
         @vite([
-            'resources/css/app.css',
+            // defer CSS load via JS-injected link to improve LCP
             'resources/js/app.js',
             'resources/js/utils/zenquotes.js',
             'resources/js/gradient-scroll.js',
@@ -32,6 +31,17 @@
             'resources/js/utils/clipboard.js',
             'resources/js/utils/random-teams-storage.js',
         ])
+        <script>
+            (function() {
+                var href = "{{ Vite::asset('resources/css/app.css') }}";
+                var link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = href;
+                link.media = 'print';
+                link.onload = function() { link.media = 'all'; };
+                document.head.appendChild(link);
+            })();
+        </script>
     </head>
     <body class="bg-tertiary dark:bg-secondary-dark text-black dark:text-white" data-user-logged-in="{{ Auth::check() ? '1' : '0' }}">
         <div

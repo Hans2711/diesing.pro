@@ -3,6 +3,7 @@
 /public/build
 /public/hot
 /public/storage
+/public/critical.css
 /public/sitemap.de.xml
 /public/sitemap.en.xml
 /storage/*.key
