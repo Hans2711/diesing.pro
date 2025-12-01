@@ -5,14 +5,20 @@
  * and writes it to public/critical.css for inline rendering in the <head>.
  * 
  * Usage:
- *   node generate-critical.js [url]
+ *   npm run criticalcss:dev   - Generate from local development server
+ *   npm run criticalcss:prod  - Generate from production site
  * 
- * Example:
+ * Direct usage:
+ *   node generate-critical.js <url>
+ * 
+ * Examples:
  *   node generate-critical.js http://127.0.0.1:8000/de
+ *   node generate-critical.js https://diesing.pro/de
  * 
  * Requirements:
- *   - Laravel dev server must be running (php artisan serve)
  *   - Vite build must be complete (npm run build) BEFORE running this
+ *   - For dev: Laravel dev server must be running (php artisan serve)
+ *   - For prod: Production site must be accessible
  * 
  * The critical CSS improves First Contentful Paint (FCP) and Largest Contentful Paint (LCP)
  * by inlining essential styles, while the full stylesheet is loaded deferred.

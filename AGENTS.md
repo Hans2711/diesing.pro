@@ -18,18 +18,20 @@ This file documents useful commands and scripts for development, testing, and ma
   ```bash
   npm run build
   ```
-  Note: This automatically generates critical CSS after building. Requires Laravel dev server running.
 
-- **Generate critical CSS only**:
+- **Generate critical CSS (development)**:
   ```bash
-  npm run critical
+  npm run criticalcss:dev
   ```
-  Requires Laravel dev server (`php artisan serve`) to be running.
-  
-  **Important**: Critical CSS generation requires:
-  1. Vite build must complete first (`npm run build` already does this)
-  2. Laravel dev server must be running on port 8000
-  3. Uses `/de` route for CSS extraction
+  Requires Laravel dev server (`php artisan serve`) to be running on port 8000.
+  Uses `http://127.0.0.1:8000/de` for CSS extraction.
+
+- **Generate critical CSS (production)**:
+  ```bash
+  npm run criticalcss:prod
+  ```
+  Uses `https://diesing.pro/de` for CSS extraction.
+  Requires the production site to be accessible.
 
 ## Testing & Quality
 
@@ -133,8 +135,12 @@ The project uses critical CSS for optimal page load performance:
 - **Location**: `public/critical.css` (generated, not versioned)
 - **Inlined**: Automatically included in `<head>` via `resources/views/global/head/critical-css.blade.php`
 - **Full CSS**: Loaded deferred (non-blocking) via print media swap in `resources/views/layouts/app.blade.php`
-- **Generation**: Automated during `npm run build` via `generate-critical.js`
+- **Generation**: Run separately via `npm run criticalcss:dev` or `npm run criticalcss:prod`
 - **Viewport coverage**: Mobile (375x812), tablet (768x1024), desktop (1300x900)
+- **Workflow**:
+  1. Build assets: `npm run build`
+  2. Generate critical CSS: `npm run criticalcss:dev` (or `criticalcss:prod` for production)
+  3. Deploy both `public/build/` and `public/critical.css`
 
 ### Asset Loading Strategy
 All assets are optimized for maximum performance with no render-blocking resources:

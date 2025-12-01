@@ -3,8 +3,9 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build && npm run critical",
-        "critical": "node generate-critical.js http://127.0.0.1:8000/de"
+        "build": "vite build",
+        "criticalcss:dev": "node generate-critical.js http://127.0.0.1:8000/de",
+        "criticalcss:prod": "node generate-critical.js https://diesing.pro/de"
     },
     "devDependencies": {
         "@tailwindcss/aspect-ratio": "^0.4.2",
