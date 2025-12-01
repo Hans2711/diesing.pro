@@ -27,6 +27,7 @@
         "dropzone": "^6.0.0-beta.2",
         "flowbite": "^3.1.2",
         "lodash": "^4.17.21",
+        "puppeteer": "^24.31.0",
         "quill": "^2.0.3",
         "vscode-json-languageservice": "^5.4.0"
     }
