@@ -8,8 +8,14 @@
     <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-left">
         <a alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
-                <img class="absolute top-0 left-0 w-full h-44 object-cover" fetchpriority="high" loading="eager"
-                    src="{{ Vite::asset('resources/images/kontakt.webp') }}" alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}">
+                <x-responsive-image 
+                    src="resources/images/kontakt.webp" 
+                    alt="{{ __('text.contact') }}" 
+                    title="{{ __('text.contact') }}"
+                    class="absolute top-0 left-0 w-full h-44 object-cover"
+                    fetchpriority="high"
+                    loading="eager"
+                />
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
@@ -26,8 +32,13 @@
     <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-right">
         <a alt="{{ __('text.cv') }}" title="{{ __('text.cv') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
-                <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/portfolio.webp') }}" alt="{{ __('text.cv') }}" title="{{ __('text.cv') }}">
+                <x-responsive-image 
+                    src="resources/images/portfolio.webp" 
+                    alt="{{ __('text.cv') }}" 
+                    title="{{ __('text.cv') }}"
+                    class="absolute top-0 left-0 w-full h-44 object-cover"
+                    loading="lazy"
+                />
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
@@ -45,8 +56,13 @@
     <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-left">
         <a alt="{{ __('text.random-teams') }}" title="{{ __('text.random-teams') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
-                <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/random.webp') }}" alt="{{ __('text.random-teams') }}" title="{{ __('text.random-teams') }}">
+                <x-responsive-image 
+                    src="resources/images/random.webp" 
+                    alt="{{ __('text.random-teams') }}" 
+                    title="{{ __('text.random-teams') }}"
+                    class="absolute top-0 left-0 w-full h-44 object-cover"
+                    loading="lazy"
+                />
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
@@ -61,8 +77,13 @@
     <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-right">
         <a alt="{{ __('text.rt-share') }}" title="{{ __('text.rt-share') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.rt-share')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
-                <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/rt-share.webp') }}" alt="{{ __('text.rt-share') }}" title="{{ __('text.rt-share') }}">
+                <x-responsive-image 
+                    src="resources/images/rt-share.webp" 
+                    alt="{{ __('text.rt-share') }}" 
+                    title="{{ __('text.rt-share') }}"
+                    class="absolute top-0 left-0 w-full h-44 object-cover"
+                    loading="lazy"
+                />
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
@@ -81,8 +102,13 @@
     <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card">
         <a alt="{{ __('text.account') }}" title="{{ __('text.account') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.account')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
-                <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/private.webp') }}" alt="{{ __('text.account') }}" title="{{ __('text.account') }}">
+                <x-responsive-image 
+                    src="resources/images/private.webp" 
+                    alt="{{ __('text.account') }}" 
+                    title="{{ __('text.account') }}"
+                    class="absolute top-0 left-0 w-full h-44 object-cover"
+                    loading="lazy"
+                />
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
@@ -122,8 +148,13 @@
     <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-left">
         <a alt="{{ __('text.imprint') }}" title="{{ __('text.imprint') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.imprint')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
-                <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/law.webp') }}" alt="{{ __('text.imprint') }}" title="{{ __('text.imprint') }}">
+                <x-responsive-image 
+                    src="resources/images/law.webp" 
+                    alt="{{ __('text.imprint') }}" 
+                    title="{{ __('text.imprint') }}"
+                    class="absolute top-0 left-0 w-full h-44 object-cover"
+                    loading="lazy"
+                />
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">
@@ -137,8 +168,13 @@
     <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-right">
         <a alt="{{ __('text.data-protection') }}" title="{{ __('text.data-protection') }}" href="{{ url(Config::get('app.locale') . '/' . __('url.data-protection')) }}" wire:navigate.hover >
             <div class="relative h-0 pb-44">
-                <img class="absolute top-0 left-0 w-full h-44 object-cover" loading="lazy"
-                    src="{{ Vite::asset('resources/images/law.webp') }}" alt="{{ __('text.data-protection') }}" title="{{ __('text.data-protection') }}">
+                <x-responsive-image 
+                    src="resources/images/law.webp" 
+                    alt="{{ __('text.data-protection') }}" 
+                    title="{{ __('text.data-protection') }}"
+                    class="absolute top-0 left-0 w-full h-44 object-cover"
+                    loading="lazy"
+                />
             </div>
             <div class="px-6 py-4 bg-primary-dark text-white dark:bg-primary">
                 <div class="font-bold text-xl mb-2">

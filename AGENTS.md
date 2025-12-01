@@ -18,6 +18,19 @@ This file documents useful commands and scripts for development, testing, and ma
   ```bash
   npm run build
   ```
+  This automatically generates responsive images and builds Vite assets.
+
+- **Build production assets**:
+  ```bash
+  npm run build
+  ```
+  This automatically generates responsive images and builds Vite assets.
+
+- **Generate responsive images only**:
+  ```bash
+  npm run responsive
+  ```
+  Creates multiple sizes (400w, 800w, 1200w) of all images in WebP format.
 
 - **Generate critical CSS (development)**:
   ```bash
@@ -156,6 +169,29 @@ All assets are optimized for maximum performance with no render-blocking resourc
   - Chunks loaded on-demand
 - **Google Analytics**: Asynchronously injected after page load (production only)
 - **Images**: Lazy-loaded via native browser behavior where appropriate
+
+### Responsive Images
+The project uses responsive images with srcset for optimal delivery based on viewport size:
+- **Generation**: Automatically generated during `npm run build` via `generate-responsive-images.js`
+- **Sizes**: Creates 3 variants per image
+  - Large images (hero/content): 400w, 800w, 1200w
+  - Small images (logos): 100w, 200w, 300w
+- **Format**: All responsive variants are converted to WebP at 80% quality
+- **Output**: `public/build/images/responsive/`
+- **Usage**: Use the `<x-responsive-image>` Blade component for automatic srcset
+  ```blade
+  <x-responsive-image 
+      src="resources/images/kontakt.webp" 
+      alt="Contact" 
+      title="Contact"
+      class="w-full h-auto"
+      loading="lazy"
+  />
+  ```
+- **Benefits**: 
+  - Mobile devices load ~90% smaller images (e.g., kontakt.webp: 305 KB → 3.4 KB at 400w)
+  - Tablet devices load ~70% smaller images  (e.g., kontakt.webp: 305 KB → 9.6 KB at 800w)
+  - Total savings: ~5.3 MB for all images
 
 ## Notes
 - Ensure dependencies are installed: `composer install` and `npm install`.

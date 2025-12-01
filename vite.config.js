@@ -4,9 +4,11 @@ import { ViteMinifyPlugin } from "vite-plugin-minify";
 import obfuscator from "vite-plugin-javascript-obfuscator";
 import viteCompression from "vite-plugin-compression";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
+import { imagetools } from "vite-imagetools";
 
 export default defineConfig({
     plugins: [
+        imagetools(),
         laravel({
             input: [
                 "resources/css/app.css",

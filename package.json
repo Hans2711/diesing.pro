@@ -3,7 +3,9 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "build": " vite build && npm run responsive",
+        "build:vite": "vite build",
+        "responsive": "node generate-responsive-images.js",
         "criticalcss:dev": "node generate-critical.js http://127.0.0.1:8000/de",
         "criticalcss:prod": "node generate-critical.js https://diesing.pro/de"
     },
@@ -19,6 +21,7 @@
         "sharp": "^0.34.5",
         "tailwindcss": "^3.4.4",
         "vite": "^5.0",
+        "vite-imagetools": "^9.0.2",
         "vite-plugin-compression": "^0.5.1",
         "vite-plugin-image-optimizer": "^2.0.3",
         "vite-plugin-javascript-obfuscator": "^3.1.0",
