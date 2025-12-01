@@ -3,6 +3,7 @@ import laravel from "laravel-vite-plugin";
 import { ViteMinifyPlugin } from "vite-plugin-minify";
 import obfuscator from "vite-plugin-javascript-obfuscator";
 import viteCompression from "vite-plugin-compression";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 export default defineConfig({
     plugins: [
@@ -28,6 +29,57 @@ export default defineConfig({
             ext: '.gz',
             threshold: 10240,
             deleteOriginFile: false
+        }),
+        ViteImageOptimizer({
+            // Only run in production builds
+            test: /\.(jpe?g|png|gif|tiff|webp|svg|avif)$/i,
+            exclude: undefined,
+            include: undefined,
+            includePublic: true,
+            logStats: true,
+            ansiColors: true,
+            svg: {
+                multipass: true,
+                plugins: [
+                    {
+                        name: 'preset-default',
+                        params: {
+                            overrides: {
+                                cleanupNumericValues: false,
+                                removeViewBox: false,
+                            },
+                        },
+                    },
+                    'sortAttrs',
+                    {
+                        name: 'addAttributesToSVGElement',
+                        params: {
+                            attributes: [{ xmlns: 'http://www.w3.org/2000/svg' }],
+                        },
+                    },
+                ],
+            },
+            png: {
+                quality: 80,
+            },
+            jpeg: {
+                quality: 80,
+            },
+            jpg: {
+                quality: 80,
+            },
+            tiff: {
+                quality: 80,
+            },
+            gif: {},
+            webp: {
+                lossless: false,
+                quality: 80,
+            },
+            avif: {
+                lossless: false,
+                quality: 80,
+            },
         }),
     ],
     server: {

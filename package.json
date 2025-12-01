@@ -16,9 +16,11 @@
         "critical": "^7.2.1",
         "laravel-vite-plugin": "^1.0",
         "postcss": "^8.4.39",
+        "sharp": "^0.34.5",
         "tailwindcss": "^3.4.4",
         "vite": "^5.0",
         "vite-plugin-compression": "^0.5.1",
+        "vite-plugin-image-optimizer": "^2.0.3",
         "vite-plugin-javascript-obfuscator": "^3.1.0",
         "vite-plugin-minify": "^2.1.0"
     },
