@@ -1,9 +1,9 @@
 name: Laravel
 
-# on:
-#   push:
-#     branches: [ "master" ]
-#
+on:
+  push:
+    branches: [ "master" ]
+
 jobs:
   laravel-tests:
 
@@ -65,12 +65,24 @@ jobs:
       run: sqlite3 database/database.sqlite "SELECT name FROM sqlite_master WHERE type='table';"
 
     - name: Execute tests (Unit and Feature tests) via PHPUnit/Pest
+      id: tests
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: php artisan test || true
-    - name: Deploy to Production
+      run: php artisan test
+      continue-on-error: false
+      
+    - name: Check test results
+      if: failure()
+      run: |
+        echo "❌ Tests failed! Deployment will be skipped."
+        exit 1
+        
+    - name: Tests passed successfully
       if: success()
+      run: echo "✅ All tests passed! Proceeding with deployment..."
+    - name: Deploy to Production
+      if: success() && !failure() && !cancelled()
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: diesing.pro
@@ -93,7 +105,7 @@ jobs:
           php artisan route:cache
           php artisan cache:clear
     - name: Deploy to Production (ROOT)
-      if: success()
+      if: success() && !failure() && !cancelled()
       uses: appleboy/ssh-action@v1.0.0
       with:
         host: diesing.pro
