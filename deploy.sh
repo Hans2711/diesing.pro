@@ -1,47 +1,43 @@
 #!/bin/bash
 
-# Deploy script for diesing.pro
-# This script handles cache clearing and frontend builds without sudo
+source ~/.bashrc
 
-set -e  # Exit on any error
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-echo "Starting deployment for diesing.pro..."
+export PATH="$HOME/.config/composer/vendor/bin:$HOME/bin:/usr/local/bin:$PATH"
 
-# Install/update Composer dependencies
-echo "Installing Composer dependencies..."
-composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
+# Install dependencies
+echo "Installing PHP dependencies..."
+$HOME/bin/composer install --no-dev --optimize-autoloader
 
 # Install/update Node.js dependencies
 echo "Installing Node.js dependencies..."
-npm install --production=false
+npm install
 
 # Build frontend assets with responsive images
-echo "Building frontend assets..."
+echo "Building front-end assets..."
 npm run build
 
-# Generate critical CSS for production
+# Generate critical CSS for performance optimization
 echo "Generating critical CSS..."
-npm run criticalcss:prod
+npm run critical:prod
 
-# Clear application caches
-echo "Clearing application caches..."
-php artisan cache:clear
-php artisan config:clear
-php artisan route:clear
-php artisan view:clear
+php artisan migrate --force
 
-# Optimize for production
-echo "Optimizing application..."
+php artisan optimize:clear
+php artisan optimize
+
+# Clear and cache configurations
+echo "Optimizing Laravel..."
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-# Run database migrations (if needed)
-echo "Running database migrations..."
-php artisan migrate --force
+# Stop and restart SSR server
+echo "Restarting SSR server..."
+php artisan inertia:stop-ssr || true
+nohup php artisan inertia:start-ssr > /dev/null 2>&1 &
 
-# Restart queue workers if running
-echo "Restarting queue workers..."
-php artisan queue:restart
-
-echo "Deployment completed successfully!"
+echo "Deployment complete!"
