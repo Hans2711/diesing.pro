@@ -9,7 +9,7 @@ jobs:
   test:
     name: Test & Build
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -69,25 +69,25 @@ jobs:
           DB_DATABASE: database/database.sqlite
         run: |
           set +e  # Disable exit on error
-          
+
           # Run tests and capture output
           TEST_OUTPUT=$(php artisan test 2>&1)
           TEST_EXIT_CODE=$?
-          
+
           echo "$TEST_OUTPUT"
-          
+
           # Check if output contains failure indicators
           if echo "$TEST_OUTPUT" | grep -q "FAIL\|FAILED\|Error\|Fatal error"; then
             echo "❌ Tests failed"
             exit 1
           fi
-          
+
           # Check if output contains success indicators
           if echo "$TEST_OUTPUT" | grep -q "Tests:" && echo "$TEST_OUTPUT" | grep -q "passed" && ! echo "$TEST_OUTPUT" | grep -q "failed"; then
             echo "✅ All tests passed"
             exit 0
           fi
-          
+
           echo "⚠️ Could not determine test status from output"
           echo "Original exit code was: $TEST_EXIT_CODE"
           exit 1
@@ -97,7 +97,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master' && success()
-    
+
     steps:
       - name: Deploy to diesing.pro (Application)
         uses: appleboy/ssh-action@v1.0.3
@@ -109,12 +109,3 @@ jobs:
             cd ~/public_html
             git pull origin master
             ./deploy.sh
-
-      - name: Deploy to diesing.pro (Services)
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: diesing.pro
-          username: root
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            supervisorctl restart laravel-worker:*
