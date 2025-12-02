@@ -17,7 +17,7 @@ echo "Starting deployment for diesing.pro..."
 
 # Install/update Composer dependencies
 echo "Installing Composer dependencies..."
-$HOME/bin/composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
+php $HOME/public_html/composer.phar install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
 
 # Install/update Node.js dependencies
 echo "Installing Node.js dependencies..."
