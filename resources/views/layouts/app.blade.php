@@ -9,6 +9,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        @include('global.head.font-preload')
         @include('global.head.critical-css')
         @include('global.head.title', ['title' => $title ?? null])
         @include('global.head.og-tags', [

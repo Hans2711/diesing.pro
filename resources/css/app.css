@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ───────── font loading ───────── */
+@import "fonts-critical.css";   /* Critical: Regular weight only */
+@import "fonts-deferred.css";   /* Deferred: Medium, SemiBold, Bold weights */
+
 /* ───────── palette (Tailwind extended in config) ─────────
 primary           #E2232A
 primary-dark      #B21B22
@@ -178,7 +182,11 @@ tertiary-light    #FFFFFF
     h3 {@apply font-bold hover:scale-105 origin-left transform transition duration-300;}
     p  {@apply mt-[0.5em]  mb-[0.5em]  text-[1em] leading-[1.5];}
 
-    /* ───────── shared effects ───────── */
+    /* ───────── base styling ───────── */
+    body {@apply overflow-x-auto;}
+    .chevron.rotate {@apply rotate-180;}
+
+    /* ───────── language dropdown, nav toggle ───────── */
     .hover-scale {@apply hover:scale-105 transform transition duration-300;}
     .btn         {@apply hover-scale;}
     button       {@apply hover-scale;}
@@ -199,17 +207,11 @@ tertiary-light    #FFFFFF
     .header-button:not(.active)       {@apply border border-secondary;}
     .header-button:not(.active):hover {@apply bg-tertiary header-button-active;}
 
-    /* ───────── font faces / misc. (unchanged) ───────── */
-    @font-face{font-family:"Fira Code";font-style:normal;font-weight:400;src:url("../font/static/FiraCode-Regular.ttf") format("truetype");}
-    @font-face{font-family:"Fira Code";font-style:normal;font-weight:500;src:url("../font/static/FiraCode-Medium.ttf") format("truetype");}
-    @font-face{font-family:"Fira Code";font-style:normal;font-weight:600;src:url("../font/static/FiraCode-SemiBold.ttf") format("truetype");}
-    @font-face{font-family:"Fira Code";font-style:normal;font-weight:700;src:url("../font/static/FiraCode-Bold.ttf") format("truetype");}
-
-    html { font-family:"Fira Code";}
-    body {@apply overflow-x-auto;}
-    .chevron.rotate {@apply rotate-180;}
-
-    /* ───────── language dropdown, nav toggle (unchanged) ───────── */
+    /* ───────── typography ───────── */
+    h1 {@apply mt-[0.75em] mb-[0.75em] text-[2em] font-bold hover:scale-105 origin-left transform transition duration-300;}
+    h2 {@apply mt-[0.5em]  mb-[0.5em]  text-[1.5em] font-bold hover:scale-105 origin-left transform transition duration-300;}
+    h3 {@apply font-bold hover:scale-105 origin-left transform transition duration-300;}
+    p  {@apply mt-[0.5em]  mb-[0.5em]  text-[1em] leading-[1.5];}
     #language-dropdown.hidden {@apply opacity-0 pointer-events-none;}
     #language-dropdown        {@apply opacity-100;}
 
