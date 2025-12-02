@@ -106,6 +106,10 @@ jobs:
           username: diesi
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            eval $(ssh-agent -s)
+            ssh-add ~/github.key
             cd ~/public_html
             git pull origin master
             ./deploy.sh
+            ssh-agent -k
+            rm -f /tmp/github_deploy_key
