@@ -22,6 +22,12 @@ export default defineConfig({
                 "resources/js/swipe-sidebar.js",
                 "resources/js/scroll-to-top.js",
                 "resources/js/logo-animation.js",
+                // Font files
+                "resources/font/static/FiraCode-Regular.ttf",
+                "resources/font/static/FiraCode-Medium.ttf", 
+                "resources/font/static/FiraCode-SemiBold.ttf",
+                "resources/font/static/FiraCode-Bold.ttf",
+                "resources/font/FiraCode-VariableFont_wght.ttf",
             ],
             refresh: true,
         }),

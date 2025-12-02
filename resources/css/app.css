@@ -1,11 +1,52 @@
+/* ───────── font loading (optimized for performance) ───────── */
+
+/* Critical font: Regular weight with font-display: swap for immediate text visibility */
+@font-face {
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../font/static/FiraCode-Regular.ttf") format("truetype");
+    font-display: swap;
+}
+
+/* Non-critical fonts: Load after critical rendering, with font-display: swap */
+@font-face {
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: 500;
+    src: url("../font/static/FiraCode-Medium.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: 600;
+    src: url("../font/static/FiraCode-SemiBold.ttf") format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Fira Code";
+    font-style: normal;
+    font-weight: 700;
+    src: url("../font/static/FiraCode-Bold.ttf") format("truetype");
+    font-display: swap;
+}
+
+/* Variable font fallback: Single file for all weights */
+@font-face {
+    font-family: "Fira Code Variable";
+    font-style: normal;
+    font-weight: 300 700;
+    src: url("../font/FiraCode-VariableFont_wght.ttf") format("truetype-variations");
+    font-display: swap;
+}
+
 /* ───────── base Tailwind layers ───────── */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* ───────── font loading ───────── */
-@import "fonts-critical.css";   /* Critical: Regular weight only */
-@import "fonts-deferred.css";   /* Deferred: Medium, SemiBold, Bold weights */
 
 /* ───────── palette (Tailwind extended in config) ─────────
 primary           #E2232A
