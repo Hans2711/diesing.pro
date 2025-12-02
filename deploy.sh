@@ -8,36 +8,48 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/.config/composer/vendor/bin:$HOME/bin:/usr/local/bin:$PATH"
 
-# Install dependencies
-echo "Installing PHP dependencies..."
-$HOME/bin/composer install --no-dev --optimize-autoloader
+# Deploy script for diesing.pro
+# This script handles cache clearing and frontend builds without sudo
+
+set -e  # Exit on any error
+
+echo "Starting deployment for diesing.pro..."
+
+# Install/update Composer dependencies
+echo "Installing Composer dependencies..."
+$HOME/bin/composer install --no-dev --prefer-dist --no-progress --no-interaction --optimize-autoloader
 
 # Install/update Node.js dependencies
 echo "Installing Node.js dependencies..."
-npm install
+npm install --production=false
 
 # Build frontend assets with responsive images
-echo "Building front-end assets..."
+echo "Building frontend assets..."
 npm run build
 
-# Generate critical CSS for performance optimization
+# Generate critical CSS for production
 echo "Generating critical CSS..."
-npm run critical:prod
+npm run criticalcss:prod
 
-php artisan migrate --force
+# Clear application caches
+echo "Clearing application caches..."
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
 
-php artisan optimize:clear
-php artisan optimize
-
-# Clear and cache configurations
-echo "Optimizing Laravel..."
+# Optimize for production
+echo "Optimizing application..."
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
 
-# Stop and restart SSR server
-echo "Restarting SSR server..."
-php artisan inertia:stop-ssr || true
-nohup php artisan inertia:start-ssr > /dev/null 2>&1 &
+# Run database migrations (if needed)
+echo "Running database migrations..."
+php artisan migrate --force
 
-echo "Deployment complete!"
+# Restart queue workers if running
+echo "Restarting queue workers..."
+php artisan queue:restart
+
+echo "Deployment completed successfully!"
