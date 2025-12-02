@@ -106,7 +106,7 @@ jobs:
           username: diesi
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/vhosts/diesing.pro
+            cd ~/public_html
             git pull origin master
             ./deploy.sh
 
