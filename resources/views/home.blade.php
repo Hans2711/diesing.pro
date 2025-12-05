@@ -10,7 +10,7 @@
             <div class="relative h-0 pb-44">
                 <x-responsive-image 
                     src="resources/images/kontakt.webp" 
-                    alt="{{ __('text.contact') }}" 
+                    alt="{{ __('alt.card-contact') }}"
                     title="{{ __('text.contact') }}"
                     class="absolute top-0 left-0 w-full h-44 object-cover"
                     fetchpriority="high"
@@ -34,7 +34,7 @@
             <div class="relative h-0 pb-44">
                 <x-responsive-image 
                     src="resources/images/portfolio.webp" 
-                    alt="{{ __('text.cv') }}" 
+                    alt="{{ __('alt.card-portfolio') }}"
                     title="{{ __('text.cv') }}"
                     class="absolute top-0 left-0 w-full h-44 object-cover"
                     loading="lazy"
@@ -58,7 +58,7 @@
             <div class="relative h-0 pb-44">
                 <x-responsive-image 
                     src="resources/images/random.webp" 
-                    alt="{{ __('text.random-teams') }}" 
+                    alt="{{ __('alt.card-random-teams') }}"
                     title="{{ __('text.random-teams') }}"
                     class="absolute top-0 left-0 w-full h-44 object-cover"
                     loading="lazy"
@@ -79,7 +79,7 @@
             <div class="relative h-0 pb-44">
                 <x-responsive-image 
                     src="resources/images/rt-share.webp" 
-                    alt="{{ __('text.rt-share') }}" 
+                    alt="{{ __('alt.card-rt-share') }}"
                     title="{{ __('text.rt-share') }}"
                     class="absolute top-0 left-0 w-full h-44 object-cover"
                     loading="lazy"
@@ -104,7 +104,7 @@
             <div class="relative h-0 pb-44">
                 <x-responsive-image 
                     src="resources/images/private.webp" 
-                    alt="{{ __('text.account') }}" 
+                    alt="{{ __('alt.card-account') }}"
                     title="{{ __('text.account') }}"
                     class="absolute top-0 left-0 w-full h-44 object-cover"
                     loading="lazy"
@@ -150,7 +150,7 @@
             <div class="relative h-0 pb-44">
                 <x-responsive-image 
                     src="resources/images/law.webp" 
-                    alt="{{ __('text.imprint') }}" 
+                    alt="{{ __('alt.card-imprint') }}"
                     title="{{ __('text.imprint') }}"
                     class="absolute top-0 left-0 w-full h-44 object-cover"
                     loading="lazy"
@@ -170,7 +170,7 @@
             <div class="relative h-0 pb-44">
                 <x-responsive-image 
                     src="resources/images/law.webp" 
-                    alt="{{ __('text.data-protection') }}" 
+                    alt="{{ __('alt.card-data-protection') }}"
                     title="{{ __('text.data-protection') }}"
                     class="absolute top-0 left-0 w-full h-44 object-cover"
                     loading="lazy"

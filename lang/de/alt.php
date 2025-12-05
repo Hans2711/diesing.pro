@@ -32,5 +32,23 @@ return [
     'compare' => 'Vergleichen',
     'rss' => 'RSS',
     'new-game' => 'Neues Spiel',
+
+    // Icons (navigation)
+    'icon-language' => 'Sprachwahl Icon',
+    'icon-language-other' => 'Andere Sprache Icon',
+    'icon-cv' => 'Lebenslauf Icon',
+    'icon-random-teams' => 'Zufallsteams Icon',
+    'icon-rt-share' => 'Echtzeit-Teilen Icon',
+    'icon-jellyfin' => 'Jellyfin Icon',
+    'icon-account' => 'Benutzerkonto Icon',
+
+    // Cards (home banners)
+    'card-contact' => 'Kontakt – Symbolbild',
+    'card-portfolio' => 'Portfolio – Symbolbild',
+    'card-random-teams' => 'Zufallsteams – Symbolbild',
+    'card-rt-share' => 'Echtzeit-Teilen – Symbolbild',
+    'card-account' => 'Benutzerkonto – Symbolbild',
+    'card-imprint' => 'Impressum – Symbolbild',
+    'card-data-protection' => 'Datenschutz – Symbolbild',
 ];
 

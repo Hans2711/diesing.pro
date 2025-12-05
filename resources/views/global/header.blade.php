@@ -39,14 +39,14 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
             </a>
             <div class="relative" x-data="{ open: false }" @click.away="open = false">
                 <button @click.stop="open = !open" class="flex items-center gap-1 text-gray-700 hover:text-black dark:text-white dark:hover:text-gray-100 ">
-                    <img src="{{ Vite::asset('resources/icons/' . __('language.svg') . '.svg') }}" class="h-5 w-5" alt="{{ __('language.name') }}" title="{{ __('language.name') }}" />
+                    <img src="{{ Vite::asset('resources/icons/' . __('language.svg') . '.svg') }}" class="h-5 w-5" alt="{{ __('alt.icon-language') }}" />
                     {{ __('language.name') }}
                     <img src="{{ Vite::asset('resources/icons/chevron-down.svg') }}" class="h-4 w-4 transition-transform duration-200 dark:invert" :class="{ 'rotate-180': open }" alt="Toggle" title="Toggle" />
                 </button>
                 <ul x-show="open" x-transition class="absolute -right-5 md:right-0 mt-2 w-40 bg-white dark:bg-secondary-dark shadow-lg rounded z-50">
                     <li>
                         <a alt="{{ __('language.name-' . $otherlang) }}" title="{{ __('language.name-' . $otherlang) }}" wire:navigate.hover href="{{ $otherUrl }}" class="flex items-center justify-between gap-2 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-white rounded">
-                            <img src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $otherlang) . '.svg') }}" class="h-5 w-5" alt="{{ __('language.name-' . $otherlang) }}" title="{{ __('language.name-' . $otherlang) }}" />
+                             <img src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $otherlang) . '.svg') }}" class="h-5 w-5" alt="{{ __('alt.icon-language-other') }}" />
                             {{ __('language.name-' . $otherlang) }}
                             <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 text-gray-400 dark:invert" alt="Forward" title="Forward" />
                         </a>
@@ -108,7 +108,7 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
             <!-- Lebenslauf -->
             <a alt="{{ __('text.cv') }}" title="{{ __('text.cv') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}"
                 class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-300 rounded dark:hover:bg-gray-700 dark:hover:text-white {{ $isActive('cv') }}">
-                <img src="{{ Vite::asset('resources/icons/cv.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt='{{ __('text.cv') }}' />
+                <img src="{{ Vite::asset('resources/icons/cv.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt="{{ __('alt.icon-cv') }}" />
                 <span class="flex-grow text-left">
                     {{ __('text.cv') }}
                 </span>
@@ -118,7 +118,7 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
             <!-- Random Teams -->
             <a alt="{{ __('text.random-teams') }}" title="{{ __('text.random-teams') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.teams')) }}"
                 class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-300 rounded  dark:hover:bg-gray-700 dark:hover:text-white {{ $isActive('teams') }}">
-                <img src="{{ Vite::asset('resources/icons/shuffle2.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt='{{ __('text.random-teams') }}' />
+                <img src="{{ Vite::asset('resources/icons/shuffle2.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt="{{ __('alt.icon-random-teams') }}" />
                 <span class="flex-grow text-left">
                     {{ __('text.random-teams') }}
                 </span>
@@ -128,7 +128,7 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
             <!-- RT Share -->
             <a alt="{{ __('text.rt-share') }}" title="{{ __('text.rt-share') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.rt-share')) }}"
                 class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-300 rounded dark:hover:bg-gray-700 dark:hover:text-white {{ $isActive('rt-share') }}">
-                <img src="{{ Vite::asset('resources/icons/data-transfer.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt='{{ __('text.rt-share') }}' />
+                <img src="{{ Vite::asset('resources/icons/data-transfer.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt="{{ __('alt.icon-rt-share') }}" />
                 <span class="flex-grow text-left">
                     {{ __('text.rt-share') }}
                 </span>
@@ -138,7 +138,7 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
             <!-- Jellyfin -->
             <a alt="Jellyfin" title="Jellyfin" href="https://media.diesing.pro/" target="_blank" rel="noopener noreferrer"
                 class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-300 rounded  dark:hover:bg-gray-700 dark:hover:text-white {{ $isActive('jellyfin') }}">
-                <img src="{{ Vite::asset('resources/icons/play-circle.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt='Jellyfin' />
+                <img src="{{ Vite::asset('resources/icons/play-circle.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt="{{ __('alt.icon-jellyfin') }}" />
                 <span class="flex-grow text-left">
                     Jellyfin
                 </span>
@@ -148,7 +148,7 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
             <!-- Privat (Account Section) -->
             <div class="relative" x-data="{ open: {{ $accountOpen ? 'true' : 'false' }} }" >
                 <button @click.stop="open = !open" class="w-full flex gap-1 items-center py-2 pl-2 pr-3 hover:text-black hover:bg-gray-300 rounded  dark:hover:bg-gray-700 dark:hover:text-white">
-                    <img src="{{ Vite::asset('resources/icons/user.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt='{{ __('text.account') }}' />
+                    <img src="{{ Vite::asset('resources/icons/user.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt="{{ __('alt.icon-account') }}" />
                     <span class="flex-grow text-left">
                         {{ __('text.account') }}
                     </span>
