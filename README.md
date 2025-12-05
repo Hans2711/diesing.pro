@@ -1,3 +1,5 @@
+![Lighthouse Results](resources/images/lighthouse.png)
+
 # diesing.pro
 
 This repository contains the source code for [diesing.pro](https://www.diesing.pro/), a personal portfolio website for HP Diesing featuring interactive tools and professional content.
