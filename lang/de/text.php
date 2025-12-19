@@ -21,6 +21,8 @@ return [
     'mobile' => 'Tel. Nr.',
     'message' => 'Nachricht',
     'search' => 'Suchen',
+    'search-placeholder' => 'Im Web suchen...',
+    'search-with-bangs' => 'Probiere !w für Wikipedia, !g für Google, !yt für YouTube - <a href="https://duckduckgo.com/bangs" target="_blank" rel="noopener noreferrer" class="underline hover:text-primary transition-colors">Alle Bangs ansehen</a>',
     'submit' => 'Absenden',
     'save' => 'Speichern',
     'submiting' => 'Absenden...',

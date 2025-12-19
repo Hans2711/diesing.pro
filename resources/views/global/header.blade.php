@@ -145,6 +145,16 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
                 <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 dark:invert" alt="" />
             </a>
 
+            <!-- Tester -->
+            <a alt="Tester" title="Tester" href="https://tester.diesing.pro/" target="_blank" rel="noopener noreferrer"
+                class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-300 rounded  dark:hover:bg-gray-700 dark:hover:text-white {{ $isActive('tester') }}">
+                <img src="{{ Vite::asset('resources/icons/user-gear.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt="{{ __('alt.icon-tester') }}" />
+                <span class="flex-grow text-left">
+                    Tester
+                </span>
+                <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 dark:invert" alt="" />
+            </a>
+
             <!-- Privat (Account Section) -->
             <div class="relative" x-data="{ open: {{ $accountOpen ? 'true' : 'false' }} }" >
                 <button @click.stop="open = !open" class="w-full flex gap-1 items-center py-2 pl-2 pr-3 hover:text-black hover:bg-gray-300 rounded  dark:hover:bg-gray-700 dark:hover:text-white">

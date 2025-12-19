@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\ZenquotesController;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,11 @@ foreach (['de', 'en'] as $locale) {
             })->name("rt-share");
 
             Route::view("/" . route_trans("cv", $locale), "cv.index")->name("cv");
+
+            Route::get("/" . route_trans("search", $locale), [
+                SearchController::class,
+                "search",
+            ])->name("search");
         });
 }
 

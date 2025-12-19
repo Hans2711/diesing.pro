@@ -326,7 +326,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
+            <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-script-languages') }}</h3>
                 <ul class="space-y-1">
                     <li class="relative pl-5">
@@ -367,7 +367,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
+            <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-web-styling') }}</h3>
                 <ul class="space-y-1">
                     <li class="relative pl-5">
@@ -385,7 +385,7 @@
                 </ul>
             </div>
             <div class="break-page hidden"></div>
-            <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md page-break">
+            <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md page-break">
                 <h3>{{ __('text.cv-skills-operating-systems') }}</h3>
                 <ul class="space-y-1">
                     <li class="relative pl-5">
@@ -402,7 +402,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
+            <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-development-tools') }}</h3>
                 <ul class="space-y-1">
                     <li class="relative pl-5">

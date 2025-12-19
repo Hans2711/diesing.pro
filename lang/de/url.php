@@ -16,4 +16,5 @@ return [
     "account" => "benutzerkonto",
     "cv" => "lebenslauf",
     "rt-share" => "echtzeit-teilen",
+    "search" => "suche",
 ];

@@ -17,6 +17,7 @@ export default defineConfig({
                 "resources/js/gradient-scroll.js",
                 "resources/js/utils/clipboard.js",
                 "resources/js/utils/random-teams-storage.js",
+                "resources/js/utils/search-autocomplete.js",
                 "resources/js/utils/zenquotes.js",
                 "resources/js/utils/editor.js",
                 "resources/js/swipe-sidebar.js",

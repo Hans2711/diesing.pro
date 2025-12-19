@@ -24,6 +24,7 @@
         @vite([
             // defer CSS load via JS-injected link to improve LCP
             'resources/js/app.js',
+            'resources/js/utils/search-autocomplete.js',
             'resources/js/utils/zenquotes.js',
             'resources/js/gradient-scroll.js',
             'resources/js/swipe-sidebar.js',

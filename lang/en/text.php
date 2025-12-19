@@ -20,6 +20,8 @@ return [
     'mobile' => 'Phone Number',
     'message' => 'Message',
     'search' => 'Search',
+    'search-placeholder' => 'Search the web...',
+    'search-with-bangs' => 'Try !w for Wikipedia, !g for Google, !yt for YouTube - <a href="https://duckduckgo.com/bangs" target="_blank" rel="noopener noreferrer" class="underline hover:text-primary transition-colors">View all bangs</a>',
     'submit' => 'Submit',
     'save' => 'Save',
     'submiting' => 'Submitting...',
