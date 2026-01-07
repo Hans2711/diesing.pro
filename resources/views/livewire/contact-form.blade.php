@@ -1,25 +1,6 @@
 <div>
     <form wire:submit.prevent="submit">
         <div class="xl:w-1/2 w-full">
-            <div class="sm:columns-1 columns-1 mt-2">
-                <div class="form-group mt-4 w-full sm:mt-0">
-                    <div>
-                        <p class="block mb-2 mt-2">{{ __('text.recipient') }} *</p>
-                        <select name="recipient" class="rounded mb-3 dark:bg-secondary-light w-full md:w-fit" wire:model="recipient">
-                            <option value="">{{ __('text.select-recipient') }}</option>
-                            @foreach ($recipients as $option)
-                                <option value="{{ $option['email'] }}" @selected($option['email'] === $recipient)>
-                                    {{ $option['label'] ?? $option['name'] ?? $option['email'] }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('recipient')
-                            <span class="text-primary-dark dark:text-primary-light text-sm block">{{ $message }}</span>
-                        @enderror
-                    </div>
-                </div>
-            </div>
-            <hr class="md:mb-5 mb-0 mt-2" />
             <div class="sm:columns-2 columns-1 mt-2">
                 <div class="form-group mt-4 sm:mt-0">
                     @include('global.partials.floating-label-input', [
@@ -69,6 +50,7 @@
                     @include('global.partials.floating-label-input', [
                         'id' => 'tel',
                         'name' => 'tel',
+                        'type' => 'tel',
                         'label' => __('text.mobile'),
                         'wrapperClass' => 'w-full sm:w-auto mb-3',
                         'tabindex' => 4,

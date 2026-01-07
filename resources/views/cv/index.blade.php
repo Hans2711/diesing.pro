@@ -24,7 +24,7 @@
     </div>
 
     <div class="text-center mt-10">
-        <a alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit mx-auto gap-4">
+        <a alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}" class="btn btn-secondary w-fit mx-auto gap-4">
             <img class="w-6 h-6 invert dark:invert-0" src="{{ Vite::asset('resources/icons/envelope.svg') }}" alt="Send" title="Send" />
             {{ __('text.cv-contact-button') }}
         </a>
@@ -484,7 +484,7 @@
         <div class="flex flex-col lg:grid grid-cols-4 mx-auto p-2 gap-5">
             <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
                 <p class="text-sm mb-3 text-center">
-                    <a alt="{{ __('text.cv-contact-link') }}" title="{{ __('text.cv-contact-link') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit no-underline" target="_blank">{{ __('text.cv-contact-link') }}</a>
+                    <a alt="{{ __('text.cv-contact-link') }}" title="{{ __('text.cv-contact-link') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}" class="btn btn-secondary w-fit no-underline" target="_blank">{{ __('text.cv-contact-link') }}</a>
                 </p>
                 <hr class="mb-2" />
                 <div class="grid grid-cols-2">

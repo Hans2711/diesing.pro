@@ -39,10 +39,10 @@ foreach (['de', 'en'] as $locale) {
                 "form",
             ])->name("contactForm");
 
-            Route::get("/" . route_trans("contact", $locale) . "/{email}", [
-                ContactController::class,
-                "form",
-            ])->name("contactFormEmail");
+            // Redirect old contact form with email parameter to new simplified form
+            Route::get("/" . route_trans("contact", $locale) . "/{email}", function () use ($locale) {
+                return redirect()->route("contactForm", ["locale" => $locale]);
+            });
 
             Route::get("/" . route_trans("teams", $locale), [
                 TeamsController::class,

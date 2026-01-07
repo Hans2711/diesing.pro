@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-    public function form($email = null)
+    public function form()
     {
-        return view("contact.form", ["email" => $email]);
+        return view("contact.form");
     }
 }

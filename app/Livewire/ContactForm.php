@@ -14,9 +14,6 @@ class ContactForm extends Component
     public $email;
     public $tel;
     public $message;
-    public $recipient;
-
-    public array $recipients = [];
 
     protected $rules = [
         "name" => "required|min:3",
@@ -24,28 +21,14 @@ class ContactForm extends Component
         "email" => "required|email",
         "tel" => 'required|regex:/^[0-9\s\-\+\(\)]+$/',
         "message" => "required|min:10",
-        "recipient" => "required|min:5",
     ];
-
-    public function mount($recipient = null)
-    {
-        $this->recipients = config('contact.recipients', []);
-
-        $emails = collect($this->recipients)->pluck('email');
-
-        if ($recipient && $emails->contains($recipient)) {
-            $this->recipient = $recipient;
-        } elseif (!$this->recipient && $emails->isNotEmpty()) {
-            $this->recipient = $emails->first();
-        }
-    }
 
     public function submit()
     {
         $validatedData = $this->validate();
 
         SendEmail::dispatch(
-            $this->recipient,
+            config('mail.admin_email'),
             new ContactEmail(
                 $this->name,
                 $this->firma,
@@ -62,7 +45,6 @@ class ContactForm extends Component
         );
 
         $this->reset();
-        $this->mount();
 
         session()->flash("status", __("text.message-sent"));
     }
