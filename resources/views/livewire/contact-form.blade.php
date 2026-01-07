@@ -82,5 +82,13 @@
                 <div class="alert alert-success">{{ session('status') }}</div>
             </div>
         @endif
+        
+        @error('email_send')
+            <div wire:transition.fade>
+                <div class="alert alert-error text-red-600 dark:text-red-400 p-4 rounded bg-red-50 dark:bg-red-900/20">
+                    {{ $message }}
+                </div>
+            </div>
+        @enderror
     </div>
 </div>

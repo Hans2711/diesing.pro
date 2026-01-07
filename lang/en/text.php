@@ -5,6 +5,7 @@ return [
     'contact' => 'Contact',
     'contact-description' => 'If you have any questions or need help, feel free to contact us.',
     'message-sent' => 'Your message has been sent successfully!',
+    'email-send-failed' => 'Failed to send email. Please try again later or contact us directly.',
     'contact-confirmation-subject' => 'Thank you for your request',
     'contact-confirmation-body' => 'Thank you for reaching out. We will reply as soon as possible.',
     'select-recipient' => 'Select a Recipient',
