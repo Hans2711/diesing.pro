@@ -64,8 +64,8 @@
                     x-show="!sidebarOpen"
                     src="{{ Vite::asset('resources/icons/menu.svg') }}"
                     class="h-10 w-10 burger-menu"
-                    alt="{{ __('alt.open_menu') }}"
-                    title="{{ __('alt.open_menu') }}"
+                    alt=""
+                    role="presentation"
                 />
             </button>
 

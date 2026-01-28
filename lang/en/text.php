@@ -25,9 +25,7 @@ return [
     'search-with-bangs' => 'Try !w for Wikipedia, !g for Google, !yt for YouTube - <a href="https://duckduckgo.com/bangs" target="_blank" rel="noopener noreferrer" class="underline hover:text-primary transition-colors">View all bangs</a>',
     'submit' => 'Submit',
     'save' => 'Save',
-    'submiting' => 'Submitting...',
     'submitting' => 'Submitting...',
-    'message-sent' => 'Message has been sent.',
     'password' => 'Password',
     'random-teams' => 'Random Teams',
     'players' => 'Players',
@@ -38,7 +36,7 @@ return [
     'unlock-teams' => 'Unlock Teams',
     'wins' => 'Wins',
     'game-history' => 'Game History',
-    'today' => 'today',
+    'today' => 'Today',
     'are-you-sure' => 'Are you sure?',
 
     'notes' => 'Notes',
@@ -81,8 +79,8 @@ return [
     'username_exists' => 'Username already exists.',
     'access_request_sent' => 'Access request sent.',
 
-    'account_text' => '<p>Registering an Account is Open and Free.</p>'.
-        '<p>Registered Users can request access to private areas.</p>',
+    'account_text' => '<p>Registering an account is open and free.</p>'.
+        '<p>Registered users can request access to private areas.</p>',
 
     'saved' => 'Saved',
     'account_updated' => 'Account updated',
@@ -94,9 +92,10 @@ return [
     'private' => 'Private',
     'cv' => 'CV',
     'cv-website' => 'CV-Website',
-    'cv-description' => 'The CVs of the Diesings',
+    'cv-description' => 'HP Diesing\'s CV',
     'print' => 'Print (PDF)',
     'rt-share' => 'Real-Time Share',
+    'rt-share-description' => 'Real-Time Share allows you to send text and files to any device that also has this page open.<br /> It uses WebSockets to transfer data in real time.<br /> A relay service forwards the data, and no data is stored.',
     'open' => 'Open',
     'overview' => 'Overview',
 

@@ -26,9 +26,7 @@ return [
     'search-with-bangs' => 'Probiere !w für Wikipedia, !g für Google, !yt für YouTube - <a href="https://duckduckgo.com/bangs" target="_blank" rel="noopener noreferrer" class="underline hover:text-primary transition-colors">Alle Bangs ansehen</a>',
     'submit' => 'Absenden',
     'save' => 'Speichern',
-    'submiting' => 'Absenden...',
     'submitting' => 'Absenden...',
-    'message-sent' => 'Nachricht wurde versendet.',
     'password' => 'Passwort',
     'random-teams' => 'Zufallsteams',
     'players' => 'Spieler',
@@ -40,7 +38,7 @@ return [
     'wins' => 'Siege',
     'game-history' => 'Spielverlauf',
     'today' => 'Heute',
-    'are-you-sure' => 'Bist du sicher?',
+    'are-you-sure' => 'Sind Sie sicher?',
 
     'notes' => 'Notizen',
     'redirects' => 'Weiterleitungen',
@@ -94,10 +92,10 @@ return [
     'permissions_updated' => 'Berechtigungen aktualisiert',
     'cv' => 'Lebenslauf',
     'cv-website' => 'Lebenslauf-Website',
-    'cv-description' => 'Die Lebensläufe der Diesings',
+    'cv-description' => 'Der Lebenslauf von HP Diesing',
     'print' => 'Drucken (PDF)',
     'rt-share' => 'Echtzeit-Teilen',
-    'rt-share-description' => 'Real-Time Share ermöglicht es Ihnen, Text und Dateien an jedes Gerät zu senden, das diese Seite ebenfalls geöffnet hat.<br /> Es verwendet WebSockets, um Daten in Echtzeit zu übertragen.<br /> Ein Vermittlungsdienst leitet die Daten weiter, und es werden keine Daten gespeichert.',
+    'rt-share-description' => 'Echtzeit-Teilen ermöglicht es Ihnen, Text und Dateien an jedes Gerät zu senden, das diese Seite ebenfalls geöffnet hat.<br /> Es verwendet WebSockets, um Daten in Echtzeit zu übertragen.<br /> Ein Vermittlungsdienst leitet die Daten weiter, und es werden keine Daten gespeichert.',
     'open' => 'Öffnen',
     'overview' => 'Übersicht',
 
@@ -169,8 +167,8 @@ return [
     'cv-contact-link' => 'Kontaktformular',
     'cv-contact-phone-label' => 'Telefon',
     'cv-contact-email-label' => 'E-Mail',
-    'account-auth.notes' => '<p>Mit den Notizen kannst du persönliche Notizen speichern.</p>',
-    'account-auth.redirects' => '<p>Weiterleitungen ermöglichen dir die Verwaltung von Kurzlinks zu anderen Websites.</p>',
+    'account-auth.notes' => '<p>Mit den Notizen können Sie persönliche Notizen speichern.</p>',
+    'account-auth.redirects' => '<p>Weiterleitungen ermöglichen Ihnen die Verwaltung von Kurzlinks zu anderen Websites.</p>',
     'data-protection-page' => '
     <h1>Datenschutzerklärung</h1>
 
