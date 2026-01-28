@@ -1,6 +1,6 @@
 <?php
 return [
-    "home" => "HP Diesing - diesing.pro",
+    "home" => "Welcome to diesing.pro",
     "contact" => "Contact",
     "random-teams" => "Random Teams Generator",
     "account" => "Account",
