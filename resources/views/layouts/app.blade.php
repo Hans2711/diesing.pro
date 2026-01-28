@@ -20,6 +20,7 @@
             'published_time' => $published_time ?? null,
             'modified_time' => $modified_time ?? null,
         ])
+        @include('global.head.hreflang')
 
         @vite([
             // defer CSS load via JS-injected link to improve LCP

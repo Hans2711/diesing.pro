@@ -43,7 +43,7 @@ $accountOpen = in_array($activeTool ?? '', ['overview', 'notes', 'redirects']);
                 </button>
                 <ul x-show="open" x-transition class="absolute -right-5 md:right-0 mt-2 w-40 bg-white dark:bg-secondary-dark shadow-lg rounded z-50">
                     <li>
-                        <a alt="{{ __('language.name-' . $otherlang) }}" title="{{ __('language.name-' . $otherlang) }}" wire:navigate.hover href="{{ $otherUrl }}" class="flex items-center justify-between gap-2 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-white rounded">
+                        <a alt="{{ __('language.name-' . $otherlang) }}" title="{{ __('language.name-' . $otherlang) }}" hreflang="{{ $otherlang }}" wire:navigate.hover href="{{ $otherUrl }}" class="flex items-center justify-between gap-2 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-white rounded">
                              <img src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $otherlang) . '.svg') }}" class="h-5 w-5" alt="{{ __('alt.icon-language-other') }}" />
                             {{ __('language.name-' . $otherlang) }}
                             <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 text-gray-400 dark:invert" alt="Forward" title="Forward" />
