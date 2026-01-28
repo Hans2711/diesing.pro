@@ -7,8 +7,8 @@
     $otherUrl = App\Utilities\LanguageUtility::getOtherLangUrl();
     $otherFullUrl = url($otherUrl);
     
-    // Determine x-default (always English)
-    $defaultUrl = $currentLocale == 'en' ? $currentUrl : $otherFullUrl;
+    // Determine x-default (always German)
+    $defaultUrl = $currentLocale == 'de' ? $currentUrl : $otherFullUrl;
 @endphp
 
 <!-- Hreflang links for multilingual SEO -->
