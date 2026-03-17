@@ -43,6 +43,27 @@
 
     <div class="lg:container">
         <div class="flex flex-col lg:grid grid-cols-9 mx-auto p-2 text-blue-50">
+<!-- GEDANKENBURG GmbH & Co. KG -->
+            <div class="flex lg:contents">
+                <div class="col-start-5 col-end-6 mr-5 lg:mx-auto relative">
+                    <div class="h-full w-6 flex items-center justify-center">
+                        <div class="h-full w-1 bg-primary-dark pointer-events-none"></div>
+                    </div>
+                    <div class="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-primary-dark shadow"></div>
+                </div>
+                <div class="primary-gradient timeline-card col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-xl">
+                            <a alt="GEDANKENBURG GmbH &amp; Co. KG" title="GEDANKENBURG GmbH &amp; Co. KG" class="underline" href="https://gedankenburg.de/" target="_blank" rel="noopener noreferrer">GEDANKENBURG GmbH &amp; Co. KG</a>, Düsseldorf
+                        </h3>
+                    </div>
+                    <hr class="mb-2" />
+                    <p class="text-sm">
+                        <strong>Technologies</strong><br class="" />
+                        Laravel, Livewire, Tailwind
+                    </p>
+                </div>
+            </div>
 
             <!-- Position: Backend Developer -->
             <div class="flex flex-row-reverse lg:contents">
@@ -100,27 +121,7 @@
                 </div>
             </div>
 
-            <!-- GEDANKENBURG GmbH & Co. KG -->
-            <div class="flex lg:contents">
-                <div class="col-start-5 col-end-6 mr-5 lg:mx-auto relative">
-                    <div class="h-full w-6 flex items-center justify-center">
-                        <div class="h-full w-1 bg-primary-dark pointer-events-none"></div>
-                    </div>
-                    <div class="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-primary-dark shadow"></div>
-                </div>
-                <div class="primary-gradient timeline-card col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="font-bold text-xl">
-                            <a alt="GEDANKENBURG GmbH &amp; Co. KG" title="GEDANKENBURG GmbH &amp; Co. KG" class="underline" href="https://gedankenburg.de/" target="_blank" rel="noopener noreferrer">GEDANKENBURG GmbH &amp; Co. KG</a>, Düsseldorf
-                        </h3>
-                    </div>
-                    <hr class="mb-2" />
-                    <p class="text-sm">
-                        <strong>Technologies</strong><br class="" />
-                        Laravel, Livewire, Tailwind
-                    </p>
-                </div>
-            </div>
+            
         </div>
     </div>
     <div class="break-page"></div>
