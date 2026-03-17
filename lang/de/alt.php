@@ -40,6 +40,7 @@ return [
     'icon-random-teams' => 'Zufallsteams Icon',
     'icon-rt-share' => 'Echtzeit-Teilen Icon',
     'icon-jellyfin' => 'Jellyfin Icon',
+    'icon-tester' => 'Tester Icon',
     'icon-account' => 'Benutzerkonto Icon',
 
     // Cards (home banners)

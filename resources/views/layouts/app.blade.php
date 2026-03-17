@@ -20,10 +20,12 @@
             'published_time' => $published_time ?? null,
             'modified_time' => $modified_time ?? null,
         ])
+        @include('global.head.hreflang')
 
         @vite([
             // defer CSS load via JS-injected link to improve LCP
             'resources/js/app.js',
+            'resources/js/utils/search-autocomplete.js',
             'resources/js/utils/zenquotes.js',
             'resources/js/gradient-scroll.js',
             'resources/js/swipe-sidebar.js',
@@ -63,8 +65,8 @@
                     x-show="!sidebarOpen"
                     src="{{ Vite::asset('resources/icons/menu.svg') }}"
                     class="h-10 w-10 burger-menu"
-                    alt="{{ __('alt.open_menu') }}"
-                    title="{{ __('alt.open_menu') }}"
+                    alt=""
+                    role="presentation"
                 />
             </button>
 

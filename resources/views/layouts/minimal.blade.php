@@ -18,6 +18,7 @@
             'published_time' => $published_time ?? null,
             'modified_time' => $modified_time ?? null,
         ])
+        @include('global.head.hreflang')
         <style>
         {!! Vite::content('resources/css/app.css') !!}
         </style>

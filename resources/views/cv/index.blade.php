@@ -24,7 +24,7 @@
     </div>
 
     <div class="text-center mt-10">
-        <a alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit mx-auto gap-4">
+        <a alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}" class="btn btn-secondary w-fit mx-auto gap-4">
             <img class="w-6 h-6 invert dark:invert-0" src="{{ Vite::asset('resources/icons/envelope.svg') }}" alt="Send" title="Send" />
             {{ __('text.cv-contact-button') }}
         </a>
@@ -348,7 +348,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
+            <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-script-languages') }}</h3>
                 <ul class="space-y-1">
                     <li class="relative pl-5">
@@ -389,7 +389,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
+            <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-web-styling') }}</h3>
                 <ul class="space-y-1">
                     <li class="relative pl-5">
@@ -407,7 +407,7 @@
                 </ul>
             </div>
             <div class="break-page hidden"></div>
-            <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md page-break">
+            <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md page-break">
                 <h3>{{ __('text.cv-skills-operating-systems') }}</h3>
                 <ul class="space-y-1">
                     <li class="relative pl-5">
@@ -424,7 +424,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="primary-gradient mobile-left timeline-card p-4 rounded-xl shadow-md">
+            <div class="primary-gradient timeline-card p-4 rounded-xl shadow-md">
                 <h3>{{ __('text.cv-skills-development-tools') }}</h3>
                 <ul class="space-y-1">
                     <li class="relative pl-5">
@@ -506,7 +506,7 @@
         <div class="flex flex-col lg:grid grid-cols-4 mx-auto p-2 gap-5">
             <div class="primary-gradient timeline-card mobile-left mobile-left p-4 rounded-xl shadow-md col-start-2 col-end-4">
                 <p class="text-sm mb-3 text-center">
-                    <a alt="{{ __('text.cv-contact-link') }}" title="{{ __('text.cv-contact-link') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="btn btn-secondary w-fit no-underline" target="_blank">{{ __('text.cv-contact-link') }}</a>
+                    <a alt="{{ __('text.cv-contact-link') }}" title="{{ __('text.cv-contact-link') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}" class="btn btn-secondary w-fit no-underline" target="_blank">{{ __('text.cv-contact-link') }}</a>
                 </p>
                 <hr class="mb-2" />
                 <div class="grid grid-cols-2">

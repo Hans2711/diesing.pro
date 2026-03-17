@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 use App\Mail\ContactEmail;
 use App\Mail\ContactConfirmationEmail;
-use App\Jobs\SendEmail;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class ContactForm extends Component
@@ -14,9 +14,6 @@ class ContactForm extends Component
     public $email;
     public $tel;
     public $message;
-    public $recipient;
-
-    public array $recipients = [];
 
     protected $rules = [
         "name" => "required|min:3",
@@ -24,47 +21,37 @@ class ContactForm extends Component
         "email" => "required|email",
         "tel" => 'required|regex:/^[0-9\s\-\+\(\)]+$/',
         "message" => "required|min:10",
-        "recipient" => "required|min:5",
     ];
-
-    public function mount($recipient = null)
-    {
-        $this->recipients = config('contact.recipients', []);
-
-        $emails = collect($this->recipients)->pluck('email');
-
-        if ($recipient && $emails->contains($recipient)) {
-            $this->recipient = $recipient;
-        } elseif (!$this->recipient && $emails->isNotEmpty()) {
-            $this->recipient = $emails->first();
-        }
-    }
 
     public function submit()
     {
         $validatedData = $this->validate();
 
-        SendEmail::dispatch(
-            $this->recipient,
-            new ContactEmail(
-                $this->name,
-                $this->firma,
-                $this->email,
-                $this->tel,
-                $this->message,
-                app()->getLocale(),
-            )
-        );
+        try {
+            // Send email to admin
+            Mail::to(config('mail.admin_email'))->send(
+                new ContactEmail(
+                    $this->name,
+                    $this->firma,
+                    $this->email,
+                    $this->tel,
+                    $this->message,
+                    app()->getLocale(),
+                )
+            );
 
-        SendEmail::dispatch(
-            $this->email,
-            new ContactConfirmationEmail($this->name, app()->getLocale())
-        );
+            // Send confirmation email to user
+            Mail::to($this->email)->send(
+                new ContactConfirmationEmail($this->name, app()->getLocale())
+            );
 
-        $this->reset();
-        $this->mount();
+            $this->reset();
 
-        session()->flash("status", __("text.message-sent"));
+            session()->flash("status", __("text.message-sent"));
+        } catch (\Exception $e) {
+            logger()->error('Contact form email failed: ' . $e->getMessage());
+            $this->addError('email_send', __('text.email-send-failed'));
+        }
     }
 
     public function render()

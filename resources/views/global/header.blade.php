@@ -4,9 +4,7 @@ $otherUrl = App\Utilities\LanguageUtility::getOtherLangUrl();
 
 $isActive = fn($key) => $active === $key ? 'bg-gray-300 text-black dark:text-white dark:bg-gray-700' : '';
 $isToolActive = fn($tool) => $activeTool === $tool ? 'bg-gray-300 text-black dark:text-white dark:bg-gray-700' : '';
-$isContactActive = fn($email) => $activeTool === $email ? 'bg-gray-300 text-black dark:text-white dark:bg-gray-700' : '';
 $accountOpen = in_array($activeTool ?? '', ['overview', 'notes', 'redirects']);
-$contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@icloud.com']);
 
 
 @endphp
@@ -45,7 +43,7 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
                 </button>
                 <ul x-show="open" x-transition class="absolute -right-5 md:right-0 mt-2 w-40 bg-white dark:bg-secondary-dark shadow-lg rounded z-50">
                     <li>
-                        <a alt="{{ __('language.name-' . $otherlang) }}" title="{{ __('language.name-' . $otherlang) }}" wire:navigate.hover href="{{ $otherUrl }}" class="flex items-center justify-between gap-2 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-white rounded">
+                        <a alt="{{ __('language.name-' . $otherlang) }}" title="{{ __('language.name-' . $otherlang) }}" hreflang="{{ $otherlang }}" wire:navigate.hover href="{{ $otherUrl }}" class="flex items-center justify-between gap-2 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-white rounded">
                              <img src="{{ Vite::asset('resources/icons/' . __('language.svg-' . $otherlang) . '.svg') }}" class="h-5 w-5" alt="{{ __('alt.icon-language-other') }}" />
                             {{ __('language.name-' . $otherlang) }}
                             <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 text-gray-400 dark:invert" alt="Forward" title="Forward" />
@@ -72,38 +70,14 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
         <!-- Navigation -->
         <nav class="flex-1 overflow-y-auto space-y-4 text-lg md:text-base px-4 pb-8">
             <!-- Kontakt -->
-            <div class="relative" x-data="{ open: {{ $contactOpen ? 'true' : 'false' }} }" >
-                <button
-                    @click.stop="open = !open"
-                    class="w-full flex gap-1 items-center py-2 pl-2 pr-3 hover:text-black hover:bg-gray-300 dark:hover:bg-gray-700 dark:hover:text-white rounded"
-                >
-                    <img src="{{ Vite::asset('resources/icons/envelope.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt="{{ __('alt.send') }}" title="{{ __('alt.send') }}" />
-                    <span class="flex-grow text-left">
-                        {{ __('text.contact') }}
-                    </span>
-                    <img src="{{ Vite::asset('resources/icons/chevron-down.svg') }}" class="h-4 w-4 transition-transform duration-200 dark:invert" :class="{ 'rotate-180': open }" alt="" />
-                </button>
-                <ul x-show="open" x-transition class="pl-4 mt-2 space-y-1">
-                    <li>
-                        <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/hp@diesing.pro" class="w-full flex gap-1 items-center hover:bg-gray-300 p-2 dark:hover:bg-gray-700 dark:hover:text-white rounded {{ $isToolActive('hp@diesing.pro') }}">
-                            <img src="{{ Vite::asset('resources/icons/envelope.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt="{{ __('alt.send') }}" title="{{ __('alt.send') }}" />
-                            <span class="flex-grow text-left">
-                                Hans (HP)
-                            </span>
-                            <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 dark:invert" alt="Forward" title="Forward" />
-                        </a>
-                    </li>
-                    <li>
-                        <a wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}/detlef.diesing@icloud.com" class="w-full flex gap-1 items-center hover:bg-gray-300 p-2 dark:hover:bg-gray-700 dark:hover:text-white rounded {{ $isToolActive('detlef.diesing@icloud.com') }}">
-                            <img src="{{ Vite::asset('resources/icons/envelope.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt="{{ __('alt.send') }}" title="{{ __('alt.send') }}" />
-                            <span class="flex-grow text-left">
-                                Detlef
-                            </span>
-                            <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 dark:invert" alt="Forward" title="Forward" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
+            <a alt="{{ __('text.contact') }}" title="{{ __('text.contact') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.contact')) }}"
+                class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-300 rounded dark:hover:bg-gray-700 dark:hover:text-white {{ $isActive('contact') }}">
+                <img src="{{ Vite::asset('resources/icons/envelope.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt="{{ __('alt.send') }}" title="{{ __('alt.send') }}" />
+                <span class="flex-grow text-left">
+                    {{ __('text.contact') }}
+                </span>
+                <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 dark:invert" alt="" />
+            </a>
 
             <!-- Lebenslauf -->
             <a alt="{{ __('text.cv') }}" title="{{ __('text.cv') }}" wire:navigate.hover href="{{ url(Config::get('app.locale') . '/' . __('url.cv')) }}"
@@ -141,6 +115,16 @@ $contactOpen = in_array($activeTool ?? '', ['hp@diesing.pro', 'detlef.diesing@ic
                 <img src="{{ Vite::asset('resources/icons/play-circle.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt="{{ __('alt.icon-jellyfin') }}" />
                 <span class="flex-grow text-left">
                     Jellyfin
+                </span>
+                <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 dark:invert" alt="" />
+            </a>
+
+            <!-- Tester -->
+            <a alt="Tester" title="Tester" href="https://tester.diesing.pro/" target="_blank" rel="noopener noreferrer"
+                class="w-full flex items-center gap-1 py-2 pl-2 pr-3 hover:text-black hover:bg-gray-300 rounded  dark:hover:bg-gray-700 dark:hover:text-white {{ $isActive('tester') }}">
+                <img src="{{ Vite::asset('resources/icons/user-gear.svg') }}" class="h-4 w-4 mr-3 dark:invert" alt="{{ __('alt.icon-tester') }}" />
+                <span class="flex-grow text-left">
+                    Tester
                 </span>
                 <img src="{{ Vite::asset('resources/icons/chevron-forward.svg') }}" class="h-4 w-4 dark:invert" alt="" />
             </a>

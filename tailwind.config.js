@@ -11,6 +11,13 @@ export default {
     ],
     theme: {
         extend: {
+            /* ───────── font family ───────── */
+            fontFamily: {
+                'sans': ['Fira Code', 'ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+                'mono': ['Fira Code', 'ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+                'fira': ['Fira Code', 'ui-monospace', 'SFMono-Regular', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+            },
+            
             /* ───────── core palette ───────── */
             colors: {
                 /* brand */

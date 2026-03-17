@@ -40,6 +40,7 @@ return [
     'icon-random-teams' => 'Random Teams Icon',
     'icon-rt-share' => 'RT-Share Icon',
     'icon-jellyfin' => 'Jellyfin Icon',
+    'icon-tester' => 'Tester Icon',
     'icon-account' => 'Account Icon',
 
     // Cards (home banners)

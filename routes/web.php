@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TeamsController;
 use App\Http\Controllers\ZenquotesController;
 use Illuminate\Support\Facades\Route;
@@ -38,10 +39,10 @@ foreach (['de', 'en'] as $locale) {
                 "form",
             ])->name("contactForm");
 
-            Route::get("/" . route_trans("contact", $locale) . "/{email}", [
-                ContactController::class,
-                "form",
-            ])->name("contactFormEmail");
+            // Redirect old contact form with email parameter to new simplified form
+            Route::get("/" . route_trans("contact", $locale) . "/{email}", function () use ($locale) {
+                return redirect()->route("contactForm", ["locale" => $locale]);
+            });
 
             Route::get("/" . route_trans("teams", $locale), [
                 TeamsController::class,
@@ -53,6 +54,11 @@ foreach (['de', 'en'] as $locale) {
             })->name("rt-share");
 
             Route::view("/" . route_trans("cv", $locale), "cv.index")->name("cv");
+
+            Route::get("/" . route_trans("search", $locale), [
+                SearchController::class,
+                "search",
+            ])->name("search");
         });
 }
 

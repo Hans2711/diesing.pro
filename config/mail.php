@@ -109,4 +109,16 @@ return [
         "address" => env("MAIL_FROM_ADDRESS", "hello@example.com"),
         "name" => env("MAIL_FROM_NAME", "Example"),
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Email Address
+    |--------------------------------------------------------------------------
+    |
+    | This is the email address where contact form submissions will be sent.
+    | You can configure this in your .env file using the ADMIN_EMAIL variable.
+    |
+    */
+
+    "admin_email" => env("ADMIN_EMAIL", "hp@diesing.pro"),
 ];

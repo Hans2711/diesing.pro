@@ -3,6 +3,9 @@
 @section('content')
 <h1>{{ __('text.welcome') }}</h1>
 
+{{-- Search Bar --}}
+<x-search-bar />
+
 <div class="md:columns-2 columns-1 md:mb-8 mb-0" id="portfolio">
     <!-- Card: Contact -->
     <div class="w-full rounded overflow-hidden shadow-lg mt-4 md:mt-0 home-card-left">
