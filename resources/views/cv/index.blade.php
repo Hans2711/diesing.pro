@@ -57,9 +57,10 @@
                             <a alt="GEDANKENBURG GmbH &amp; Co. KG" title="GEDANKENBURG GmbH &amp; Co. KG" class="underline" href="https://gedankenburg.de/" target="_blank" rel="noopener noreferrer">GEDANKENBURG GmbH &amp; Co. KG</a>, Düsseldorf
                         </h3>
                     </div>
+                    <p class="text-sm mb-2">{{ __('text.cv-backend2-period') }}</p>
                     <hr class="mb-2" />
                     <p class="text-sm">
-                        <strong>Technologies</strong><br class="" />
+                        <strong>{{ __('text.cv-backend-technologies-label') }}</strong><br class="" />
                         Laravel, Livewire, Tailwind
                     </p>
                 </div>
@@ -121,7 +122,7 @@
                 </div>
             </div>
 
-            
+
         </div>
     </div>
     <div class="break-page"></div>
