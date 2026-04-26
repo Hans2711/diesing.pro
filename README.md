@@ -47,9 +47,9 @@ All content is located within the `resources` folder, and routing logic is under
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Hans2711/diesing.pro.git
+   git clone https://gitlab.com/hapediesing-group/diesing.pro/diesing-pro.git
    cd diesing.pro
-   ```
+```
 
 2. Install PHP dependencies:
    ```bash
@@ -113,14 +113,3 @@ php artisan queue:work --queue=default --tries=3
 ```
 
 Using several workers allows asynchronous email sending to complete more quickly.
-
-## Recent Updates
-
-- Enhanced German localization for random teams descriptions.
-- Updated CV with detailed programming skills and translations.
-- Added JSON-LD structured data for improved SEO.
-- Refactored views for better semantic structure and Open Graph metadata.
-- Made contact form recipients static.
-- Added GitHub link to footer.
-- Various configuration and dependency updates.
-
